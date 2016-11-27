@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FFFFFF</color>
+    <color name="backgroundCol">#360000</color>
+    <color name="menu_button">#80616144</color>
+    <color name="menu_button_active">#80619994</color>
+    <color name="go_button">#80FF3341</color>
+    <color name="go_button_active">#80FF757E</color>
+    <color name="buttonText">#FFFFFF</color>
+</resources>

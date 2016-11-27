@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "C:\\Users\\user\\Documents\\GitHub\\Composer\\PdCore\\build\\intermediates\\res\\merged\\release\\drawable\\icon.png",
+        "source": "C:\\Users\\user\\Documents\\GitHub\\Composer\\PdCore\\res\\drawable\\icon.png"
+    },
+    {
+        "merged": "C:\\Users\\user\\Documents\\GitHub\\Composer\\PdCore\\build\\intermediates\\res\\merged\\release\\drawable\\din5.png",
+        "source": "C:\\Users\\user\\Documents\\GitHub\\Composer\\PdCore\\build\\intermediates\\exploded-aar\\com.noisepages.nettoyeur\\midi\\1.0.0-rc1\\res\\drawable\\din5.png"
+    }
+]

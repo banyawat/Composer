@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "C:\\Users\\user\\Documents\\GitHub\\Composer\\app\\build\\intermediates\\res\\merged\\debug\\raw\\silence.wav",
+        "source": "C:\\Users\\user\\Documents\\GitHub\\Composer\\app\\build\\intermediates\\exploded-aar\\org.puredata.android\\PdCore\\1.0.3-SNAPSHOT\\res\\raw\\silence.wav"
+    },
+    {
+        "merged": "C:\\Users\\user\\Documents\\GitHub\\Composer\\app\\build\\intermediates\\res\\merged\\debug\\raw\\extra_abs.zip",
+        "source": "C:\\Users\\user\\Documents\\GitHub\\Composer\\app\\build\\intermediates\\exploded-aar\\org.puredata.android\\PdCore\\1.0.3-SNAPSHOT\\res\\raw\\extra_abs.zip"
+    },
+    {
+        "merged": "C:\\Users\\user\\Documents\\GitHub\\Composer\\app\\build\\intermediates\\res\\merged\\debug\\raw\\main.zip",
+        "source": "C:\\Users\\user\\Documents\\GitHub\\Composer\\app\\src\\main\\res\\raw\\main.zip"
+    }
+]

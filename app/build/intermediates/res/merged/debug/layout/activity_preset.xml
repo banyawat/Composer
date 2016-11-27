@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_preset"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:background="@drawable/main_background3"
+    tools:context="cpe.com.composer.PresetActivity">
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:id="@+id/savedPresetRecyclerView" />
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_action_add"
+            android:id="@+id/presetFinger1"
+            android:layout_marginStart="16dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_action_add"
+            android:id="@+id/presetFinger5"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            app:layout_constraintTop_toTopOf="@+id/presetFinger4"
+            app:layout_constraintLeft_toRightOf="@+id/presetFinger4"
+            app:layout_constraintBottom_toBottomOf="@+id/presetFinger4" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_action_add"
+            android:id="@+id/presetFinger4"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            app:layout_constraintTop_toTopOf="@+id/presetFinger3"
+            app:layout_constraintLeft_toRightOf="@+id/presetFinger3"
+            app:layout_constraintBottom_toBottomOf="@+id/presetFinger3" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_action_add"
+            android:id="@+id/presetFinger3"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            app:layout_constraintTop_toTopOf="@+id/presetFinger2"
+            app:layout_constraintLeft_toRightOf="@+id/presetFinger2"
+            app:layout_constraintBottom_toBottomOf="@+id/presetFinger2" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_action_add"
+            android:id="@+id/presetFinger2"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            app:layout_constraintTop_toTopOf="@+id/presetFinger1"
+            app:layout_constraintLeft_toRightOf="@+id/presetFinger1"
+            app:layout_constraintBottom_toBottomOf="@+id/presetFinger1" />
+    </android.support.constraint.ConstraintLayout>
+
+
+</LinearLayout>

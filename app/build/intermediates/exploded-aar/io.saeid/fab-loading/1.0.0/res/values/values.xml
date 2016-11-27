@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="LoadingView"><attr format="boolean" name="mfl_onclickLoading"/><attr format="integer" name="mfl_duration"/><attr format="integer" name="mfl_repeat"/></declare-styleable>
+    <string name="app_name">Material-Fab-Loading</string>
+</resources>

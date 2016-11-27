@@ -1,0 +1,34 @@
+[
+    {
+        "merged": "C:\\Users\\user\\Documents\\GitHub\\Composer\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi\\ic_store.png",
+        "source": "C:\\Users\\user\\Documents\\GitHub\\Composer\\app\\src\\main\\res\\drawable-xxxhdpi\\ic_store.png"
+    },
+    {
+        "merged": "C:\\Users\\user\\Documents\\GitHub\\Composer\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi\\ic_favorite.png",
+        "source": "C:\\Users\\user\\Documents\\GitHub\\Composer\\app\\src\\main\\res\\drawable-xxxhdpi\\ic_favorite.png"
+    },
+    {
+        "merged": "C:\\Users\\user\\Documents\\GitHub\\Composer\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi\\ic_music_note.png",
+        "source": "C:\\Users\\user\\Documents\\GitHub\\Composer\\app\\src\\main\\res\\drawable-xxxhdpi\\ic_music_note.png"
+    },
+    {
+        "merged": "C:\\Users\\user\\Documents\\GitHub\\Composer\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi\\ic_send.png",
+        "source": "C:\\Users\\user\\Documents\\GitHub\\Composer\\app\\src\\main\\res\\drawable-xxxhdpi\\ic_send.png"
+    },
+    {
+        "merged": "C:\\Users\\user\\Documents\\GitHub\\Composer\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi\\ic_settings.png",
+        "source": "C:\\Users\\user\\Documents\\GitHub\\Composer\\app\\src\\main\\res\\drawable-xxxhdpi\\ic_settings.png"
+    },
+    {
+        "merged": "C:\\Users\\user\\Documents\\GitHub\\Composer\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi\\ic_action_add.png",
+        "source": "C:\\Users\\user\\Documents\\GitHub\\Composer\\app\\src\\main\\res\\drawable-xxxhdpi\\ic_action_add.png"
+    },
+    {
+        "merged": "C:\\Users\\user\\Documents\\GitHub\\Composer\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi\\ic_keyboard_arrow_left.png",
+        "source": "C:\\Users\\user\\Documents\\GitHub\\Composer\\app\\src\\main\\res\\drawable-xxxhdpi\\ic_keyboard_arrow_left.png"
+    },
+    {
+        "merged": "C:\\Users\\user\\Documents\\GitHub\\Composer\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi\\ic_keyboard_arrow_right.png",
+        "source": "C:\\Users\\user\\Documents\\GitHub\\Composer\\app\\src\\main\\res\\drawable-xxxhdpi\\ic_keyboard_arrow_right.png"
+    }
+]
