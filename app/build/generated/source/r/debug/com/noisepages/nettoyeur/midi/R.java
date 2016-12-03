@@ -11,12 +11,12 @@ public final class R {
 		public static final int din5 = 0x7f020058;
 	}
 	public static final class id {
-		public static final int paired_devices = 0x7f0f008f;
-		public static final int title_paired_devices = 0x7f0f008e;
+		public static final int paired_devices = 0x7f0f009b;
+		public static final int title_paired_devices = 0x7f0f009a;
 	}
 	public static final class layout {
-		public static final int device_list = 0x7f04002a;
-		public static final int device_name = 0x7f04002b;
+		public static final int device_list = 0x7f04002b;
+		public static final int device_name = 0x7f04002c;
 	}
 	public static final class string {
 		public static final int none_paired = 0x7f080026;

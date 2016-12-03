@@ -39,6 +39,7 @@
         <activity
             android:name="cpe.com.composer.StoreActivity"
             android:screenOrientation="landscape" />
+        <activity android:name="cpe.com.composer.PerformActivity" />
     </application>
 
 </manifest>

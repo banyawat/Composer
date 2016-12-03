@@ -9,4 +9,5 @@
     <color name="go_button">#80FF3341</color>
     <color name="go_button_active">#80FF757E</color>
     <color name="buttonText">#FFFFFF</color>
+    <color name="panel_display">#80919191</color>
 </resources>

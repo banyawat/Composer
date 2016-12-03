@@ -1,5 +1,9 @@
 [
     {
+        "merged": "C:\\Users\\user\\Documents\\GitHub\\Composer\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\ic_action_volume.png",
+        "source": "C:\\Users\\user\\Documents\\GitHub\\Composer\\app\\src\\main\\res\\drawable-mdpi\\ic_action_volume.png"
+    },
+    {
         "merged": "C:\\Users\\user\\Documents\\GitHub\\Composer\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\ic_keyboard_arrow_left.png",
         "source": "C:\\Users\\user\\Documents\\GitHub\\Composer\\app\\src\\main\\res\\drawable-mdpi\\ic_keyboard_arrow_left.png"
     },

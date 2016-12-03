@@ -1,6 +1,7 @@
 package cpe.com.composer;
 
 import android.content.ClipData;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
@@ -10,6 +11,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.ImageButton;
 
 import org.puredata.core.PdBase;
 
@@ -18,8 +20,8 @@ import java.util.ArrayList;
 
 import cpe.com.composer.soundengine.SimplePatch;
 import cpe.com.composer.viewmanager.CustomGridViewAdapter;
-import cpe.com.composer.viewmanager.RecyclerTouchListener;
 import cpe.com.composer.viewmanager.PanelSlotViewAdapter;
+import cpe.com.composer.viewmanager.RecyclerTouchListener;
 import cpe.com.composer.viewmanager.fragmentPagerAdapter;
 
 public class InitialActivity extends AppCompatActivity{
@@ -31,6 +33,7 @@ public class InitialActivity extends AppCompatActivity{
     private fragmentPagerAdapter mPagerAdapter;
     private SimplePatch pureData;
     public int activeSlot=66;
+    private ImageButton goPerformButton;
 
     private RecyclerView panelSlotView;
     private PanelSlotViewAdapter mAdapter;
@@ -49,6 +52,7 @@ public class InitialActivity extends AppCompatActivity{
         tabLayout = (TabLayout) findViewById(R.id.tabLayout1);
         mPager = (ViewPager) findViewById(R.id.viewpager);
         panelSlotView = (RecyclerView) findViewById(R.id.panelSlot);
+        goPerformButton = (ImageButton) findViewById(R.id.goPerformButton);
     }
 
     private void initComponent(){
@@ -86,6 +90,13 @@ public class InitialActivity extends AppCompatActivity{
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 PdBase.sendFloat("playS", 1f);
                 PdBase.sendBang(commandSet.get(i));
+            }
+        });
+
+        goPerformButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(InitialActivity.this, PerformActivity.class));
             }
         });
     }
