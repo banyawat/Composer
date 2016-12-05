@@ -57,13 +57,11 @@ public class InitialActivity extends AppCompatActivity{
 
     private void initComponent(){
         try {
-            if(pureData==null)
-                pureData = new SimplePatch(this);
-            else
-                System.out.println("ERR USS");
+            pureData = new SimplePatch(this);
         } catch (IOException e) {
             e.printStackTrace();
         }
+
         //Fragment
         mPagerAdapter = new fragmentPagerAdapter(getSupportFragmentManager());
         mPagerAdapter.addFragment(new FingerConfigFragment(), "FINGER");

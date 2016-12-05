@@ -21,75 +21,21 @@
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.2.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
-        <dex dex="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\pre-dexed\debug\com.android.support-animated-vector-drawable-24.2.1_e02c806a43dd22fc47dfc70808a560b503e1849e.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\user\AppData\Local\Android\sdk\extras\m2repository\com\android\support\constraint\constraint-layout-solver\1.0.0-beta4\constraint-layout-solver-1.0.0-beta4.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="0a9cb567dc008f570c28531720168f19148da965">
-        <dex dex="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\pre-dexed\debug\constraint-layout-solver-1.0.0-beta4_e545acf69ff6fa62ea62c03f756e6056106d52f9.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="5ab3d2a0d47442c2566540653b012f09ea1d37ef">
-        <dex dex="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\pre-dexed\debug\instant-run-bootstrap_59c94c0803fb9a98ca37ce83ca5ffe71ffee60d0.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.android.support\design\24.2.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="e03f47f3d1017a093bb3239d4ec47c3447f40744">
-        <dex dex="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\pre-dexed\debug\com.android.support-design-24.2.1_a17b002169894fc876c9c5de2482b64cd80696d3.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\libs\internal_impl-24.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
-        <dex dex="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\pre-dexed\debug\internal_impl-24.2.1_906ead639ef0c88f8577c18be711430155ce6911.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\24.2.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="7521486d9bfd2cd9e756e0cf75ed7d97f2ce2d3b">
-        <dex dex="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\pre-dexed\debug\com.android.support-recyclerview-v7-24.2.1_af106e4a488f72632d2e09dcdf26e0a3dd6ce7c1.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.2.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
-        <dex dex="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\pre-dexed\debug\com.android.support-support-vector-drawable-24.2.1_91e226ed68bc823e28bf2a14a8a2c61eef5489a0.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
         sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
         <dex dex="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\pre-dexed\debug\com.android.support-support-core-ui-24.2.1_872959ddfd2dae67aef0fff09544211fa22a105d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
+        <dex dex="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\pre-dexed\debug\com.android.support-animated-vector-drawable-24.2.1_e02c806a43dd22fc47dfc70808a560b503e1849e.jar" />
     </item>
     <item
         is-multidex="false"
@@ -120,6 +66,15 @@
     </item>
     <item
         is-multidex="false"
+        jar="C:\Users\user\AppData\Local\Android\sdk\extras\m2repository\com\android\support\constraint\constraint-layout-solver\1.0.0-beta4\constraint-layout-solver-1.0.0-beta4.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="0a9cb567dc008f570c28531720168f19148da965">
+        <dex dex="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\pre-dexed\debug\constraint-layout-solver-1.0.0-beta4_e545acf69ff6fa62ea62c03f756e6056106d52f9.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.android.support.constraint\constraint-layout\1.0.0-beta4\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -147,12 +102,39 @@
     </item>
     <item
         is-multidex="false"
+        jar="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="774811dab5e093f93bf1c1b6cb0f6b820ebd9a34">
+        <dex dex="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\pre-dexed\debug\instant-run-bootstrap_59c94c0803fb9a98ca37ce83ca5ffe71ffee60d0.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.2.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
         sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
         <dex dex="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-24.2.1_a786d8a09c279c3ad7383f38276c713941049a83.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.android.support\design\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="e03f47f3d1017a093bb3239d4ec47c3447f40744">
+        <dex dex="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\pre-dexed\debug\com.android.support-design-24.2.1_a17b002169894fc876c9c5de2482b64cd80696d3.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
+        <dex dex="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\pre-dexed\debug\internal_impl-24.2.1_906ead639ef0c88f8577c18be711430155ce6911.jar" />
     </item>
     <item
         is-multidex="false"
@@ -192,6 +174,15 @@
     </item>
     <item
         is-multidex="false"
+        jar="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="7521486d9bfd2cd9e756e0cf75ed7d97f2ce2d3b">
+        <dex dex="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\pre-dexed\debug\com.android.support-recyclerview-v7-24.2.1_af106e4a488f72632d2e09dcdf26e0a3dd6ce7c1.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -207,6 +198,15 @@
         revision="24.0.3"
         sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
         <dex dex="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\pre-dexed\debug\internal_impl-24.2.1_d217f4d93fdb73167d1f27e7aaa0cbaf67a6141c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
+        <dex dex="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\pre-dexed\debug\com.android.support-support-vector-drawable-24.2.1_91e226ed68bc823e28bf2a14a8a2c61eef5489a0.jar" />
     </item>
 
 </items>

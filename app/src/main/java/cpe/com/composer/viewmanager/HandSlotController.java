@@ -99,6 +99,7 @@ public class HandSlotController {
         newSlFing.init(fingerViews);
         fingerSlotPanel.add(newSlFing);
         activeSlotPanel=fingerSlotPanel.size()-1;
+        SIDE=false;
         refreshDrawable();
     }
 
