@@ -20,6 +20,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MidiActivity extends AppCompatActivity {
+    private static final int CHANNEL_PERC=9;
+    private static final int PPQ=240;
+    private static final int NOTE_DURATION=120;
     Button playButton;
     MediaPlayer mediaPlayer;
     final static String PATH = Environment.getExternalStorageDirectory().getPath();
@@ -33,11 +36,12 @@ public class MidiActivity extends AppCompatActivity {
 
 
         mediaPlayer = MediaPlayer.create(this, Uri.fromFile(new File(PATH+"/exampleout.mid")));
+        mediaPlayer.setLooping(true);
         playButton = (Button) findViewById(R.id.midiPlayButton);
         playButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mediaPlayer.start();
+                    mediaPlayer.start();
             }
         });
     }
@@ -52,24 +56,39 @@ public class MidiActivity extends AppCompatActivity {
         ts.setTimeSignature(4, 4, TimeSignature.DEFAULT_METER, TimeSignature.DEFAULT_DIVISION);
 
         Tempo tempo = new Tempo();
-        tempo.setBpm(228);
+        tempo.setBpm(120);
 
         tempoTrack.insertEvent(ts);
         tempoTrack.insertEvent(tempo);
 
-// Track 1 will have some notes in it
-        final int NOTE_COUNT = 80;
+        // Track 1 will have some notes in it
+        final int NOTE_COUNT = 16;
 
-        for(int i = 0; i < NOTE_COUNT; i++)
+        tempoTrack.insertNote(CHANNEL_PERC, 36, 100, 0, NOTE_DURATION);
+        tempoTrack.insertNote(CHANNEL_PERC, 36, 100, (long)(1.5*PPQ), NOTE_DURATION);
+        tempoTrack.insertNote(CHANNEL_PERC, 38, 100, 2*PPQ, NOTE_DURATION);
+        tempoTrack.insertNote(CHANNEL_PERC, 36, 100, 3*PPQ, NOTE_DURATION);
+        tempoTrack.insertNote(CHANNEL_PERC, 36, 100, 5*PPQ, NOTE_DURATION);
+        tempoTrack.insertNote(CHANNEL_PERC, 36, 100, (long)(5.5*PPQ), NOTE_DURATION);
+        tempoTrack.insertNote(CHANNEL_PERC, 38, 100, 6*PPQ, NOTE_DURATION);
+        tempoTrack.insertNote(CHANNEL_PERC, 38, 100, 7*PPQ, NOTE_DURATION);
+        tempoTrack.insertNote(CHANNEL_PERC, 38, 100, (long)(7.5*PPQ), NOTE_DURATION);
+
+        tempoTrack.insertNote(CHANNEL_PERC, 53, 100, 0, NOTE_DURATION);
+
+        //tempoTrack.insertNote(CHANNEL_PERC, 53, 100, 6*PPQ, NOTE_DURATION);
+
+       /* for(int i = 0; i < NOTE_COUNT; i++)
         {
             int channel = 0;
-            int pitch = 1 + i;
+            int pitch = 30 + i;
             int velocity = 100;
             long tick = i * 480;
             long duration = 120;
 
+            //tempoTrack.insertNote(9, 36, velocity, tick, duration);
             noteTrack.insertNote(channel, pitch, velocity, tick, duration);
-        }
+        }*/
 
         // 3. Create a MidiFile with the tracks we created
         List<MidiTrack> tracks = new ArrayList<>();
