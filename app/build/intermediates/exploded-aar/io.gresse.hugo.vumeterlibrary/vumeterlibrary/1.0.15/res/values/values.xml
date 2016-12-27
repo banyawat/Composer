@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <declare-styleable name="vumeter_VuMeterView"><attr format="color" name="vumeter_backgroundColor"/><attr format="integer" name="vumeter_blockNumber"/><attr format="dimension" name="vumeter_blockSpacing"/><attr format="integer" name="vumeter_speed"/><attr format="dimension" name="vumeter_stopSize"/><attr format="boolean" name="vumeter_startOff"/></declare-styleable>
-</resources>

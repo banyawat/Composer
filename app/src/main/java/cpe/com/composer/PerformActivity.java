@@ -28,7 +28,7 @@ public class PerformActivity extends AppCompatActivity {
     private Visualizer audioOutput = null;
     public float intensity = 0;
 
-    private ProgressBar vuMeterL;
+    private ProgressBar vuMeterL, vuMeterR;
     private BluetoothModule btModule;
 
 
@@ -44,6 +44,7 @@ public class PerformActivity extends AppCompatActivity {
         volumeAdjustBar = (VerticalSeekBar) findViewById(R.id.volumeAdjustBar);
         activeGridView = (GridView) findViewById(R.id.activeInstrumentGridView);
         vuMeterL = (ProgressBar) findViewById(R.id.vuMeterViewL);
+        vuMeterR = (ProgressBar) findViewById(R.id.vuMeterViewR);
     }
 
     @Override
@@ -87,7 +88,8 @@ public class PerformActivity extends AppCompatActivity {
             @Override
             public void onWaveFormDataCapture(Visualizer visualizer, byte[] bytes, int i) {
                 intensity = ((float) bytes[0] + 128f) / 256;
-                vuMeterL.setProgress((int) (intensity*40));
+                vuMeterL.setProgress((int) (intensity*100));
+                vuMeterR.setProgress((int) (intensity*100));
             }
 
             @Override
@@ -102,7 +104,7 @@ public class PerformActivity extends AppCompatActivity {
         volumeAdjustBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
-                PdBase.sendFloat("changeVolume", (float)i/100);
+                PdBase.sendFloat("changeVolume", (float)i/120);
             }
 
             @Override

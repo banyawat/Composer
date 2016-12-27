@@ -12,21 +12,21 @@
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.noisepages.nettoyeur\midi\1.0.0-rc1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="a35b73ff5c4ab6af57b21c03b9b3aa234d816a7f">
-        <dex dex="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\pre-dexed\debug\com.noisepages.nettoyeur-midi-1.0.0-rc1_3577698fc7bdefaa18cfc620b3714cb7acbf6ed2.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
         sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
         <dex dex="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\pre-dexed\debug\com.android.support-support-core-ui-24.2.1_872959ddfd2dae67aef0fff09544211fa22a105d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.noisepages.nettoyeur\midi\1.0.0-rc1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="a35b73ff5c4ab6af57b21c03b9b3aa234d816a7f">
+        <dex dex="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\pre-dexed\debug\com.noisepages.nettoyeur-midi-1.0.0-rc1_3577698fc7bdefaa18cfc620b3714cb7acbf6ed2.jar" />
     </item>
     <item
         is-multidex="false"
@@ -88,7 +88,7 @@
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
-        sha1="cfe90247142e7454039dcd2c121cdc58b77fd5b7">
+        sha1="9314498b705838fb5e8b8a8266f3dcf0bf1b5d71">
         <dex dex="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\pre-dexed\debug\instant-run_ef745a37eedf32d8a3eeb6483b091d8b8ee36e4c.jar" />
     </item>
     <item
@@ -106,7 +106,7 @@
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
-        sha1="774811dab5e093f93bf1c1b6cb0f6b820ebd9a34">
+        sha1="f43237faf7843a0eb9bc40f2416fffedea0bb274">
         <dex dex="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\pre-dexed\debug\instant-run-bootstrap_59c94c0803fb9a98ca37ce83ca5ffe71ffee60d0.jar" />
     </item>
     <item
@@ -174,21 +174,21 @@
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\24.2.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="7521486d9bfd2cd9e756e0cf75ed7d97f2ce2d3b">
-        <dex dex="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\pre-dexed\debug\com.android.support-recyclerview-v7-24.2.1_af106e4a488f72632d2e09dcdf26e0a3dd6ce7c1.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
         sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
         <dex dex="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\pre-dexed\debug\com.android.support-support-core-utils-24.2.1_c4ec85b09119db8b5d03930d49f9a8a069000d69.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="7521486d9bfd2cd9e756e0cf75ed7d97f2ce2d3b">
+        <dex dex="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\pre-dexed\debug\com.android.support-recyclerview-v7-24.2.1_af106e4a488f72632d2e09dcdf26e0a3dd6ce7c1.jar" />
     </item>
     <item
         is-multidex="false"

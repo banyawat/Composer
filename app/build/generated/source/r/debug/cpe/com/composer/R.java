@@ -3050,7 +3050,7 @@ containing a value of this type.
         public static final int action_mode_close_button=0x7f0f0045;
         public static final int activeInstrumentGridView=0x7f0f0082;
         public static final int activity_chooser_view_content=0x7f0f0046;
-        public static final int activity_data_test=0x7f0f0073;
+        public static final int activity_midi=0x7f0f007e;
         public static final int activity_perform=0x7f0f0080;
         public static final int activity_preset=0x7f0f008c;
         public static final int add=0x7f0f0021;
@@ -3061,7 +3061,6 @@ containing a value of this type.
         public static final int backToInitialButton=0x7f0f0083;
         public static final int basic=0x7f0f0010;
         public static final int beginning=0x7f0f003a;
-        public static final int bluetoothButton=0x7f0f007f;
         public static final int bottom=0x7f0f0029;
         public static final int bpmtext=0x7f0f0084;
         public static final int buttonPanel=0x7f0f004d;
@@ -3075,9 +3074,8 @@ containing a value of this type.
         public static final int clip_horizontal=0x7f0f0035;
         public static final int clip_vertical=0x7f0f0036;
         public static final int collapseActionView=0x7f0f003d;
-        public static final int connect=0x7f0f0074;
         public static final int contentPanel=0x7f0f0053;
-        public static final int controllerGrid=0x7f0f0075;
+        public static final int controllerGrid=0x7f0f0073;
         public static final int controllerImage1=0x7f0f00a1;
         public static final int controllerImage2=0x7f0f00a2;
         public static final int controllerImage3=0x7f0f00a3;
@@ -3106,13 +3104,13 @@ containing a value of this type.
         public static final int fill_vertical=0x7f0f002e;
         public static final int fixed=0x7f0f0041;
         public static final int fxNameText=0x7f0f00b6;
-        public static final int goPerformButton=0x7f0f0079;
+        public static final int goPerformButton=0x7f0f0077;
         public static final int home=0x7f0f0004;
         public static final int homeAsUp=0x7f0f0017;
         public static final int icon=0x7f0f004b;
         public static final int ifRoom=0x7f0f003e;
         public static final int image=0x7f0f0048;
-        public static final int imageView=0x7f0f007b;
+        public static final int imageView=0x7f0f0079;
         public static final int imageView2=0x7f0f0086;
         public static final int info=0x7f0f00b3;
         public static final int item_touch_helper_previous_elevation=0x7f0f0005;
@@ -3125,6 +3123,8 @@ containing a value of this type.
         public static final int list_item=0x7f0f004a;
         public static final int media_actions=0x7f0f00ab;
         public static final int middle=0x7f0f003b;
+        public static final int midiPlayButton=0x7f0f007f;
+        public static final int midi_button=0x7f0f007c;
         public static final int mini=0x7f0f0039;
         public static final int multiply=0x7f0f0022;
         public static final int musicNoteImageView=0x7f0f00b5;
@@ -3134,7 +3134,7 @@ containing a value of this type.
         public static final int normal=0x7f0f0014;
         public static final int packed=0x7f0f000c;
         public static final int paired_devices=0x7f0f009e;
-        public static final int panelSlot=0x7f0f0078;
+        public static final int panelSlot=0x7f0f0076;
         public static final int panelSlotBackground=0x7f0f00b7;
         public static final int panelSlotImageView=0x7f0f00b8;
         public static final int panelSlotName=0x7f0f00b9;
@@ -3153,7 +3153,7 @@ containing a value of this type.
         public static final int radio=0x7f0f005d;
         public static final int right=0x7f0f0030;
         public static final int savedPresetRecyclerView=0x7f0f008d;
-        public static final int saved_preset_button=0x7f0f007c;
+        public static final int saved_preset_button=0x7f0f007a;
         public static final int screen=0x7f0f0023;
         public static final int scroll=0x7f0f001f;
         public static final int scrollIndicatorDown=0x7f0f0057;
@@ -3171,7 +3171,7 @@ containing a value of this type.
         public static final int search_src_text=0x7f0f006d;
         public static final int search_voice_btn=0x7f0f0071;
         public static final int select_dialog_listview=0x7f0f0072;
-        public static final int setting_button=0x7f0f007e;
+        public static final int setting_button=0x7f0f007d;
         public static final int shortcut=0x7f0f005c;
         public static final int showCustom=0x7f0f0018;
         public static final int showHome=0x7f0f0019;
@@ -3187,14 +3187,14 @@ containing a value of this type.
         public static final int src_in=0x7f0f0025;
         public static final int src_over=0x7f0f0026;
         public static final int start=0x7f0f0031;
-        public static final int start_button=0x7f0f007a;
+        public static final int start_button=0x7f0f0078;
         public static final int status_bar_latest_event_content=0x7f0f00aa;
         public static final int stopButton=0x7f0f00a6;
-        public static final int store_button=0x7f0f007d;
+        public static final int store_button=0x7f0f007b;
         public static final int submenuarrow=0x7f0f005e;
         public static final int submit_area=0x7f0f006f;
         public static final int swapSideButton1=0x7f0f00a7;
-        public static final int tabLayout1=0x7f0f0076;
+        public static final int tabLayout1=0x7f0f0074;
         public static final int tabMode=0x7f0f0015;
         public static final int text=0x7f0f00b2;
         public static final int text2=0x7f0f00b0;
@@ -3213,7 +3213,7 @@ containing a value of this type.
         public static final int up=0x7f0f0009;
         public static final int useLogo=0x7f0f001b;
         public static final int view_offset_helper=0x7f0f000a;
-        public static final int viewpager=0x7f0f0077;
+        public static final int viewpager=0x7f0f0075;
         public static final int volumeAdjustBar=0x7f0f0085;
         public static final int vuMeterViewL=0x7f0f0088;
         public static final int vuMeterViewR=0x7f0f0089;
@@ -3256,9 +3256,9 @@ containing a value of this type.
         public static final int abc_search_dropdown_item_icons_2line=0x7f040017;
         public static final int abc_search_view=0x7f040018;
         public static final int abc_select_dialog_material=0x7f040019;
-        public static final int activity_data_test=0x7f04001a;
-        public static final int activity_initial=0x7f04001b;
-        public static final int activity_menu=0x7f04001c;
+        public static final int activity_initial=0x7f04001a;
+        public static final int activity_menu=0x7f04001b;
+        public static final int activity_midi=0x7f04001c;
         public static final int activity_perform=0x7f04001d;
         public static final int activity_preset=0x7f04001e;
         public static final int design_bottom_sheet_dialog=0x7f04001f;
@@ -3299,8 +3299,9 @@ containing a value of this type.
     }
     public static final class raw {
         public static final int extra_abs=0x7f070000;
-        public static final int main=0x7f070001;
-        public static final int silence=0x7f070002;
+        public static final int magic_beams=0x7f070001;
+        public static final int main=0x7f070002;
+        public static final int silence=0x7f070003;
     }
     public static final class string {
         public static final int abc_action_bar_home_description=0x7f080000;

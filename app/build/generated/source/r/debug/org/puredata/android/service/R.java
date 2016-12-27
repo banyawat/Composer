@@ -29,7 +29,7 @@ public final class R {
 	}
 	public static final class raw {
 		public static final int extra_abs = 0x7f070000;
-		public static final int silence = 0x7f070002;
+		public static final int silence = 0x7f070003;
 	}
 	public static final class string {
 		public static final int none_paired = 0x7f080026;

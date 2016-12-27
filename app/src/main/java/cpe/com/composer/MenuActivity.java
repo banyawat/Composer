@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 public class MenuActivity extends AppCompatActivity {
-    Button startButton, presetButton, storeButton, settingButton, bluetoothButton;
+    Button startButton, presetButton, storeButton, settingButton, midiButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +25,7 @@ public class MenuActivity extends AppCompatActivity {
         presetButton = (Button) findViewById(R.id.saved_preset_button);
         storeButton = (Button) findViewById(R.id.store_button);
         settingButton = (Button) findViewById(R.id.setting_button);
-        bluetoothButton = (Button) findViewById(R.id.bluetoothButton);
+        midiButton = (Button) findViewById(R.id.midi_button);
     }
 
     private void initAction(){
@@ -56,12 +56,12 @@ public class MenuActivity extends AppCompatActivity {
                 startActivity(new Intent(MenuActivity.this, SettingsActivity.class));
             }
         });
-        bluetoothButton.setOnClickListener((new View.OnClickListener() {
+        midiButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MenuActivity.this, DataTestActivity.class));
+                startActivity(new Intent(MenuActivity.this, MidiActivity.class));
             }
-        }));
+        });
     }
 
     private boolean isNetworkConnected() {

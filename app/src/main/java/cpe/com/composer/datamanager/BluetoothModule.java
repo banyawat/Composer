@@ -69,10 +69,10 @@ public class BluetoothModule {
         Log.d(TAG, "...Connecting...");
         try {
             btSocket.connect();
-            Log.d(TAG, "....Connection ok...");
         } catch (IOException e) {
             try {
                 btSocket.close();
+                return;
             } catch (IOException e2) {
                 errorExit("Fatal Error", "In onResume() and unable to close socket during connection failure" + e2.getMessage() + ".");
             }
@@ -158,6 +158,18 @@ public class BluetoothModule {
                     }
                     else if(readMessage.contains("1")){
                         PdBase.sendBang("bass");
+                    }
+                    else if(readMessage.contains("6")){
+                        PdBase.sendFloat("key" ,0f);
+                    }
+                    else if(readMessage.contains("7")){
+                        PdBase.sendFloat("key" ,1f);
+                    }
+                    else if(readMessage.contains("8")){
+                        PdBase.sendFloat("key" ,2f);
+                    }
+                    else if(readMessage.contains("9")){
+                        PdBase.sendFloat("key" ,3f);
                     }
 
                 } catch (IOException e) {
