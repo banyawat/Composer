@@ -41,7 +41,6 @@ public class MidiActivity extends AppCompatActivity {
         setContentView(R.layout.activity_midi);
         writeMidi();
 
-
         mediaPlayer = MediaPlayer.create(this, Uri.fromFile(new File(PATH+"/exampleout.mid")));
         mediaPlayer.setLooping(true);
         playButton = (Button) findViewById(R.id.midiPlayButton);

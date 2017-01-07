@@ -24,6 +24,7 @@ public class PerformActivity extends AppCompatActivity {
     private VerticalSeekBar volumeAdjustBar;
     private GridView activeGridView;
     private ArrayList<Integer> sampleSet;
+    private ArrayList<String> instrumentTitle;
     private ArrayList<String> commandSet;
     private Visualizer audioOutput = null;
     public float intensity = 0;
@@ -66,13 +67,14 @@ public class PerformActivity extends AppCompatActivity {
         PdBase.sendFloat("playS", 1f);
         sampleSet = new ArrayList<>();
         commandSet = new ArrayList<>();
+        instrumentTitle = new ArrayList<>();
         commandSet.add("percussion");
         commandSet.add("bass");
         for(int i =
             0; i<2;i++){
             sampleSet.add(i);
         }
-        activeGridView.setAdapter(new CustomGridViewAdapter(this, sampleSet));
+        activeGridView.setAdapter(new CustomGridViewAdapter(this, sampleSet, instrumentTitle));
         activeGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {

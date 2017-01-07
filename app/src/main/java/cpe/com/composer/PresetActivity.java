@@ -21,7 +21,9 @@ public class PresetActivity extends AppCompatActivity {
     private SQLiteDatabase mDb;
     private PresetDatabase mHelper;
     private Cursor mCursor;
-    private ArrayList<String> tempArray = new ArrayList<>();
+
+    private ArrayList<String> TitleArray = new ArrayList<>();
+    private ArrayList<String> NoteArray = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,12 +41,14 @@ public class PresetActivity extends AppCompatActivity {
     private void initDatabase(){
         mHelper = new PresetDatabase(this);
         mDb = mHelper.getWritableDatabase();
-        mCursor = mDb.rawQuery("SELECT " + PresetDatabase.COL_TITLE + " FROM " + PresetDatabase.TABLE_NAME, null);
+        mDb.needUpgrade(0);
+        mCursor = mDb.rawQuery("SELECT " + PresetDatabase.COL_TITLE + "," + PresetDatabase.COL_NOTE + " FROM " + PresetDatabase.TABLE_NAME, null);
         Toast.makeText(this, "Database Download Complete", Toast.LENGTH_SHORT).show();
 
         mCursor.moveToFirst();
         while ( !mCursor.isAfterLast() ){
-            tempArray.add(mCursor.getString(mCursor.getColumnIndex(PresetDatabase.COL_TITLE)));
+            TitleArray.add(mCursor.getString(mCursor.getColumnIndex(PresetDatabase.COL_TITLE)));
+            NoteArray.add(mCursor.getString(mCursor.getColumnIndex(PresetDatabase.COL_NOTE)));
             mCursor.moveToNext();
         }
     }
@@ -52,12 +56,12 @@ public class PresetActivity extends AppCompatActivity {
     private void initPreset(){
         LinearLayoutManager presetLayout = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         presetRecyclerView.setLayoutManager(presetLayout);
-        presetViewAdapter = new PresetViewAdapter(tempArray);
+        presetViewAdapter = new PresetViewAdapter(TitleArray);
         presetRecyclerView.setAdapter(presetViewAdapter);
         presetRecyclerView.addOnItemTouchListener(new RecyclerTouchListener(this, presetRecyclerView, new RecyclerTouchListener.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                Toast.makeText(getApplicationContext(), "TT", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), NoteArray.get(position), Toast.LENGTH_SHORT).show();
             }
 
             @Override

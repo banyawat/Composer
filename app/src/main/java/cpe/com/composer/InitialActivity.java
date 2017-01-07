@@ -2,6 +2,8 @@ package cpe.com.composer;
 
 import android.content.ClipData;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
@@ -12,13 +14,11 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
-import org.puredata.core.PdBase;
-
-import java.io.IOException;
 import java.util.ArrayList;
 
-import cpe.com.composer.soundengine.SimplePatch;
+import cpe.com.composer.datamanager.PresetDatabase;
 import cpe.com.composer.viewmanager.CustomGridViewAdapter;
 import cpe.com.composer.viewmanager.PanelSlotViewAdapter;
 import cpe.com.composer.viewmanager.RecyclerTouchListener;
@@ -31,12 +31,19 @@ public class InitialActivity extends AppCompatActivity{
     private TabLayout tabLayout;
     private ViewPager mPager;
     private fragmentPagerAdapter mPagerAdapter;
-    private SimplePatch pureData;
     public int activeSlot=66;
     private ImageButton goPerformButton;
 
+    private SQLiteDatabase mDb;
+    private PresetDatabase mHelper;
+    private Cursor mCursor;
+
     private RecyclerView panelSlotView;
     private PanelSlotViewAdapter mAdapter;
+
+    private ArrayList<Integer> instrumentID = new ArrayList<>();
+    private ArrayList<String> instrumentTitle = new ArrayList<>();
+    private ArrayList<String> noteArray = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -56,12 +63,6 @@ public class InitialActivity extends AppCompatActivity{
     }
 
     private void initComponent(){
-        try {
-            pureData = new SimplePatch(this);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
         //Fragment
         mPagerAdapter = new fragmentPagerAdapter(getSupportFragmentManager());
         mPagerAdapter.addFragment(new FingerConfigFragment(), "FINGER");
@@ -71,23 +72,14 @@ public class InitialActivity extends AppCompatActivity{
         //Tab initialization
         tabLayout.setupWithViewPager(mPager);
 
-        //Grid view initialization
-        sampleSet = new ArrayList<>();
-        commandSet = new ArrayList<>();
-        commandSet.add("percussion");
-        commandSet.add("bass");
-        for(int i =
-            0; i<2;i++){
-            sampleSet.add(i);
-        }
+        initDatabase();
 
-        controllerGrid.setAdapter(new CustomGridViewAdapter(this, sampleSet));
+        controllerGrid.setAdapter(new CustomGridViewAdapter(this, instrumentID, instrumentTitle));
         controllerGrid.setOnItemLongClickListener(new MyTouchListener());
         controllerGrid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                PdBase.sendFloat("playS", 1f);
-                PdBase.sendBang(commandSet.get(i));
+                Toast.makeText(getApplicationContext(), noteArray.get(i), Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -129,16 +121,29 @@ public class InitialActivity extends AppCompatActivity{
         }));
     }
 
+    private void initDatabase(){
+        mHelper = new PresetDatabase(this);
+        mDb = mHelper.getWritableDatabase();
+        mCursor = mDb.rawQuery("SELECT " + PresetDatabase.COL_TITLE + "," + PresetDatabase.COL_NOTE + " FROM " + PresetDatabase.TABLE_NAME, null);
+        Toast.makeText(this, "Database Download Complete", Toast.LENGTH_SHORT).show();
+
+        mCursor.moveToFirst();
+        while ( !mCursor.isAfterLast() ){
+            instrumentTitle.add(mCursor.getString(mCursor.getColumnIndex(PresetDatabase.COL_TITLE)));
+            noteArray.add(mCursor.getString(mCursor.getColumnIndex(PresetDatabase.COL_NOTE)));
+            instrumentID.add(mCursor.getInt(mCursor.getColumnIndex(PresetDatabase.COL_NOTE)));
+            mCursor.moveToNext();
+        }
+    }
+
     @Override
     protected void onResume() {
         super.onResume();
-        pureData.startAudio();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        pureData.stopAudio();
     }
 
     private final class MyTouchListener implements  AdapterView.OnItemLongClickListener {

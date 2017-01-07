@@ -13,21 +13,23 @@ import cpe.com.composer.R;
 
 public class CustomGridViewAdapter extends BaseAdapter {
     private Context context;
-    private ArrayList<Integer> fxSequence = new ArrayList<>();
+    private ArrayList<Integer> instrumentID = new ArrayList<>();
+    private ArrayList<String> instrumentTitle = new ArrayList<>();
 
-    public CustomGridViewAdapter(Context context, ArrayList<Integer> fxSequence){
+    public CustomGridViewAdapter(Context context, ArrayList<Integer> InstrumentID,ArrayList<String> instrumentTitle){
         this.context = context;
-        this.fxSequence = fxSequence;
+        this.instrumentID = instrumentID;
+        this.instrumentTitle = instrumentTitle;
     }
 
     @Override
     public int getCount() {
-        return fxSequence.size();
+        return instrumentTitle.size();
     }
 
     @Override
     public Object getItem(int i) {
-        return fxSequence.get(i);
+        return instrumentTitle.get(i);
     }
 
     @Override
@@ -45,7 +47,7 @@ public class CustomGridViewAdapter extends BaseAdapter {
             gridView = inflater.inflate(R.layout.row_fx_grid, null);
 
             TextView seqView = (TextView) gridView.findViewById(R.id.fxNameText);
-            seqView.setText(String.valueOf(fxSequence.get(i)));
+            seqView.setText(String.valueOf(instrumentTitle.get(i)));
         }
         else {
             gridView = (View) view;
