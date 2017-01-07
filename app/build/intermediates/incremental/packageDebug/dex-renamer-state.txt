@@ -1,4 +1,4 @@
-#Tue Dec 27 21:43:43 ICT 2016
+#Sat Jan 07 13:43:27 ICT 2017
 base.0=C\:\\Users\\user\\Documents\\GitHub\\Composer\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main
 renamed.0=classes.dex
 file.0=C\:\\Users\\user\\Documents\\GitHub\\Composer\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main\\classes.dex

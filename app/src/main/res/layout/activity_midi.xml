@@ -21,4 +21,25 @@
         android:layout_marginStart="87dp"
         android:layout_marginTop="108dp"
         android:id="@+id/midiPlayButton" />
+
+    <Button
+        android:text="STOP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/midiPlayButton"
+        android:layout_toRightOf="@+id/midiPlayButton"
+        android:layout_toEndOf="@+id/midiPlayButton"
+        android:layout_marginLeft="28dp"
+        android:layout_marginStart="28dp"
+        android:id="@+id/midiStopButton" />
+
+    <Button
+        android:text="DRUM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/midiPlayButton"
+        android:layout_alignLeft="@+id/midiPlayButton"
+        android:layout_alignStart="@+id/midiPlayButton"
+        android:layout_marginTop="24dp"
+        android:id="@+id/drumChangeButton" />
 </RelativeLayout>

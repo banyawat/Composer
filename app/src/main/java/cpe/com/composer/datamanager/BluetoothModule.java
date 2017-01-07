@@ -159,6 +159,10 @@ public class BluetoothModule {
                     else if(readMessage.contains("1")){
                         PdBase.sendBang("bass");
                     }
+                    else if(readMessage.contains("4")){
+                        PdBase.sendFloat("key" ,4f);
+                        Log.d(TAG, "pressed");
+                    }
                     else if(readMessage.contains("6")){
                         PdBase.sendFloat("key" ,0f);
                     }
