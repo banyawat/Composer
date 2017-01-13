@@ -32,7 +32,7 @@ Start in the portmedia/portmidi directory.
 
 make -f pm_mac/Makefile.osx
 
-(Begin note: make will invoke cmake to build a Makefile and then make to
+(Begin pitch: make will invoke cmake to build a Makefile and then make to
 build portmidi. This extra level allows you to correctly build 
 both Release and Debug versions. Release is the default, so to get
 the Debug version, use:

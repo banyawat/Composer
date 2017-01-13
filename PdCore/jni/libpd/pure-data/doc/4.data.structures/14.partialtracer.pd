@@ -2317,7 +2317,7 @@ as a plot (yet).;
 #X text 300 454 track;
 #X obj 161 455 r osc-noteoff;
 #X text 159 409 voice sends us;
-#X text 158 424 a note-off when;
+#X text 158 424 a pitch-off when;
 #X text 161 436 done;
 #X text 457 555 message is: voice number \, on/off \, track ID \, pointer
 ;
@@ -2646,7 +2646,7 @@ above.;
 #X text 26 308 parameters;
 #X text 13 24 This patch derives sinusoidal "tracks" from a sampled
 sound using sigmund~ and the data structure facilities. The number
-of tracks may range from 1 to 50 You can edit the tracks (but note
+of tracks may range from 1 to 50 You can edit the tracks (but pitch
 that the resynthezier is limited to 50-voice polyphony.);
 #X obj 628 170 bng 25 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;

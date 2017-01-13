@@ -67,7 +67,7 @@ on and off. If on \, a test is run to determine whether to turn off
 \, and vice versa. The tests are run at each output of the rms~ object.
 ;
 #X text 355 884 updated for Pd version 0.37;
-#X text 109 320 note 3.01 dB difference between;
+#X text 109 320 pitch 3.01 dB difference between;
 #X text 113 336 peak and RMS amplitudes.;
 #X obj 451 297 loadbang;
 #X obj 23 316 *~;

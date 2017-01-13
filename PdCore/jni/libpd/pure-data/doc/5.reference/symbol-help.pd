@@ -16,7 +16,7 @@ in pd).;
 #X symbolatom 106 217 10 0 0 0 - - -, f 10;
 #X msg 50 161 zorglub;
 #X text 119 161 any other message is 'converted';
-#X text 48 303 note: unlike "float" \, etc. \, there's no "s" message
+#X text 48 303 pitch: unlike "float" \, etc. \, there's no "s" message
 to forward to another object -- that would conflict with the function
 of converting arbitrary messages to symbols.;
 #X connect 0 0 5 0;

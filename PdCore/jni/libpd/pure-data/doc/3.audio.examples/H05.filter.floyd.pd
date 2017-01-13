@@ -73,7 +73,7 @@
 #X text 73 336 <-- center frequency;
 #X obj 22 123 metro 85;
 #X text 107 147 sequencer for;
-#X text 122 164 8 note loop;
+#X text 122 164 8 pitch loop;
 #X obj 16 576 output~;
 #X obj 22 104 tgl 15 0 empty \$0-metro empty 0 -6 0 8 -262144 -1 -1
 0 1;

@@ -70,7 +70,7 @@ sigmund~: sort by pitch; pitch estimate to include pitch height; message
 expr to parse exponential notation
 mem alignment for SSE
 replace gatom_escapit with a quoting mechanism (handle '[', spaces, etc.)
-poly inlet to turn stealing on/off, plus mode to handle note-with-duration
+poly inlet to turn stealing on/off, plus mode to handle pitch-with-duration
 integrate video into tilde objects
 think of a way to embed abstractions in a patch (zlib?)
 delete-in-rectangle message to Pds

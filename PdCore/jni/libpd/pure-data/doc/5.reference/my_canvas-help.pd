@@ -148,7 +148,7 @@
 #X msg 51 135 \; foo10_rcv color \$1 \$2 \$3;
 #X floatatom 118 72 3 0 29 0 - - -, f 3;
 #X text 146 73 label-color;
-#X text 47 166 note: this changed in version 0.47 \; run "pd -compatibility
+#X text 47 166 pitch: this changed in version 0.47 \; run "pd -compatibility
 0.46" for old behavior;
 #X connect 0 0 4 0;
 #X connect 1 0 0 0;

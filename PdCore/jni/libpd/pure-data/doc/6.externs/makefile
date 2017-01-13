@@ -4,7 +4,7 @@ current:
 clean: ; rm -f *.pd_linux *.o
 
 # ----------------------- Windows-----------------------
-# note; you will certainly have to edit the definition of VC to agree with
+# pitch; you will certainly have to edit the definition of VC to agree with
 # whatever you've got installed on your machine:
 
 VC="D:\Program Files\Microsoft Visual Studio\Vc98"

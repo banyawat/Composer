@@ -10,6 +10,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import cpe.com.composer.R;
+import cpe.com.composer.soundengine.TrackCell;
 
 public class CustomGridViewAdapter extends BaseAdapter {
     private Context context;
@@ -20,6 +21,14 @@ public class CustomGridViewAdapter extends BaseAdapter {
         this.context = context;
         this.instrumentID = instrumentID;
         this.instrumentTitle = instrumentTitle;
+    }
+
+    public CustomGridViewAdapter(Context context, ArrayList<TrackCell> tracks){
+        this.context = context;
+        for(int i=0;i<tracks.size();i++){
+            this.instrumentID.add(tracks.get(i).getID());
+            this.instrumentTitle.add(tracks.get(i).getTitle());
+        }
     }
 
     @Override

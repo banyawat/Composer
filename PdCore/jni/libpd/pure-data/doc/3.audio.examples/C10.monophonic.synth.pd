@@ -27,10 +27,10 @@ this example we assume MIDI.;
 #X msg 152 316 55 0;
 #X msg 95 291 48 64;
 #X msg 95 317 48 0;
-#X text 14 142 The note-off testing is complicated by the fact that
+#X text 14 142 The pitch-off testing is complicated by the fact that
 we have to test both that the velocity is zero \, and further that
-the note-off pitch matches the pitch that is now playing (the most
-recent note-on pitch.);
+the pitch-off pitch matches the pitch that is now playing (the most
+recent pitch-on pitch.);
 #X text 218 387 b - bang to recall velocity;
 #X obj 155 442 sel 0;
 #X text 177 463 on;
@@ -47,11 +47,11 @@ recent note-on pitch.);
 #X msg 95 268 48 128;
 #X text 18 491 pitch;
 #X text 19 443 messages;
-#X text 210 441 test for note on or off;
+#X text 210 441 test for pitch on or off;
 #X text 227 520 test against latest;
-#X text 270 535 note-on pitch;
+#X text 270 535 pitch-on pitch;
 #X text 18 407 filter;
-#X text 19 425 note-on;
+#X text 19 425 pitch-on;
 #X obj 15 664 *~;
 #X obj 94 517 / 127;
 #X text 14 208 The synthesis technique is the same as in the previous

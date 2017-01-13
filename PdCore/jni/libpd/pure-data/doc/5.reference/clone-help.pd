@@ -36,7 +36,7 @@ contained patch \, and may be signal and/or control inlets and outlets.
 You can click on the clone~ object to see the first of the created
 instances., f 72;
 #X obj 179 609 clone clone-subpatch 16;
-#X text 30 734 note: for backward compatibility \, you can also invoke
+#X text 30 734 pitch: for backward compatibility \, you can also invoke
 this as "clone clone-subpatch 16" (for instance) \, swapping the abstraction
 name and the mumber of voices.;
 #X text 19 247 Signal inlets are copied to all the instances. Control

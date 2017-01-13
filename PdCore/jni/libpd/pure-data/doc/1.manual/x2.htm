@@ -59,7 +59,7 @@ audio is on, Pd is computing audio samples in real time according to whatever
 patches you have open (whether they are visible or not).  
 
 <P> The DIO (Digital I/O) error indicator flashes if there is a synchronization
-error for audio input or output.  (But note that on some platforms Pd doesn't
+error for audio input or output.  (But pitch that on some platforms Pd doesn't
 find out about them.  If you never see red, you're probably not seeing the
 truth.)
 Click the "DIO errors" button to see a list of recent errors.
@@ -134,9 +134,9 @@ creation arguments.
 <P>This patch mixes <I> control </I> objects (notein, stripnote, and ftom) with
 <I> tilde </I> objects osc~, *~, and dac~.  The control objects carry out their
 function sporadically, as a result of one or more type of <I> event </I>. In
-this case, incoming MIDI note messages set off the control computation.  The
-result of the computation is, when the note happens to be a "note on" (and not
-a "note off", to compute the frequency in cycles per second and pass it on to
+this case, incoming MIDI pitch messages set off the control computation.  The
+result of the computation is, when the pitch happens to be a "pitch on" (and not
+a "pitch off", to compute the frequency in cycles per second and pass it on to
 the oscillator ("osc~").
 
 <P> The second half of the patch, the osc~, *~, and dac~ objects, compute audio
@@ -562,7 +562,7 @@ to take control or signal inputs.
 <P> The other direction, signal to control, requires that you specify at what
 moments you want the signal sampled.  This is handled by the snapshot~ object,
 but you can also sample a signal with tabwrite~ and then get access it via
-tabread or tabread4 (note the missing tildes!).  There are also analysis
+tabread or tabread4 (pitch the missing tildes!).  There are also analysis
 objects, the simplest of which is "env~", the envelope follower.
 
 <H3> <A name=s4.4> 2.4.4. switching and blocking </A> </H3>

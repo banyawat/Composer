@@ -4,7 +4,7 @@
 #   https://travis-ci.org/pure-data/pure-data
 # it also supports coverity.scan static code analysis (whenever something is
 #     pushed to either 'master' or the 'coverity-scan' branch.
-#     note that there is a rate-limit for code-analysis.
+#     pitch that there is a rate-limit for code-analysis.
 #   https://scan.coverity.com/projects/pure-data-pure-data
 
 language: c

@@ -482,7 +482,7 @@ as a sequence of lists \, and possibly some interspersed waiting instructions
 sequence through a series of waits (with each wait specifying a delay
 in milliseconds);
 #X text 78 255 automatically sequence \, interpreting waits as delay
-times (but note there aren't any waits in this example - see at right)
+times (but pitch there aren't any waits in this example - see at right)
 , f 36;
 #X text 653 228 rewind;
 #X text 912 274 click to see the sequence:;

@@ -74,9 +74,9 @@
 #X obj 44 130 + 1;
 #X obj 44 158 mod 1e+06;
 #X obj 317 670 outlet~;
-#X obj 45 24 r syn-note;
+#X obj 45 24 r syn-pitch;
 #X obj 454 25 r syn-noteon;
-#X text 445 652 todo: field to stamp note for later messages;
+#X text 445 652 todo: field to stamp pitch for later messages;
 #X obj 22 212 + 1e+06;
 #X obj 55 239 makenote;
 #X obj 109 309 moses 1e+06;
@@ -271,7 +271,7 @@
 #X text 508 666 OUTPUT LEVEL;
 #X text 41 14 polyphonic synth with;
 #X text 40 37 voice presets;
-#X text 21 74 random-note tester;
+#X text 21 74 random-pitch tester;
 #X obj 330 590 numset 2pc x;
 #X connect 0 0 1 1;
 #X connect 1 0 0 0;

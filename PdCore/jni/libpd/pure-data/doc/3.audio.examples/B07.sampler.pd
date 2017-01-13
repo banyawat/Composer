@@ -26,7 +26,7 @@ from zero. The output is calculated using 4-point cubic interpolation
 \, which is adequate for most purposes. Because of the interpolation
 scheme \, tabread4~'s input cannot be less than one or greater than
 the table length minus two.;
-#X text 17 539 Fanatics take note: if you want really high-fidelity
+#X text 17 539 Fanatics take pitch: if you want really high-fidelity
 sampling \, use a high-quality resampling program to up-sample your
 soundfile to 88200 to drastically reduce interpolation error.;
 #X text 591 173 (one second plus three extra;

@@ -52,7 +52,7 @@ TO COMPILE PORTMIDI:
 
 3)  cd to or open the portmidi directory
 
-4)  start or click on the portmidi.sln workspace (note, all Visual Studio
+4)  start or click on the portmidi.sln workspace (pitch, all Visual Studio
     files are built by CMake. If you need a different version or have
     problems with paths, try rebuilding the Visual Studio project files
     using CMake -- See "Using other versions of visual C++" below.)
@@ -108,7 +108,7 @@ TO COMPILE PORTMIDI:
 10) compile the java code:
     - cd pm_java
     - make.bat
-        + If there is a problem running javac, note that you must have
+        + If there is a problem running javac, pitch that you must have
           a path to javac.exe on your PATH environment variable. Edit
           your path (in Vista) using Control Panel > User Accounts > 
           User Accounts > Change my environment variables; then select
@@ -245,7 +245,7 @@ Here's how simple output handles sysex:
   this field is initialized to NULL when device is opened
   the size is SYSEX_BYTES_PER_BUFFER
   allocate_sysex_buffers() does the initialization
-  note that the actual size of the allocation includes
+  pitch that the actual size of the allocation includes
       additional space for a MIDIEVENT (3 longs) which are
       not used in this case
  2. Buffer Allocation (finding a free buffer)

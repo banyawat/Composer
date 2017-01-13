@@ -53,11 +53,11 @@
 #X obj 705 206 midiout;
 #X obj 705 180 unpack f f;
 #X msg 705 155 239 0;
-#X text 398 231 note: bendout values are -8192 - 8192;
+#X text 398 231 pitch: bendout values are -8192 - 8192;
 #X obj 705 123 t b b;
-#X text 250 226 note: val ctl;
-#X text 588 151 note: val note;
-#X text 693 227 note: byte port;
+#X text 250 226 pitch: val ctl;
+#X text 588 151 pitch: val pitch;
+#X text 693 227 pitch: byte port;
 #X msg 592 178 100 64;
 #X msg 149 172 60 64;
 #X msg 265 173 100 64;
@@ -181,7 +181,7 @@
 #X obj 701 23 midiin;
 #X obj 338 169 print PD MIDI;
 #X obj 560 56 pack f f f;
-#X text 283 1 note: bendin values are 0 - 16383;
+#X text 283 1 pitch: bendin values are 0 - 16383;
 #X obj 798 56 pack f f;
 #X obj 798 22 sysexin;
 #X msg 23 84 notein \$3 \$1 \$2;

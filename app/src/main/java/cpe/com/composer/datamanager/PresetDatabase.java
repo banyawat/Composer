@@ -24,7 +24,7 @@ public class PresetDatabase extends SQLiteOpenHelper {
         preDb.execSQL("CREATE TABLE " + TABLE_NAME + "(_id INTEGER PRIMARY KEY AUTOINCREMENT, '" + COL_TITLE +
                 "' TEXT, '" + COL_CHANNEL + "' INT, '" + COL_PROGRAM + "' INT, '" + COL_NOTE + "' TEXT);");
         preDb.execSQL("INSERT INTO " + TABLE_NAME + " VALUES(null, '8Soul Drum', 9, -1, '{\"note\":[53,53,53,53,36,36,38,36,36,36,38,38,38],\"ppq\":[0,4,8,12,0,3,4,6,10,11,12,14,15]}\n');");
-        preDb.execSQL("INSERT INTO " + TABLE_NAME + " VALUES(null, 'Funk Drum', 9, -1, '{\"note\":[53,53,53,53,36,36,38,36,36,36,38,38,38],\"ppq\":[0,4,8,12,0,3,4,6,10,11,12,14,15]}\n');");
+        preDb.execSQL("INSERT INTO " + TABLE_NAME + " VALUES(null, 'Funk Drum', 9, -1, '{\"note\":[36,36,36,36,0],\"ppq\":[0,4,8,12,15]}\n');");
     }
 
     @Override

@@ -17,7 +17,7 @@
 #X floatatom 364 271 4 0 0 0 - - -;
 #X obj 270 246 r sustain;
 #X obj 364 246 r release;
-#X obj 499 158 r note;
+#X obj 499 158 r pitch;
 #X msg 500 236 \; trigger 1;
 #X obj 602 225 del;
 #X msg 602 247 \; trigger 0;
@@ -93,8 +93,8 @@ oscillator and a "vcf~' object. Unkike the "floyd" example earlier
 \, we use a qlist object to do the sequencing. This can also be adapted
 to make a keyboard synth.;
 #X text 227 85 The qlist reads the file \, "qlist2.txt" \, which contains
-four "note" messages and a message at the end that restarts the qlist
-at the beginning. The "note" messages are translated into a pitch change
+four "pitch" messages and a message at the end that restarts the qlist
+at the beginning. The "pitch" messages are translated into a pitch change
 and triggers for the ADSRs.;
 #X text 667 551 updated for Pd version 0.39;
 #X text 379 305 ADSR for filter. Here \, it works better to make the

@@ -601,10 +601,10 @@ proc urldecode {str} {
 ##        e.g. "uploaded by the BFG in 1982"
 ## status: line to display in the status-line
 ##        e.g. "http://bfg.org/frobscottle-1.10.zip"
-# note on sorting:
+# pitch on sorting:
 ## the results ought to be sorted with most up-to-date first
 ##  (filtering based on architecture-matches should be ignored when sorting!)
-# note on helper-functions:
+# pitch on helper-functions:
 ## you can put whatever you like into <cmd>, even your own proc
 
 

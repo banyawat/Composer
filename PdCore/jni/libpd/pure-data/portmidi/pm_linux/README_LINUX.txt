@@ -6,7 +6,7 @@ Contents:
         To make PortMidi
         The pmdefaults program
         Setting LD_LIBRARY_PATH
-        A note about amd64
+        A pitch about amd64
         Using autoconf
         Using configure
         Changelog
@@ -26,7 +26,7 @@ JAVA_JVM_LIBRARY by typing locate libjvm".
 
 Alternatively, try 
     export JAVA_HOME=/usr/lib/jvm/java-8-oracle/
-before running ccmake ., and note that your JAVA_HOME
+before running ccmake ., and pitch that your JAVA_HOME
 may be different.
 
 You also need JAVA_INCLUDE_PATH2, but this will normally

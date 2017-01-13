@@ -100,7 +100,7 @@ sample2;
 #X obj 872 159 + 1;
 #X obj 836 185 mod 1e+06;
 #X obj 654 245 pack 0 0 0 0 0 0 0;
-#X obj 918 74 r note;
+#X obj 918 74 r pitch;
 #X obj 918 100 unpack 0 0 0 0 0 0 0;
 #X text 860 641 updated for Pd version 0.37;
 #X obj 895 127 t b f;
@@ -112,7 +112,7 @@ sample2;
 #X msg 323 528 \; onoff 1 0;
 #X msg 104 570 \; onoff 2 90 48 1 0 0 100;
 #X msg 324 570 \; onoff 2 0;
-#X msg 104 627 \; note 51 90 1000 1 0 0 100;
+#X msg 104 627 \; pitch 51 90 1000 1 0 0 100;
 #X obj 557 312 sampvoice2;
 #X obj 557 336 sampvoice2;
 #X obj 557 360 sampvoice2;
@@ -123,29 +123,29 @@ sample2;
 #X text 14 35 Here is a variation on the polyphonic sampler \, which
 can take separate messages to start and stop notes (so that you can
 attach it to a MIDI keyboard \, for example.) "Note" messages act as
-before \, but in an intermediate step they are split onto note-on and
-note-off messages \, sent to "onoff". You can alternatively send messages
+before \, but in an intermediate step they are split onto pitch-on and
+pitch-off messages \, sent to "onoff". You can alternatively send messages
 straight to onoff if you don't know the duration in advance.;
 #X text 12 150 Messages to "onoff" require a tag \, which is a number
-shared between the note-on and note-off message so that we can track
+shared between the pitch-on and pitch-off message so that we can track
 down the voice to turn it off. If you're using MIDI input \, you can
 just re-use the pitch as a tag.;
 #X text 102 508 separate messages for not on and off:;
 #X text 101 608 single messages to do both as before:;
-#X text 10 221 Messages to "onoff" whose amplitude is zero are note-off
-messages (the other parameters of note-off messages are ignored). The
+#X text 10 221 Messages to "onoff" whose amplitude is zero are pitch-off
+messages (the other parameters of pitch-off messages are ignored). The
 "sampvoice2" abstraction is a modification of "sampvoice" which looks
-at the amplitude field to decide whether to begin or end a note.;
-#X text 10 301 To convert "note" messages to pairs of "onoff" messages
+at the amplitude field to decide whether to begin or end a pitch.;
+#X text 10 301 To convert "pitch" messages to pairs of "onoff" messages
 \, first a counter generates a tag. The the "pipe" object delays a
 copy of the tag \, which the following "pack" object converts into
-a note-off message (a pair of numbers \, the tag and a zero.);
+a pitch-off message (a pair of numbers \, the tag and a zero.);
 #X text 9 382 Under "r onoff" \, the poly object allocates a voice
 number \, putting it out paired with velocity. After swapping the two
 and packing them into a single message \, the amplitude is checked
 against zero by the "route 0" object \; if zero \, the "pack" confects
 a 2-argument message (voice number and zero). Otherwise \, the "unpack"
-retrieves the nonzero amplitude for a note-on message \, to which we
+retrieves the nonzero amplitude for a pitch-on message \, to which we
 add all the other parameters and route to the appropriate voice.;
 #X connect 3 0 4 0;
 #X connect 3 1 31 1;

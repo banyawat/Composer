@@ -16,6 +16,8 @@
 
 package com.leff.midi;
 
+import com.leff.midi.util.MidiUtil;
+
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -24,8 +26,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
-
-import com.leff.midi.util.MidiUtil;
 
 public class MidiFile
 {
@@ -138,6 +138,8 @@ public class MidiFile
     {
         return mTracks;
     }
+
+    public MidiTrack getTrack(int pos) { return mTracks.get(pos); }
 
     public void addTrack(MidiTrack T)
     {

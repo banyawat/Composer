@@ -100,7 +100,7 @@
 #X text 321 1208 - MIDI output;
 #X obj 22 1251 makenote;
 #X obj 22 1275 stripnote;
-#X text 114 1277 - strip "note off" messages;
+#X text 114 1277 - strip "pitch off" messages;
 #X obj 25 1369 tabread;
 #X text 125 1369 - read a number from a table;
 #X obj 25 1392 tabread4;
@@ -334,7 +334,7 @@
 #X text 24 120 --------------- GENERAL ----------------;
 #X obj 24 607 list;
 #X text 124 607 - manipulate lists;
-#X text 112 1249 - schedule delayed "note off" message for a note-on
+#X text 112 1249 - schedule delayed "pitch off" message for a pitch-on
 ;
 #X obj 25 1487 array;
 #X text 127 1462 - create a named table;

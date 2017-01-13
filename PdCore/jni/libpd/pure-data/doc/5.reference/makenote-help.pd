@@ -6,8 +6,8 @@
 #X obj 180 262 print x2;
 #X floatatom 41 104 0 0 0;
 #X obj 29 14 makenote;
-#X text 113 14 - send note-on messages and schedule note-off for later;
-#X text 19 41 Makenote makes MIDI-style note-on/note-off pairs \, which you can use for MIDI output or to drive note-like processes within Pd.;
+#X text 113 14 - send pitch-on messages and schedule pitch-off for later;
+#X text 19 41 Makenote makes MIDI-style pitch-on/pitch-off pairs \, which you can use for MIDI output or to drive pitch-like processes within Pd.;
 #X msg 48 153 60.5;
 #X text 80 105 numbers at left are "pitches" which may be integers or not.;
 #X text 146 178 "velocity";

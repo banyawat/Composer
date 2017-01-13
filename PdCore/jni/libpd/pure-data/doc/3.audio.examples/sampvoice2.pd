@@ -44,18 +44,18 @@
 #X text 499 254 rise time (msec);
 #X text 499 278 decay time (msec);
 #X text 498 133 ARGUMENTS FOR NOTE ON:;
-#X text 460 317 (Zero amplitude means note off \;;
+#X text 460 317 (Zero amplitude means pitch off \;;
 #X text 481 338 other parameters are ignored.);
 #X obj 230 144 route 0;
 #X obj 288 175 unpack 0 0 0 0 0 0;
 #X text 35 5 This is an abstraction used by the polyphonic sampler
-\, version 2 \, which takes separate note-on and note-off messages.
+\, version 2 \, which takes separate pitch-on and pitch-off messages.
 Unlike "sampvoice" (the first version) \, there is no "duration" field
 \, and the amplitude and pitch fields are reversed to make it easy
-to separate note-on from note-off messages (which have amplitude zero.)
+to separate pitch-on from pitch-off messages (which have amplitude zero.)
 ;
-#X text 299 153 note-on;
-#X text 155 153 note-off;
+#X text 299 153 pitch-on;
+#X text 155 153 pitch-off;
 #X obj 50 536 vline~;
 #X obj 307 536 vline~;
 #X msg 230 166 bang;

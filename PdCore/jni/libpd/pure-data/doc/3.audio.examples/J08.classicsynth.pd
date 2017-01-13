@@ -74,13 +74,13 @@
 #X obj 108 221 *~;
 #X obj 43 218 *~;
 #X obj 41 122 mtof;
-#X obj 41 13 r \$0-note;
+#X obj 41 13 r \$0-pitch;
 #X obj 41 62 makenote 1;
 #X obj 404 150 + 20;
 #X obj 404 102 metro 300;
 #X obj 404 80 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0 1
 ;
-#X obj 404 201 s \$0-note;
+#X obj 404 201 s \$0-pitch;
 #X obj 404 125 random 70;
 #X obj 42 192 vcf~ 3;
 #X floatatom 228 112 3 0 0 0 - - -;
@@ -97,7 +97,7 @@
 waveforms using upsampling \, we combine an upsampled oscillator with
 a "vcf" filter and ADSR generators to control the filter resonant frequency
 and the amplitude to make the classic subtractive synthesis sound.
-Send an "s \$0-note" object a (pitch \, duration) pair to play a note.
+Send an "s \$0-pitch" object a (pitch \, duration) pair to play a pitch.
 (Classic VC synths did not have velocity sensitive keyboards!) You
 can add controls to change the parameters of the ADSR envelopes and/or
 the vcf~ "Q" parameter. THe oscillators' waveforms and tuning relationship

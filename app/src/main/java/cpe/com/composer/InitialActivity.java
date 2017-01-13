@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -12,13 +13,15 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageButton;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
 import cpe.com.composer.datamanager.PresetDatabase;
+import cpe.com.composer.soundengine.TrackCell;
+import cpe.com.composer.soundengine.MusicEngine;
 import cpe.com.composer.viewmanager.CustomGridViewAdapter;
 import cpe.com.composer.viewmanager.PanelSlotViewAdapter;
 import cpe.com.composer.viewmanager.RecyclerTouchListener;
@@ -26,13 +29,12 @@ import cpe.com.composer.viewmanager.fragmentPagerAdapter;
 
 public class InitialActivity extends AppCompatActivity{
     private GridView controllerGrid;
-    private ArrayList<Integer> sampleSet;
-    private ArrayList<String> commandSet;
     private TabLayout tabLayout;
     private ViewPager mPager;
     private fragmentPagerAdapter mPagerAdapter;
     public int activeSlot=66;
     private ImageButton goPerformButton;
+    private Button checkArrButton;
 
     private SQLiteDatabase mDb;
     private PresetDatabase mHelper;
@@ -41,9 +43,11 @@ public class InitialActivity extends AppCompatActivity{
     private RecyclerView panelSlotView;
     private PanelSlotViewAdapter mAdapter;
 
-    private ArrayList<Integer> instrumentID = new ArrayList<>();
-    private ArrayList<String> instrumentTitle = new ArrayList<>();
-    private ArrayList<String> noteArray = new ArrayList<>();
+    private ArrayList<TrackCell> trackCells = new ArrayList<>();
+
+    private MusicEngine musicEngine;
+
+    final static String PATH = Environment.getExternalStorageDirectory().getPath();
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -60,6 +64,7 @@ public class InitialActivity extends AppCompatActivity{
         mPager = (ViewPager) findViewById(R.id.viewpager);
         panelSlotView = (RecyclerView) findViewById(R.id.panelSlot);
         goPerformButton = (ImageButton) findViewById(R.id.goPerformButton);
+        checkArrButton = (Button) findViewById(R.id.button);
     }
 
     private void initComponent(){
@@ -73,13 +78,21 @@ public class InitialActivity extends AppCompatActivity{
         tabLayout.setupWithViewPager(mPager);
 
         initDatabase();
+        musicEngine = new MusicEngine(this, PATH);
 
-        controllerGrid.setAdapter(new CustomGridViewAdapter(this, instrumentID, instrumentTitle));
-        controllerGrid.setOnItemLongClickListener(new MyTouchListener());
+        controllerGrid.setAdapter(new CustomGridViewAdapter(this, trackCells));
+        controllerGrid.setOnItemLongClickListener(new TouchListener());
         controllerGrid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(getApplicationContext(), noteArray.get(i), Toast.LENGTH_SHORT).show();
+            public void onItemClick(AdapterView<?> adapterView, View view, final int i, long l) {
+                musicEngine.playID(i);
+            }
+        });
+
+        checkArrButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                musicEngine.checkPlayingArray();
             }
         });
 
@@ -124,29 +137,21 @@ public class InitialActivity extends AppCompatActivity{
     private void initDatabase(){
         mHelper = new PresetDatabase(this);
         mDb = mHelper.getWritableDatabase();
-        mCursor = mDb.rawQuery("SELECT " + PresetDatabase.COL_TITLE + "," + PresetDatabase.COL_NOTE + " FROM " + PresetDatabase.TABLE_NAME, null);
-        Toast.makeText(this, "Database Download Complete", Toast.LENGTH_SHORT).show();
-
+        mCursor = mDb.rawQuery("SELECT * FROM " + PresetDatabase.TABLE_NAME, null);
         mCursor.moveToFirst();
         while ( !mCursor.isAfterLast() ){
-            instrumentTitle.add(mCursor.getString(mCursor.getColumnIndex(PresetDatabase.COL_TITLE)));
-            noteArray.add(mCursor.getString(mCursor.getColumnIndex(PresetDatabase.COL_NOTE)));
-            instrumentID.add(mCursor.getInt(mCursor.getColumnIndex(PresetDatabase.COL_NOTE)));
+            int id = mCursor.getInt(mCursor.getColumnIndex("_id"));
+            String title = mCursor.getString(mCursor.getColumnIndex(PresetDatabase.COL_TITLE));
+            int channel = mCursor.getInt(mCursor.getColumnIndex(PresetDatabase.COL_CHANNEL));
+            int program = mCursor.getInt(mCursor.getColumnIndex(PresetDatabase.COL_PROGRAM));
+            String note = mCursor.getString(mCursor.getColumnIndex(PresetDatabase.COL_NOTE));
+
+            trackCells.add(new TrackCell(id, title, channel, program, note));
             mCursor.moveToNext();
         }
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-    }
-
-    private final class MyTouchListener implements  AdapterView.OnItemLongClickListener {
+    private final class TouchListener implements  AdapterView.OnItemLongClickListener {
         @Override
         public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
             ClipData data = ClipData.newPlainText("", "");

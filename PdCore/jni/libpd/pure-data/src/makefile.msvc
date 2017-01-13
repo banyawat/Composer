@@ -1,4 +1,4 @@
-# Makefile for PD using Microsoft Visual C/C++ (MSVC) -- note defines
+# Makefile for PD using Microsoft Visual C/C++ (MSVC) -- pitch defines
 # which will have to be adapted to whichever specific version of MSVC you
 # have lying around.
 

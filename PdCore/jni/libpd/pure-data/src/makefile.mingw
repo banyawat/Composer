@@ -70,7 +70,7 @@ ARCH_CFLAGS = -DPD -DPD_INTERNAL -DPA_USE_ASIO -DPA_USE_WMME -DWINVER=0x0502 \
 
 CFLAGS += $(ARCH_CFLAGS) $(WARN_CFLAGS) $(OPT_CFLAGS) $(MORECFLAGS)
 
-STRIP = strip --strip-unneeded -R .note -R .comment
+STRIP = strip --strip-unneeded -R .pitch -R .comment
 
 # the sources
 

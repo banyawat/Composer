@@ -1,8 +1,8 @@
 #N canvas 12 0 1074 786 12;
 #X msg 257 7 bang;
 #X obj 257 35 delay 5;
-#X text 497 269 end of note;
-#X obj 363 35 r note;
+#X text 497 269 end of pitch;
+#X obj 363 35 r pitch;
 #N canvas 459 46 678 451 samples 0;
 #N canvas 0 0 450 300 graph1 0;
 #X array sample1 176403 float 0;
@@ -148,14 +148,14 @@ just a straight line.;
 #X obj 489 142 delay;
 #X obj 318 312 pack 0 0 0 0 0;
 #X obj 257 62 t b b b;
-#X text 498 346 This starts the note \, sending to "receives" in the
+#X text 498 346 This starts the pitch \, sending to "receives" in the
 playback subptach. The new receive "envelope" is an amplitude control
 in parallel with the cutoff control. The "sample-number" switches the
 tabread4~ between tables.;
 #X msg 156 44 \; pd dsp 1 \; cutoff 0 5;
 #X obj 387 197 + 1;
 #X msg 556 467 60 100 10000 1 0 0 0;
-#X obj 556 737 s note;
+#X obj 556 737 s pitch;
 #X msg 521 196 \; envelope 0 \$1;
 #X msg 675 691 62;
 #X msg 710 691 64;
@@ -201,7 +201,7 @@ the parameters one by one.;
 #X text 13 596 This patch take the same principle as the earlier "one-shot
 sampler" \, but allows you to parametrize sample playback. Since we
 must wait 5 msec before starting the playback \, we store all the parameters
-in "f" objects \, and recall them to construct the new note. Transposition
+in "f" objects \, and recall them to construct the new pitch. Transposition
 is done by altering the amount to play back in the (artificial) ten
 thousand seconds (1e+07). The playback segment can be altered to start
 in the middle of the sample instead of the beginning \, and you can

@@ -1,15 +1,15 @@
 package cpe.com.composer.soundengine;
 
-public class NoteDetail {
+public class NoteCell {
     private int channel;
-    private int note;
+    private int pitch;
     private int velocity;
     private int ppq;
     private int duration;
 
-    public NoteDetail(int channel, int note, int velocity, int ppq, int duration){
+    public NoteCell(int channel, int pitch, int velocity, int ppq, int duration){
         this.channel = channel;
-        this.note = note;
+        this.pitch = pitch;
         this.velocity = velocity;
         this.ppq = ppq;
         this.duration = duration;
@@ -23,12 +23,12 @@ public class NoteDetail {
         this.channel = channel;
     }
 
-    public int getNote() {
-        return note;
+    public int getPitch() {
+        return pitch;
     }
 
-    public void setNote(int note) {
-        this.note = note;
+    public void setPitch(int pitch) {
+        this.pitch = pitch;
     }
 
     public int getVelocity() {

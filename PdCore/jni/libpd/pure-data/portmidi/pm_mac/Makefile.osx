@@ -84,7 +84,7 @@ install: porttime/porttime.h pm_common/portmidi.h \
 	install pm_common/portmidi.h $(PF)/include
 	install $(CONFIG)/libportmidi.dylib $(PF)/lib/
 
-# note - this uses xcode to build and install portmidi universal binaries
+# pitch - this uses xcode to build and install portmidi universal binaries
 install-with-xcode:
 	sudo xcodebuild -project pm_mac/pm_mac.xcodeproj \
 		-configuration Release install DSTROOT=/

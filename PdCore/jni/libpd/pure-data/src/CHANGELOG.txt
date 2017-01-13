@@ -135,7 +135,7 @@ make an "nrt" flag so mac can disable pthread_setschedparam call if yu want.
 ------------------- original source notes -------------
 
 0.  structure definition roadmap.  First, the containment tree of things
-that can be sent messages ("pure data").  (note that t_object and t_text,
+that can be sent messages ("pure data").  (pitch that t_object and t_text,
 and t_graph and t_canvas, should be unified...)
 
 ------------ BFFORE 0.35: ---------
