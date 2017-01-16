@@ -10,6 +10,7 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="dev" />
     <option name="TOOL_WINDOW_LOG_LEVEL" value="verbose" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
@@ -19,36 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5fe5b967-65b6-4993-86e8-972e5a761531" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/cpe/com/composer/soundengine/TrackCell.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/android_android_24.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/animated_vector_drawable_24_2_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/appcompat_v7_24_2_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/circlebutton_1_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/constraint_layout_1_0_0_beta4.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/constraint_layout_solver_1_0_0_beta4.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/design_24_2_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/hamcrest_core_1_3.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/junit_4_12.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/midi_1_0_0_rc1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/recyclerview_v7_24_2_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/support_annotations_24_2_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/support_compat_24_2_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/support_core_ui_24_2_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/support_core_utils_24_2_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/support_fragment_24_2_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/support_media_compat_24_2_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/support_v4_24_2_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/support_vector_drawable_24_2_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cpe/com/composer/InitialActivity$MyTouchListener.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cpe/com/composer/soundengine/NoteTime.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cpe/com/composer/InitialActivity$MyTouchListener.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cpe/com/composer/soundengine/NoteTime.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/file-input-save-data.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageInstantRunResourcesDebug/file-input-save-data.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cpe/com/composer/InitialActivity$MyTouchListener.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cpe/com/composer/soundengine/NoteTime.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/cpe/com/composer/soundengine/MusicWriter.java" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/cpe/com/composer/soundengine/NoteDetail.java" afterPath="$PROJECT_DIR$/app/src/main/java/cpe/com/composer/soundengine/NoteCell.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cpe/com/composer/datamanager/TrackCell.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cpe/com/composer/soundengine/MusicWriter.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cpe/com/composer/datamanager/TrackCell.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cpe/com/composer/soundengine/MusicWriter.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cpe/com/composer/datamanager/TrackCell.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cpe/com/composer/soundengine/MusicWriter.class" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/cache.properties.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshots.bin" />
@@ -57,200 +34,50 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PdCore/build/outputs/aar/pd-core-1.0.3-SNAPSHOT.aar" afterPath="$PROJECT_DIR$/PdCore/build/outputs/aar/pd-core-1.0.3-SNAPSHOT.aar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/android/support/design/R$id.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/android/support/design/R$id.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/android/support/v7/appcompat/R$id.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/android/support/v7/appcompat/R$id.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/leff/midi/MidiFile.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/leff/midi/MidiFile.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/noisepages/nettoyeur/midi/R$id.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/noisepages/nettoyeur/midi/R$id.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cpe/com/composer/FingerConfigFragment.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cpe/com/composer/FingerConfigFragment.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cpe/com/composer/InitialActivity$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cpe/com/composer/InitialActivity$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cpe/com/composer/InitialActivity$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cpe/com/composer/InitialActivity$2.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cpe/com/composer/InitialActivity$3.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cpe/com/composer/InitialActivity$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cpe/com/composer/InitialActivity$4.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cpe/com/composer/InitialActivity$4.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cpe/com/composer/InitialActivity$TouchListener.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cpe/com/composer/InitialActivity$TouchListener.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cpe/com/composer/InitialActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cpe/com/composer/InitialActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cpe/com/composer/MenuActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cpe/com/composer/MenuActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cpe/com/composer/MidiActivity$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cpe/com/composer/MidiActivity$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cpe/com/composer/MidiActivity$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cpe/com/composer/MidiActivity$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cpe/com/composer/MidiActivity$3.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cpe/com/composer/MidiActivity$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cpe/com/composer/MidiActivity$4.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cpe/com/composer/MidiActivity$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cpe/com/composer/MidiActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cpe/com/composer/MidiActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cpe/com/composer/PerformActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cpe/com/composer/PerformActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cpe/com/composer/PresetActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cpe/com/composer/PresetActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cpe/com/composer/R$id.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cpe/com/composer/R$id.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cpe/com/composer/R$integer.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cpe/com/composer/R$integer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cpe/com/composer/R$layout.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cpe/com/composer/R$layout.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cpe/com/composer/R$mipmap.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cpe/com/composer/R$mipmap.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cpe/com/composer/R$raw.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cpe/com/composer/R$raw.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cpe/com/composer/R$string.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cpe/com/composer/R$string.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cpe/com/composer/R$style.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cpe/com/composer/R$style.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cpe/com/composer/R$styleable.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cpe/com/composer/R$styleable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cpe/com/composer/R$xml.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cpe/com/composer/R$xml.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cpe/com/composer/StoreActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cpe/com/composer/StoreActivity.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cpe/com/composer/datamanager/PresetDatabase.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cpe/com/composer/datamanager/PresetDatabase.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cpe/com/composer/soundengine/MusicEngine$1$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cpe/com/composer/soundengine/MusicEngine$1$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cpe/com/composer/soundengine/MusicEngine$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cpe/com/composer/soundengine/MusicEngine$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cpe/com/composer/soundengine/MusicEngine.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cpe/com/composer/soundengine/MusicEngine.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cpe/com/composer/viewmanager/CustomGridViewAdapter.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cpe/com/composer/viewmanager/CustomGridViewAdapter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cpe/com/composer/viewmanager/PanelSlotViewAdapter$MyViewHolder.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cpe/com/composer/viewmanager/PanelSlotViewAdapter$MyViewHolder.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cpe/com/composer/viewmanager/PresetViewAdapter$MyViewHolder.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cpe/com/composer/viewmanager/PresetViewAdapter$MyViewHolder.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/puredata/android/service/R$id.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/puredata/android/service/R$id.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/android/support/design/R$id.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/android/support/design/R$id.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/android/support/v7/appcompat/R$id.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/android/support/v7/appcompat/R$id.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/leff/midi/MidiFile.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/leff/midi/MidiFile.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/noisepages/nettoyeur/midi/R$id.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/noisepages/nettoyeur/midi/R$id.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cpe/com/composer/FingerConfigFragment.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cpe/com/composer/FingerConfigFragment.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cpe/com/composer/InitialActivity$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cpe/com/composer/InitialActivity$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cpe/com/composer/InitialActivity$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cpe/com/composer/InitialActivity$2.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cpe/com/composer/InitialActivity$3.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cpe/com/composer/InitialActivity$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cpe/com/composer/InitialActivity$4.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cpe/com/composer/InitialActivity$4.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cpe/com/composer/InitialActivity$TouchListener.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cpe/com/composer/InitialActivity$TouchListener.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cpe/com/composer/InitialActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cpe/com/composer/InitialActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cpe/com/composer/MenuActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cpe/com/composer/MenuActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cpe/com/composer/MidiActivity$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cpe/com/composer/MidiActivity$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cpe/com/composer/MidiActivity$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cpe/com/composer/MidiActivity$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cpe/com/composer/MidiActivity$3.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cpe/com/composer/MidiActivity$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cpe/com/composer/MidiActivity$4.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cpe/com/composer/MidiActivity$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cpe/com/composer/MidiActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cpe/com/composer/MidiActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cpe/com/composer/PerformActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cpe/com/composer/PerformActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cpe/com/composer/PresetActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cpe/com/composer/PresetActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cpe/com/composer/R$id.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cpe/com/composer/R$id.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cpe/com/composer/R$integer.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cpe/com/composer/R$integer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cpe/com/composer/R$layout.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cpe/com/composer/R$layout.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cpe/com/composer/R$mipmap.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cpe/com/composer/R$mipmap.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cpe/com/composer/R$raw.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cpe/com/composer/R$raw.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cpe/com/composer/R$string.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cpe/com/composer/R$string.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cpe/com/composer/R$style.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cpe/com/composer/R$style.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cpe/com/composer/R$styleable.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cpe/com/composer/R$styleable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cpe/com/composer/R$xml.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cpe/com/composer/R$xml.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cpe/com/composer/StoreActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cpe/com/composer/StoreActivity.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cpe/com/composer/datamanager/PresetDatabase.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cpe/com/composer/datamanager/PresetDatabase.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cpe/com/composer/soundengine/MusicEngine$1$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cpe/com/composer/soundengine/MusicEngine$1$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cpe/com/composer/soundengine/MusicEngine$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cpe/com/composer/soundengine/MusicEngine$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cpe/com/composer/soundengine/MusicEngine.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cpe/com/composer/soundengine/MusicEngine.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cpe/com/composer/viewmanager/CustomGridViewAdapter.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cpe/com/composer/viewmanager/CustomGridViewAdapter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cpe/com/composer/viewmanager/PanelSlotViewAdapter$MyViewHolder.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cpe/com/composer/viewmanager/PanelSlotViewAdapter$MyViewHolder.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cpe/com/composer/viewmanager/PresetViewAdapter$MyViewHolder.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cpe/com/composer/viewmanager/PresetViewAdapter$MyViewHolder.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/org/puredata/android/service/R$id.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/org/puredata/android/service/R$id.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/zip-cache/HhBeE0zBX5YTtq3hijhfLczKOcE=" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/zip-cache/HhBeE0zBX5YTtq3hijhfLczKOcE=" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageInstantRunResourcesDebug/zip-cache/HhBeE0zBX5YTtq3hijhfLczKOcE=" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageInstantRunResourcesDebug/zip-cache/HhBeE0zBX5YTtq3hijhfLczKOcE=" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/instant-run-resources/resources-debug.ir.ap_" afterPath="$PROJECT_DIR$/app/build/intermediates/instant-run-resources/resources-debug.ir.ap_" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-24.2.1_e02c806a43dd22fc47dfc70808a560b503e1849e.jar" afterPath="$PROJECT_DIR$/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-24.2.1_e02c806a43dd22fc47dfc70808a560b503e1849e.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-24.2.1_a786d8a09c279c3ad7383f38276c713941049a83.jar" afterPath="$PROJECT_DIR$/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-24.2.1_a786d8a09c279c3ad7383f38276c713941049a83.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/pre-dexed/debug/com.android.support-design-24.2.1_a17b002169894fc876c9c5de2482b64cd80696d3.jar" afterPath="$PROJECT_DIR$/app/build/intermediates/pre-dexed/debug/com.android.support-design-24.2.1_a17b002169894fc876c9c5de2482b64cd80696d3.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/pre-dexed/debug/com.android.support-recyclerview-v7-24.2.1_af106e4a488f72632d2e09dcdf26e0a3dd6ce7c1.jar" afterPath="$PROJECT_DIR$/app/build/intermediates/pre-dexed/debug/com.android.support-recyclerview-v7-24.2.1_af106e4a488f72632d2e09dcdf26e0a3dd6ce7c1.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/pre-dexed/debug/com.android.support-support-compat-24.2.1_b5619c3cb6c4b441d4ea3ff554e50abef1edd2c5.jar" afterPath="$PROJECT_DIR$/app/build/intermediates/pre-dexed/debug/com.android.support-support-compat-24.2.1_b5619c3cb6c4b441d4ea3ff554e50abef1edd2c5.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-ui-24.2.1_872959ddfd2dae67aef0fff09544211fa22a105d.jar" afterPath="$PROJECT_DIR$/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-ui-24.2.1_872959ddfd2dae67aef0fff09544211fa22a105d.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-utils-24.2.1_c4ec85b09119db8b5d03930d49f9a8a069000d69.jar" afterPath="$PROJECT_DIR$/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-utils-24.2.1_c4ec85b09119db8b5d03930d49f9a8a069000d69.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/pre-dexed/debug/com.android.support-support-fragment-24.2.1_25c1a039e511bda707b0a3b84579db5f1c6309e7.jar" afterPath="$PROJECT_DIR$/app/build/intermediates/pre-dexed/debug/com.android.support-support-fragment-24.2.1_25c1a039e511bda707b0a3b84579db5f1c6309e7.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/pre-dexed/debug/com.android.support-support-media-compat-24.2.1_a4c6bebc9b4c37d5efa60475345fd6112420d690.jar" afterPath="$PROJECT_DIR$/app/build/intermediates/pre-dexed/debug/com.android.support-support-media-compat-24.2.1_a4c6bebc9b4c37d5efa60475345fd6112420d690.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-24.2.1_87d418a31a29ffc71fb299f34590d84fa8e9fba7.jar" afterPath="$PROJECT_DIR$/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-24.2.1_87d418a31a29ffc71fb299f34590d84fa8e9fba7.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-24.2.1_91e226ed68bc823e28bf2a14a8a2c61eef5489a0.jar" afterPath="$PROJECT_DIR$/app/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-24.2.1_91e226ed68bc823e28bf2a14a8a2c61eef5489a0.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/pre-dexed/debug/com.android.support.constraint-constraint-layout-1.0.0-beta4_f8b8a42e0c03f6bf50ccb7c1520073f616d7e596.jar" afterPath="$PROJECT_DIR$/app/build/intermediates/pre-dexed/debug/com.android.support.constraint-constraint-layout-1.0.0-beta4_f8b8a42e0c03f6bf50ccb7c1520073f616d7e596.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/pre-dexed/debug/com.github.markushi-circlebutton-1.1_82377e5cd866ca1c6b20b7b602ac999336e9afe1.jar" afterPath="$PROJECT_DIR$/app/build/intermediates/pre-dexed/debug/com.github.markushi-circlebutton-1.1_82377e5cd866ca1c6b20b7b602ac999336e9afe1.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/pre-dexed/debug/com.noisepages.nettoyeur-midi-1.0.0-rc1_3577698fc7bdefaa18cfc620b3714cb7acbf6ed2.jar" afterPath="$PROJECT_DIR$/app/build/intermediates/pre-dexed/debug/com.noisepages.nettoyeur-midi-1.0.0-rc1_3577698fc7bdefaa18cfc620b3714cb7acbf6ed2.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/pre-dexed/debug/constraint-layout-solver-1.0.0-beta4_e545acf69ff6fa62ea62c03f756e6056106d52f9.jar" afterPath="$PROJECT_DIR$/app/build/intermediates/pre-dexed/debug/constraint-layout-solver-1.0.0-beta4_e545acf69ff6fa62ea62c03f756e6056106d52f9.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/pre-dexed/debug/instant-run-bootstrap_59c94c0803fb9a98ca37ce83ca5ffe71ffee60d0.jar" afterPath="$PROJECT_DIR$/app/build/intermediates/pre-dexed/debug/instant-run-bootstrap_59c94c0803fb9a98ca37ce83ca5ffe71ffee60d0.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/pre-dexed/debug/instant-run_ef745a37eedf32d8a3eeb6483b091d8b8ee36e4c.jar" afterPath="$PROJECT_DIR$/app/build/intermediates/pre-dexed/debug/instant-run_ef745a37eedf32d8a3eeb6483b091d8b8ee36e4c.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_729d744153263b5f1ee5e44fe441c2897b66170d.jar" afterPath="$PROJECT_DIR$/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_729d744153263b5f1ee5e44fe441c2897b66170d.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_906ead639ef0c88f8577c18be711430155ce6911.jar" afterPath="$PROJECT_DIR$/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_906ead639ef0c88f8577c18be711430155ce6911.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_a0a462c83722e2edcb232544be593e19d5d7c03a.jar" afterPath="$PROJECT_DIR$/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_a0a462c83722e2edcb232544be593e19d5d7c03a.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_beac5d075f12d5cae617c5a54fd806975240d13c.jar" afterPath="$PROJECT_DIR$/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_beac5d075f12d5cae617c5a54fd806975240d13c.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_d217f4d93fdb73167d1f27e7aaa0cbaf67a6141c.jar" afterPath="$PROJECT_DIR$/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_d217f4d93fdb73167d1f27e7aaa0cbaf67a6141c.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/pre-dexed/debug/main_0ed3c9a9f515bd3fd7ebb80060f8fc490f441d6f.jar" afterPath="$PROJECT_DIR$/app/build/intermediates/pre-dexed/debug/main_0ed3c9a9f515bd3fd7ebb80060f8fc490f441d6f.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/pre-dexed/debug/support-annotations-24.2.1_0103f83adf5d37a9d29f1aa525ed237be18f660e.jar" afterPath="$PROJECT_DIR$/app/build/intermediates/pre-dexed/debug/support-annotations-24.2.1_0103f83adf5d37a9d29f1aa525ed237be18f660e.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/resources-debug.ap_" afterPath="$PROJECT_DIR$/app/build/intermediates/res/resources-debug.ap_" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dex/debug/folders/1000/1f/main/classes.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dex/debug/folders/1000/1f/main/classes.dex" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/android/support/design/R$id.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/android/support/design/R$id.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/android/support/v7/appcompat/R$id.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/android/support/v7/appcompat/R$id.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/com/leff/midi/MidiFile.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/com/leff/midi/MidiFile.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/com/noisepages/nettoyeur/midi/R$id.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/com/noisepages/nettoyeur/midi/R$id.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cpe/com/composer/FingerConfigFragment.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cpe/com/composer/FingerConfigFragment.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cpe/com/composer/InitialActivity$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cpe/com/composer/InitialActivity$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cpe/com/composer/InitialActivity$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cpe/com/composer/InitialActivity$2.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cpe/com/composer/InitialActivity$3.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cpe/com/composer/InitialActivity$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cpe/com/composer/InitialActivity$4.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cpe/com/composer/InitialActivity$4.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cpe/com/composer/InitialActivity$TouchListener.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cpe/com/composer/InitialActivity$TouchListener.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cpe/com/composer/InitialActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cpe/com/composer/InitialActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cpe/com/composer/MenuActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cpe/com/composer/MenuActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cpe/com/composer/MidiActivity$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cpe/com/composer/MidiActivity$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cpe/com/composer/MidiActivity$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cpe/com/composer/MidiActivity$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cpe/com/composer/MidiActivity$3.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cpe/com/composer/MidiActivity$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cpe/com/composer/MidiActivity$4.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cpe/com/composer/MidiActivity$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cpe/com/composer/MidiActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cpe/com/composer/MidiActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cpe/com/composer/PerformActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cpe/com/composer/PerformActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cpe/com/composer/PresetActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cpe/com/composer/PresetActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cpe/com/composer/R$id.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cpe/com/composer/R$id.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cpe/com/composer/R$integer.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cpe/com/composer/R$integer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cpe/com/composer/R$layout.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cpe/com/composer/R$layout.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cpe/com/composer/R$mipmap.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cpe/com/composer/R$mipmap.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cpe/com/composer/R$raw.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cpe/com/composer/R$raw.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cpe/com/composer/R$string.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cpe/com/composer/R$string.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cpe/com/composer/R$style.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cpe/com/composer/R$style.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cpe/com/composer/R$styleable.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cpe/com/composer/R$styleable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cpe/com/composer/R$xml.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cpe/com/composer/R$xml.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cpe/com/composer/StoreActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cpe/com/composer/StoreActivity.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cpe/com/composer/datamanager/PresetDatabase.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cpe/com/composer/datamanager/PresetDatabase.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cpe/com/composer/soundengine/MusicEngine$1$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cpe/com/composer/soundengine/MusicEngine$1$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cpe/com/composer/soundengine/MusicEngine$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cpe/com/composer/soundengine/MusicEngine$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cpe/com/composer/soundengine/MusicEngine.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cpe/com/composer/soundengine/MusicEngine.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cpe/com/composer/viewmanager/CustomGridViewAdapter.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cpe/com/composer/viewmanager/CustomGridViewAdapter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cpe/com/composer/viewmanager/PanelSlotViewAdapter$MyViewHolder.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cpe/com/composer/viewmanager/PanelSlotViewAdapter$MyViewHolder.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cpe/com/composer/viewmanager/PresetViewAdapter$MyViewHolder.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cpe/com/composer/viewmanager/PresetViewAdapter$MyViewHolder.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/org/puredata/android/service/R$id.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/org/puredata/android/service/R$id.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/outputs/apk/app-debug.apk" afterPath="$PROJECT_DIR$/app/build/outputs/apk/app-debug.apk" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PdCore/PdCore.iml" afterPath="$PROJECT_DIR$/PdCore/PdCore.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PdCore/jni/libpd/pure-data/.travis.yml" afterPath="$PROJECT_DIR$/PdCore/jni/libpd/pure-data/.travis.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PdCore/jni/libpd/pure-data/doc/1.manual/x2.htm" afterPath="$PROJECT_DIR$/PdCore/jni/libpd/pure-data/doc/1.manual/x2.htm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PdCore/jni/libpd/pure-data/doc/1.manual/x3.htm" afterPath="$PROJECT_DIR$/PdCore/jni/libpd/pure-data/doc/1.manual/x3.htm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PdCore/jni/libpd/pure-data/doc/3.audio.examples/B07.sampler.pd" afterPath="$PROJECT_DIR$/PdCore/jni/libpd/pure-data/doc/3.audio.examples/B07.sampler.pd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PdCore/jni/libpd/pure-data/doc/3.audio.examples/C05.sampler.oneshot.pd" afterPath="$PROJECT_DIR$/PdCore/jni/libpd/pure-data/doc/3.audio.examples/C05.sampler.oneshot.pd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PdCore/jni/libpd/pure-data/doc/3.audio.examples/C07.envelope.follower.pd" afterPath="$PROJECT_DIR$/PdCore/jni/libpd/pure-data/doc/3.audio.examples/C07.envelope.follower.pd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PdCore/jni/libpd/pure-data/doc/3.audio.examples/C10.monophonic.synth.pd" afterPath="$PROJECT_DIR$/PdCore/jni/libpd/pure-data/doc/3.audio.examples/C10.monophonic.synth.pd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PdCore/jni/libpd/pure-data/doc/3.audio.examples/D07.additive.pd" afterPath="$PROJECT_DIR$/PdCore/jni/libpd/pure-data/doc/3.audio.examples/D07.additive.pd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PdCore/jni/libpd/pure-data/doc/3.audio.examples/D10.sampler.notes.pd" afterPath="$PROJECT_DIR$/PdCore/jni/libpd/pure-data/doc/3.audio.examples/D10.sampler.notes.pd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PdCore/jni/libpd/pure-data/doc/3.audio.examples/D11.sampler.poly.pd" afterPath="$PROJECT_DIR$/PdCore/jni/libpd/pure-data/doc/3.audio.examples/D11.sampler.poly.pd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PdCore/jni/libpd/pure-data/doc/3.audio.examples/D12.sampler.bis.pd" afterPath="$PROJECT_DIR$/PdCore/jni/libpd/pure-data/doc/3.audio.examples/D12.sampler.bis.pd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PdCore/jni/libpd/pure-data/doc/3.audio.examples/H05.filter.floyd.pd" afterPath="$PROJECT_DIR$/PdCore/jni/libpd/pure-data/doc/3.audio.examples/H05.filter.floyd.pd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PdCore/jni/libpd/pure-data/doc/3.audio.examples/H16.adsr.filter.qlist.pd" afterPath="$PROJECT_DIR$/PdCore/jni/libpd/pure-data/doc/3.audio.examples/H16.adsr.filter.qlist.pd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PdCore/jni/libpd/pure-data/doc/3.audio.examples/J08.classicsynth.pd" afterPath="$PROJECT_DIR$/PdCore/jni/libpd/pure-data/doc/3.audio.examples/J08.classicsynth.pd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PdCore/jni/libpd/pure-data/doc/3.audio.examples/qlist-sampler.txt" afterPath="$PROJECT_DIR$/PdCore/jni/libpd/pure-data/doc/3.audio.examples/qlist-sampler.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PdCore/jni/libpd/pure-data/doc/3.audio.examples/qlist2.txt" afterPath="$PROJECT_DIR$/PdCore/jni/libpd/pure-data/doc/3.audio.examples/qlist2.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PdCore/jni/libpd/pure-data/doc/3.audio.examples/sampvoice2.pd" afterPath="$PROJECT_DIR$/PdCore/jni/libpd/pure-data/doc/3.audio.examples/sampvoice2.pd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PdCore/jni/libpd/pure-data/doc/4.data.structures/14.partialtracer.pd" afterPath="$PROJECT_DIR$/PdCore/jni/libpd/pure-data/doc/4.data.structures/14.partialtracer.pd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PdCore/jni/libpd/pure-data/doc/5.reference/clone-help.pd" afterPath="$PROJECT_DIR$/PdCore/jni/libpd/pure-data/doc/5.reference/clone-help.pd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PdCore/jni/libpd/pure-data/doc/5.reference/help-intro.pd" afterPath="$PROJECT_DIR$/PdCore/jni/libpd/pure-data/doc/5.reference/help-intro.pd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PdCore/jni/libpd/pure-data/doc/5.reference/list-help.pd" afterPath="$PROJECT_DIR$/PdCore/jni/libpd/pure-data/doc/5.reference/list-help.pd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PdCore/jni/libpd/pure-data/doc/5.reference/makenote-help.pd" afterPath="$PROJECT_DIR$/PdCore/jni/libpd/pure-data/doc/5.reference/makenote-help.pd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PdCore/jni/libpd/pure-data/doc/5.reference/my_canvas-help.pd" afterPath="$PROJECT_DIR$/PdCore/jni/libpd/pure-data/doc/5.reference/my_canvas-help.pd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PdCore/jni/libpd/pure-data/doc/5.reference/stripnote-help.pd" afterPath="$PROJECT_DIR$/PdCore/jni/libpd/pure-data/doc/5.reference/stripnote-help.pd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PdCore/jni/libpd/pure-data/doc/5.reference/symbol-help.pd" afterPath="$PROJECT_DIR$/PdCore/jni/libpd/pure-data/doc/5.reference/symbol-help.pd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PdCore/jni/libpd/pure-data/doc/5.reference/text-object-help.pd" afterPath="$PROJECT_DIR$/PdCore/jni/libpd/pure-data/doc/5.reference/text-object-help.pd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PdCore/jni/libpd/pure-data/doc/6.externs/makefile" afterPath="$PROJECT_DIR$/PdCore/jni/libpd/pure-data/doc/6.externs/makefile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PdCore/jni/libpd/pure-data/doc/7.stuff/synth/1.poly.synth.pd" afterPath="$PROJECT_DIR$/PdCore/jni/libpd/pure-data/doc/7.stuff/synth/1.poly.synth.pd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PdCore/jni/libpd/pure-data/portmidi/pm_linux/README_LINUX.txt" afterPath="$PROJECT_DIR$/PdCore/jni/libpd/pure-data/portmidi/pm_linux/README_LINUX.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PdCore/jni/libpd/pure-data/portmidi/pm_mac/Makefile.osx" afterPath="$PROJECT_DIR$/PdCore/jni/libpd/pure-data/portmidi/pm_mac/Makefile.osx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PdCore/jni/libpd/pure-data/portmidi/pm_mac/README_MAC.txt" afterPath="$PROJECT_DIR$/PdCore/jni/libpd/pure-data/portmidi/pm_mac/README_MAC.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PdCore/jni/libpd/pure-data/portmidi/pm_win/README_WIN.txt" afterPath="$PROJECT_DIR$/PdCore/jni/libpd/pure-data/portmidi/pm_win/README_WIN.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PdCore/jni/libpd/pure-data/src/CHANGELOG.txt" afterPath="$PROJECT_DIR$/PdCore/jni/libpd/pure-data/src/CHANGELOG.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PdCore/jni/libpd/pure-data/src/makefile.mingw" afterPath="$PROJECT_DIR$/PdCore/jni/libpd/pure-data/src/makefile.mingw" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PdCore/jni/libpd/pure-data/src/makefile.msvc" afterPath="$PROJECT_DIR$/PdCore/jni/libpd/pure-data/src/makefile.msvc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PdCore/jni/libpd/pure-data/src/notes.txt" afterPath="$PROJECT_DIR$/PdCore/jni/libpd/pure-data/src/notes.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PdCore/jni/libpd/pure-data/tcl/pd_deken.tcl" afterPath="$PROJECT_DIR$/PdCore/jni/libpd/pure-data/tcl/pd_deken.tcl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PdCore/jni/libpd/samples/cpp/pdtest/pd/test.pd" afterPath="$PROJECT_DIR$/PdCore/jni/libpd/samples/cpp/pdtest/pd/test.pd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PdCore/jni/libpd/samples/objc/ios/pdtest/pd/test.pd" afterPath="$PROJECT_DIR$/PdCore/jni/libpd/samples/objc/ios/pdtest/pd/test.pd" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/android/support/design/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/android/support/design/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/android/support/v7/appcompat/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/android/support/v7/appcompat/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/noisepages/nettoyeur/midi/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/noisepages/nettoyeur/midi/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/cpe/com/composer/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/cpe/com/composer/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/org/puredata/android/service/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/org/puredata/android/service/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/drawable-xhdpi-v4.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/drawable-xhdpi-v4.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugAndroidTestResources/compile-file-map.properties" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugAndroidTestResources/compile-file-map.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/compile-file-map.properties" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/compile-file-map.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/dex-renamer-state.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/dex-renamer-state.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageInstantRunResourcesDebug/dex-renamer-state.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageInstantRunResourcesDebug/dex-renamer-state.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout/activity_initial.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout/activity_initial.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout/activity_midi.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout/activity_midi.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/restart-dex/debug/build-info.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/restart-dex/debug/build-info.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/symbols/debug/R.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/symbols/debug/R.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/leff/midi/MidiFile.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/leff/midi/MidiFile.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/cpe/com/composer/InitialActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/cpe/com/composer/InitialActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/cpe/com/composer/MidiActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/cpe/com/composer/MidiActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/cpe/com/composer/datamanager/PresetDatabase.java" afterPath="$PROJECT_DIR$/app/src/main/java/cpe/com/composer/datamanager/PresetDatabase.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/cpe/com/composer/viewmanager/CustomGridViewAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/cpe/com/composer/viewmanager/CustomGridViewAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_initial.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_initial.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_midi.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_midi.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/local.properties" afterPath="$PROJECT_DIR$/local.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/cpe/com/composer/soundengine/MusicEngine.java" afterPath="$PROJECT_DIR$/app/src/main/java/cpe/com/composer/soundengine/MusicEngine.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/cpe/com/composer/soundengine/TrackCell.java" afterPath="$PROJECT_DIR$/app/src/main/java/cpe/com/composer/soundengine/TrackCell.java" />
     </list>
     <ignored path="Composer.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -264,46 +91,6 @@
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
-  </component>
-  <component name="DockManager">
-    <window id="1">
-      <content type="file-editors">
-        <state>
-          <leaf>
-            <file leaf-file-name="InitialActivity.java" pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/app/src/main/java/cpe/com/composer/InitialActivity.java">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="444">
-                    <caret line="141" column="41" selection-start-line="141" selection-start-column="41" selection-end-line="141" selection-end-column="41" />
-                    <folding>
-                      <element signature="imports" expanded="true" />
-                      <element signature="e#3059#3281#0" expanded="true" />
-                      <element signature="e#3280#3281#0" expanded="true" />
-                      <element signature="e#3327#3495#0" expanded="true" />
-                      <element signature="e#3494#3495#0" expanded="true" />
-                      <element signature="method#initPanelSlot#0;class#InitialActivity#0" expanded="false" />
-                      <element signature="class#TouchListener#0;class#InitialActivity#0" expanded="false" />
-                    </folding>
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file leaf-file-name="MidiActivity.java" pinned="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/app/src/main/java/cpe/com/composer/MidiActivity.java">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="421">
-                    <caret line="404" column="11" selection-start-line="404" selection-start-column="11" selection-end-line="404" selection-end-column="11" />
-                    <folding>
-                      <element signature="imports" expanded="true" />
-                    </folding>
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="ExternalProjectsData">
@@ -325,11 +112,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="PresetDatabase.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="PresetDatabase.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/cpe/com/composer/datamanager/PresetDatabase.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="26" column="81" selection-start-line="26" selection-start-column="81" selection-end-line="26" selection-end-column="81" />
+            <state relative-caret-position="85">
+              <caret line="9" column="53" selection-start-line="9" selection-start-column="53" selection-end-line="9" selection-end-column="53" />
               <folding />
             </state>
           </provider>
@@ -338,36 +125,12 @@
       <file leaf-file-name="MusicEngine.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/cpe/com/composer/soundengine/MusicEngine.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="214">
-              <caret line="73" column="9" selection-start-line="73" selection-start-column="9" selection-end-line="73" selection-end-column="9" />
+            <state relative-caret-position="89">
+              <caret line="187" column="26" selection-start-line="187" selection-start-column="26" selection-end-line="187" selection-end-column="26" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#noteLoader#0;class#MusicEngine#0" expanded="false" />
-                <element signature="e#9959#10258#0" expanded="true" />
-                <element signature="e#10064#10232#0" expanded="true" />
-                <element signature="e#10231#10232#0" expanded="true" />
-                <element signature="e#10257#10258#0" expanded="true" />
+                <element signature="e#6851#7019#0" expanded="true" />
+                <element signature="e#7018#7019#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NoteCell.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/cpe/com/composer/soundengine/NoteCell.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="31" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="31" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TrackCell.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/cpe/com/composer/soundengine/TrackCell.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -3256,7 +3019,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/cpe/com/composer/datamanager/BluetoothModule.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/cpe/com/composer/PresetActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/cpe/com/composer/PerformActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/cpe/com/composer/datamanager/PresetDatabase.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/cpe/com/composer/datamanager/TrackMetaData.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/cpe/com/composer/datamanager/TrackCellMetaData.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/cpe/com/composer/soundengine/NoteDetail.java" />
@@ -3267,11 +3029,12 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/leff/midi/MidiFile.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/cpe/com/composer/soundengine/MusicWriter.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_midi.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/cpe/com/composer/MidiActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_initial.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/cpe/com/composer/InitialActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/cpe/com/composer/soundengine/MusicEngine.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/cpe/com/composer/soundengine/TrackCell.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/cpe/com/composer/MidiActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/cpe/com/composer/soundengine/MusicEngine.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/cpe/com/composer/datamanager/PresetDatabase.java" />
       </list>
     </option>
   </component>
@@ -3306,6 +3069,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -3395,28 +3161,6 @@
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="composer" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="datamanager" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Composer" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -3426,12 +3170,9 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane />
       </pane>
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -3783,39 +3524,39 @@
     <frame x="-1608" y="-4" width="1616" height="876" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22768533" sideWeight="0.5068259" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3983287" sideWeight="0.5030257" order="9" side_tool="true" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6559889" sideWeight="0.4969743" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32969153" sideWeight="0.505571" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39972144" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26880223" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22768533" sideWeight="0.5068259" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286908" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3983287" sideWeight="0.5030257" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7200557" sideWeight="0.4969743" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286908" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32729805" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32729805" sideWeight="0.5" order="14" side_tool="true" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21401028" sideWeight="0.49317408" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32729805" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32969153" sideWeight="0.49442896" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32969153" sideWeight="0.505571" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39972144" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find Sample Code" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286908" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Find Sample Code" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286908" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32729805" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -3872,8 +3613,32 @@
           <properties class="cpe.com.composer.viewmanager.fragmentPagerAdapter" method="addFragment" />
           <option name="timeStamp" value="4" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/cpe/com/composer/soundengine/MusicEngine.java</url>
+          <line>168</line>
+          <properties />
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/cpe/com/composer/soundengine/MusicEngine.java</url>
+          <line>135</line>
+          <properties />
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/cpe/com/composer/soundengine/MusicEngine.java</url>
+          <line>112</line>
+          <properties />
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/cpe/com/composer/soundengine/MusicEngine.java</url>
+          <line>110</line>
+          <properties />
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="5" />
+      <option name="time" value="17" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -3893,13 +3658,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_finger_set.xml">
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="282">
           <caret line="103" column="40" selection-start-line="103" selection-start-column="40" selection-end-line="103" selection-end-column="40" />
         </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/cpe/com/composer/viewmanager/PanelSlotViewAdapter.java">
@@ -3910,13 +3675,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/row_panel.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/vu_meter.xml">
@@ -3950,14 +3715,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_preset.xml">
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="19" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
           <folding />
         </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
@@ -3982,13 +3747,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_arm_config.xml">
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="146">
           <caret line="9" column="39" selection-start-line="9" selection-start-column="39" selection-end-line="9" selection-end-column="39" />
         </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/cpe/com/composer/StoreActivity.java">
@@ -4001,24 +3766,24 @@
     <entry file="file://$PROJECT_DIR$/app/src/main/java/cpe/com/composer/DataTestActivity.java" />
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_data_test.xml" />
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_perform.xml">
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="495">
           <caret line="75" column="0" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
         </state>
       </provider>
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_menu.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="163">
           <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
           <folding />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/leff/midi/util/MidiUtil.java">
@@ -4155,25 +3920,24 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider editor-type-id="android-manifest">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="12" column="78" selection-start-line="12" selection-start-column="78" selection-end-line="12" selection-end-column="78" />
           <folding />
         </state>
       </provider>
-      <provider editor-type-id="android-manifest">
-        <state />
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_midi.xml">
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="474">
           <caret line="68" column="27" selection-start-line="68" selection-start-column="27" selection-end-line="68" selection-end-column="27" />
-          <folding />
         </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/cpe/com/composer/viewmanager/fragmentPagerAdapter.java">
@@ -4184,71 +3948,35 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/cpe/com/composer/MidiActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="421">
-          <caret line="404" column="11" selection-start-line="404" selection-start-column="11" selection-end-line="404" selection-end-column="11" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_initial.xml">
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="1462">
           <caret line="97" column="42" selection-start-line="97" selection-start-column="42" selection-end-line="97" selection-end-column="42" />
           <folding />
         </state>
       </provider>
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
-      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/cpe/com/composer/datamanager/PresetDatabase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="26" column="81" selection-start-line="26" selection-start-column="81" selection-end-line="26" selection-end-column="81" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/cpe/com/composer/soundengine/MusicWriter.java" />
     <entry file="file://$PROJECT_DIR$/app/src/main/java/cpe/com/composer/InitialActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="444">
-          <caret line="141" column="41" selection-start-line="141" selection-start-column="41" selection-end-line="141" selection-end-column="41" />
+        <state relative-caret-position="189">
+          <caret line="77" column="0" selection-start-line="77" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3059#3281#0" expanded="true" />
-            <element signature="e#3280#3281#0" expanded="true" />
-            <element signature="e#3327#3495#0" expanded="true" />
-            <element signature="e#3494#3495#0" expanded="true" />
             <element signature="method#initPanelSlot#0;class#InitialActivity#0" expanded="false" />
             <element signature="class#TouchListener#0;class#InitialActivity#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/cpe/com/composer/soundengine/MusicWriter.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/cpe/com/composer/soundengine/TrackCell.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+        <state relative-caret-position="17">
+          <caret line="5" column="3" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="3" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/cpe/com/composer/soundengine/MusicEngine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
-          <caret line="73" column="9" selection-start-line="73" selection-start-column="9" selection-end-line="73" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#noteLoader#0;class#MusicEngine#0" expanded="false" />
-            <element signature="e#9959#10258#0" expanded="true" />
-            <element signature="e#10064#10232#0" expanded="true" />
-            <element signature="e#10231#10232#0" expanded="true" />
-            <element signature="e#10257#10258#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -4260,10 +3988,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/cpe/com/composer/soundengine/TrackCell.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/cpe/com/composer/soundengine/MusicEngine.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        <state relative-caret-position="89">
+          <caret line="187" column="26" selection-start-line="187" selection-start-column="26" selection-end-line="187" selection-end-column="26" />
+          <folding>
+            <element signature="e#6851#7019#0" expanded="true" />
+            <element signature="e#7018#7019#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/cpe/com/composer/MidiActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="381" column="61" selection-start-line="381" selection-start-column="61" selection-end-line="381" selection-end-column="61" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/cpe/com/composer/datamanager/PresetDatabase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="9" column="53" selection-start-line="9" selection-start-column="53" selection-end-line="9" selection-end-column="53" />
           <folding />
         </state>
       </provider>

@@ -17,10 +17,7 @@ import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageButton;
 
-import java.util.ArrayList;
-
 import cpe.com.composer.datamanager.PresetDatabase;
-import cpe.com.composer.soundengine.TrackCell;
 import cpe.com.composer.soundengine.MusicEngine;
 import cpe.com.composer.viewmanager.CustomGridViewAdapter;
 import cpe.com.composer.viewmanager.PanelSlotViewAdapter;
@@ -42,8 +39,6 @@ public class InitialActivity extends AppCompatActivity{
 
     private RecyclerView panelSlotView;
     private PanelSlotViewAdapter mAdapter;
-
-    private ArrayList<TrackCell> trackCells = new ArrayList<>();
 
     private MusicEngine musicEngine;
 
@@ -77,15 +72,16 @@ public class InitialActivity extends AppCompatActivity{
         //Tab initialization
         tabLayout.setupWithViewPager(mPager);
 
-        initDatabase();
+        //initDatabase();
         musicEngine = new MusicEngine(this, PATH);
+        musicEngine.loadDatabase();
 
-        controllerGrid.setAdapter(new CustomGridViewAdapter(this, trackCells));
+        controllerGrid.setAdapter(new CustomGridViewAdapter(this, musicEngine.getTrackCells()));
         controllerGrid.setOnItemLongClickListener(new TouchListener());
         controllerGrid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, final int i, long l) {
-                musicEngine.playID(i);
+                musicEngine.playID(musicEngine.getIdFromUI(i));
             }
         });
 
@@ -132,23 +128,6 @@ public class InitialActivity extends AppCompatActivity{
 
             }
         }));
-    }
-
-    private void initDatabase(){
-        mHelper = new PresetDatabase(this);
-        mDb = mHelper.getWritableDatabase();
-        mCursor = mDb.rawQuery("SELECT * FROM " + PresetDatabase.TABLE_NAME, null);
-        mCursor.moveToFirst();
-        while ( !mCursor.isAfterLast() ){
-            int id = mCursor.getInt(mCursor.getColumnIndex("_id"));
-            String title = mCursor.getString(mCursor.getColumnIndex(PresetDatabase.COL_TITLE));
-            int channel = mCursor.getInt(mCursor.getColumnIndex(PresetDatabase.COL_CHANNEL));
-            int program = mCursor.getInt(mCursor.getColumnIndex(PresetDatabase.COL_PROGRAM));
-            String note = mCursor.getString(mCursor.getColumnIndex(PresetDatabase.COL_NOTE));
-
-            trackCells.add(new TrackCell(id, title, channel, program, note));
-            mCursor.moveToNext();
-        }
     }
 
     private final class TouchListener implements  AdapterView.OnItemLongClickListener {

@@ -14,6 +14,10 @@ import com.leff.midi.event.ProgramChange;
 import com.leff.midi.event.meta.Tempo;
 import com.leff.midi.event.meta.TimeSignature;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -23,9 +27,6 @@ import java.util.TimerTask;
 import cpe.com.composer.datamanager.PresetDatabase;
 
 public class MusicEngine {
-    private static final int CHANNEL_BASS = 1;
-    private static final int CHANNEL_GUITAR = 2;
-    private static final int CHANNEL_DRUM = 9;
     private static final int PPQ=120;
     private static final int NOTE_DURATION=120;
 
@@ -37,12 +38,9 @@ public class MusicEngine {
 
     private ArrayList<TrackCell> trackCells = new ArrayList<>();
     private ArrayList<Integer> playingID = new ArrayList<>();
+    private ArrayList<Integer> playingChannel = new ArrayList<>();
 
     MidiFile midi;
-    MidiTrack drumTrack1 = new MidiTrack();
-    MidiTrack drumTrack2 = new MidiTrack();
-    MidiTrack bassTrack = new MidiTrack();
-    MidiTrack guitarTrack = new MidiTrack();
 
     File output;
     MediaPlayer player;
@@ -66,7 +64,6 @@ public class MusicEngine {
 
         tempoTrack.insertEvent(ts);
         tempoTrack.insertEvent(tempo);
-        noteLoader();
 
         midi.addTrack(tempoTrack);
         output = new File(path+"/exampleout.mid");
@@ -87,6 +84,7 @@ public class MusicEngine {
         mCursor = mDb.rawQuery("SELECT * FROM " + PresetDatabase.TABLE_NAME, null);
 
         mCursor.moveToFirst();
+        Log.d(TAG, "Loading database");
         while ( !mCursor.isAfterLast() ){
             int id = mCursor.getInt(mCursor.getColumnIndex("_id"));
             String title = mCursor.getString(mCursor.getColumnIndex(PresetDatabase.COL_TITLE));
@@ -99,80 +97,28 @@ public class MusicEngine {
         }
     }
 
-    private void noteLoader(){
-        drumTrack2.insertNote(CHANNEL_DRUM, 36, 100, 0, NOTE_DURATION);
-        drumTrack2.insertNote(CHANNEL_DRUM, 36, 100, 4*PPQ, NOTE_DURATION);
-        drumTrack2.insertNote(CHANNEL_DRUM, 36, 100, 8*PPQ, NOTE_DURATION);
-        drumTrack2.insertNote(CHANNEL_DRUM, 36, 100, 12*PPQ, NOTE_DURATION);
-        drumTrack2.insertNote(CHANNEL_DRUM, 0, 100, 15*PPQ, NOTE_DURATION);
+    public int getIdFromUI(int position){
+        return trackCells.get(position).getID();
+    }
 
-
-        drumTrack1.insertNote(CHANNEL_DRUM, 53, 100, 0, NOTE_DURATION);
-        drumTrack1.insertNote(CHANNEL_DRUM, 53, 100, 4*PPQ, NOTE_DURATION);
-        drumTrack1.insertNote(CHANNEL_DRUM, 53, 100, 8*PPQ, NOTE_DURATION);
-        drumTrack1.insertNote(CHANNEL_DRUM, 53, 100, 12*PPQ, NOTE_DURATION);
-
-        drumTrack1.insertNote(CHANNEL_DRUM, 36, 100, 0, NOTE_DURATION);
-        drumTrack1.insertNote(CHANNEL_DRUM, 36, 100, 3*PPQ, NOTE_DURATION);
-        drumTrack1.insertNote(CHANNEL_DRUM, 38, 100, 4*PPQ, NOTE_DURATION);
-        drumTrack1.insertNote(CHANNEL_DRUM, 36, 100, 6*PPQ, NOTE_DURATION);
-        drumTrack1.insertNote(CHANNEL_DRUM, 36, 100, 10*PPQ, NOTE_DURATION);
-        drumTrack1.insertNote(CHANNEL_DRUM, 36, 100, 11*PPQ, NOTE_DURATION);
-        drumTrack1.insertNote(CHANNEL_DRUM, 38, 100, 12*PPQ, NOTE_DURATION);
-        drumTrack1.insertNote(CHANNEL_DRUM, 38, 100, 14*PPQ, NOTE_DURATION);
-        drumTrack1.insertNote(CHANNEL_DRUM, 38, 100, 15*PPQ, NOTE_DURATION);
-
-        //Set Program
-        bassTrack.insertEvent(new ProgramChange(0, CHANNEL_BASS, ProgramChange.MidiProgram.ELECTRIC_BASS_PICK.programNumber()));
-        guitarTrack.insertEvent(new ProgramChange(0, CHANNEL_GUITAR, ProgramChange.MidiProgram.ELECTRIC_GUITAR_CLEAN.programNumber()));
-
-        // Track 1 will have some notes in it
-
-        bassTrack.insertNote(CHANNEL_BASS, 39, 100, 0, NOTE_DURATION);
-        bassTrack.insertNote(CHANNEL_BASS, 42, 100, 1*PPQ, NOTE_DURATION);
-        bassTrack.insertNote(CHANNEL_BASS, 44, 100, 2*PPQ, NOTE_DURATION);
-        bassTrack.insertNote(CHANNEL_BASS, 45, 100, 4*PPQ, NOTE_DURATION);
-        bassTrack.insertNote(CHANNEL_BASS, 51, 100, 5*PPQ, NOTE_DURATION);
-        bassTrack.insertNote(CHANNEL_BASS, 45, 100, 6*PPQ, NOTE_DURATION);
-        bassTrack.insertNote(CHANNEL_BASS, 44, 100, 7*PPQ, NOTE_DURATION);
-        bassTrack.insertNote(CHANNEL_BASS, 51, 100, 10*PPQ, NOTE_DURATION);
-        bassTrack.insertNote(CHANNEL_BASS, 39, 100, 11*PPQ, NOTE_DURATION);
-        bassTrack.insertNote(CHANNEL_BASS, 39, 100, 12*PPQ, NOTE_DURATION);
-        bassTrack.insertNote(CHANNEL_BASS, 39, 100, 13*PPQ, NOTE_DURATION);
-        bassTrack.insertNote(CHANNEL_BASS, 39, 100, 14*PPQ, NOTE_DURATION);
-
-        guitarTrack.insertNote(CHANNEL_GUITAR, 63, 100, 0, NOTE_DURATION+200);
-        guitarTrack.insertNote(CHANNEL_GUITAR, 66, 100, 0, NOTE_DURATION+200);
-        guitarTrack.insertNote(CHANNEL_GUITAR, 70, 100, 0, NOTE_DURATION+200);
-
-        guitarTrack.insertNote(CHANNEL_GUITAR, 63, 100, 3*PPQ, 50);
-        guitarTrack.insertNote(CHANNEL_GUITAR, 66, 100, 3*PPQ, 50);
-        guitarTrack.insertNote(CHANNEL_GUITAR, 70, 100, 3*PPQ, 50);
-
-        guitarTrack.insertNote(CHANNEL_GUITAR, 63, 100, 6*PPQ, NOTE_DURATION+200);
-        guitarTrack.insertNote(CHANNEL_GUITAR, 66, 100, 6*PPQ, NOTE_DURATION+200);
-        guitarTrack.insertNote(CHANNEL_GUITAR, 70, 100, 6*PPQ, NOTE_DURATION+200);
-        guitarTrack.insertNote(CHANNEL_GUITAR, 72, 100, 6*PPQ, NOTE_DURATION+200);
-
-        guitarTrack.insertNote(CHANNEL_GUITAR, 63, 100, 9*PPQ, 50);
-        guitarTrack.insertNote(CHANNEL_GUITAR, 66, 100, 9*PPQ, 50);
-        guitarTrack.insertNote(CHANNEL_GUITAR, 70, 100, 9*PPQ, 50);
-        guitarTrack.insertNote(CHANNEL_GUITAR, 72, 100, 9*PPQ, 50);
+    public ArrayList<TrackCell> getTrackCells(){
+        return trackCells;
     }
 
     public void playID(int id) {
-        if (playingID.size() != 0) {
+        final int channel = trackCells.get(id-1).getChannel();
+        Log.d(TAG, "GET ID: " + id);
+        if (playingID.size() != 0) { //On playing
             Log.d(TAG, "Someone has been played");
             if (playingID.contains(id)) {
-                Log.d(TAG, "It have your ID already, remove");
+                Log.d(TAG, "User click on exist ID, remove it");
                 int currentPosition = player.getCurrentPosition();
                 player.stop();
                 player.release();
 
                 midi.removeTrack(playingID.indexOf(id)+1);
-                Log.d(TAG, "ID " + playingID.indexOf(id) + " has been removed");
-                Log.d(TAG, "Removing track " +playingID.indexOf(id) + " ...");
                 playingID.remove(new Integer(id));
+                playingChannel.remove(new Integer(channel));
 
                 try {
                     midi.writeToFile(output);
@@ -189,38 +135,39 @@ public class MusicEngine {
                 }
             } else {
                 Log.d(TAG, "New ID coming");
-                if (player.isPlaying()) {
-                    int currentPosition = player.getCurrentPosition();
-                    player.stop();
-                    player.release();
+                int currentPosition = player.getCurrentPosition();
+                player.stop();
+                player.release();
 
-                    midi.addTrack(guitarTrack);
-                    try {
-                        midi.writeToFile(output);
-                    } catch (IOException e) {
-                        System.err.println(e);
-                    }
-
-                    player = MediaPlayer.create(context, Uri.fromFile(output));
-                    player.seekTo(currentPosition);
-                    player.start();
+                if(playingChannel.contains(channel)){ //Check if channel was running already
+                    Log.d(TAG, "Duplicate channel");
+                    int indexToRemove = playingChannel.indexOf(channel);
+                    midi.removeTrack(indexToRemove+1);
+                    midi.addTrack(getTrackFromId(id));
+                    playingID.remove(indexToRemove);
+                    playingChannel.remove(indexToRemove);
                 } else {
-                    Log.d(TAG, "Play on stop");
-                    midi.addTrack(guitarTrack);
-                    try {
-                        midi.writeToFile(output);
-                    } catch (IOException e) {
-                        System.err.println(e);
-                    }
-                    player = MediaPlayer.create(context, Uri.fromFile(output));
-                    player.start();
+                    Log.d(TAG, "New Channel");
+                    midi.addTrack(getTrackFromId(id));
                 }
+
+                try {
+                    midi.writeToFile(output);
+                } catch (IOException e) {
+                    System.err.println(e);
+                }
+
+                player = MediaPlayer.create(context, Uri.fromFile(output));
+                player.seekTo(currentPosition);
+                player.start();
+
                 playingID.add(id);
+                playingChannel.add(trackCells.get(id-1).getChannel());
             }
         }
-        else{
+        else{ //First play
             Log.d(TAG, "Nobody played, First play");
-            midi.addTrack(drumTrack1);
+            midi.addTrack(getTrackFromId(id));
             try {
                 midi.writeToFile(output);
             } catch (IOException e) {
@@ -230,6 +177,14 @@ public class MusicEngine {
             player.setLooping(true);
             player.start();
             playingID.add(id);
+            playingChannel.add(trackCells.get(id-1).getChannel());
+            loopHacking();
+        }
+        if(playingID.size()!=0&&(!player.isPlaying())) {
+            player.release();
+            HACK_loopTimer.cancel();
+            player = MediaPlayer.create(context, Uri.fromFile(output));
+            player.start();
             loopHacking();
         }
     }
@@ -251,9 +206,28 @@ public class MusicEngine {
         HACK_loopTimer.schedule(HACK_loopTask, waitingTime, waitingTime);
     }
 
+    private MidiTrack getTrackFromId(int id){
+        MidiTrack track = new MidiTrack();
+        int program = trackCells.get(id-1).getProgram();
+        if(program!=-1){
+            track.insertEvent(new ProgramChange(0, trackCells.get(id-1).getChannel(), trackCells.get(id-1).getProgram()));
+        }
+        try {
+            JSONObject jsonObject = new JSONObject(trackCells.get(id-1).getNote());
+            JSONArray pitchArray = jsonObject.getJSONArray("note");
+            JSONArray ppqArray = jsonObject.getJSONArray("ppq");
+            for(int i=0;i<pitchArray.length();i++){
+                track.insertNote(trackCells.get(id-1).getChannel(), pitchArray.getInt(i), 100, ppqArray.getInt(i)*PPQ, NOTE_DURATION);
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return track;
+    }
+
     public void checkPlayingArray(){
-        for(int sId: playingID){
-            Log.d(TAG, "playingID: " + sId);
+        for(int i=0;i<playingID.size();i++){
+            Log.d(TAG, "playingID: " + playingID.get(i) + ", playingChannel: " + playingChannel.get(i));
         }
     }
 }

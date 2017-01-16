@@ -1,5 +1,9 @@
 package cpe.com.composer.soundengine;
 
+/**
+ *  This class use to store information about track
+ *  That impoort from database
+ */
 public class TrackCell {
     private int ID;
     private String title;
