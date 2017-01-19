@@ -19,12 +19,21 @@ public class CustomGridViewAdapter extends BaseAdapter {
 
     public CustomGridViewAdapter(Context context, ArrayList<Integer> InstrumentID,ArrayList<String> instrumentTitle){
         this.context = context;
-        this.instrumentID = instrumentID;
+        this.instrumentID = InstrumentID;
         this.instrumentTitle = instrumentTitle;
     }
 
     public CustomGridViewAdapter(Context context, ArrayList<TrackCell> tracks){
         this.context = context;
+        for(int i=0;i<tracks.size();i++){
+            this.instrumentID.add(tracks.get(i).getID());
+            this.instrumentTitle.add(tracks.get(i).getTitle());
+        }
+    }
+
+    public void setData(ArrayList<TrackCell> tracks){
+        instrumentID = new ArrayList<>();
+        instrumentTitle = new ArrayList<>();
         for(int i=0;i<tracks.size();i++){
             this.instrumentID.add(tracks.get(i).getID());
             this.instrumentTitle.add(tracks.get(i).getTitle());
@@ -43,7 +52,7 @@ public class CustomGridViewAdapter extends BaseAdapter {
 
     @Override
     public long getItemId(int i) {
-        return 0;
+        return instrumentID.get(i);
     }
 
     @Override
@@ -59,7 +68,7 @@ public class CustomGridViewAdapter extends BaseAdapter {
             seqView.setText(String.valueOf(instrumentTitle.get(i)));
         }
         else {
-            gridView = (View) view;
+            gridView = view;
         }
 
         return gridView;

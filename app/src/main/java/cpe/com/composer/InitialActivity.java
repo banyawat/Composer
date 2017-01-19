@@ -2,8 +2,6 @@ package cpe.com.composer;
 
 import android.content.ClipData;
 import android.content.Intent;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.design.widget.TabLayout;
@@ -17,7 +15,6 @@ import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageButton;
 
-import cpe.com.composer.datamanager.PresetDatabase;
 import cpe.com.composer.soundengine.MusicEngine;
 import cpe.com.composer.viewmanager.CustomGridViewAdapter;
 import cpe.com.composer.viewmanager.PanelSlotViewAdapter;
@@ -26,6 +23,8 @@ import cpe.com.composer.viewmanager.fragmentPagerAdapter;
 
 public class InitialActivity extends AppCompatActivity{
     private GridView controllerGrid;
+    private CustomGridViewAdapter adapter;
+
     private TabLayout tabLayout;
     private ViewPager mPager;
     private fragmentPagerAdapter mPagerAdapter;
@@ -33,14 +32,13 @@ public class InitialActivity extends AppCompatActivity{
     private ImageButton goPerformButton;
     private Button checkArrButton;
 
-    private SQLiteDatabase mDb;
-    private PresetDatabase mHelper;
-    private Cursor mCursor;
-
     private RecyclerView panelSlotView;
     private PanelSlotViewAdapter mAdapter;
 
     private MusicEngine musicEngine;
+
+    private int mode=0;
+
 
     final static String PATH = Environment.getExternalStorageDirectory().getPath();
 
@@ -76,12 +74,13 @@ public class InitialActivity extends AppCompatActivity{
         musicEngine = new MusicEngine(this, PATH);
         musicEngine.loadDatabase();
 
-        controllerGrid.setAdapter(new CustomGridViewAdapter(this, musicEngine.getTrackCells()));
+        adapter = new CustomGridViewAdapter(this, musicEngine.getTrackCells(0));
+        controllerGrid.setAdapter(adapter);
         controllerGrid.setOnItemLongClickListener(new TouchListener());
         controllerGrid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, final int i, long l) {
-                musicEngine.playID(musicEngine.getIdFromUI(i));
+            public void onItemClick(AdapterView<?> adapterView, View view, final int position, long l) {
+                musicEngine.playID((int) adapter.getItemId(position));
             }
         });
 
@@ -98,6 +97,13 @@ public class InitialActivity extends AppCompatActivity{
                 startActivity(new Intent(InitialActivity.this, PerformActivity.class));
             }
         });
+    }
+
+    public void swapGrid(int mode){
+        adapter = new CustomGridViewAdapter(this, musicEngine.getTrackCells(mode));
+        controllerGrid.setAdapter(adapter);
+        this.mode = mode;
+        musicEngine.setMode(mode);
     }
 
     private void initPanelSlot(){

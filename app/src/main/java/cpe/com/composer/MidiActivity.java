@@ -37,7 +37,7 @@ public class MidiActivity extends AppCompatActivity {
 
     MidiFile midi;
 
-    MediaPlayer mediaPlayer;
+    MediaPlayer player;
     final static String PATH = Environment.getExternalStorageDirectory().getPath();
 
     MidiTrack tempoTrack = new MidiTrack();
@@ -66,7 +66,7 @@ public class MidiActivity extends AppCompatActivity {
         noteLoader();
         writeMidiFirstState();
 
-        mediaPlayer = MediaPlayer.create(this, Uri.fromFile(new File(PATH+"/exampleout.mid")));
+        player = MediaPlayer.create(this, Uri.fromFile(new File(PATH+"/exampleout.mid")));
 
         drumPlayButton = (Button) findViewById(R.id.drumPlayButton);
         drum2PlayButton = (Button) findViewById(R.id.drum2PlayButton);
@@ -76,7 +76,7 @@ public class MidiActivity extends AppCompatActivity {
         changeKeyButton = (Button) findViewById(R.id.keyChange);
         checkArrayButton = (Button) findViewById(R.id.checkArray);
 
-        mediaPlayer.setLooping(true);
+        player.setLooping(true);
         drumPlayButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -84,9 +84,9 @@ public class MidiActivity extends AppCompatActivity {
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
-                        int currentPosition = mediaPlayer.getCurrentPosition();
-                        mediaPlayer.stop();
-                        mediaPlayer.release();
+                        int currentPosition = player.getCurrentPosition();
+                        player.stop();
+                        player.release();
                         //MidiFile midi = new MidiFile(MidiFile.DEFAULT_RESOLUTION, tracks);
                         midi.addTrack(drumTrack1);
 
@@ -101,9 +101,9 @@ public class MidiActivity extends AppCompatActivity {
                         }
                         System.out.print("FILE CREATED : "+output.getPath());
 
-                        mediaPlayer = MediaPlayer.create(getApplicationContext(), Uri.fromFile(new File(PATH+"/exampleout.mid")));
-                        mediaPlayer.seekTo(currentPosition);
-                        mediaPlayer.start();
+                        player = MediaPlayer.create(getApplicationContext(), Uri.fromFile(new File(PATH+"/exampleout.mid")));
+                        player.seekTo(currentPosition);
+                        player.start();
                         loopHacking();
                     }
                 }).run();
@@ -117,9 +117,9 @@ public class MidiActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         playingID.add(1);
-                        int currentPosition = mediaPlayer.getCurrentPosition();
-                        mediaPlayer.stop();
-                        mediaPlayer.release();
+                        int currentPosition = player.getCurrentPosition();
+                        player.stop();
+                        player.release();
 
                         midi.removeTrack(midi.getTrackCount()-1);
                         midi.addTrack(drumTrack2);
@@ -134,9 +134,9 @@ public class MidiActivity extends AppCompatActivity {
                         }
                         System.out.print("FILE CREATED : "+output.getPath());
 
-                        mediaPlayer = MediaPlayer.create(getApplicationContext(), Uri.fromFile(new File(PATH+"/exampleout.mid")));
-                        mediaPlayer.seekTo(currentPosition);
-                        mediaPlayer.start();
+                        player = MediaPlayer.create(getApplicationContext(), Uri.fromFile(new File(PATH+"/exampleout.mid")));
+                        player.seekTo(currentPosition);
+                        player.start();
                     }
                 }).start();
             }
@@ -145,21 +145,21 @@ public class MidiActivity extends AppCompatActivity {
         stopButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mediaPlayer.stop();
+                player.stop();
             }
         });
 
         bassPlayButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(mediaPlayer.isPlaying()) {
+                if(player.isPlaying()) {
                     new Thread(new Runnable() {
                         @Override
                         public void run() {
                             playingID.add(2);
-                            int currentPosition = mediaPlayer.getCurrentPosition();
-                            mediaPlayer.stop();
-                            mediaPlayer.release();
+                            int currentPosition = player.getCurrentPosition();
+                            player.stop();
+                            player.release();
                             //MidiFile midi = new MidiFile(MidiFile.DEFAULT_RESOLUTION, tracks);
                             midi.addTrack(bassTrack, 0);
 
@@ -174,9 +174,9 @@ public class MidiActivity extends AppCompatActivity {
                             }
                             System.out.print("FILE CREATED : "+output.getPath());
 
-                            mediaPlayer = MediaPlayer.create(getApplicationContext(), Uri.fromFile(new File(PATH+"/exampleout.mid")));
-                            mediaPlayer.seekTo(currentPosition);
-                            mediaPlayer.start();
+                            player = MediaPlayer.create(getApplicationContext(), Uri.fromFile(new File(PATH+"/exampleout.mid")));
+                            player.seekTo(currentPosition);
+                            player.start();
                         }
                     }).run();
                 }
@@ -186,14 +186,14 @@ public class MidiActivity extends AppCompatActivity {
         guitarPlayButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(mediaPlayer.isPlaying()) {
+                if(player.isPlaying()) {
                     new Thread(new Runnable() {
                         @Override
                         public void run() {
                             playingID.add(3);
-                            int currentPosition = mediaPlayer.getCurrentPosition();
-                            mediaPlayer.stop();
-                            mediaPlayer.release();
+                            int currentPosition = player.getCurrentPosition();
+                            player.stop();
+                            player.release();
 
                             tracks.add(guitarTrack);
 
@@ -210,9 +210,9 @@ public class MidiActivity extends AppCompatActivity {
                             }
                             System.out.print("FILE CREATED : "+output.getPath());
 
-                            mediaPlayer = MediaPlayer.create(getApplicationContext(), Uri.fromFile(new File(PATH+"/exampleout.mid")));
-                            mediaPlayer.seekTo(currentPosition);
-                            mediaPlayer.start();
+                            player = MediaPlayer.create(getApplicationContext(), Uri.fromFile(new File(PATH+"/exampleout.mid")));
+                            player.seekTo(currentPosition);
+                            player.start();
                         }
                     }).run();
                 }
@@ -222,14 +222,14 @@ public class MidiActivity extends AppCompatActivity {
         changeKeyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(mediaPlayer.isPlaying()) {
+                if(player.isPlaying()) {
                     new Thread(new Runnable() {
                         @Override
                         public void run() {
                             playingID.add(4);
-                            int currentPosition = mediaPlayer.getCurrentPosition();
-                            mediaPlayer.stop();
-                            mediaPlayer.release();
+                            int currentPosition = player.getCurrentPosition();
+                            player.stop();
+                            player.release();
 
                             midi.removeTrack(0);
                             midi.removeTrack(0);
@@ -282,9 +282,9 @@ public class MidiActivity extends AppCompatActivity {
                             }
                             System.out.print("FILE CREATED : " + output.getPath());
 
-                            mediaPlayer = MediaPlayer.create(getApplicationContext(), Uri.fromFile(new File(PATH + "/exampleout.mid")));
-                            mediaPlayer.seekTo(currentPosition);
-                            mediaPlayer.start();
+                            player = MediaPlayer.create(getApplicationContext(), Uri.fromFile(new File(PATH + "/exampleout.mid")));
+                            player.seekTo(currentPosition);
+                            player.start();
                         }
                     }).start();
                 }
@@ -306,19 +306,19 @@ public class MidiActivity extends AppCompatActivity {
         Timer HACK_loopTimer = new Timer();
         TimerTask HACK_loopTask = new TimerTask() {
             @Override public void run() {
-                if(mediaPlayer.isPlaying()) {
+                if(player.isPlaying()) {
                     MidiActivity.this.runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            mediaPlayer.seekTo(0);
+                            player.seekTo(0);
                         }
                     });
                 }
                 else
-                    mediaPlayer.seekTo(0);
+                    player.seekTo(0);
             }
         };
-        long waitingTime = mediaPlayer.getDuration()-mHackLoopingPreview;
+        long waitingTime = player.getDuration()-mHackLoopingPreview;
         HACK_loopTimer.schedule(HACK_loopTask, waitingTime, waitingTime);
     }
 

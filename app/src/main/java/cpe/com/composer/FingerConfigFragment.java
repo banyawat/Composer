@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import org.puredata.core.PdBase;
 
@@ -55,15 +54,16 @@ public class FingerConfigFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Hand.swapSide();
-                Toast.makeText(getContext(), "Swap hand side", Toast.LENGTH_SHORT).show();
                 if(!Hand.getSide()) //Get hand side from object
                 {
                     handImageView.setImageResource(R.drawable.left_hand);
                     swapSideButton.setImageResource(R.drawable.ic_keyboard_arrow_left);
+                    ((InitialActivity)getActivity()).swapGrid(0);
                 }
                 else {
                     handImageView.setImageResource(R.drawable.right_hand);
                     swapSideButton.setImageResource(R.drawable.ic_keyboard_arrow_right);
+                    ((InitialActivity)getActivity()).swapGrid(1);
                 }
             }
         });
@@ -79,7 +79,6 @@ public class FingerConfigFragment extends Fragment {
         swapSideButton.setImageResource(R.drawable.ic_keyboard_arrow_left);
         handImageView.setImageResource(R.drawable.left_hand);
         Hand.addSlotPanel();
-        Toast.makeText(getContext(), "Panel Added", Toast.LENGTH_SHORT).show();
         Hand.refreshDrawable();
     }
 

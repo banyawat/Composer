@@ -37,15 +37,17 @@ public class MusicEngine {
     private Cursor mCursor;
 
     private ArrayList<TrackCell> trackCells = new ArrayList<>();
+    private ArrayList<TrackCell> Chords = new ArrayList<>();
     private ArrayList<Integer> playingID = new ArrayList<>();
     private ArrayList<Integer> playingChannel = new ArrayList<>();
 
-    MidiFile midi;
+    private MidiFile midi;
+    private int currentMode=0;
 
-    File output;
-    MediaPlayer player;
-    Activity parentActivity;
-    Context context;
+    private File output;
+    private MediaPlayer player;
+    private Activity parentActivity;
+    private Context context;
     private static Timer HACK_loopTimer;
 
     public MusicEngine(Activity parentActivity, String path){
@@ -91,102 +93,174 @@ public class MusicEngine {
             int channel = mCursor.getInt(mCursor.getColumnIndex(PresetDatabase.COL_CHANNEL));
             int program = mCursor.getInt(mCursor.getColumnIndex(PresetDatabase.COL_PROGRAM));
             String note = mCursor.getString(mCursor.getColumnIndex(PresetDatabase.COL_NOTE));
+            int mode = mCursor.getInt(mCursor.getColumnIndex(PresetDatabase.COL_MODE));
 
-            trackCells.add(new TrackCell(id, title, channel, program, note));
+
+            if(mode==0)
+                trackCells.add(new TrackCell(id, title, channel, program, note));
+            else if(mode==1){
+                Chords.add(new TrackCell(id, title, channel, program, note));
+            }
             mCursor.moveToNext();
         }
     }
 
-    public int getIdFromUI(int position){
-        return trackCells.get(position).getID();
-    }
-
-    public ArrayList<TrackCell> getTrackCells(){
-        return trackCells;
+    public ArrayList<TrackCell> getTrackCells(int mode){
+        if(mode==0)
+            return trackCells;
+        else if(mode==1)
+            return Chords;
+        else
+            return null;
     }
 
     public void playID(int id) {
-        final int channel = trackCells.get(id-1).getChannel();
-        Log.d(TAG, "GET ID: " + id);
-        if (playingID.size() != 0) { //On playing
-            Log.d(TAG, "Someone has been played");
-            if (playingID.contains(id)) {
-                Log.d(TAG, "User click on exist ID, remove it");
+        if(currentMode==1){
+            TrackCell track = findChordById(id);
+            changeKey(Integer.valueOf(track.getNote()));
+        }
+        else {
+            int channel = findChannel(id);
+            if (playingID.size() != 0) {
                 int currentPosition = player.getCurrentPosition();
-                player.stop();
-                player.release();
+                //Someone playing music
+                if (playingID.contains(id)) { //user wants to stop this track
+                    player.stop();
+                    player.release();
 
-                midi.removeTrack(playingID.indexOf(id)+1);
-                playingID.remove(new Integer(id));
-                playingChannel.remove(new Integer(channel));
+                    removeTrack(playingID.indexOf(id));
 
-                try {
-                    midi.writeToFile(output);
-                } catch (IOException e) {
-                    System.err.println(e);
-                }
-                if(playingID.size()!=0) {
+                    try {
+                        midi.writeToFile(output);
+                    } catch (IOException e) {
+                        System.err.println(e);
+                    }
+                    if (playingID.size() != 0) {
+                        player = MediaPlayer.create(context, Uri.fromFile(output));
+                        player.seekTo(currentPosition);
+                        player.start();
+                    } else {
+                        HACK_loopTimer.cancel();
+                    }
+                } else {
+                    //New ID coming
+                    player.stop();
+                    player.release();
+                    if (playingChannel.contains(channel)) {
+                        removeTrack(playingChannel.indexOf(channel));
+                    }
+                    addTrack(id);
+                    try {
+                        midi.writeToFile(output);
+                    } catch (IOException e) {
+                        System.err.println(e);
+                    }
+                    playingID.add(id);
+                    playingChannel.add(channel);
                     player = MediaPlayer.create(context, Uri.fromFile(output));
                     player.seekTo(currentPosition);
                     player.start();
                 }
-                else{
-                    HACK_loopTimer.cancel();
-                }
             } else {
-                Log.d(TAG, "New ID coming");
-                int currentPosition = player.getCurrentPosition();
-                player.stop();
-                player.release();
-
-                if(playingChannel.contains(channel)){ //Check if channel was running already
-                    Log.d(TAG, "Duplicate channel");
-                    int indexToRemove = playingChannel.indexOf(channel);
-                    midi.removeTrack(indexToRemove+1);
-                    midi.addTrack(getTrackFromId(id));
-                    playingID.remove(indexToRemove);
-                    playingChannel.remove(indexToRemove);
-                } else {
-                    Log.d(TAG, "New Channel");
-                    midi.addTrack(getTrackFromId(id));
-                }
-
+                //Nobody playing music
+                playingID.add(id);
+                playingChannel.add(channel);
+                addTrack(id);
                 try {
                     midi.writeToFile(output);
                 } catch (IOException e) {
                     System.err.println(e);
                 }
-
                 player = MediaPlayer.create(context, Uri.fromFile(output));
-                player.seekTo(currentPosition);
+                player.setLooping(true);
                 player.start();
+                loopHacking();
+            }
+        }
+    }
 
-                playingID.add(id);
-                playingChannel.add(trackCells.get(id-1).getChannel());
+    private void addTrack(int id){
+        MidiTrack track = new MidiTrack();
+        TrackCell trackCell = findTrackById(id);
+        if (trackCell.getProgram() != -1) {
+            track.insertEvent(new ProgramChange(0, trackCell.getChannel(), trackCell.getProgram()));
+        }
+        try {
+            JSONObject jsonObject = new JSONObject(trackCell.getNote());
+            JSONArray pitchArray = jsonObject.getJSONArray("note");
+            JSONArray ppqArray = jsonObject.getJSONArray("ppq");
+            if (!jsonObject.isNull("dur")) {
+                JSONArray durArray = jsonObject.getJSONArray("dur");
+                for (int i = 0; i < pitchArray.length(); i++) {
+                    track.insertNote(trackCell.getChannel(), pitchArray.getInt(i), 100, ppqArray.getInt(i) * PPQ, durArray.getInt(i));
+                }
+            } else {
+                for (int i = 0; i < pitchArray.length(); i++) {
+                    track.insertNote(trackCell.getChannel(), pitchArray.getInt(i), 100, ppqArray.getInt(i) * PPQ, NOTE_DURATION);
+                }
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        midi.addTrack(track);
+    }
+
+    public void changeKey(int key){
+        int currentPosition = player.getCurrentPosition();
+        player.stop();
+        player.release();
+
+        //ArrayList<Integer> temp = new ArrayList<>();
+        for(int i=playingChannel.size()-1;i>=0;i--){
+            if(playingChannel.get(i)!=9){
+                Log.d(TAG, "PlayingID: " + playingID.get(i) + ", PlayingChannel: " + playingChannel.get(i));
+                midi.removeTrack(i+1);
+
             }
         }
-        else{ //First play
-            Log.d(TAG, "Nobody played, First play");
-            midi.addTrack(getTrackFromId(id));
-            try {
-                midi.writeToFile(output);
-            } catch (IOException e) {
-                System.err.println(e);
+
+        for(int i=0;i<playingChannel.size();i++){
+            if(playingChannel.get(i)!=9){
+                MidiTrack track = new MidiTrack();
+                TrackCell trackCell = findTrackById(playingID.get(i));
+                if (trackCell.getProgram() != -1) {
+                    track.insertEvent(new ProgramChange(0, trackCell.getChannel(), trackCell.getProgram()));
+                }
+                try {
+                    JSONObject jsonObject = new JSONObject(trackCell.getNote());
+                    JSONArray pitchArray = jsonObject.getJSONArray("note");
+                    JSONArray ppqArray = jsonObject.getJSONArray("ppq");
+                    if (!jsonObject.isNull("dur")) {
+                        JSONArray durArray = jsonObject.getJSONArray("dur");
+                        for (int j = 0; j < pitchArray.length(); j++) {
+                            track.insertNote(trackCell.getChannel(), pitchArray.getInt(j)+key, 100, ppqArray.getInt(j) * PPQ, durArray.getInt(j));
+                        }
+                    } else {
+                        for (int j = 0; j < pitchArray.length(); j++) {
+                            track.insertNote(trackCell.getChannel(), pitchArray.getInt(j)+key, 100, ppqArray.getInt(j) * PPQ, NOTE_DURATION);
+                        }
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                midi.addTrack(track);
             }
-            player = MediaPlayer.create(context, Uri.fromFile(output));
-            player.setLooping(true);
-            player.start();
-            playingID.add(id);
-            playingChannel.add(trackCells.get(id-1).getChannel());
-            loopHacking();
         }
-        if(playingID.size()!=0&&(!player.isPlaying())) {
-            player.release();
-            HACK_loopTimer.cancel();
-            player = MediaPlayer.create(context, Uri.fromFile(output));
-            player.start();
-            loopHacking();
+
+        try {
+            midi.writeToFile(output);
+        } catch (IOException e) {
+            System.err.println(e);
         }
+        player = MediaPlayer.create(context, Uri.fromFile(output));
+        player.start();
+        player.seekTo(currentPosition);
+    }
+
+    private void removeTrack(int position){
+        midi.removeTrack(position+1);
+        playingID.remove(position);
+        playingChannel.remove(position);
     }
 
     private void loopHacking(){
@@ -206,28 +280,38 @@ public class MusicEngine {
         HACK_loopTimer.schedule(HACK_loopTask, waitingTime, waitingTime);
     }
 
-    private MidiTrack getTrackFromId(int id){
-        MidiTrack track = new MidiTrack();
-        int program = trackCells.get(id-1).getProgram();
-        if(program!=-1){
-            track.insertEvent(new ProgramChange(0, trackCells.get(id-1).getChannel(), trackCells.get(id-1).getProgram()));
-        }
-        try {
-            JSONObject jsonObject = new JSONObject(trackCells.get(id-1).getNote());
-            JSONArray pitchArray = jsonObject.getJSONArray("note");
-            JSONArray ppqArray = jsonObject.getJSONArray("ppq");
-            for(int i=0;i<pitchArray.length();i++){
-                track.insertNote(trackCells.get(id-1).getChannel(), pitchArray.getInt(i), 100, ppqArray.getInt(i)*PPQ, NOTE_DURATION);
+    private int findChannel(int id){
+        for(TrackCell track: trackCells)
+            if(track.getID()==id)
+                return track.getChannel();
+        return -1;
+    }
+
+    private TrackCell findTrackById(int id){
+        for(TrackCell track : trackCells){
+            if(track.getID()==id){
+                return track;
             }
-        } catch (JSONException e) {
-            e.printStackTrace();
         }
-        return track;
+        return null;
+    }
+
+    private TrackCell findChordById(int id){
+        for(TrackCell track : Chords){
+            if(track.getID()==id){
+                return track;
+            }
+        }
+        return null;
     }
 
     public void checkPlayingArray(){
         for(int i=0;i<playingID.size();i++){
             Log.d(TAG, "playingID: " + playingID.get(i) + ", playingChannel: " + playingChannel.get(i));
         }
+    }
+
+    public void setMode(int mode){
+        this.currentMode = mode;
     }
 }
