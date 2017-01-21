@@ -15,7 +15,10 @@ import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageButton;
 
-import cpe.com.composer.soundengine.MusicEngine;
+import java.util.ArrayList;
+
+import cpe.com.composer.soundengine.ChordCell;
+import cpe.com.composer.soundengine.ComposerMusicEngine;
 import cpe.com.composer.viewmanager.CustomGridViewAdapter;
 import cpe.com.composer.viewmanager.PanelSlotViewAdapter;
 import cpe.com.composer.viewmanager.RecyclerTouchListener;
@@ -35,9 +38,9 @@ public class InitialActivity extends AppCompatActivity{
     private RecyclerView panelSlotView;
     private PanelSlotViewAdapter mAdapter;
 
-    private MusicEngine musicEngine;
+    private ComposerMusicEngine musicEngine;
 
-    private int mode=0;
+    private boolean mode=false;
 
 
     final static String PATH = Environment.getExternalStorageDirectory().getPath();
@@ -71,16 +74,19 @@ public class InitialActivity extends AppCompatActivity{
         tabLayout.setupWithViewPager(mPager);
 
         //initDatabase();
-        musicEngine = new MusicEngine(this, PATH);
+        musicEngine = new ComposerMusicEngine(this, PATH);
         musicEngine.loadDatabase();
 
-        adapter = new CustomGridViewAdapter(this, musicEngine.getTrackCells(0));
+        adapter = new CustomGridViewAdapter(this, musicEngine.getTrackList());
         controllerGrid.setAdapter(adapter);
         controllerGrid.setOnItemLongClickListener(new TouchListener());
         controllerGrid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, final int position, long l) {
-                musicEngine.playID((int) adapter.getItemId(position));
+                if(!mode)
+                    musicEngine.playID((int) adapter.getItemId(position));
+                else
+                    musicEngine.doTranspose((int) adapter.getItemId(position));
             }
         });
 
@@ -99,11 +105,19 @@ public class InitialActivity extends AppCompatActivity{
         });
     }
 
-    public void swapGrid(int mode){
-        adapter = new CustomGridViewAdapter(this, musicEngine.getTrackCells(mode));
+    public void swapGrid(boolean mode){
+        if (!mode) {
+            adapter = new CustomGridViewAdapter(this, musicEngine.getTrackList());
+        }
+        else {
+            adapter = new CustomGridViewAdapter(this);
+            ArrayList<ChordCell> chordCells = musicEngine.getChordList();
+            for(ChordCell temp: chordCells){
+                adapter.addInstrument(temp.getId(), temp.getTitle());
+            }
+        }
         controllerGrid.setAdapter(adapter);
         this.mode = mode;
-        musicEngine.setMode(mode);
     }
 
     private void initPanelSlot(){

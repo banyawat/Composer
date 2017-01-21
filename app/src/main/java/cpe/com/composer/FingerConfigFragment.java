@@ -58,13 +58,12 @@ public class FingerConfigFragment extends Fragment {
                 {
                     handImageView.setImageResource(R.drawable.left_hand);
                     swapSideButton.setImageResource(R.drawable.ic_keyboard_arrow_left);
-                    ((InitialActivity)getActivity()).swapGrid(0);
                 }
                 else {
                     handImageView.setImageResource(R.drawable.right_hand);
                     swapSideButton.setImageResource(R.drawable.ic_keyboard_arrow_right);
-                    ((InitialActivity)getActivity()).swapGrid(1);
                 }
+                ((InitialActivity)getActivity()).swapGrid(Hand.getSide());
             }
         });
         stopMusic.setOnClickListener(new View.OnClickListener() {
