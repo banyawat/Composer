@@ -12,6 +12,15 @@ public class ComposerMidiTrack extends MidiTrack {
     private String title;
     private int channel;
     private boolean isPlaying;
+    private boolean isDurationAvailable =false;
+    private boolean isMinorAvailable =false;
+
+    private JSONArray pitchMajorArray;
+    private JSONArray pitchMinorArray;
+    private JSONArray ppqArray;
+    private JSONArray durArray;
+
+    private ProgramChange programChange;
 
     private static final int DEFAULT_PPQ = 120;
     private static final int DEFAULT_NOTEDUR = 120;
@@ -21,21 +30,31 @@ public class ComposerMidiTrack extends MidiTrack {
         this.title = title;
         this.channel = channel;
         this.isPlaying=false;
-        if(program!=-1)
-            super.insertEvent(new ProgramChange(0, channel, program));
+        if(program!=-1) {
+            programChange = new ProgramChange(0, channel, program);
+            insertEvent(programChange);
+        }
         try {
             JSONObject jsonObject = new JSONObject(note);
-            JSONArray pitchArray = jsonObject.getJSONArray("note");
-            JSONArray ppqArray = jsonObject.getJSONArray("ppq");
-            if (!jsonObject.isNull("dur")) {
-                JSONArray durArray = jsonObject.getJSONArray("dur");
-                for (int i = 0; i < pitchArray.length(); i++) {
-                    super.insertNote(channel, pitchArray.getInt(i), 100, ppqArray.getInt(i) * DEFAULT_PPQ, durArray.getInt(i));
+            pitchMajorArray = jsonObject.getJSONArray("note");
+            ppqArray = jsonObject.getJSONArray("ppq");
+
+            isDurationAvailable = !jsonObject.isNull("dur");
+            isMinorAvailable = !jsonObject.isNull("notemin");
+
+
+            if(isMinorAvailable &&program!=-1){
+                pitchMinorArray = jsonObject.getJSONArray(("notemin"));
+            }
+            if (isDurationAvailable) {
+                durArray = jsonObject.getJSONArray("dur");
+                for (int i = 0; i < pitchMajorArray.length(); i++) {
+                    insertNote(channel, pitchMajorArray.getInt(i), 100, ppqArray.getInt(i) * DEFAULT_PPQ, durArray.getInt(i));
                 }
             }
             else{
-                for (int i = 0; i < pitchArray.length(); i++) {
-                    super.insertNote(channel, pitchArray.getInt(i), 100, ppqArray.getInt(i) * DEFAULT_PPQ, DEFAULT_NOTEDUR);
+                for (int i = 0; i < pitchMajorArray.length(); i++) {
+                    insertNote(channel, pitchMajorArray.getInt(i), 100, ppqArray.getInt(i) * DEFAULT_PPQ, DEFAULT_NOTEDUR);
                 }
             }
         } catch (JSONException e) {
@@ -43,9 +62,25 @@ public class ComposerMidiTrack extends MidiTrack {
         }
     }
 
-    @Override
-    public void insertNote(int channel, int pitch, int velocity, long tick, long duration) {
-        super.insertNote(channel, pitch, velocity, tick, duration);
+    public boolean isMinorAvailable(){
+        return isMinorAvailable;
+    }
+
+    public MidiTrack getNewMinorTrack() throws JSONException {
+        MidiTrack track = new MidiTrack();
+        track.insertEvent(programChange);
+        if (isDurationAvailable) {
+            for (int i = 0; i < pitchMinorArray.length(); i++) {
+                track.insertNote(channel, pitchMinorArray.getInt(i), 100, ppqArray.getInt(i) * DEFAULT_PPQ, durArray.getInt(i));
+            }
+        }
+        else{
+            for (int i = 0; i < pitchMinorArray.length(); i++) {
+                track.insertNote(channel, pitchMinorArray.getInt(i), 100, ppqArray.getInt(i) * DEFAULT_PPQ, DEFAULT_NOTEDUR);
+            }
+        }
+        return track;
+
     }
 
     public int getChannel(){

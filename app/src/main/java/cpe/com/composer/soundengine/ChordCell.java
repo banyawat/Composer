@@ -4,11 +4,13 @@ public class ChordCell {
     private int id;
     private String title;
     private int key;
+    private int minor=0;
 
-    public ChordCell(int id, String title, int key){
+    public ChordCell(int id, String title, int key, int minor){
         this.id = id;
         this.title = title;
         this.key = key;
+        this.minor = minor;
     }
 
     public int getKey() {
@@ -25,5 +27,13 @@ public class ChordCell {
 
     public String getTitle() {
         return title;
+    }
+
+    public int getMinor() {
+        return minor;
+    }
+
+    public void setMinor(int minor) {
+        this.minor = minor;
     }
 }

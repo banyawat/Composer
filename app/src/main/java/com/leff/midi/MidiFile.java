@@ -141,6 +141,11 @@ public class MidiFile
 
     public MidiTrack getTrack(int pos) { return mTracks.get(pos); }
 
+    public void setTrack(int pos, MidiTrack track){
+        mTracks.set(pos, track);
+
+    }
+
     public void addTrack(MidiTrack T)
     {
         addTrack(T, mTracks.size());
