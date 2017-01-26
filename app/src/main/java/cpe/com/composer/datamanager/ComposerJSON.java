@@ -21,7 +21,7 @@ public class ComposerJSON {
      * 1 -> right finger
      * else -> gesture
      */
-    public ComposerJSON(ArrayList<ComposerHandSetup> mainData){
+    public ComposerJSON(ArrayList<ComposerMovement> mainData){
         for(int i=0;i<mainData.size();i++){
             JSONObject tempArr1 = new JSONObject();
             for(int j=0;j< ComposerParam.INPUT_NUM;j++){

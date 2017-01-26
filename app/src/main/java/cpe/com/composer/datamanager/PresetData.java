@@ -3,7 +3,7 @@ package cpe.com.composer.datamanager;
 import java.util.ArrayList;
 
 public class PresetData {
-    ArrayList<ComposerHandSetup> presetList = new ArrayList<>();
+    ArrayList<ComposerMovement> presetList = new ArrayList<>();
     public PresetData(){
 
     }
@@ -12,11 +12,11 @@ public class PresetData {
         return presetList.size();
     }
 
-    public void add(ComposerHandSetup composerMovementArray){
+    public void add(ComposerMovement composerMovementArray){
         presetList.add(composerMovementArray);
     }
 
-    public ComposerHandSetup get(int index){
+    public ComposerMovement get(int index){
         return presetList.get(index);
     }
 }

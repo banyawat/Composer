@@ -13,13 +13,14 @@ import java.util.ArrayList;
 
 import cpe.com.composer.InitialActivity;
 import cpe.com.composer.R;
-import cpe.com.composer.datamanager.ComposerHandSetup;
 import cpe.com.composer.datamanager.ComposerJSON;
+import cpe.com.composer.datamanager.ComposerMovement;
 
 public class HandInitiate {
     private InitialActivity ancestorActivity;
     private ArrayList<ImageView> fingerViews = new ArrayList<>();
-    private ArrayList<ComposerHandSetup> fingerSlotPanel; // slot Panel
+    private ArrayList<Integer> fingerViewsId = new ArrayList<>();
+    private ArrayList<ComposerMovement> fingerSlotPanel; // slot Panel
     private boolean SIDE=false; //SIDE; false=left, true=right
     private int activeSlotPanel=0;
     private static final float fingerPositionBiasLeft[][] = {{0.1f,0.45f},{0.3f,0.12f},{0.54f,0.05f},{0.73f,0.1f},{0.89f,0.23f}};
@@ -31,13 +32,15 @@ public class HandInitiate {
     public HandInitiate(ArrayList<ImageView> ImageViewID, InitialActivity ancestorActivity){
         this.ancestorActivity = ancestorActivity;
         this.fingerViews = ImageViewID;
+        for(ImageView image: fingerViews){
+            fingerViewsId.add(image.getId());
+        }
 
         fingerSlotPanel = new ArrayList<>();
-        fingerSlotPanel.add(new ComposerHandSetup());
+        fingerSlotPanel.add(new ComposerMovement());
 
         enterShape = ancestorActivity.getResources().getDrawable(R.drawable.ic_music_note);
         normalShape = ancestorActivity.getResources().getDrawable(R.drawable.ic_favorite);
-        fingerSlotPanel.get(0).init(fingerViews);
 
         for(int i=0;i<5;i++) {
             setOnClickListener(i);
@@ -49,7 +52,7 @@ public class HandInitiate {
         fingerViews.get(index).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(ancestorActivity.getApplicationContext(), String.valueOf(fingerSlotPanel.get(activeSlotPanel).getFingerValue(SIDE, view.getId())), Toast.LENGTH_SHORT).show();
+                Toast.makeText(ancestorActivity.getApplicationContext(), String.valueOf(fingerSlotPanel.get(activeSlotPanel).getFingerValue(SIDE, fingerViewsId.indexOf(view.getId()))), Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -61,7 +64,7 @@ public class HandInitiate {
     }
 
     public void setInstrumentID(int keyID, int instrumentID){
-        fingerSlotPanel.get(activeSlotPanel).setHandID(SIDE, keyID, instrumentID);
+        fingerSlotPanel.get(activeSlotPanel).setHandId(SIDE, fingerViewsId.indexOf(keyID), instrumentID);
     }
 
     public void swapSide(){
@@ -71,7 +74,7 @@ public class HandInitiate {
 
     public void refreshDrawable(){
         for (int i = 0; i < 5; i++) {
-            if(fingerSlotPanel.get(activeSlotPanel).getFingerValue(SIDE, fingerViews.get(i).getId())==-1)
+            if(fingerSlotPanel.get(activeSlotPanel).getFingerValue(SIDE, i)==-1)
                 fingerViews.get(i).setImageDrawable(normalShape);
             else
                 fingerViews.get(i).setImageDrawable(enterShape);
@@ -96,9 +99,8 @@ public class HandInitiate {
     }
 
     public void addSlotPanel(){
-        ComposerHandSetup newSlFing = new ComposerHandSetup();
-        newSlFing.init(fingerViews);
-        fingerSlotPanel.add(newSlFing);
+        ComposerMovement newSlotFinger = new ComposerMovement();
+        fingerSlotPanel.add(newSlotFinger);
         activeSlotPanel=fingerSlotPanel.size()-1;
         SIDE=false;
         refreshDrawable();
@@ -138,7 +140,7 @@ public class HandInitiate {
                     break;
                 case DragEvent.ACTION_DRAG_EXITED:
                     inside = false;
-                    if(fingerSlotPanel.get(activeSlotPanel).getFingerValue(SIDE, v.getId())==-1) {
+                    if(fingerSlotPanel.get(activeSlotPanel).getFingerValue(SIDE, fingerViewsId.indexOf(v.getId()))==-1) {
                         imageComponent.setImageDrawable(normalShape);
                     }
                     break;

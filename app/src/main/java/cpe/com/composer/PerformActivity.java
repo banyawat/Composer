@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ProgressBar;
 import android.widget.SeekBar;
@@ -23,6 +24,8 @@ import cpe.com.composer.viewmanager.VerticalSeekBar;
 public class PerformActivity extends AppCompatActivity {
     private VerticalSeekBar volumeAdjustBar;
     private GridView activeGridView;
+    private Button backToInitialButton;
+
     private ArrayList<Integer> sampleSet;
     private ArrayList<String> instrumentTitle;
     private Visualizer audioOutput = null;
@@ -53,6 +56,7 @@ public class PerformActivity extends AppCompatActivity {
         activeGridView = (GridView) findViewById(R.id.activeInstrumentGridView);
         vuMeterL = (ProgressBar) findViewById(R.id.vuMeterViewL);
         vuMeterR = (ProgressBar) findViewById(R.id.vuMeterViewR);
+        backToInitialButton = (Button) findViewById(R.id.backToInitialButton);
     }
 
     @Override
@@ -75,6 +79,13 @@ public class PerformActivity extends AppCompatActivity {
         for(int i=0;i<2;i++){
             sampleSet.add(i);
         }
+
+        backToInitialButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
         activeGridView.setAdapter(new CustomGridViewAdapter(this, sampleSet, instrumentTitle));
         activeGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
