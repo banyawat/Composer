@@ -25,16 +25,16 @@ import cpe.com.composer.viewmanager.RecyclerTouchListener;
 import cpe.com.composer.viewmanager.fragmentPagerAdapter;
 
 public class InitialActivity extends AppCompatActivity{
+    public int activeDraggedId =-1; //active dragged instrument id
+
     private GridView controllerGrid;
     private CustomGridViewAdapter adapter;
 
     private TabLayout tabLayout;
     private ViewPager mPager;
     private fragmentPagerAdapter mPagerAdapter;
-    public int activeSlot=66;
     private ImageButton goPerformButton;
     private Button checkArrButton;
-
     private RecyclerView panelSlotView;
     private PanelSlotViewAdapter mAdapter;
 
@@ -66,8 +66,8 @@ public class InitialActivity extends AppCompatActivity{
     private void initComponent(){
         //Fragment
         mPagerAdapter = new fragmentPagerAdapter(getSupportFragmentManager());
-        mPagerAdapter.addFragment(new FingerConfigFragment(), "FINGER");
-        mPagerAdapter.addFragment(new ArmConfigFragment(), "ARM");
+        mPagerAdapter.addFragment(new FingerSetupFragment(), "FINGER");
+        mPagerAdapter.addFragment(new ArmSetupFragment(), "ARM");
         mPager.setAdapter(mPagerAdapter);
 
         //Tab initialization
@@ -132,12 +132,12 @@ public class InitialActivity extends AppCompatActivity{
             public void onItemClick(View view, int position) {
                 if(position==mAdapter.getItemCount()-1){
                     mAdapter.addPanel(String.valueOf(mAdapter.getItemCount()));
-                    ((FingerConfigFragment)mPagerAdapter.getItem(0)).addPanel(); // First Fragment
+                    ((FingerSetupFragment)mPagerAdapter.getItem(0)).addPanel(); // First Fragment
                     mAdapter.setActiveSlot(position);
                     mAdapter.notifyDataSetChanged();
                 }
                 else {
-                    ((FingerConfigFragment)mPagerAdapter.getItem(0)).setPanel(position);
+                    ((FingerSetupFragment)mPagerAdapter.getItem(0)).setPanel(position);
                     mAdapter.setActiveSlot(position);
                     mAdapter.notifyDataSetChanged();
                 }
@@ -156,7 +156,7 @@ public class InitialActivity extends AppCompatActivity{
             ClipData data = ClipData.newPlainText("", "");
             View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(view);
             view.startDrag(data, shadowBuilder, view, View.DRAG_FLAG_GLOBAL);
-            activeSlot = i;
+            activeDraggedId = (int) adapter.getItemId(i);
             return false;
         }
     }

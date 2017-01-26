@@ -17,8 +17,6 @@ import com.leff.midi.event.NoteOn;
 import com.leff.midi.event.meta.Tempo;
 import com.leff.midi.event.meta.TimeSignature;
 
-import org.json.JSONException;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -37,7 +35,7 @@ public class ComposerMusicEngine {
     private MidiFile midi;
     private int currentTransposeKey=0;
 
-    private ArrayList<ComposerMidiTrack> trackList = new ArrayList<>();
+    private ArrayList<ComposerMidi> trackList = new ArrayList<>();
     private ArrayList<ChordCell> chordList = new ArrayList<>();
     private ArrayList<Integer> playingID = new ArrayList<>();
 
@@ -92,17 +90,18 @@ public class ComposerMusicEngine {
             String note = mCursor.getString(mCursor.getColumnIndex(PresetDatabase.COL_NOTE));
             int mode = mCursor.getInt(mCursor.getColumnIndex(PresetDatabase.COL_MODE));
 
-            if(mode==0)
-                trackList.add(new ComposerMidiTrack(id, title, channel, program, note));
+            if(mode==0) {
+                trackList.add(new ComposerMidi(id, title, channel, program, note));
+            }
             else if(mode==1)
                 chordList.add(new ChordCell(id, title, Integer.valueOf(note), program));
             mCursor.moveToNext();
         }
     }
 
-    public ArrayList<ComposerMidiTrack> getTrackList(){
+    /*public ArrayList<ComposerMidiTrack> getTrackList(){
         return trackList;
-    }
+    }*/
 
     public ArrayList<ChordCell> getChordList(){
         return chordList;
@@ -127,41 +126,33 @@ public class ComposerMusicEngine {
             ChordCell pitch = getPitchKeyById(id);
             int transposeKey = pitch.getKey();
             int minor = pitch.getMinor();
-            int delta = transposeKey - currentTransposeKey;
+            //int delta = transposeKey - currentTransposeKey;
 
             currentTransposeKey = transposeKey;
 
+            Log.d(TAG, "Press on transpose key: " + transposeKey);
+
             //transpose track note by note
             if(minor==1){ //Go minor
-                Log.d(TAG, "minor drive");
-                for(int i=1; i < midi.getTrackCount(); i++){
-                    Log.d(TAG, String.valueOf(((ComposerMidiTrack)midi.getTrack(i)).getChannel()));
-                    if(((ComposerMidiTrack)midi.getTrack(i)).getChannel()!=9){
-                        if(((ComposerMidiTrack)midi.getTrack(i)).isMinorAvailable()) {
-                            try {
-                                midi.setTrack(i, ((ComposerMidiTrack) midi.getTrack(i)).getNewMinorTrack());
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                            }
-                        }
+                Log.d(TAG, "go minor");
+                for(int i=1;i<midi.getTrackCount();i++){
+                    Iterator<MidiEvent> it = midi.getTrack(i).getEvents().iterator();
+                    MidiEvent e = it.next();
+                    if(!(e instanceof NoteOn)){
+                        midi.setTrack(i, getTransposeTrackById(minor, playingID.get(i-1)));
                     }
                 }
             }
             else { // Go major
-                for (int i = 1; i < midi.getTrackCount(); i++) {
+                Log.d(TAG, "go major");
+                for(int i=1;i<midi.getTrackCount();i++){
                     Iterator<MidiEvent> it = midi.getTrack(i).getEvents().iterator();
-                    MidiEvent firstEvent = it.next();
-                    if (!(firstEvent instanceof NoteOn)) { // not percussion
-                        while (it.hasNext()) {
-                            MidiEvent e = it.next();
-                            if (e instanceof NoteOn) {
-                                ((NoteOn) e).setNoteValue(((NoteOn) e).getNoteValue() + delta);
-                            }
-                        }
+                    MidiEvent e = it.next();
+                    if(!(e instanceof NoteOn)){
+                        midi.setTrack(i, getTransposeTrackById(minor, playingID.get(i-1)));
                     }
                 }
             }
-
             return null;
         }
 
@@ -185,17 +176,17 @@ public class ComposerMusicEngine {
         protected Void doInBackground(Void... voids) {
             if(playingID.size()!=0){ //add or remove track on playing
                 first=false;
-                if(getTrackById(id).isPlaying()){
+                if(isTrackPlaying(id)){ //remove existing track
                     removeTrack(id);
                     if(playingID.size()==0) {
                         end=true;
                     }
                 }
-                else {
-                    int duplicateId = isDuplicateChannel(getTrackById(id).getChannel());
-                    Log.d(TAG, "duplicate id: " + duplicateId);
-                    if(duplicateId!=-1){ //replace track
-                        removeTrack(duplicateId);
+                else { //New Track addded just check existing channel
+                    int dupIndex = findDuplicateChannelId(getTrackChannelById(id));
+                    if(dupIndex!=-1) {
+                        removeTrack(dupIndex);
+                        Log.d(TAG, "Duplicate: " + dupIndex);
                     }
                     addTrack(id);
                 }
@@ -232,46 +223,44 @@ public class ComposerMusicEngine {
         }
     }
 
-    /**
-     * replace major note on chords/scales with minor
-     */
-   /*private void driveToMinor(){
-        for (int i=1;i<midi.getTrackCount();i++){
-            Iterator<MidiEvent> it = midi.getTrack(i).getEvents().iterator();
-            MidiEvent firstEvent = it.next();
-            if(!(firstEvent instanceof NoteOn)){ //Not a percussion
-                /**
-                 * This isn't percussion, skipping programChange obj so now this is noteOn obj
-                 *
-                 * next task is add minor note from ComposerMidiTrack.note somethin somethin
+    public ArrayList<ComposerMidi> getTrackList(){
+        return this.trackList;
+    }
 
-            int minorSize = ((ComposerMidiTrack) midi.getTrack(i)).getMinorSize();
-            if(minorSize!=0)
-                while(it.hasNext()){
-                    MidiEvent e = it.next();
-                    if(e instanceof NoteOn){
-                        Log.d(TAG, "NOTE: " + ((NoteOn) e).getNoteValue() + ", TICK: " + e.getTick()/PPQ);
-                    }
-                }
-                /*for(int j=0;j<minorSize;j++){
-                    MidiEvent e = it.next();
-                    if(e instanceof NoteOn){
-                        int note = ((ComposerMidiTrack) midi.getTrack(i)).getMinorNote(j);
-                        ((NoteOn) e).setNoteValue(note);
-                        e = it.next();
-                        ((NoteOn) e).setNoteValue(note);
-                        Log.d(TAG, "Minor note no. " + (j));
-                    }
-                }
+    private boolean isTrackPlaying(int id){
+        for(ComposerMidi track: trackList){
+            if(track.getId()==id)
+                return track.isPlaying();
+        }
+        return false;
+    }
+
+    private int getTrackChannelById(int id){
+        for(ComposerMidi track: trackList){
+            if(track.getId()==id){
+                return track.getChannel();
             }
         }
-    }*/
+        return -1;
+    }
 
     @Nullable
-    private ComposerMidiTrack getTrackById(int id){
-        for(ComposerMidiTrack track: trackList){
-            if(track.getID()==id)
-                return track;
+    private MidiTrack getTrackById(int id){
+        for(ComposerMidi track: trackList){
+            if(track.getId()==id)
+                return track.getMidiTrack(0, currentTransposeKey);
+        }
+        return null;
+    }
+
+    @Nullable
+    private MidiTrack getTransposeTrackById(int minor, int id){
+        for(ComposerMidi track: trackList){
+            if(track.getId()==id) {
+                if((!track.isMinorAvailable())&&minor==1)
+                    return track.getMidiTrack(0, currentTransposeKey);
+                return track.getMidiTrack(minor, currentTransposeKey);
+            }
         }
         return null;
     }
@@ -292,17 +281,17 @@ public class ComposerMusicEngine {
 
     private int getTrackIndexById(int id){
         for(int i=0;i<trackList.size();i++){
-            if(trackList.get(i).getID()==id)
+            if(trackList.get(i).getId()==id)
                 return i;
         }
         return -1;
     }
 
-    private int isDuplicateChannel(int channel){
-        for(int i=0;i<trackList.size();i++){
-            if(trackList.get(i).isPlaying())
-                if(trackList.get(i).getChannel()==channel)
-                    return trackList.get(i).getID();
+    private int findDuplicateChannelId(int channel){
+        for(ComposerMidi track: trackList){
+            if(track.isPlaying())
+                if(track.getChannel()==channel)
+                    return track.getId();
         }
         return -1;
     }

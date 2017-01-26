@@ -13,12 +13,12 @@ import java.util.ArrayList;
 
 import cpe.com.composer.InitialActivity;
 import cpe.com.composer.R;
-import cpe.com.composer.datamanager.FingerData;
+import cpe.com.composer.datamanager.ComposerMovementArray;
 
 public class HandSlotController {
     private InitialActivity ancestorActivity;
     private ArrayList<ImageView> fingerViews = new ArrayList<>();
-    private ArrayList<FingerData> fingerSlotPanel; // slot Panel
+    private ArrayList<ComposerMovementArray> fingerSlotPanel; // slot Panel
     private boolean SIDE=false; //SIDE; false=left, true=right
     private int activeSlotPanel=0;
     private static final float biasLeft[][] = {{0.1f,0.45f},{0.3f,0.12f},{0.54f,0.05f},{0.73f,0.1f},{0.89f,0.23f}};
@@ -32,7 +32,7 @@ public class HandSlotController {
         this.fingerViews = ImageViewID;
 
         fingerSlotPanel = new ArrayList<>();
-        fingerSlotPanel.add(new FingerData());
+        fingerSlotPanel.add(new ComposerMovementArray());
 
         enterShape = ancestorActivity.getResources().getDrawable(R.drawable.ic_music_note);
         normalShape = ancestorActivity.getResources().getDrawable(R.drawable.ic_favorite);
@@ -95,7 +95,7 @@ public class HandSlotController {
     }
 
     public void addSlotPanel(){
-        FingerData newSlFing = new FingerData();
+        ComposerMovementArray newSlFing = new ComposerMovementArray();
         newSlFing.init(fingerViews);
         fingerSlotPanel.add(newSlFing);
         activeSlotPanel=fingerSlotPanel.size()-1;
@@ -139,7 +139,7 @@ public class HandSlotController {
                     break;
                 case DragEvent.ACTION_DRAG_ENDED:
                     if(inside) {
-                        setInstrumentID(v.getId(), ancestorActivity.activeSlot);
+                        setInstrumentID(v.getId(), ancestorActivity.activeDraggedId);
                         inside=false;
                     }
                     break;

@@ -10,7 +10,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import cpe.com.composer.R;
-import cpe.com.composer.soundengine.ComposerMidiTrack;
+import cpe.com.composer.soundengine.ComposerMidi;
 
 public class CustomGridViewAdapter extends BaseAdapter {
     private Context context;
@@ -23,10 +23,10 @@ public class CustomGridViewAdapter extends BaseAdapter {
         this.instrumentTitle = instrumentTitle;
     }
 
-    public CustomGridViewAdapter(Context context, ArrayList<ComposerMidiTrack> tracks){
+    public CustomGridViewAdapter(Context context, ArrayList<ComposerMidi> tracks){
         this.context = context;
         for(int i=0;i<tracks.size();i++){
-            this.instrumentID.add(tracks.get(i).getID());
+            this.instrumentID.add(tracks.get(i).getId());
             this.instrumentTitle.add(tracks.get(i).getTitle());
         }
     }
@@ -40,11 +40,11 @@ public class CustomGridViewAdapter extends BaseAdapter {
         instrumentTitle.add(title);
     }
 
-    public void setData(ArrayList<ComposerMidiTrack> tracks){
+    public void setData(ArrayList<ComposerMidi> tracks){
         instrumentID = new ArrayList<>();
         instrumentTitle = new ArrayList<>();
         for(int i=0;i<tracks.size();i++){
-            this.instrumentID.add(tracks.get(i).getID());
+            this.instrumentID.add(tracks.get(i).getId());
             this.instrumentTitle.add(tracks.get(i).getTitle());
         }
     }
