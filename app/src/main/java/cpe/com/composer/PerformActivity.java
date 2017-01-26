@@ -9,14 +9,14 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ProgressBar;
 import android.widget.SeekBar;
-import android.widget.Toast;
 
-import org.puredata.android.io.PdAudio;
 import org.puredata.core.PdBase;
 
 import java.util.ArrayList;
 
 import cpe.com.composer.datamanager.BluetoothModule;
+import cpe.com.composer.datamanager.ComposerJSON;
+import cpe.com.composer.datamanager.ComposerParam;
 import cpe.com.composer.viewmanager.CustomGridViewAdapter;
 import cpe.com.composer.viewmanager.VerticalSeekBar;
 
@@ -25,7 +25,6 @@ public class PerformActivity extends AppCompatActivity {
     private GridView activeGridView;
     private ArrayList<Integer> sampleSet;
     private ArrayList<String> instrumentTitle;
-    private ArrayList<String> commandSet;
     private Visualizer audioOutput = null;
     public float intensity = 0;
 
@@ -36,6 +35,14 @@ public class PerformActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_perform);
+
+        Bundle bundle = getIntent().getExtras();
+        if(bundle!=null){
+            String json = bundle.getString(ComposerParam.BUNDLE_KEY);
+            Log.d("DEVDEV", json);
+            new ComposerJSON().getComposerArray(json);
+        }
+
         initGui();
         initBluetooth();
         initComponent();
@@ -51,7 +58,6 @@ public class PerformActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        PdBase.startAudio();
         btModule.onResumeActivity();
 
     }
@@ -59,28 +65,22 @@ public class PerformActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        PdAudio.stopAudio();
         btModule.onPauseParent();
     }
 
     private void initComponent(){
-        PdBase.sendFloat("playS", 1f);
         sampleSet = new ArrayList<>();
-        commandSet = new ArrayList<>();
         instrumentTitle = new ArrayList<>();
-        commandSet.add("percussion");
-        commandSet.add("bass");
-        for(int i =
-            0; i<2;i++){
+
+        for(int i=0;i<2;i++){
             sampleSet.add(i);
         }
+
         activeGridView.setAdapter(new CustomGridViewAdapter(this, sampleSet, instrumentTitle));
         activeGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                PdBase.sendFloat("playS", 1f);
-                PdBase.sendBang(commandSet.get(i));
-                Toast.makeText(getApplicationContext(), "PLAY", Toast.LENGTH_SHORT).show();
+
             }
         });
 

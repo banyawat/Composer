@@ -17,12 +17,13 @@ import android.widget.ImageButton;
 
 import java.util.ArrayList;
 
+import cpe.com.composer.datamanager.ComposerParam;
 import cpe.com.composer.soundengine.ChordCell;
 import cpe.com.composer.soundengine.ComposerMusicEngine;
 import cpe.com.composer.viewmanager.CustomGridViewAdapter;
+import cpe.com.composer.viewmanager.MovementPagerAdapter;
 import cpe.com.composer.viewmanager.PanelSlotViewAdapter;
 import cpe.com.composer.viewmanager.RecyclerTouchListener;
-import cpe.com.composer.viewmanager.fragmentPagerAdapter;
 
 public class InitialActivity extends AppCompatActivity{
     public int activeDraggedId =-1; //active dragged instrument id
@@ -32,7 +33,7 @@ public class InitialActivity extends AppCompatActivity{
 
     private TabLayout tabLayout;
     private ViewPager mPager;
-    private fragmentPagerAdapter mPagerAdapter;
+    private MovementPagerAdapter mPagerAdapter;
     private ImageButton goPerformButton;
     private Button checkArrButton;
     private RecyclerView panelSlotView;
@@ -63,9 +64,12 @@ public class InitialActivity extends AppCompatActivity{
         checkArrButton = (Button) findViewById(R.id.button);
     }
 
+    /**
+     * Each event assigned to button
+     */
     private void initComponent(){
         //Fragment
-        mPagerAdapter = new fragmentPagerAdapter(getSupportFragmentManager());
+        mPagerAdapter = new MovementPagerAdapter(getSupportFragmentManager());
         mPagerAdapter.addFragment(new FingerSetupFragment(), "FINGER");
         mPagerAdapter.addFragment(new ArmSetupFragment(), "ARM");
         mPager.setAdapter(mPagerAdapter);
@@ -100,11 +104,19 @@ public class InitialActivity extends AppCompatActivity{
         goPerformButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(InitialActivity.this, PerformActivity.class));
+                Intent mIntent = new Intent(InitialActivity.this, PerformActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString(ComposerParam.BUNDLE_KEY, mPagerAdapter.getHandData());
+                mIntent.putExtras(bundle);
+                startActivity(mIntent);
             }
         });
     }
 
+    /**
+     * Change gridview information between instrument track and melody controller
+     * @param mode - to indentify hand side and change it to track or melody
+     */
     public void swapGrid(boolean mode){
         if (!mode) {
             adapter = new CustomGridViewAdapter(this, musicEngine.getTrackList());
@@ -120,6 +132,9 @@ public class InitialActivity extends AppCompatActivity{
         this.mode = mode;
     }
 
+    /**
+     * preset slot initiaing
+     */
     private void initPanelSlot(){
         LinearLayoutManager panelSlotLayout = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         panelSlotView.setLayoutManager(panelSlotLayout);
@@ -150,6 +165,9 @@ public class InitialActivity extends AppCompatActivity{
         }));
     }
 
+    /**
+     * create graphic when user drag and get ID
+     */
     private final class TouchListener implements  AdapterView.OnItemLongClickListener {
         @Override
         public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {

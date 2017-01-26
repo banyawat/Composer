@@ -13,26 +13,27 @@ import java.util.ArrayList;
 
 import cpe.com.composer.InitialActivity;
 import cpe.com.composer.R;
-import cpe.com.composer.datamanager.ComposerMovementArray;
+import cpe.com.composer.datamanager.ComposerHandSetup;
+import cpe.com.composer.datamanager.ComposerJSON;
 
-public class HandSlotController {
+public class HandInitiate {
     private InitialActivity ancestorActivity;
     private ArrayList<ImageView> fingerViews = new ArrayList<>();
-    private ArrayList<ComposerMovementArray> fingerSlotPanel; // slot Panel
+    private ArrayList<ComposerHandSetup> fingerSlotPanel; // slot Panel
     private boolean SIDE=false; //SIDE; false=left, true=right
     private int activeSlotPanel=0;
-    private static final float biasLeft[][] = {{0.1f,0.45f},{0.3f,0.12f},{0.54f,0.05f},{0.73f,0.1f},{0.89f,0.23f}};
-    private static final float biasRight[][] = {{0.09f,0.25f},{0.25f,0.11f},{0.42f,0.05f},{0.66f,0.14f},{0.88f,0.45f}};
+    private static final float fingerPositionBiasLeft[][] = {{0.1f,0.45f},{0.3f,0.12f},{0.54f,0.05f},{0.73f,0.1f},{0.89f,0.23f}};
+    private static final float fingerPositionBiasRight[][] = {{0.09f,0.25f},{0.25f,0.11f},{0.42f,0.05f},{0.66f,0.14f},{0.88f,0.45f}};
 
     private final Drawable enterShape;
     private final Drawable normalShape;
 
-    public HandSlotController(ArrayList<ImageView> ImageViewID, InitialActivity ancestorActivity){
+    public HandInitiate(ArrayList<ImageView> ImageViewID, InitialActivity ancestorActivity){
         this.ancestorActivity = ancestorActivity;
         this.fingerViews = ImageViewID;
 
         fingerSlotPanel = new ArrayList<>();
-        fingerSlotPanel.add(new ComposerMovementArray());
+        fingerSlotPanel.add(new ComposerHandSetup());
 
         enterShape = ancestorActivity.getResources().getDrawable(R.drawable.ic_music_note);
         normalShape = ancestorActivity.getResources().getDrawable(R.drawable.ic_favorite);
@@ -79,23 +80,23 @@ public class HandSlotController {
         if(SIDE) {
             for(int i=0;i<5;i++){
                 ConstraintLayout.LayoutParams constParams = (ConstraintLayout.LayoutParams) fingerViews.get(i).getLayoutParams();
-                constParams.horizontalBias = biasRight[i][0];
-                constParams.verticalBias = biasRight[i][1];
+                constParams.horizontalBias = fingerPositionBiasRight[i][0];
+                constParams.verticalBias = fingerPositionBiasRight[i][1];
                 fingerViews.get(i).setLayoutParams(constParams);
             }
         }
         else{
             for(int i=0;i<5;i++){
                 ConstraintLayout.LayoutParams constParams = (ConstraintLayout.LayoutParams) fingerViews.get(i).getLayoutParams();
-                constParams.horizontalBias = biasLeft[i][0];
-                constParams.verticalBias = biasLeft[i][1];
+                constParams.horizontalBias = fingerPositionBiasLeft[i][0];
+                constParams.verticalBias = fingerPositionBiasLeft[i][1];
                 fingerViews.get(i).setLayoutParams(constParams);
             }
         }
     }
 
     public void addSlotPanel(){
-        ComposerMovementArray newSlFing = new ComposerMovementArray();
+        ComposerHandSetup newSlFing = new ComposerHandSetup();
         newSlFing.init(fingerViews);
         fingerSlotPanel.add(newSlFing);
         activeSlotPanel=fingerSlotPanel.size()-1;
@@ -107,6 +108,10 @@ public class HandSlotController {
         this.activeSlotPanel=position;
         SIDE=false;
         refreshDrawable();
+    }
+
+    public String getHandPrefString(){
+        return new ComposerJSON(fingerSlotPanel).getJSONString();
     }
 
     public int getActiveSlotPanel(){

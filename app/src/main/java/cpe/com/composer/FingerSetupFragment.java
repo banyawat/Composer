@@ -10,12 +10,12 @@ import android.widget.ImageView;
 import java.util.ArrayList;
 
 import at.markushi.ui.CircleButton;
-import cpe.com.composer.viewmanager.HandSlotController;
+import cpe.com.composer.viewmanager.HandInitiate;
 
 public class FingerSetupFragment extends Fragment {
     private InitialActivity parentActivity;
     private View thisView;
-    private HandSlotController Hand;
+    private HandInitiate myHand;
     private ImageView handImageView;
     private CircleButton swapSideButton;
 
@@ -41,15 +41,15 @@ public class FingerSetupFragment extends Fragment {
         swapSideButton = (CircleButton) thisView.findViewById(R.id.swapSideButton1);
         parentActivity = (InitialActivity)getActivity();
         handImageView = (ImageView) thisView.findViewById(R.id.leftHandImageView);
-        Hand = new HandSlotController(viewList, parentActivity);
+        myHand = new HandInitiate(viewList, parentActivity);
     }
 
     private void initComponent(){
         swapSideButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Hand.swapSide();
-                if(!Hand.getSide()) //Get hand side from object
+                myHand.swapSide();
+                if(!myHand.getSide()) //Get hand side from object
                 {
                     handImageView.setImageResource(R.drawable.left_hand);
                     swapSideButton.setImageResource(R.drawable.ic_keyboard_arrow_left);
@@ -58,7 +58,7 @@ public class FingerSetupFragment extends Fragment {
                     handImageView.setImageResource(R.drawable.right_hand);
                     swapSideButton.setImageResource(R.drawable.ic_keyboard_arrow_right);
                 }
-                ((InitialActivity)getActivity()).swapGrid(Hand.getSide());
+                ((InitialActivity)getActivity()).swapGrid(myHand.getSide());
             }
         });
     }
@@ -66,16 +66,18 @@ public class FingerSetupFragment extends Fragment {
     public void addPanel(){
         swapSideButton.setImageResource(R.drawable.ic_keyboard_arrow_left);
         handImageView.setImageResource(R.drawable.left_hand);
-        Hand.addSlotPanel();
-        Hand.refreshDrawable();
+        myHand.addSlotPanel();
+        myHand.refreshDrawable();
     }
 
     public void setPanel(int position){
         swapSideButton.setImageResource(R.drawable.ic_keyboard_arrow_left);
         handImageView.setImageResource(R.drawable.left_hand);
-        Hand.setActiveSlotPanel(position);
-        Hand.refreshDrawable();
+        myHand.setActiveSlotPanel(position);
+        myHand.refreshDrawable();
     }
 
-
+    public String getDataHandPref(){
+        return myHand.getHandPrefString();
+    }
 }

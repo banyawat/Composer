@@ -7,6 +7,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+/**
+ *  Object store information for 1 track. either major note and minor
+ */
 public class ComposerMidi {
     private static final int DEFAULT_PPQ = 120;
     private static final int DEFAULT_NOTEDUR = 120;
