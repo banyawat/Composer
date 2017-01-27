@@ -12,9 +12,9 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -39,7 +39,7 @@ public class InitialActivity extends AppCompatActivity{
     private ViewPager mPager;
     private MovementPagerAdapter mPagerAdapter;
     private ImageButton goPerformButton;
-    private Button checkArrButton;
+    private ImageButton addSlotButton;
     private RecyclerView panelSlotView;
     private PanelSlotViewAdapter mAdapter;
 
@@ -67,7 +67,7 @@ public class InitialActivity extends AppCompatActivity{
         mPager = (ViewPager) findViewById(R.id.viewpager);
         panelSlotView = (RecyclerView) findViewById(R.id.panelSlot);
         goPerformButton = (ImageButton) findViewById(R.id.goPerformButton);
-        checkArrButton = (Button) findViewById(R.id.button);
+        addSlotButton = (ImageButton) findViewById(R.id.addPanelButton);
     }
 
     /**
@@ -101,19 +101,11 @@ public class InitialActivity extends AppCompatActivity{
             }
         });
 
-        checkArrButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                musicEngine.checkPlayingArray();
-            }
-        });
-
         goPerformButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent mIntent = new Intent(InitialActivity.this, PerformActivity.class);
                 Bundle bundle = new Bundle();
-
                 bundle.putString(ComposerParam.BUNDLE_KEY, new ComposerJSON(composerMovements).getJSONString());
                 mIntent.putExtras(bundle);
                 startActivity(mIntent);
@@ -147,35 +139,37 @@ public class InitialActivity extends AppCompatActivity{
         LinearLayoutManager panelSlotLayout = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         panelSlotView.setLayoutManager(panelSlotLayout);
         mAdapter = new PanelSlotViewAdapter();
-        mAdapter.addPanel("ADD");
-        mAdapter.addPanel(String.valueOf(mAdapter.getItemCount()));
+        mAdapter.addPanel();
         panelSlotView.setAdapter(mAdapter);
         panelSlotView.addOnItemTouchListener(new RecyclerTouchListener(this, panelSlotView, new RecyclerTouchListener.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                if(position==mAdapter.getItemCount()-1){
-                    mAdapter.addPanel(String.valueOf(mAdapter.getItemCount()));
-                    ((FingerSetupFragment)mPagerAdapter.getItem(0)).addPanel(); // First Fragment
-                    ((ArmSetupFragment)mPagerAdapter.getItem(1)).addPanel();
-                    mAdapter.setActiveSlot(position);
-                    mAdapter.notifyDataSetChanged();
-                }
-                else {
-                    ((FingerSetupFragment)mPagerAdapter.getItem(0)).setPanel(position);
-                    ((ArmSetupFragment)mPagerAdapter.getItem(1)).refreshDrawable();
-                    mAdapter.setActiveSlot(position);
-                    activeSlotPanel=position;
-                    mAdapter.notifyDataSetChanged();
-                }
+                ((FingerSetupFragment)mPagerAdapter.getItem(0)).setPanel(position);
+                ((ArmSetupFragment)mPagerAdapter.getItem(1)).refreshDrawable();
+                mAdapter.setActiveSlot(position);
+                activeSlotPanel=position;
+                mAdapter.notifyDataSetChanged();
             }
 
             @Override
             public void onLongItemClick(View view, int position) {
-
             }
         }));
 
-        ItemTouchHelper.SimpleCallback simpleItemTouchCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.UP | ItemTouchHelper.DOWN) {
+        addSlotButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int newposition = mAdapter.getItemCount();
+                mAdapter.addPanel();
+                ((FingerSetupFragment)mPagerAdapter.getItem(0)).addPanel(); // First Fragment
+                ((ArmSetupFragment)mPagerAdapter.getItem(1)).addPanel();
+                mAdapter.setActiveSlot(newposition);
+                activeSlotPanel=newposition;
+                mAdapter.notifyDataSetChanged();
+            }
+        });
+
+        ItemTouchHelper.SimpleCallback simpleItemTouchCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.UP | ItemTouchHelper.DOWN ) {
             @Override
             public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
                 return false;
@@ -183,7 +177,13 @@ public class InitialActivity extends AppCompatActivity{
 
             @Override
             public void onSwiped(RecyclerView.ViewHolder viewHolder, int swipeDir) {
-                //Remove swiped item from list and notify the RecyclerView
+                if(mAdapter.getItemCount()>1){
+                    activeSlotPanel = mAdapter.removePanel(swipeDir);
+                    mAdapter.notifyDataSetChanged();
+                }else {
+                    mAdapter.notifyItemChanged(0);
+                    Toast.makeText(getApplicationContext(), "No panel to remove", Toast.LENGTH_SHORT).show();
+                }
             }
         };
 

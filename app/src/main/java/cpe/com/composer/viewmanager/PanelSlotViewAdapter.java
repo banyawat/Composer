@@ -28,17 +28,12 @@ public class PanelSlotViewAdapter extends RecyclerView.Adapter<PanelSlotViewAdap
 
     @Override
     public void onBindViewHolder(MyViewHolder viewHolder, int position) {
-        viewHolder.panelSlotName.setText(panelListString.get(position));
-        if(position==getItemCount()-1) {
-            viewHolder.panelSlotImageView.setImageResource(R.drawable.ic_action_add);
-        }
-        else {
-            if(position==this.activeSlot)
-                viewHolder.setActive();
-            else
-                viewHolder.setInActive();
-            viewHolder.panelSlotImageView.setImageResource(R.drawable.ic_settings);
-        }
+        viewHolder.panelSlotName.setText(String.valueOf(position+1));
+        if(position==this.activeSlot)
+            viewHolder.setActive();
+        else
+            viewHolder.setInActive();
+        viewHolder.panelSlotImageView.setImageResource(R.drawable.ic_settings);
     }
 
     public void setActiveSlot(int index){
@@ -50,16 +45,14 @@ public class PanelSlotViewAdapter extends RecyclerView.Adapter<PanelSlotViewAdap
         return panelListString.size();
     }
 
-    public void addPanel(String panelName, Drawable panelImage){
-        panelListDrawable.add(0, panelImage);
-        panelListString.add(0, panelName);
+    public int removePanel(int i){
+        panelListString.remove(i);
+        setActiveSlot(panelListString.size()-1);
+        return panelListString.size()-1;
     }
 
-    public void addPanel(String panelName){
-        if(getItemCount()!=0)
-            panelListString.add(getItemCount()-1, panelName);
-        else
-            panelListString.add(panelName);
+    public void addPanel(){
+            panelListString.add(String.valueOf(panelListString.size()+1));
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
