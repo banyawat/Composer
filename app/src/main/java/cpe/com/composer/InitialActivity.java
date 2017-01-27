@@ -9,6 +9,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -17,6 +18,8 @@ import android.widget.ImageButton;
 
 import java.util.ArrayList;
 
+import cpe.com.composer.datamanager.ComposerJSON;
+import cpe.com.composer.datamanager.ComposerMovement;
 import cpe.com.composer.datamanager.ComposerParam;
 import cpe.com.composer.soundengine.ChordCell;
 import cpe.com.composer.soundengine.ComposerMusicEngine;
@@ -27,6 +30,7 @@ import cpe.com.composer.viewmanager.RecyclerTouchListener;
 
 public class InitialActivity extends AppCompatActivity{
     public int activeDraggedId =-1; //active dragged instrument id
+    public int activeSlotPanel = 0;
 
     private GridView controllerGrid;
     private CustomGridViewAdapter adapter;
@@ -42,6 +46,8 @@ public class InitialActivity extends AppCompatActivity{
     private ComposerMusicEngine musicEngine;
 
     private boolean mode=false;
+
+    public ArrayList<ComposerMovement> composerMovements = new ArrayList<>();
 
 
     final static String PATH = Environment.getExternalStorageDirectory().getPath();
@@ -68,6 +74,7 @@ public class InitialActivity extends AppCompatActivity{
      * Each event assigned to button
      */
     private void initComponent(){
+        composerMovements.add(new ComposerMovement());
         //Fragment
         mPagerAdapter = new MovementPagerAdapter(getSupportFragmentManager());
         mPagerAdapter.addFragment(new FingerSetupFragment(), "FINGER");
@@ -106,7 +113,8 @@ public class InitialActivity extends AppCompatActivity{
             public void onClick(View view) {
                 Intent mIntent = new Intent(InitialActivity.this, PerformActivity.class);
                 Bundle bundle = new Bundle();
-                bundle.putString(ComposerParam.BUNDLE_KEY, mPagerAdapter.getHandData());
+
+                bundle.putString(ComposerParam.BUNDLE_KEY, new ComposerJSON(composerMovements).getJSONString());
                 mIntent.putExtras(bundle);
                 startActivity(mIntent);
             }
@@ -148,12 +156,15 @@ public class InitialActivity extends AppCompatActivity{
                 if(position==mAdapter.getItemCount()-1){
                     mAdapter.addPanel(String.valueOf(mAdapter.getItemCount()));
                     ((FingerSetupFragment)mPagerAdapter.getItem(0)).addPanel(); // First Fragment
+                    ((ArmSetupFragment)mPagerAdapter.getItem(1)).addPanel();
                     mAdapter.setActiveSlot(position);
                     mAdapter.notifyDataSetChanged();
                 }
                 else {
                     ((FingerSetupFragment)mPagerAdapter.getItem(0)).setPanel(position);
+                    ((ArmSetupFragment)mPagerAdapter.getItem(1)).refreshDrawable();
                     mAdapter.setActiveSlot(position);
+                    activeSlotPanel=position;
                     mAdapter.notifyDataSetChanged();
                 }
             }
@@ -163,6 +174,24 @@ public class InitialActivity extends AppCompatActivity{
 
             }
         }));
+
+        ItemTouchHelper.SimpleCallback simpleItemTouchCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.UP | ItemTouchHelper.DOWN) {
+            @Override
+            public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(RecyclerView.ViewHolder viewHolder, int swipeDir) {
+                //Remove swiped item from list and notify the RecyclerView
+            }
+        };
+
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleItemTouchCallback);
+
+        itemTouchHelper.attachToRecyclerView(panelSlotView);
+
+
     }
 
     /**

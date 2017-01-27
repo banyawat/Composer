@@ -6,20 +6,104 @@
     android:layout_height="match_parent"
     tools:context="cpe.com.composer.ArmSetupFragment">
 
-    <TextView
-        android:text="ARM CONFIGURATION"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView"
-        android:textSize="50dp"
+    <ImageView
+        app:srcCompat="@drawable/gesture_01"
+        android:id="@+id/gestureImage01"
         android:layout_marginTop="16dp"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginStart="16dp"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginLeft="16dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginRight="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="16dp" />
+        android:layout_width="150dp"
+        android:layout_height="180dp" />
+
+    <ImageView
+        app:srcCompat="@drawable/gesture_02"
+        android:id="@+id/gestureImage04"
+        android:layout_width="150dp"
+        android:layout_height="180dp"
+        app:layout_constraintTop_toBottomOf="@+id/gestureImage01"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="16dp" />
+
+    <ImageView
+        app:srcCompat="@drawable/gesture_03"
+        android:id="@+id/gestureImage03"
+        android:layout_width="150dp"
+        android:layout_height="180dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintLeft_toRightOf="@+id/gestureImage02"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:layout_width="150dp"
+        app:srcCompat="@drawable/gesture_04"
+        android:id="@+id/gestureImage02"
+        android:layout_height="180dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/gestureImage01"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp" />
+
+    <ImageView
+        android:layout_width="150dp"
+        app:srcCompat="@drawable/gesture_05"
+        android:id="@+id/gestureImage05"
+        android:layout_height="180dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/gestureImage02"
+        android:layout_marginStart="16dp"
+        app:layout_constraintLeft_toRightOf="@+id/gestureImage04"
+        android:layout_marginLeft="16dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_favorite"
+        app:layout_constraintLeft_toLeftOf="@+id/gestureImage01"
+        app:layout_constraintRight_toRightOf="@+id/gestureImage01"
+        app:layout_constraintBottom_toBottomOf="@+id/gestureImage01"
+        android:id="@+id/gestureSlot01" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_favorite"
+        android:id="@+id/gestureSlot02"
+        app:layout_constraintBottom_toBottomOf="@+id/gestureImage02"
+        app:layout_constraintLeft_toLeftOf="@+id/gestureImage02"
+        app:layout_constraintRight_toRightOf="@+id/gestureImage02" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_favorite"
+        android:id="@+id/gestureSlot03"
+        app:layout_constraintLeft_toLeftOf="@+id/gestureImage03"
+        app:layout_constraintRight_toRightOf="@+id/gestureImage03"
+        app:layout_constraintBottom_toBottomOf="@+id/gestureImage03" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_favorite"
+        android:id="@+id/gestureSlot04"
+        app:layout_constraintLeft_toLeftOf="@+id/gestureImage04"
+        app:layout_constraintRight_toRightOf="@+id/gestureImage04"
+        app:layout_constraintBottom_toBottomOf="@+id/gestureImage04" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_favorite"
+        android:id="@+id/gestureSlot05"
+        app:layout_constraintRight_toRightOf="@+id/gestureImage05"
+        app:layout_constraintLeft_toLeftOf="@+id/gestureImage05"
+        app:layout_constraintBottom_toBottomOf="@+id/gestureImage05" />
+
 </android.support.constraint.ConstraintLayout>

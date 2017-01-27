@@ -5,8 +5,6 @@ import android.support.v4.app.FragmentManager;
 
 import java.util.ArrayList;
 
-import cpe.com.composer.FingerSetupFragment;
-
 public class MovementPagerAdapter extends android.support.v4.app.FragmentPagerAdapter {
     private ArrayList<Fragment> fragmentArrayList = new ArrayList<>();
     private ArrayList<String> fragmentTitleArrayList = new ArrayList<>();
@@ -18,10 +16,6 @@ public class MovementPagerAdapter extends android.support.v4.app.FragmentPagerAd
     public void addFragment(Fragment fragment, String title){
         fragmentArrayList.add(fragment);
         fragmentTitleArrayList.add(title);
-    }
-
-    public String getHandData(){
-        return ((FingerSetupFragment)fragmentArrayList.get(0)).getDataHandPref();
     }
 
     @Override

@@ -45,7 +45,7 @@
         app:layout_constraintRight_toRightOf="@+id/leftHandImageView"
         app:layout_constraintBottom_toBottomOf="@+id/leftHandImageView"
         app:layout_constraintHorizontal_bias="0.3"
-        app:layout_constraintVertical_bias="0.12"/>
+        app:layout_constraintVertical_bias="0.120000005"/>
 
     <ImageView
         android:id="@+id/controllerImage3"

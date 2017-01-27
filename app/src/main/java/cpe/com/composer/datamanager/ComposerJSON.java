@@ -65,6 +65,5 @@ public class ComposerJSON {
             e.printStackTrace();
         }
         Log.d("ENCODED", String.valueOf(composerMovements.get(0).getLeftFinger(0)));
-
     }
 }

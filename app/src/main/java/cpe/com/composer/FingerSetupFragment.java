@@ -10,12 +10,12 @@ import android.widget.ImageView;
 import java.util.ArrayList;
 
 import at.markushi.ui.CircleButton;
-import cpe.com.composer.viewmanager.HandInitiate;
+import cpe.com.composer.viewmanager.HandSetupViewInit;
 
 public class FingerSetupFragment extends Fragment {
     private InitialActivity parentActivity;
     private View thisView;
-    private HandInitiate myHand;
+    private HandSetupViewInit myHand;
     private ImageView handImageView;
     private CircleButton swapSideButton;
 
@@ -41,7 +41,7 @@ public class FingerSetupFragment extends Fragment {
         swapSideButton = (CircleButton) thisView.findViewById(R.id.swapSideButton1);
         parentActivity = (InitialActivity)getActivity();
         handImageView = (ImageView) thisView.findViewById(R.id.leftHandImageView);
-        myHand = new HandInitiate(viewList, parentActivity);
+        myHand = new HandSetupViewInit(viewList, parentActivity);
     }
 
     private void initComponent(){
@@ -75,9 +75,5 @@ public class FingerSetupFragment extends Fragment {
         handImageView.setImageResource(R.drawable.left_hand);
         myHand.setActiveSlotPanel(position);
         myHand.refreshDrawable();
-    }
-
-    public String getDataHandPref(){
-        return myHand.getHandPrefString();
     }
 }

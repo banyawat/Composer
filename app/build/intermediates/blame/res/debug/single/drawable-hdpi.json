@@ -12,6 +12,10 @@
         "source": "C:\\Users\\user\\Documents\\GitHub\\Composer\\app\\src\\main\\res\\drawable-hdpi\\ic_send.png"
     },
     {
+        "merged": "C:\\Users\\user\\Documents\\GitHub\\Composer\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_panorama_fish_eye.png",
+        "source": "C:\\Users\\user\\Documents\\GitHub\\Composer\\app\\src\\main\\res\\drawable-hdpi\\ic_panorama_fish_eye.png"
+    },
+    {
         "merged": "C:\\Users\\user\\Documents\\GitHub\\Composer\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_store.png",
         "source": "C:\\Users\\user\\Documents\\GitHub\\Composer\\app\\src\\main\\res\\drawable-hdpi\\ic_store.png"
     },

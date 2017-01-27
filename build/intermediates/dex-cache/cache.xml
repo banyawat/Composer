@@ -34,7 +34,7 @@
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
-        sha1="147def2153e09305251df25601b448cfb827f380">
+        sha1="87af18b528812baabbe9d77e77a6f263e1a43487">
         <dex dex="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\pre-dexed\debug\instant-run-bootstrap_59c94c0803fb9a98ca37ce83ca5ffe71ffee60d0.jar" />
     </item>
     <item
@@ -133,7 +133,7 @@
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
-        sha1="4978ec11d7c7ce58bf614bf6efade9471860a730">
+        sha1="c3890a832d40ef8f79bd0dc57e42e5598192598d">
         <dex dex="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\pre-dexed\debug\instant-run_ef745a37eedf32d8a3eeb6483b091d8b8ee36e4c.jar" />
     </item>
     <item

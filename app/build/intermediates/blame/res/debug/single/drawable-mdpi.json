@@ -28,6 +28,10 @@
         "source": "C:\\Users\\user\\Documents\\GitHub\\Composer\\app\\src\\main\\res\\drawable-mdpi\\ic_action_add.png"
     },
     {
+        "merged": "C:\\Users\\user\\Documents\\GitHub\\Composer\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\ic_panorama_fish_eye.png",
+        "source": "C:\\Users\\user\\Documents\\GitHub\\Composer\\app\\src\\main\\res\\drawable-mdpi\\ic_panorama_fish_eye.png"
+    },
+    {
         "merged": "C:\\Users\\user\\Documents\\GitHub\\Composer\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\ic_send.png",
         "source": "C:\\Users\\user\\Documents\\GitHub\\Composer\\app\\src\\main\\res\\drawable-mdpi\\ic_send.png"
     },

@@ -9,7 +9,7 @@ import java.util.Arrays;
 public class ComposerMovement {
     private Integer[] leftFinger = {-1, -1, -1, -1 ,-1};
     private Integer[] rightFinger = {-1, -1, -1, -1 ,-1};
-    private ArrayList<Integer> gesture = new ArrayList<>();
+    private Integer[] gesture = {-1, -1, -1, -1, -1};
 
     public ComposerMovement(){
         for(int i=0;i<5;i++){
@@ -23,13 +23,7 @@ public class ComposerMovement {
             try {
                 this.leftFinger[i] = leftFinger.getInt(i);
                 this.rightFinger[i] = rightFinger.getInt(i);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
-        for(int i=0;i<gesture.length();i++){
-            try {
-                this.gesture.add(gesture.getInt(i));
+                this.gesture[i] = gesture.getInt(i);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -51,7 +45,7 @@ public class ComposerMovement {
             return new ArrayList<>(Arrays.asList(rightFinger));
         }
         else{
-            return gesture;
+            return new ArrayList<>(Arrays.asList(gesture));
         }
     }
 
@@ -64,6 +58,10 @@ public class ComposerMovement {
         }
     }
 
+    public void setGestureId(int index, int instrumentID){
+        gesture[index] = instrumentID;
+    }
+
     public int getLeftFinger(int i){
         return leftFinger[i];
     }
@@ -72,7 +70,7 @@ public class ComposerMovement {
         return rightFinger[i];
     }
 
-    public ArrayList<Integer> getGesture() {
-        return gesture;
+    public int getGesture(int i) {
+        return gesture[i];
     }
 }
