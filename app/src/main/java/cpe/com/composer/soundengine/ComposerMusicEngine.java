@@ -24,7 +24,7 @@ import java.util.Iterator;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import cpe.com.composer.datamanager.PresetDatabase;
+import cpe.com.composer.datamanager.ComposerDatabase;
 
 public class ComposerMusicEngine {
     private static final int PPQ=120;
@@ -76,19 +76,19 @@ public class ComposerMusicEngine {
     }
 
     public void loadDatabase(){
-        PresetDatabase mHelper = new PresetDatabase(context);
+        ComposerDatabase mHelper = new ComposerDatabase(context);
         SQLiteDatabase mDb = mHelper.getWritableDatabase();
-        Cursor mCursor = mDb.rawQuery("SELECT * FROM " + PresetDatabase.TABLE_NAME, null);
+        Cursor mCursor = mDb.rawQuery("SELECT * FROM " + ComposerDatabase.TRACK_TABLE, null);
 
         mCursor.moveToFirst();
         Log.d(TAG, "Loading database");
         while ( !mCursor.isAfterLast() ){
             int id = mCursor.getInt(mCursor.getColumnIndex("_id"));
-            String title = mCursor.getString(mCursor.getColumnIndex(PresetDatabase.COL_TITLE));
-            int channel = mCursor.getInt(mCursor.getColumnIndex(PresetDatabase.COL_CHANNEL));
-            int program = mCursor.getInt(mCursor.getColumnIndex(PresetDatabase.COL_PROGRAM));
-            String note = mCursor.getString(mCursor.getColumnIndex(PresetDatabase.COL_NOTE));
-            int mode = mCursor.getInt(mCursor.getColumnIndex(PresetDatabase.COL_MODE));
+            String title = mCursor.getString(mCursor.getColumnIndex(ComposerDatabase.COL_TITLE));
+            int channel = mCursor.getInt(mCursor.getColumnIndex(ComposerDatabase.COL_CHANNEL));
+            int program = mCursor.getInt(mCursor.getColumnIndex(ComposerDatabase.COL_PROGRAM));
+            String note = mCursor.getString(mCursor.getColumnIndex(ComposerDatabase.COL_NOTE));
+            int mode = mCursor.getInt(mCursor.getColumnIndex(ComposerDatabase.COL_MODE));
 
             if(mode==0) {
                 trackList.add(new ComposerMidi(id, title, channel, program, note));

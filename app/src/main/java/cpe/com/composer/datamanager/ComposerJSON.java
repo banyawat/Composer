@@ -1,7 +1,5 @@
 package cpe.com.composer.datamanager;
 
-import android.util.Log;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -38,14 +36,13 @@ public class ComposerJSON {
                 e.printStackTrace();
             }
         }
-        //Log.d("Translator", presetObj.toString());
     }
 
     public String getJSONString(){
         return presetObj.toString();
     }
 
-    public void getComposerArray(String jsonString){
+    public ArrayList<ComposerMovement> getComposerArray(String jsonString){
         ArrayList<ComposerMovement> composerMovements = new ArrayList<>();
         try {
             JSONObject jsonO1 = new JSONObject(jsonString);
@@ -64,6 +61,6 @@ public class ComposerJSON {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        Log.d("ENCODED", String.valueOf(composerMovements.get(0).getLeftFinger(0)));
+        return composerMovements;
     }
 }

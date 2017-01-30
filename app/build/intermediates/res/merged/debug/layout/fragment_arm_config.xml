@@ -64,7 +64,7 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ic_favorite"
+        app:srcCompat="@drawable/ic_panorama_fish_eye"
         app:layout_constraintLeft_toLeftOf="@+id/gestureImage01"
         app:layout_constraintRight_toRightOf="@+id/gestureImage01"
         app:layout_constraintBottom_toBottomOf="@+id/gestureImage01"
@@ -73,7 +73,7 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ic_favorite"
+        app:srcCompat="@drawable/ic_panorama_fish_eye"
         android:id="@+id/gestureSlot02"
         app:layout_constraintBottom_toBottomOf="@+id/gestureImage02"
         app:layout_constraintLeft_toLeftOf="@+id/gestureImage02"
@@ -82,7 +82,7 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ic_favorite"
+        app:srcCompat="@drawable/ic_panorama_fish_eye"
         android:id="@+id/gestureSlot03"
         app:layout_constraintLeft_toLeftOf="@+id/gestureImage03"
         app:layout_constraintRight_toRightOf="@+id/gestureImage03"
@@ -91,7 +91,7 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ic_favorite"
+        app:srcCompat="@drawable/ic_panorama_fish_eye"
         android:id="@+id/gestureSlot04"
         app:layout_constraintLeft_toLeftOf="@+id/gestureImage04"
         app:layout_constraintRight_toRightOf="@+id/gestureImage04"
@@ -100,7 +100,7 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ic_favorite"
+        app:srcCompat="@drawable/ic_panorama_fish_eye"
         android:id="@+id/gestureSlot05"
         app:layout_constraintRight_toRightOf="@+id/gestureImage05"
         app:layout_constraintLeft_toLeftOf="@+id/gestureImage05"

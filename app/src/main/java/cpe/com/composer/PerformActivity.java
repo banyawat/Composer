@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import cpe.com.composer.datamanager.BluetoothModule;
 import cpe.com.composer.datamanager.ComposerJSON;
 import cpe.com.composer.datamanager.ComposerParam;
-import cpe.com.composer.viewmanager.CustomGridViewAdapter;
+import cpe.com.composer.viewmanager.ComposerGridViewAdapter;
 import cpe.com.composer.viewmanager.VerticalSeekBar;
 
 public class PerformActivity extends AppCompatActivity {
@@ -87,7 +87,7 @@ public class PerformActivity extends AppCompatActivity {
             }
         });
 
-        activeGridView.setAdapter(new CustomGridViewAdapter(this, sampleSet, instrumentTitle));
+        activeGridView.setAdapter(new ComposerGridViewAdapter(this, sampleSet, instrumentTitle));
         activeGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {

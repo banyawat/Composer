@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
@@ -23,17 +24,18 @@ import cpe.com.composer.datamanager.ComposerMovement;
 import cpe.com.composer.datamanager.ComposerParam;
 import cpe.com.composer.soundengine.ChordCell;
 import cpe.com.composer.soundengine.ComposerMusicEngine;
-import cpe.com.composer.viewmanager.CustomGridViewAdapter;
+import cpe.com.composer.viewmanager.ComposerGridViewAdapter;
 import cpe.com.composer.viewmanager.MovementPagerAdapter;
-import cpe.com.composer.viewmanager.PanelSlotViewAdapter;
+import cpe.com.composer.viewmanager.PanelViewAdapter;
 import cpe.com.composer.viewmanager.RecyclerTouchListener;
 
 public class InitialActivity extends AppCompatActivity{
     public int activeDraggedId =-1; //active dragged instrument id
     public int activeSlotPanel = 0;
+    public boolean isParameterPassed=false;
 
     private GridView controllerGrid;
-    private CustomGridViewAdapter adapter;
+    private ComposerGridViewAdapter adapter;
 
     private TabLayout tabLayout;
     private ViewPager mPager;
@@ -41,7 +43,7 @@ public class InitialActivity extends AppCompatActivity{
     private ImageButton goPerformButton;
     private ImageButton addSlotButton;
     private RecyclerView panelSlotView;
-    private PanelSlotViewAdapter mAdapter;
+    private PanelViewAdapter panelViewAdapter;
 
     private ComposerMusicEngine musicEngine;
 
@@ -56,7 +58,17 @@ public class InitialActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_initial);
+
         initGui();
+
+        Bundle extras = getIntent().getExtras();
+        if(extras!=null){
+            isParameterPassed=true;
+            composerMovements = new ComposerJSON().getComposerArray(extras.getString(ComposerParam.BUNDLE_KEY));
+            Log.d("DEVPER", extras.getString(ComposerParam.BUNDLE_KEY));
+            Log.d("DEVPER", "SIZE: " + composerMovements.size());
+        }
+
         initComponent();
         initPanelSlot();
     }
@@ -74,7 +86,8 @@ public class InitialActivity extends AppCompatActivity{
      * Each event assigned to button
      */
     private void initComponent(){
-        composerMovements.add(new ComposerMovement());
+        if(!isParameterPassed)
+            composerMovements.add(new ComposerMovement());
         //Fragment
         mPagerAdapter = new MovementPagerAdapter(getSupportFragmentManager());
         mPagerAdapter.addFragment(new FingerSetupFragment(), "FINGER");
@@ -84,13 +97,22 @@ public class InitialActivity extends AppCompatActivity{
         //Tab initialization
         tabLayout.setupWithViewPager(mPager);
 
-        //initDatabase();
+        //music engine initiation;
         musicEngine = new ComposerMusicEngine(this, PATH);
         musicEngine.loadDatabase();
 
-        adapter = new CustomGridViewAdapter(this, musicEngine.getTrackList());
+        adapter = new ComposerGridViewAdapter(this, musicEngine.getTrackList());
         controllerGrid.setAdapter(adapter);
-        controllerGrid.setOnItemLongClickListener(new TouchListener());
+        controllerGrid.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+                ClipData data = ClipData.newPlainText("", "");
+                View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(view);
+                view.startDrag(data, shadowBuilder, view, View.DRAG_FLAG_GLOBAL);
+                activeDraggedId = (int) adapter.getItemId(i);
+                return false;
+            }
+        });
         controllerGrid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, final int position, long l) {
@@ -100,15 +122,26 @@ public class InitialActivity extends AppCompatActivity{
                     musicEngine.doTranspose((int) adapter.getItemId(position));
             }
         });
+        controllerGrid.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(view);
+                view.startDrag(null, shadowBuilder, view, 0);
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
 
         goPerformButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent mIntent = new Intent(InitialActivity.this, PerformActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putString(ComposerParam.BUNDLE_KEY, new ComposerJSON(composerMovements).getJSONString());
-                mIntent.putExtras(bundle);
-                startActivity(mIntent);
+                Bundle extras = new Bundle();
+                extras.putString(ComposerParam.BUNDLE_KEY, new ComposerJSON(composerMovements).getJSONString());
+                startActivity(new Intent(InitialActivity.this, PerformActivity.class).putExtras(extras));
             }
         });
     }
@@ -117,12 +150,12 @@ public class InitialActivity extends AppCompatActivity{
      * Change gridview information between instrument track and melody controller
      * @param mode - to indentify hand side and change it to track or melody
      */
-    public void swapGrid(boolean mode){
+    public void swapHandSide(boolean mode){
         if (!mode) {
-            adapter = new CustomGridViewAdapter(this, musicEngine.getTrackList());
+            adapter = new ComposerGridViewAdapter(this, musicEngine.getTrackList());
         }
         else {
-            adapter = new CustomGridViewAdapter(this);
+            adapter = new ComposerGridViewAdapter(this);
             ArrayList<ChordCell> chordCells = musicEngine.getChordList();
             for(ChordCell temp: chordCells){
                 adapter.addInstrument(temp.getId(), temp.getTitle());
@@ -138,17 +171,26 @@ public class InitialActivity extends AppCompatActivity{
     private void initPanelSlot(){
         LinearLayoutManager panelSlotLayout = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         panelSlotView.setLayoutManager(panelSlotLayout);
-        mAdapter = new PanelSlotViewAdapter();
-        mAdapter.addPanel();
-        panelSlotView.setAdapter(mAdapter);
+        panelViewAdapter = new PanelViewAdapter();
+
+        if(isParameterPassed) {
+            for (int i = 0; i < composerMovements.size(); i++) {
+                Log.d("DEVPER", "ADDED");
+                panelViewAdapter.addPanel();
+            }
+        }
+        else
+            panelViewAdapter.addPanel();
+
+        panelSlotView.setAdapter(panelViewAdapter);
         panelSlotView.addOnItemTouchListener(new RecyclerTouchListener(this, panelSlotView, new RecyclerTouchListener.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
                 ((FingerSetupFragment)mPagerAdapter.getItem(0)).setPanel(position);
                 ((ArmSetupFragment)mPagerAdapter.getItem(1)).refreshDrawable();
-                mAdapter.setActiveSlot(position);
+                panelViewAdapter.setActiveSlot(position);
                 activeSlotPanel=position;
-                mAdapter.notifyDataSetChanged();
+                panelViewAdapter.notifyDataSetChanged();
             }
 
             @Override
@@ -159,13 +201,13 @@ public class InitialActivity extends AppCompatActivity{
         addSlotButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int newposition = mAdapter.getItemCount();
-                mAdapter.addPanel();
+                int newposition = panelViewAdapter.getItemCount();
+                panelViewAdapter.addPanel();
                 ((FingerSetupFragment)mPagerAdapter.getItem(0)).addPanel(); // First Fragment
                 ((ArmSetupFragment)mPagerAdapter.getItem(1)).addPanel();
-                mAdapter.setActiveSlot(newposition);
+                panelViewAdapter.setActiveSlot(newposition);
                 activeSlotPanel=newposition;
-                mAdapter.notifyDataSetChanged();
+                panelViewAdapter.notifyDataSetChanged();
             }
         });
 
@@ -177,34 +219,16 @@ public class InitialActivity extends AppCompatActivity{
 
             @Override
             public void onSwiped(RecyclerView.ViewHolder viewHolder, int swipeDir) {
-                if(mAdapter.getItemCount()>1){
-                    activeSlotPanel = mAdapter.removePanel(swipeDir);
-                    mAdapter.notifyDataSetChanged();
+                if(panelViewAdapter.getItemCount()>1){
+                    activeSlotPanel = panelViewAdapter.removePanel(swipeDir);
+                    panelViewAdapter.notifyDataSetChanged();
                 }else {
-                    mAdapter.notifyItemChanged(0);
+                    panelViewAdapter.notifyItemChanged(0);
                     Toast.makeText(getApplicationContext(), "No panel to remove", Toast.LENGTH_SHORT).show();
                 }
             }
         };
-
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleItemTouchCallback);
-
         itemTouchHelper.attachToRecyclerView(panelSlotView);
-
-
-    }
-
-    /**
-     * create graphic when user drag and get ID
-     */
-    private final class TouchListener implements  AdapterView.OnItemLongClickListener {
-        @Override
-        public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
-            ClipData data = ClipData.newPlainText("", "");
-            View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(view);
-            view.startDrag(data, shadowBuilder, view, View.DRAG_FLAG_GLOBAL);
-            activeDraggedId = (int) adapter.getItemId(i);
-            return false;
-        }
     }
 }

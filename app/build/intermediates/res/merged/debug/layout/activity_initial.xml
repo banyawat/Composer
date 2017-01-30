@@ -42,7 +42,7 @@
             android:layout_marginEnd="16dp"
             app:layout_constraintRight_toRightOf="parent"
             android:layout_marginRight="16dp"
-            tools:layout_editor_absoluteY="0dp" />
+            tools:layout_editor_absoluteY="25dp" />
 
         <android.support.v4.view.ViewPager
             android:id="@+id/viewpager"
@@ -61,7 +61,7 @@
 
         <LinearLayout
             android:orientation="horizontal"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             android:layout_height="130dp"

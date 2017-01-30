@@ -38,7 +38,7 @@ public class ArmSetupFragment extends Fragment {
 
         parentActivity = (InitialActivity) getActivity();
         enterShape = getActivity().getResources().getDrawable(R.drawable.ic_music_note);
-        normalShape = getActivity().getResources().getDrawable(R.drawable.ic_favorite);
+        normalShape = getActivity().getResources().getDrawable(R.drawable.ic_panorama_fish_eye);
 
 
         initGui();
@@ -56,15 +56,23 @@ public class ArmSetupFragment extends Fragment {
     }
 
     private void initComponent(){
-        for(ImageView imageView: viewList){
-            viewIdList.add(imageView.getId());
-            imageView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Toast.makeText(getContext(), String.valueOf(parentActivity.composerMovements.get(parentActivity.activeSlotPanel).getGesture(viewIdList.indexOf(view.getId()))), Toast.LENGTH_SHORT).show();
-                }
-            });
-            imageView.setOnDragListener(new OnGestureDragListener());
+        if(parentActivity.isParameterPassed){
+            refreshDrawable();
+            for(ImageView imageView : viewList){
+                imageView.setOnDragListener(new OnGestureDragListener());
+            }
+        }
+        else {
+            for (ImageView imageView : viewList) {
+                viewIdList.add(imageView.getId());
+                imageView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Toast.makeText(getContext(), String.valueOf(parentActivity.composerMovements.get(parentActivity.activeSlotPanel).getGesture(viewIdList.indexOf(view.getId()))), Toast.LENGTH_SHORT).show();
+                    }
+                });
+                imageView.setOnDragListener(new OnGestureDragListener());
+            }
         }
     }
 

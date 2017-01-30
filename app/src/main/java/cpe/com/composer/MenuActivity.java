@@ -9,8 +9,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import cpe.com.composer.datamanager.ComposerParam;
+
 public class MenuActivity extends AppCompatActivity {
     Button startButton, presetButton, storeButton, settingButton, midiButton;
+    Bundle extras = new Bundle();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,14 +41,17 @@ public class MenuActivity extends AppCompatActivity {
         presetButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MenuActivity.this, PresetActivity.class));
+                extras.putInt(ComposerParam.MENU_BUNDLE_KEY, 0);
+                startActivity(new Intent(MenuActivity.this, PresetActivity.class).putExtras(extras));
             }
         });
         storeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(isNetworkConnected())
-                    startActivity(new Intent(MenuActivity.this, StoreActivity.class));
+                if(isNetworkConnected()) {
+                    extras.putInt(ComposerParam.MENU_BUNDLE_KEY, 1);
+                    startActivity(new Intent(MenuActivity.this, PresetActivity.class).putExtras(extras));
+                }
                 else
                     Toast.makeText(getApplicationContext(), "No network connection, Please try again.", Toast.LENGTH_SHORT).show();
             }
