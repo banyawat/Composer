@@ -35,7 +35,6 @@ public class ComposerMidi {
             JSONObject jsonObject = new JSONObject(jsonNote);
             majorPitches = jsonObject.getJSONArray("note");
             ticks = jsonObject.getJSONArray("ppq");
-
             if(program!=-1&&!jsonObject.isNull("notemin")){
                 minorPitches = jsonObject.getJSONArray("notemin");
             }

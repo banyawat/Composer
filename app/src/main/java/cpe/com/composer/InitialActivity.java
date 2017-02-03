@@ -127,7 +127,6 @@ public class InitialActivity extends AppCompatActivity{
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(view);
                 view.startDrag(null, shadowBuilder, view, 0);
-
             }
 
             @Override
@@ -175,7 +174,6 @@ public class InitialActivity extends AppCompatActivity{
 
         if(isParameterPassed) {
             for (int i = 0; i < composerMovements.size(); i++) {
-                Log.d("DEVPER", "ADDED");
                 panelViewAdapter.addPanel();
             }
         }
@@ -202,12 +200,16 @@ public class InitialActivity extends AppCompatActivity{
             @Override
             public void onClick(View view) {
                 int newposition = panelViewAdapter.getItemCount();
-                panelViewAdapter.addPanel();
-                ((FingerSetupFragment)mPagerAdapter.getItem(0)).addPanel(); // First Fragment
-                ((ArmSetupFragment)mPagerAdapter.getItem(1)).addPanel();
-                panelViewAdapter.setActiveSlot(newposition);
-                activeSlotPanel=newposition;
-                panelViewAdapter.notifyDataSetChanged();
+                if(newposition<ComposerParam.MAX_PANELSLOT) {
+                    panelViewAdapter.addPanel();
+                    ((FingerSetupFragment) mPagerAdapter.getItem(0)).addPanel(); // First Fragment
+                    ((ArmSetupFragment) mPagerAdapter.getItem(1)).addPanel();
+                    panelViewAdapter.setActiveSlot(newposition);
+                    activeSlotPanel = newposition;
+                    panelViewAdapter.notifyDataSetChanged();
+                }
+                else
+                    Toast.makeText(getApplicationContext(), "Panel full", Toast.LENGTH_SHORT).show();
             }
         });
 

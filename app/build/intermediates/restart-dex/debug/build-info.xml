@@ -5,34 +5,27 @@
     density="mdpi"
     format="8"
     plugin-version="2.2.3"
-    timestamp="6613761431492"
+    timestamp="5158990286728"
     token="-4738754701230084975"
-    verifier="COMPATIBLE" >
+    verifier="FULL_BUILD_REQUESTED" >
 
     <task
         name="javac"
-        duration="0" />
+        duration="2305" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="0" />
+        duration="65" />
     <task
         name="verifier"
-        duration="0" />
+        duration="16" />
 
     <artifact
-        location="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\instant-run-resources\resources-debug.ir.ap_"
-        type="RESOURCES" />
+        location="C:\Users\user\Documents\GitHub\Composer\app\build\outputs\apk\app-debug.apk"
+        type="MAIN" />
 
-    <build
-        timestamp="6110654802567"
-        verifier="FULL_BUILD_REQUESTED" >
-        <artifact
-            location="C:\Users\user\Documents\GitHub\Composer\app\build\outputs\apk\app-debug.apk"
-            type="MAIN" />
-    </build>
     <build
         timestamp="205936607998056"
         verifier="FULL_BUILD_REQUESTED" >

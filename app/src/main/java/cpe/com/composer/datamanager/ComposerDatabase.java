@@ -43,6 +43,9 @@ public class ComposerDatabase extends SQLiteOpenHelper {
         preDb.execSQL("INSERT INTO " + TRACK_TABLE + " VALUES(null, 'A', 0, 0, 9, 1);");
         preDb.execSQL("INSERT INTO " + TRACK_TABLE + " VALUES(null, 'Am', 0, 1, 9, 1);");
         preDb.execSQL("INSERT INTO " + TRACK_TABLE + " VALUES(null, 'B', 0, 0, 11, 1);");
+        preDb.execSQL("INSERT INTO " + TRACK_TABLE + " VALUES(null, 'C Am F G', 0, 0, '{\"note\":[0,9,5,7],\"minor\":[0,1,0,0]}', 2);");
+        preDb.execSQL("INSERT INTO " + TRACK_TABLE + " VALUES(null, '80', 0, 0, 80, 3);");
+        preDb.execSQL("INSERT INTO " + TRACK_TABLE + " VALUES(null, '90', 0, 0, 90, 3);");
 
         preDb.execSQL("CREATE TABLE " + PRESET_TABLE + "(_id INTEGER PRIMARY KEY AUTOINCREMENT, '" + COL_TITLE +
                 "' TEXT, '" + COL_DETAIL + "' TEXT);");
