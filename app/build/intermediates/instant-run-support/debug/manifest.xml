@@ -35,10 +35,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="cpe.com.composer.InitialActivity"
+            android:name="cpe.com.composer.SetupActivity"
             android:screenOrientation="landscape" />
         <activity
-            android:name="cpe.com.composer.PresetActivity"
+            android:name="cpe.com.composer.PreviewActivity"
             android:screenOrientation="landscape" />
         <activity
             android:name="cpe.com.composer.SettingsActivity"

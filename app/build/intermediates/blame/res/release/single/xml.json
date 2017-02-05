@@ -1,0 +1,22 @@
+[
+    {
+        "merged": "C:\\Users\\user\\Documents\\GitHub\\Composer\\app\\build\\intermediates\\res\\merged\\release\\xml\\preferences.xml",
+        "source": "C:\\Users\\user\\Documents\\GitHub\\Composer\\app\\build\\intermediates\\exploded-aar\\org.puredata.android\\PdCore\\1.0.3-SNAPSHOT\\res\\xml\\preferences.xml"
+    },
+    {
+        "merged": "C:\\Users\\user\\Documents\\GitHub\\Composer\\app\\build\\intermediates\\res\\merged\\release\\xml\\pref_notification.xml",
+        "source": "C:\\Users\\user\\Documents\\GitHub\\Composer\\app\\src\\main\\res\\xml\\pref_notification.xml"
+    },
+    {
+        "merged": "C:\\Users\\user\\Documents\\GitHub\\Composer\\app\\build\\intermediates\\res\\merged\\release\\xml\\pref_headers.xml",
+        "source": "C:\\Users\\user\\Documents\\GitHub\\Composer\\app\\src\\main\\res\\xml\\pref_headers.xml"
+    },
+    {
+        "merged": "C:\\Users\\user\\Documents\\GitHub\\Composer\\app\\build\\intermediates\\res\\merged\\release\\xml\\pref_general.xml",
+        "source": "C:\\Users\\user\\Documents\\GitHub\\Composer\\app\\src\\main\\res\\xml\\pref_general.xml"
+    },
+    {
+        "merged": "C:\\Users\\user\\Documents\\GitHub\\Composer\\app\\build\\intermediates\\res\\merged\\release\\xml\\pref_data_sync.xml",
+        "source": "C:\\Users\\user\\Documents\\GitHub\\Composer\\app\\src\\main\\res\\xml\\pref_data_sync.xml"
+    }
+]

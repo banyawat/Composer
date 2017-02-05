@@ -34,14 +34,14 @@ public class MenuActivity extends AppCompatActivity {
         startButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MenuActivity.this, InitialActivity.class));
+                startActivity(new Intent(MenuActivity.this, SetupActivity.class));
             }
         });
         presetButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 extras.putInt(ComposerParam.MENU_BUNDLE_KEY, 0);
-                startActivity(new Intent(MenuActivity.this, PresetActivity.class).putExtras(extras));
+                startActivity(new Intent(MenuActivity.this, PreviewActivity.class).putExtras(extras));
             }
         });
         storeButton.setOnClickListener(new View.OnClickListener() {
@@ -49,7 +49,7 @@ public class MenuActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if(isNetworkConnected()) {
                     extras.putInt(ComposerParam.MENU_BUNDLE_KEY, 1);
-                    startActivity(new Intent(MenuActivity.this, PresetActivity.class).putExtras(extras));
+                    startActivity(new Intent(MenuActivity.this, PreviewActivity.class).putExtras(extras));
                 }
                 else
                     Toast.makeText(getApplicationContext(), "No network connection, Please try again.", Toast.LENGTH_SHORT).show();

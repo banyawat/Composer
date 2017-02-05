@@ -28,10 +28,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".InitialActivity"
+            android:name=".SetupActivity"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".PresetActivity"
+            android:name=".PreviewActivity"
             android:screenOrientation="landscape" />
         <activity
             android:name=".SettingsActivity"

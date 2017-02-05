@@ -32,7 +32,7 @@ public class ComposerDatabase extends SQLiteOpenHelper {
                 "'{\"note\":[33,35,37,38,44,38,37,44,33,33,33,33],\"ppq\":[0,1,2,4,5,6,7,10,11,12,13,14]}', 0);");
         preDb.execSQL("INSERT INTO " + TRACK_TABLE + " VALUES(null, 'ฺBass 2', 1, " + ProgramChange.MidiProgram.ELECTRIC_BASS_PICK.programNumber() + ", " +
                 "'{\"note\":[36,36,36,36,36,36,36,36],\"ppq\":[0,2,4,6,8,10,12,14],\"dur\":[220,220,220,220,220,220,220,220]}', 0);");
-        preDb.execSQL("INSERT INTO " + TRACK_TABLE + " VALUES(null, 'Electirc Guitar', 2, " + ProgramChange.MidiProgram.ELECTRIC_GUITAR_CLEAN.programNumber() + ", '{\"note\":[57,60,64,57,60,64,57,60,64,66,57,60,64,66], " +
+        preDb.execSQL("INSERT INTO " + TRACK_TABLE + " VALUES(null, 'Electric Guitar', 2, " + ProgramChange.MidiProgram.ELECTRIC_GUITAR_CLEAN.programNumber() + ", '{\"note\":[57,60,64,57,60,64,57,60,64,66,57,60,64,66], " +
                 "\"ppq\":[0,0,0,3,3,3,6,6,6,6,9,9,9,9],\"dur\":[220,220,220,50,50,50,220,220,220,220,50,50,50,50]}', 0);");
         preDb.execSQL("INSERT INTO " + TRACK_TABLE + " VALUES(null, 'Guitar Major', 2, " + ProgramChange.MidiProgram.ELECTRIC_GUITAR_CLEAN.programNumber() + ", '{\"note\":[48,52,55,48,52,55],\"notemin\":[48,51,55,48,51,55],\"ppq\":[0,2,4,8,10,12],\"dur\":[320,320,320,320,320,320]}', 0);");
         preDb.execSQL("INSERT INTO " + TRACK_TABLE + " VALUES(null, 'C', 0, 0, 0, 1);");
@@ -53,7 +53,7 @@ public class ComposerDatabase extends SQLiteOpenHelper {
         preDb.execSQL("CREATE TABLE " + PRESET_TABLE + "(_id INTEGER PRIMARY KEY AUTOINCREMENT, '" + COL_TITLE +
                 "' TEXT, '" + COL_DETAIL + "' TEXT);");
         preDb.execSQL("INSERT INTO " + PRESET_TABLE + " VALUES(null, '80s Rock n Roll', '{\"0\":{\"2\":[-1,-1,-1,-1,-1],\"1\":[-1,-1,-1,-1,-1],\"0\":[-1,-1,-1,-1,-1]}}');");
-        preDb.execSQL("INSERT INTO " + PRESET_TABLE + " VALUES(null, 'Nickelback Style', '{\"0\":{\"0\":[-1,1,-1,-1,4],\"1\":[-1,-1,15,-1,-1],\"2\":[17,-1,16,-1,-1]},\"1\":{\"0\":[5,-1,-1,4,-1],\"1\":[-1,-1,-1,-1,-1],\"2\":[18,-1,-1,-1,-1]}}');");
+        preDb.execSQL("INSERT INTO " + PRESET_TABLE + " VALUES(null, 'Nickelback Style', '{\"0\":{\"0\":[-1,1,-1,-1,4],\"1\":[-1,-1,13,-1,-1],\"2\":[17,-1,16,-1,-1]},\"1\":{\"0\":[5,-1,-1,4,-1],\"1\":[-1,-1,-1,-1,-1],\"2\":[18,-1,-1,-1,-1]}}');");
     }
 
     @Override

@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="horizontal"
     android:background="@drawable/main_background3"
-    tools:context="cpe.com.composer.PresetActivity">
+    tools:context="cpe.com.composer.PreviewActivity">
 
     <android.support.v7.widget.RecyclerView
         android:layout_width="0dp"
