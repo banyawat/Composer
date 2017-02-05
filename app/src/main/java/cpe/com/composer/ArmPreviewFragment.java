@@ -3,6 +3,7 @@ package cpe.com.composer;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,8 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import at.markushi.ui.CircleButton;
+
 public class ArmPreviewFragment extends Fragment {
     private View thisView;
 
@@ -18,8 +21,9 @@ public class ArmPreviewFragment extends Fragment {
     private ArrayList<Integer> viewIdList = new ArrayList<>();
     private PresetActivity parentActivity;
 
-    private Drawable enterShape;
+    //private Drawable enterShape;
     private Drawable normalShape;
+    private CircleButton removeHideButton;
 
     public ArmPreviewFragment() {}
 
@@ -30,7 +34,7 @@ public class ArmPreviewFragment extends Fragment {
         thisView = inflater.inflate(R.layout.fragment_arm_config, container, false);
 
         parentActivity = (PresetActivity) getActivity();
-        enterShape = getActivity().getResources().getDrawable(R.drawable.ic_music_note);
+        //enterShape = getActivity().getResources().getDrawable(R.drawable.ic_music_note);
         normalShape = getActivity().getResources().getDrawable(R.drawable.ic_panorama_fish_eye);
 
 
@@ -46,6 +50,7 @@ public class ArmPreviewFragment extends Fragment {
         viewList.add((ImageView)thisView.findViewById(R.id.gestureSlot03));
         viewList.add((ImageView)thisView.findViewById(R.id.gestureSlot04));
         viewList.add((ImageView)thisView.findViewById(R.id.gestureSlot05));
+        removeHideButton = (CircleButton) thisView.findViewById(R.id.gestureSlotRemoveButton);
     }
 
     private void initComponent(){
@@ -58,6 +63,7 @@ public class ArmPreviewFragment extends Fragment {
                 }
             });
         }
+        removeHideButton.setVisibility(View.INVISIBLE);
     }
 
     public void setInstrumentID(int keyID, int instrumentID){
@@ -66,10 +72,11 @@ public class ArmPreviewFragment extends Fragment {
 
     public void refreshDrawable(){
         for(int i=0;i<5;i++){
-            if(parentActivity.getActivePreset().get(parentActivity.activeSlotPanel).getGesture(i)==-1)
+            int id = parentActivity.getActivePreset().get(parentActivity.activeSlotPanel).getGesture(i);
+            if(id==-1)
                 viewList.get(i).setImageDrawable(normalShape);
             else
-                viewList.get(i).setImageDrawable(enterShape);
+                viewList.get(i).setImageDrawable(ContextCompat.getDrawable(parentActivity.getApplicationContext(), parentActivity.getImageByTypeId(id)));
         }
     }
 }

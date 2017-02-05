@@ -106,4 +106,17 @@
         app:layout_constraintLeft_toLeftOf="@+id/gestureImage05"
         app:layout_constraintBottom_toBottomOf="@+id/gestureImage05" />
 
+    <at.markushi.ui.CircleButton
+        app:cb_color="@color/go_button"
+        app:cb_pressedRingWidth="8dp"
+        android:layout_width="80dp"
+        android:src="@drawable/ic_delete"
+        android:id="@+id/gestureSlotRemoveButton"
+        android:layout_height="80dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="16dp" />
+
 </android.support.constraint.ConstraintLayout>

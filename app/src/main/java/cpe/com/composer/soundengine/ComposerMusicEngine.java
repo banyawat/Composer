@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -37,8 +36,9 @@ public class ComposerMusicEngine {
     private MidiFile midi;
     private int currentTransposeKey=0;
 
-    private ArrayList<ComposerMidi> trackList = new ArrayList<>();
-    private ArrayList<ChordCell> chordList = new ArrayList<>();
+    private ArrayList<ComposerLeftHand> trackList = new ArrayList<>();
+    private ArrayList<ComposerRightHand> chordList = new ArrayList<>();
+    private ArrayList<ComposerGesture> tempoList = new ArrayList<>();
 
     private ArrayList<Integer> playingID = new ArrayList<>();
 
@@ -74,8 +74,6 @@ public class ComposerMusicEngine {
         catch(IOException e) {
             Log.e(TAG, e.toString());
         }
-        player = MediaPlayer.create(context, Uri.fromFile(output));
-        player.setAudioStreamType(AudioManager.STREAM_MUSIC);
     }
 
     public void loadDatabase(){
@@ -93,18 +91,17 @@ public class ComposerMusicEngine {
             int mode = mCursor.getInt(mCursor.getColumnIndex(ComposerDatabase.COL_MODE));
 
             if(mode==0) {
-                trackList.add(new ComposerMidi(id, title, channel, program, note));
+                trackList.add(new ComposerLeftHand(id, title, channel, program, note));
             }
             else if(mode==1) {
-                chordList.add(new ChordCell(id, title, Integer.valueOf(note), program));    //program = isMinor
+                chordList.add(new ComposerRightHand(id, title, Integer.valueOf(note), program));    //program = isMinor
             }
             else if(mode==2){
-                chordList.add(new ChordCell(id, title, note));
+                chordList.add(new ComposerRightHand(id, title, note));
             }
             else if(mode==3){
-                chordList.add(new ChordCell(id, title, note));
+                tempoList.add(new ComposerGesture(id, title, Integer.parseInt(note), mode));
             }
-
             mCursor.moveToNext();
         }
     }
@@ -113,15 +110,15 @@ public class ComposerMusicEngine {
         new PlayTrackTask(id).execute();
     }
     public void doTranspose(int id){
-        final ChordCell tempChordCell = getPitchKeyById(id);
-        if(tempChordCell.getMinorSize()>1) {
+        final ComposerRightHand tempComposerRightHand = getPitchKeyById(id);
+        if(tempComposerRightHand.getMinorSize()>1) {
             Log.d(TAG, "chord set");
             player.setOnSeekCompleteListener(new MediaPlayer.OnSeekCompleteListener() {
                 int keyIndex=0;
                 @Override
                 public void onSeekComplete(MediaPlayer mediaPlayer) {
-                    new TransposeKeyTask(tempChordCell.getKey(keyIndex), tempChordCell.getMinor(keyIndex)).execute();
-                    if(keyIndex<tempChordCell.getMinorSize()-1)
+                    new TransposeKeyTask(tempComposerRightHand.getKey(keyIndex), tempComposerRightHand.getMinor(keyIndex)).execute();
+                    if(keyIndex< tempComposerRightHand.getMinorSize()-1)
                         keyIndex++;
                     else
                         keyIndex=0;
@@ -130,7 +127,41 @@ public class ComposerMusicEngine {
             });
         }
         else
-            new TransposeKeyTask(tempChordCell.getKey(), tempChordCell.getMinor()).execute();
+            new TransposeKeyTask(tempComposerRightHand.getKey(), tempComposerRightHand.getMinor()).execute();
+    }
+    public void setBpm(int id){
+        final ComposerGesture tempComposerGesture = getTempoById(id);
+        new TempoChangeTask(tempComposerGesture.getDetail()).execute();
+    }
+
+    private class TempoChangeTask extends  AsyncTask<Void, Void, Void>{
+        private float tempo;
+        TempoChangeTask(float tempo){
+            this.tempo = tempo;
+        }
+        @Override
+        protected Void doInBackground(Void... voids){
+            Iterator<MidiEvent> it = midi.getTrack(0).getEvents().iterator();
+            while(it.hasNext()) {
+                MidiEvent e = it.next();
+                if(e instanceof Tempo){
+                    Log.d(TAG, "BPM: " + ((Tempo)e).getBpm());
+                    ((Tempo) e).setBpm(this.tempo);
+                }
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid){
+            HACK_loopTimer.cancel();
+            player.stop();
+            player.release();
+            try { midi.writeToFile(output); } catch (IOException e) {System.err.println(e);}
+            player = MediaPlayer.create(context, Uri.fromFile(output));
+            player.start();
+            setLoopTimer();
+        }
     }
 
     private class TransposeKeyTask extends AsyncTask<Void, Void, Void>{
@@ -229,17 +260,15 @@ public class ComposerMusicEngine {
             if(first){
                 try { midi.writeToFile(output); } catch (IOException e) {System.err.println(e);}
                 player = MediaPlayer.create(context, Uri.fromFile(output));
-                player.setLooping(true);
                 player.start();
-                loopHacking();
+                setLoopTimer();
             }
             else{
                 int currentPosition = player.getCurrentPosition();
                 player.stop();
-                player.reset();
-                player.release();
                 try {midi.writeToFile(output);} catch (IOException e) {System.err.println(e);}
                 if(!end) {
+                    player.reset();
                     player = MediaPlayer.create(context, Uri.fromFile(output));
                     player.seekTo(currentPosition);
                     player.start();
@@ -250,14 +279,16 @@ public class ComposerMusicEngine {
         }
     }
 
-    public ArrayList<ComposerMidi> getTrackList(){ return this.trackList; }
+    public ArrayList<ComposerLeftHand> getTrackList(){ return this.trackList; }
 
-    public ArrayList<ChordCell> getChordList(){
+    public ArrayList<ComposerRightHand> getChordList(){
         return chordList;
     }
 
+    public ArrayList<ComposerGesture> getTempoList(){ return tempoList; }
+
     private boolean isTrackPlaying(int id){
-        for(ComposerMidi track: trackList){
+        for(ComposerLeftHand track: trackList){
             if(track.getId()==id)
                 return track.isPlaying();
         }
@@ -265,7 +296,7 @@ public class ComposerMusicEngine {
     }
 
     private int getTrackChannelById(int id){
-        for(ComposerMidi track: trackList){
+        for(ComposerLeftHand track: trackList){
             if(track.getId()==id){
                 return track.getChannel();
             }
@@ -275,7 +306,7 @@ public class ComposerMusicEngine {
 
     @Nullable
     private MidiTrack getTrackById(int id){
-        for(ComposerMidi track: trackList){
+        for(ComposerLeftHand track: trackList){
             if(track.getId()==id)
                 return track.getMidiTrack(0, currentTransposeKey);
         }
@@ -284,7 +315,7 @@ public class ComposerMusicEngine {
 
     @Nullable
     private MidiTrack getTransposeTrackById(int minor, int id){
-        for(ComposerMidi track: trackList){
+        for(ComposerLeftHand track: trackList){
             if(track.getId()==id) {
                 if((!track.isMinorAvailable())&&minor==1)
                     return track.getMidiTrack(0, currentTransposeKey);
@@ -300,10 +331,19 @@ public class ComposerMusicEngine {
      * @return Chord pattern use to tranpose key or change to minor chord/notes
      */
     @Nullable
-    private ChordCell getPitchKeyById(int id){
-        for(ChordCell chordCell: chordList){
-            if(chordCell.getId()==id)
-                return chordCell;
+    private ComposerRightHand getPitchKeyById(int id){
+        for(ComposerRightHand composerRightHand : chordList){
+            if(composerRightHand.getId()==id)
+                return composerRightHand;
+        }
+        return null;
+    }
+
+    @Nullable
+    private ComposerGesture getTempoById(int id){
+        for(ComposerGesture composerGesture : tempoList){
+            if(composerGesture.getId() == id)
+                return composerGesture;
         }
         return null;
     }
@@ -317,7 +357,7 @@ public class ComposerMusicEngine {
     }
 
     private int findDuplicateChannelId(int channel){
-        for(ComposerMidi track: trackList){
+        for(ComposerLeftHand track: trackList){
             if(track.isPlaying())
                 if(track.getChannel()==channel)
                     return track.getId();
@@ -337,7 +377,7 @@ public class ComposerMusicEngine {
         trackList.get(getTrackIndexById(id)).setPlaying(false);
     }
 
-    private void loopHacking(){
+    private void setLoopTimer(){
         long mHackLoopingPreview = 30;
         HACK_loopTimer = new Timer();
         TimerTask HACK_loopTask = new TimerTask() {
@@ -353,11 +393,5 @@ public class ComposerMusicEngine {
         };
         long waitingTime = player.getDuration()-mHackLoopingPreview;
         HACK_loopTimer.schedule(HACK_loopTask, waitingTime, waitingTime);
-    }
-
-    public void checkPlayingArray(){
-        Log.d(TAG, "CURRENT TRANSPOSE: " + currentTransposeKey);
-        for(int x: playingID)
-            Log.d(TAG, "Playing id: " + x);
     }
 }

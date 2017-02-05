@@ -74,7 +74,7 @@
             android:layout_marginLeft="8dp"
             android:layout_marginStart="8dp" />
 
-        <cpe.com.composer.viewmanager.VerticalSeekBar
+        <cpe.com.composer.viewmanager.ComposerVerticalSeekbar
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:id="@+id/volumeAdjustBar"

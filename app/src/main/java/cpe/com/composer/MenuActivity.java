@@ -12,7 +12,7 @@ import android.widget.Toast;
 import cpe.com.composer.datamanager.ComposerParam;
 
 public class MenuActivity extends AppCompatActivity {
-    Button startButton, presetButton, storeButton, settingButton, midiButton;
+    Button startButton, presetButton, storeButton, settingButton;
     Bundle extras = new Bundle();
 
     @Override
@@ -28,7 +28,6 @@ public class MenuActivity extends AppCompatActivity {
         presetButton = (Button) findViewById(R.id.saved_preset_button);
         storeButton = (Button) findViewById(R.id.store_button);
         settingButton = (Button) findViewById(R.id.setting_button);
-        midiButton = (Button) findViewById(R.id.midi_button);
     }
 
     private void initAction(){
@@ -60,12 +59,6 @@ public class MenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(MenuActivity.this, SettingsActivity.class));
-            }
-        });
-        midiButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(MenuActivity.this, MidiActivity.class));
             }
         });
     }

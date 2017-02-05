@@ -46,11 +46,14 @@ public class ComposerDatabase extends SQLiteOpenHelper {
         preDb.execSQL("INSERT INTO " + TRACK_TABLE + " VALUES(null, 'C Am F G', 0, 0, '{\"note\":[0,9,5,7],\"minor\":[0,1,0,0]}', 2);");
         preDb.execSQL("INSERT INTO " + TRACK_TABLE + " VALUES(null, '80', 0, 0, 80, 3);");
         preDb.execSQL("INSERT INTO " + TRACK_TABLE + " VALUES(null, '90', 0, 0, 90, 3);");
+        preDb.execSQL("INSERT INTO " + TRACK_TABLE + " VALUES(null, '100', 0, 0, 100, 3);");
+        preDb.execSQL("INSERT INTO " + TRACK_TABLE + " VALUES(null, '120', 0, 0, 120, 3);");
+        preDb.execSQL("INSERT INTO " + TRACK_TABLE + " VALUES(null, '140', 0, 0, 140, 3);");
 
         preDb.execSQL("CREATE TABLE " + PRESET_TABLE + "(_id INTEGER PRIMARY KEY AUTOINCREMENT, '" + COL_TITLE +
                 "' TEXT, '" + COL_DETAIL + "' TEXT);");
         preDb.execSQL("INSERT INTO " + PRESET_TABLE + " VALUES(null, '80s Rock n Roll', '{\"0\":{\"2\":[-1,-1,-1,-1,-1],\"1\":[-1,-1,-1,-1,-1],\"0\":[-1,-1,-1,-1,-1]}}');");
-        preDb.execSQL("INSERT INTO " + PRESET_TABLE + " VALUES(null, 'Nickelback Style', '{\"0\":{\"2\":[1,2,3,-1,-1],\"1\":[-1,-1,-1,-1,-1],\"0\":[-1,2,-1,-1,4]},\"1\":{\"2\":[1,-1,-5,-1,-1],\"1\":[-1,-1,-1,-1,-1],\"0\":[1,-1,-1,-1,-1]}}');");
+        preDb.execSQL("INSERT INTO " + PRESET_TABLE + " VALUES(null, 'Nickelback Style', '{\"0\":{\"0\":[-1,1,-1,-1,4],\"1\":[-1,-1,15,-1,-1],\"2\":[17,-1,16,-1,-1]},\"1\":{\"0\":[5,-1,-1,4,-1],\"1\":[-1,-1,-1,-1,-1],\"2\":[18,-1,-1,-1,-1]}}');");
     }
 
     @Override

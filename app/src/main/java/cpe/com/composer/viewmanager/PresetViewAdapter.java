@@ -59,7 +59,7 @@ public class PresetViewAdapter extends RecyclerView.Adapter<PresetViewAdapter.My
         }
 
         public void setActive(){
-            this.linearLayout.setBackgroundColor(super.itemView.getResources().getColor(R.color.menu_button));
+            this.linearLayout.setBackgroundColor(super.itemView.getResources().getColor(R.color.go_button_active));
         }
 
         public void setInActive(){

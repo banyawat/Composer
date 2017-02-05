@@ -14,7 +14,6 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -56,6 +55,7 @@ public class PresetActivity extends AppCompatActivity {
     public int activePreset=0;
 
     private ArrayList<String> titleArray = new ArrayList<>();
+    public ArrayList<Integer> idImageType = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,30 +84,56 @@ public class PresetActivity extends AppCompatActivity {
     }
 
     private void initDatabase(){
+        ComposerDatabase mHelper = new ComposerDatabase(this);
+        SQLiteDatabase mDb = mHelper.getWritableDatabase();
         Bundle extras = getIntent().getExtras();
+        Cursor mCursor;
         int selectDatabase = extras.getInt(ComposerParam.MENU_BUNDLE_KEY);
         if(selectDatabase==0) {
-            ComposerDatabase mHelper = new ComposerDatabase(this);
-            SQLiteDatabase mDb = mHelper.getWritableDatabase();
             mDb.needUpgrade(0);
-            Cursor mCursor = mDb.rawQuery("SELECT " + ComposerDatabase.COL_TITLE + "," + ComposerDatabase.COL_DETAIL + " FROM " + ComposerDatabase.PRESET_TABLE, null);
-            Toast.makeText(this, "Database Download Complete", Toast.LENGTH_SHORT).show();
-
+            mCursor = mDb.rawQuery("SELECT " + ComposerDatabase.COL_TITLE + "," + ComposerDatabase.COL_DETAIL + " FROM " + ComposerDatabase.PRESET_TABLE, null);
             mCursor.moveToFirst();
             while (!mCursor.isAfterLast()) {
                 presetList.add(new ComposerJSON().getComposerArray(mCursor.getString(mCursor.getColumnIndex(ComposerDatabase.COL_DETAIL))));
                 titleArray.add(mCursor.getString(mCursor.getColumnIndex(ComposerDatabase.COL_TITLE)));
                 mCursor.moveToNext();
             }
-            mDb.close();
-            mHelper.close();
+            mCursor.close();
+            initPanelSlot();
             initPresetList();
             initPresetPreviewZone();
-            initPanelSlot();
         }
         else{
             new PresetLoadHttp().execute();
         }
+        mCursor = mDb.rawQuery("SELECT "+ ComposerDatabase.COL_CHANNEL + "," + ComposerDatabase.COL_PROGRAM + "," + ComposerDatabase.COL_MODE + " FROM " + ComposerDatabase.TRACK_TABLE, null);
+        mCursor.moveToFirst();
+        while (!mCursor.isAfterLast()) {
+            int channel = mCursor.getInt(mCursor.getColumnIndex(ComposerDatabase.COL_CHANNEL));
+            if(channel==9){
+                idImageType.add(ComposerParam.INSTRUMENT_MAP.get(-1));
+            }
+            else{
+                int mode = mCursor.getInt(mCursor.getColumnIndex(ComposerDatabase.COL_MODE));
+                if(mode==0){
+                    int program = mCursor.getInt(mCursor.getColumnIndex(ComposerDatabase.COL_PROGRAM));
+                    idImageType.add(ComposerParam.INSTRUMENT_MAP.get(program));
+                }
+                else if(mode==1||mode==2){
+                    idImageType.add(ComposerParam.INSTRUMENT_MAP.get(-2));
+                }
+                else if(mode==3){
+                    idImageType.add(ComposerParam.INSTRUMENT_MAP.get(-3));
+                }
+            }
+            mCursor.moveToNext();
+        }
+        mDb.close();
+        mHelper.close();
+    }
+
+    public int getImageByTypeId(int id){
+        return idImageType.get(id);
     }
 
     private void initPresetList(){
@@ -147,7 +173,8 @@ public class PresetActivity extends AppCompatActivity {
         panelSlotView.addOnItemTouchListener(new RecyclerTouchListener(this, panelSlotView, new RecyclerTouchListener.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                ((FingerPreviewFragment)movementPagerAdapter.getItem(0)).setActiveSlotPanel(position);
+                activePreset=position;
+                ((FingerPreviewFragment)movementPagerAdapter.getItem(0)).setActiveSlotPanel();
                 ((ArmPreviewFragment)movementPagerAdapter.getItem(1)).refreshDrawable();
                 panelViewAdapter.setActiveSlot(position);
                 panelViewAdapter.notifyDataSetChanged();
@@ -168,17 +195,18 @@ public class PresetActivity extends AppCompatActivity {
     private void updateActivePreset(int position){
         activePreset=position;
         activeSlotPanel=0;
-        ((FingerPreviewFragment)movementPagerAdapter.getItem(0)).refreshDrawable();
+        ((FingerPreviewFragment)movementPagerAdapter.getItem(0)).setActiveSlotPanel();
         ((ArmPreviewFragment)movementPagerAdapter.getItem(1)).refreshDrawable();
         ArrayList<String> temp = new ArrayList<>();
         for(int i=0;i<presetList.get(activePreset).size();i++) {
             temp.add("0");
         }
-        panelViewAdapter.setPanel(temp);
         panelViewAdapter.setActiveSlot(activeSlotPanel);
         panelViewAdapter.notifyDataSetChanged();
+        panelViewAdapter.setPanel(temp);
         presetViewAdapter.setActivePreset(position);
         presetViewAdapter.notifyDataSetChanged();
+        movementPagerAdapter.notifyDataSetChanged();
     }
 
     class PresetLoadHttp extends AsyncTask<Void, Void, Void> {
@@ -225,7 +253,7 @@ public class PresetActivity extends AppCompatActivity {
 
         private String readInputStreamToString(HttpURLConnection connection) {
             String result = null;
-            StringBuffer sb = new StringBuffer();
+            StringBuilder sb = new StringBuilder();
             InputStream is = null;
 
             try {

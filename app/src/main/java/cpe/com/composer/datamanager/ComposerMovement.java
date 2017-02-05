@@ -49,6 +49,17 @@ public class ComposerMovement {
         }
     }
 
+    public void removeFingerValue(boolean side, int index){
+        if(!side)
+            leftFinger[index]=-1;
+        else
+            rightFinger[index]=-1;
+    }
+
+    public void removeGestureValue(int index){
+        gesture[index]=-1;
+    }
+
     public void setHandId(boolean side,int index, int instrumentID){
         if(!side){
             leftFinger[index]=instrumentID;

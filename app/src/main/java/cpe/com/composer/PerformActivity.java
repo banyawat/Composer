@@ -2,6 +2,7 @@ package cpe.com.composer;
 
 import android.media.audiofx.Visualizer;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -15,14 +16,16 @@ import org.puredata.core.PdBase;
 
 import java.util.ArrayList;
 
-import cpe.com.composer.datamanager.BluetoothModule;
+import cpe.com.composer.datamanager.ComposerBluetooth;
 import cpe.com.composer.datamanager.ComposerJSON;
 import cpe.com.composer.datamanager.ComposerParam;
+import cpe.com.composer.soundengine.ComposerMusicEngine;
 import cpe.com.composer.viewmanager.ComposerGridViewAdapter;
-import cpe.com.composer.viewmanager.VerticalSeekBar;
+import cpe.com.composer.viewmanager.ComposerVerticalSeekbar;
 
 public class PerformActivity extends AppCompatActivity {
-    private VerticalSeekBar volumeAdjustBar;
+    private String PATH = Environment.getExternalStorageDirectory().getPath();
+    private ComposerVerticalSeekbar volumeAdjustBar;
     private GridView activeGridView;
     private Button backToInitialButton;
 
@@ -32,7 +35,9 @@ public class PerformActivity extends AppCompatActivity {
     public float intensity = 0;
 
     private ProgressBar vuMeterL, vuMeterR;
-    private BluetoothModule btModule;
+    private ComposerBluetooth btModule;
+
+    ComposerMusicEngine musicEngine;
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,13 +51,15 @@ public class PerformActivity extends AppCompatActivity {
             new ComposerJSON().getComposerArray(json);
         }
 
+        musicEngine = new ComposerMusicEngine(this, PATH);
+
         initGui();
         initBluetooth();
         initComponent();
     }
 
     public void initGui(){
-        volumeAdjustBar = (VerticalSeekBar) findViewById(R.id.volumeAdjustBar);
+        volumeAdjustBar = (ComposerVerticalSeekbar) findViewById(R.id.volumeAdjustBar);
         activeGridView = (GridView) findViewById(R.id.activeInstrumentGridView);
         vuMeterL = (ProgressBar) findViewById(R.id.vuMeterViewL);
         vuMeterR = (ProgressBar) findViewById(R.id.vuMeterViewR);
@@ -90,9 +97,7 @@ public class PerformActivity extends AppCompatActivity {
         activeGridView.setAdapter(new ComposerGridViewAdapter(this, sampleSet, instrumentTitle));
         activeGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
-            }
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {  }
         });
 
         int rate = Visualizer.getMaxCaptureRate();
@@ -134,6 +139,6 @@ public class PerformActivity extends AppCompatActivity {
     }
 
     private void initBluetooth(){
-        btModule = new BluetoothModule();
+        btModule = new ComposerBluetooth();
     }
 }
