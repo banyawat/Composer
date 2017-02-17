@@ -21,15 +21,6 @@
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.2.1\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.3"
-        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
-        <dex dex="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\pre-dexed\release\com.android.support-support-vector-drawable-24.2.1_91e226ed68bc823e28bf2a14a8a2c61eef5489a0.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.2.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -39,39 +30,21 @@
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.3"
-        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
-        <dex dex="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\pre-dexed\release\com.android.support-support-fragment-24.2.1_25c1a039e511bda707b0a3b84579db5f1c6309e7.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.2.1\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.3"
-        sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
-        <dex dex="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\pre-dexed\release\com.android.support-animated-vector-drawable-24.2.1_e02c806a43dd22fc47dfc70808a560b503e1849e.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.noisepages.nettoyeur\midi\1.0.0-rc1\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.3"
-        sha1="a35b73ff5c4ab6af57b21c03b9b3aa234d816a7f">
-        <dex dex="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\pre-dexed\release\com.noisepages.nettoyeur-midi-1.0.0-rc1_3577698fc7bdefaa18cfc620b3714cb7acbf6ed2.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\user\AppData\Local\Android\sdk\extras\m2repository\com\android\support\constraint\constraint-layout-solver\1.0.0-beta4\constraint-layout-solver-1.0.0-beta4.jar"
+        jar="C:\Users\user\AppData\Local\Android\sdk\extras\m2repository\com\android\support\constraint\constraint-layout-solver\1.0.0-beta5\constraint-layout-solver-1.0.0-beta5.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
-        sha1="0a9cb567dc008f570c28531720168f19148da965">
-        <dex dex="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\pre-dexed\debug\constraint-layout-solver-1.0.0-beta4_e545acf69ff6fa62ea62c03f756e6056106d52f9.jar" />
+        sha1="ff0dad5e4fc720f478ce8b5f6edf76a932d9b886">
+        <dex dex="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\pre-dexed\debug\constraint-layout-solver-1.0.0-beta5_fe3a08311008ef7edc940053395437fa985f3006.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.android.support.constraint\constraint-layout\1.0.0-beta5\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="dce0f3de11781e1ee758cba483871b598c9d4931">
+        <dex dex="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\pre-dexed\debug\com.android.support.constraint-constraint-layout-1.0.0-beta5_6d47cf5879cce318e3636e6597ed03fecf537b40.jar" />
     </item>
     <item
         is-multidex="false"
@@ -79,7 +52,7 @@
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
-        sha1="b03b24be7294bda2d25fbd96d694f7caf58d5d1d">
+        sha1="f3f3c59741d252ae675a0607588d5aa6807afa6c">
         <dex dex="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\pre-dexed\debug\instant-run-bootstrap_59c94c0803fb9a98ca37ce83ca5ffe71ffee60d0.jar" />
     </item>
     <item
@@ -103,47 +76,11 @@
     <item
         is-multidex="false"
         jar="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\libs\internal_impl-24.2.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.3"
-        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
-        <dex dex="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\pre-dexed\release\internal_impl-24.2.1_906ead639ef0c88f8577c18be711430155ce6911.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.3"
-        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
-        <dex dex="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\pre-dexed\release\internal_impl-24.2.1_729d744153263b5f1ee5e44fe441c2897b66170d.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.daimajia.swipelayout\library\1.2.0\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.3"
-        sha1="e84b30031d4bab89a2b5c45af4eb9213828524dd">
-        <dex dex="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\pre-dexed\release\com.daimajia.swipelayout-library-1.2.0_b44762de125d8dd7bc5dd3267e62be21e4ce0d3c.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\libs\internal_impl-24.2.1.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
         sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
         <dex dex="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\pre-dexed\debug\internal_impl-24.2.1_906ead639ef0c88f8577c18be711430155ce6911.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.android.support\design\24.2.1\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.3"
-        sha1="e03f47f3d1017a093bb3239d4ec47c3447f40744">
-        <dex dex="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\pre-dexed\release\com.android.support-design-24.2.1_a17b002169894fc876c9c5de2482b64cd80696d3.jar" />
     </item>
     <item
         is-multidex="false"
@@ -156,30 +93,12 @@
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\24.2.1\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.3"
-        sha1="7521486d9bfd2cd9e756e0cf75ed7d97f2ce2d3b">
-        <dex dex="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\pre-dexed\release\com.android.support-recyclerview-v7-24.2.1_af106e4a488f72632d2e09dcdf26e0a3dd6ce7c1.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.2.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
         sha1="d5c731fc64c03dfe04d51134955b483551c35849">
         <dex dex="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\pre-dexed\debug\com.android.support-support-vector-drawable-24.2.1_91e226ed68bc823e28bf2a14a8a2c61eef5489a0.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.3"
-        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
-        <dex dex="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\pre-dexed\release\com.android.support-support-core-utils-24.2.1_c4ec85b09119db8b5d03930d49f9a8a069000d69.jar" />
     </item>
     <item
         is-multidex="false"
@@ -201,15 +120,6 @@
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.github.markushi\circlebutton\1.1\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.3"
-        sha1="ebe3b1f14fa79ba3cd1588acda4e6517ee9fe611">
-        <dex dex="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\pre-dexed\release\com.github.markushi-circlebutton-1.1_82377e5cd866ca1c6b20b7b602ac999336e9afe1.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -228,42 +138,6 @@
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.3"
-        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
-        <dex dex="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\pre-dexed\release\com.android.support-support-core-ui-24.2.1_872959ddfd2dae67aef0fff09544211fa22a105d.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.android.support.constraint\constraint-layout\1.0.0-beta4\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.3"
-        sha1="662d7533b25a666c649c10a16b42edfb95f25a4f">
-        <dex dex="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\pre-dexed\release\com.android.support.constraint-constraint-layout-1.0.0-beta4_f8b8a42e0c03f6bf50ccb7c1520073f616d7e596.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.3"
-        sha1="0ecb4b595fa0f0f8018a149ace3ea6525624f94e">
-        <dex dex="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\pre-dexed\release\com.android.support-support-compat-24.2.1_b5619c3cb6c4b441d4ea3ff554e50abef1edd2c5.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.android.support.constraint\constraint-layout\1.0.0-beta4\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="662d7533b25a666c649c10a16b42edfb95f25a4f">
-        <dex dex="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\pre-dexed\debug\com.android.support.constraint-constraint-layout-1.0.0-beta4_f8b8a42e0c03f6bf50ccb7c1520073f616d7e596.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.github.markushi\circlebutton\1.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -277,26 +151,8 @@
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
-        sha1="e00dee6168fd712e4d3a7b2708a50e9508157504">
+        sha1="a598164da609ee033eae09d8e460a348e6caa11a">
         <dex dex="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\pre-dexed\debug\instant-run_ef745a37eedf32d8a3eeb6483b091d8b8ee36e4c.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\user\AppData\Local\Android\sdk\extras\m2repository\com\android\support\constraint\constraint-layout-solver\1.0.0-beta4\constraint-layout-solver-1.0.0-beta4.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.3"
-        sha1="0a9cb567dc008f570c28531720168f19148da965">
-        <dex dex="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\pre-dexed\release\constraint-layout-solver-1.0.0-beta4_e545acf69ff6fa62ea62c03f756e6056106d52f9.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\libs\internal_impl-24.2.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.3"
-        sha1="867dad63c33388ff8c7644b236579355036d075f">
-        <dex dex="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\pre-dexed\release\internal_impl-24.2.1_a0a462c83722e2edcb232544be593e19d5d7c03a.jar" />
     </item>
     <item
         is-multidex="false"
@@ -327,24 +183,6 @@
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.2.1\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.3"
-        sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
-        <dex dex="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\pre-dexed\release\com.android.support-appcompat-v7-24.2.1_a786d8a09c279c3ad7383f38276c713941049a83.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.1\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.3"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\pre-dexed\release\com.android.support-support-v4-24.2.1_87d418a31a29ffc71fb299f34590d84fa8e9fba7.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="C:\Users\user\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\24.2.1\support-annotations-24.2.1.jar"
         jumboMode="true"
         optimize="true"
@@ -363,15 +201,6 @@
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.3"
-        sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
-        <dex dex="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\pre-dexed\release\internal_impl-24.2.1_beac5d075f12d5cae617c5a54fd806975240d13c.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -381,48 +210,12 @@
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\org.puredata.android\PdCore\1.0.3-SNAPSHOT\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.3"
-        sha1="55032a780dba6386ea730ad425213bfaedb45c39">
-        <dex dex="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\pre-dexed\release\org.puredata.android-PdCore-1.0.3-SNAPSHOT_96c91e0a215bd409529e5456c3c217fe2de1af77.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\user\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\24.2.1\support-annotations-24.2.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.3"
-        sha1="8de3aafecbdf98a61db6427f008f2d515bcd2544">
-        <dex dex="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\pre-dexed\release\support-annotations-24.2.1_0103f83adf5d37a9d29f1aa525ed237be18f660e.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\libs\internal_impl-24.2.1.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
         sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
         <dex dex="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\pre-dexed\debug\internal_impl-24.2.1_d217f4d93fdb73167d1f27e7aaa0cbaf67a6141c.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\libs\internal_impl-24.2.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.3"
-        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
-        <dex dex="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\pre-dexed\release\internal_impl-24.2.1_d217f4d93fdb73167d1f27e7aaa0cbaf67a6141c.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.3"
-        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
-        <dex dex="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\pre-dexed\release\com.android.support-support-media-compat-24.2.1_a4c6bebc9b4c37d5efa60475345fd6112420d690.jar" />
     </item>
 
 </items>

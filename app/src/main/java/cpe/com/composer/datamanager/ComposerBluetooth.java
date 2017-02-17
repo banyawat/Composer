@@ -24,9 +24,14 @@ public class ComposerBluetooth {
     // MAC-address of Bluetooth module (you must edit this line)
     private static String address = "20:16:05:16:05:27";
 
+    private OnComposerBluetoothListener listener;
+
     public ComposerBluetooth(){
+
+    }
+
+    public void init(){
         btAdapter = BluetoothAdapter.getDefaultAdapter();
-        checkBTState();
     }
 
     private BluetoothSocket createBluetoothSocket(BluetoothDevice device) throws IOException {
@@ -84,9 +89,7 @@ public class ComposerBluetooth {
     }
 
     public void onPauseParent() {
-
         Log.d(TAG, "...In onPause()...");
-
         try     {
             btSocket.close();
         } catch (IOException e2) {
@@ -94,7 +97,7 @@ public class ComposerBluetooth {
         }
     }
 
-    private boolean checkBTState() {
+    public boolean checkBTState() {
         // Check for Bluetooth support and then check to make sure it is turned on
         // Emulator doesn't support Bluetooth and will return null
         if(btAdapter==null) {
@@ -105,10 +108,8 @@ public class ComposerBluetooth {
                 Log.d(TAG, "...Bluetooth ON...");
                 return true;
             } else {
+                Log.d(TAG, "...Bluetooth Fail...");
                 return false;
-                //Prompt user to turn on Bluetooth
-                /*Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-                startActivityForResult(enableBtIntent, 1);*/
             }
         }
     }
@@ -116,6 +117,10 @@ public class ComposerBluetooth {
     private void errorExit(String title, String message){
         //Toast.makeText(getBaseContext(), title + " - " + message, Toast.LENGTH_LONG).show();
         //finish();
+    }
+
+    public void setOnDataReceiveListener(OnComposerBluetoothListener listener){
+        this.listener = listener;
     }
 
     private class ConnectedThread extends Thread {
@@ -148,47 +153,11 @@ public class ComposerBluetooth {
                     String readMessage = new String(buffer, 0, bytes);
                     // Send the obtained bytes to the UI Activity via handler
                     //bluetoothIn.obtainMessage(handlerState, bytes, -1, readMessage).sendToTarget();
-                    Log.d(TAG, readMessage);
-
-                    /*if(readMessage.contains("0")){
-                        Log.d(TAG, "TEST SUCCESSED");
-                        PdBase.sendBang("percussion");
-                    }
-                    else if(readMessage.contains("1")){
-                        PdBase.sendBang("bass");
-                    }
-                    else if(readMessage.contains("4")){
-                        PdBase.sendFloat("key" ,4f);
-                        Log.d(TAG, "pressed");
-                    }
-                    else if(readMessage.contains("6")){
-                        PdBase.sendFloat("key" ,0f);
-                    }
-                    else if(readMessage.contains("7")){
-                        PdBase.sendFloat("key" ,1f);
-                    }
-                    else if(readMessage.contains("8")){
-                        PdBase.sendFloat("key" ,2f);
-                    }
-                    else if(readMessage.contains("9")){
-                        PdBase.sendFloat("key" ,3f);
-                    }*/
-
+                    listener.onDataReceieveListener(readMessage);
                 } catch (IOException e) {
                     break;
                 }
             }
         }
-
-        /* Call this from the main activity to send data to the remote device */
-        /*public void write(String message) {
-            Log.d(TAG, "...Data to send: " + message + "...");
-            byte[] msgBuffer = message.getBytes();
-            try {
-                mmOutStream.write(msgBuffer);
-            } catch (IOException e) {
-                Log.d(TAG, "...Error data send: " + e.getMessage() + "...");
-            }
-        }*/
     }
 }

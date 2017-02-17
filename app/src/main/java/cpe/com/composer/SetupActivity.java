@@ -173,7 +173,7 @@ public class SetupActivity extends AppCompatActivity{
             public void onItemClick(AdapterView<?> adapterView, View view, final int position, long l) {
                 switch(mode){
                     case 0:
-                        musicEngine.playID((int) adapter.getItemId(position));
+                        musicEngine.playTrackId((int) adapter.getItemId(position));
                         break;
                     case 1:
                         musicEngine.doTranspose((int) adapter.getItemId(position));

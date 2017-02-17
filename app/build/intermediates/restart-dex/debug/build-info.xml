@@ -5,29 +5,29 @@
     density="mdpi"
     format="8"
     plugin-version="2.2.3"
-    timestamp="47580155831715"
+    timestamp="27610746846491"
     token="-4738754701230084975"
     verifier="FULL_BUILD_REQUESTED" >
 
     <task
         name="javac"
-        duration="1992" />
+        duration="380" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="70" />
+        duration="15" />
     <task
         name="verifier"
-        duration="2" />
+        duration="7" />
 
     <artifact
         location="C:\Users\user\Documents\GitHub\Composer\app\build\outputs\apk\app-debug.apk"
         type="MAIN" />
 
     <build
-        timestamp="56408385089124"
+        timestamp="27610746846491"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="C:\Users\user\Documents\GitHub\Composer\app\build\outputs\apk\app-debug.apk"

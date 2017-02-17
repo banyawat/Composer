@@ -2,6 +2,7 @@ package cpe.com.composer.viewmanager;
 
 import android.content.Context;
 import android.support.v4.content.ContextCompat;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -46,9 +47,18 @@ public class ComposerGridViewAdapter extends BaseAdapter {
     }
 
     public void addInstrument(int id, String title, int program){
-        this.instrumentID.add(id);
-        this.instrumentTitle.add(title);
-        this.instrumentImageId.add(program);
+        instrumentID.add(id);
+        instrumentTitle.add(title);
+        instrumentImageId.add(program);
+    }
+
+    public void removeInstrument(int id){
+        int index = this.instrumentID.indexOf(id);
+        Log.d("AA", "Index" + index);
+        instrumentID.remove(index);
+        instrumentTitle.remove(index);
+        instrumentImageId.remove(index);
+        Log.d("AA", "SIZE: " + instrumentID.size());
     }
 
     public void setData(ArrayList<ComposerLeftHand> tracks){

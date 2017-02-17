@@ -30,7 +30,6 @@ public class ComposerMusicEngine {
     private static final int PPQ=120;
     private static final int NOTE_DURATION=120;
     private static final String FILE_NAME = "cache01.mid";
-    private static final String FILE_NAME_2 = "cache02.mid";
     private static final String TAG="DevDebugger-Tew";
 
     private MidiFile midi;
@@ -40,13 +39,15 @@ public class ComposerMusicEngine {
     private ArrayList<ComposerRightHand> chordList = new ArrayList<>();
     private ArrayList<ComposerGesture> tempoList = new ArrayList<>();
 
-    private ArrayList<Integer> playingID = new ArrayList<>();
+    private ArrayList<Integer> playingId = new ArrayList<>();
 
     private File output;
     private MediaPlayer player;
     private Activity parentActivity;
     private Context context;
     private static Timer HACK_loopTimer;
+
+    private OnMusicActionListener listener;
 
     public ComposerMusicEngine(Activity parentActivity, String path){
         this.parentActivity = parentActivity;
@@ -97,7 +98,7 @@ public class ComposerMusicEngine {
                 chordList.add(new ComposerRightHand(id, title, Integer.valueOf(note), program));    //program = isMinor
             }
             else if(mode==2){
-                chordList.add(new ComposerRightHand(id, title, note));
+                chordList.add(new ComposerRightHand(id, title, note));                              //if it is chord set
             }
             else if(mode==3){
                 tempoList.add(new ComposerGesture(id, title, Integer.parseInt(note), mode));
@@ -106,7 +107,33 @@ public class ComposerMusicEngine {
         }
     }
 
-    public void playID(int id) {
+    public void setOnMusicActionListener(OnMusicActionListener listener){
+        this.listener = listener;
+    }
+
+    public void playId(int id){
+        int mode2Size = trackList.size()+chordList.size()+tempoList.size()+1;
+        int mode1Size = trackList.size()+chordList.size()+1;
+        int mode0Size = trackList.size()+1;
+        if(id!=0){
+            if(id<mode0Size){
+                //instrument track mode
+                Log.d(TAG, "Id: " + id + ", Mode 0");
+                playTrackId(id);
+            }
+            else if(id<mode1Size){
+                //chord mode
+                Log.d(TAG, "Id: " + id + ", Mode 1");
+                doTranspose(id);
+            }
+            else if(id<mode2Size){
+                //tempo mode
+                Log.d(TAG, "Id: " + id + ", Mode 2");
+                setBpm(id);
+            }
+        }
+    }
+    public void playTrackId(int id) {
         new PlayTrackTask(id).execute();
     }
     public void doTranspose(int id){
@@ -186,7 +213,7 @@ public class ComposerMusicEngine {
                         Iterator<MidiEvent> it = midi.getTrack(i).getEvents().iterator();
                         MidiEvent e = it.next();
                         if(!(e instanceof NoteOn)){
-                            midi.setTrack(i, getTransposeTrackById(minor, playingID.get(i-1)));
+                            midi.setTrack(i, getTransposeTrackById(minor, playingId.get(i-1)));
                         }
                     }
                     break;
@@ -196,7 +223,7 @@ public class ComposerMusicEngine {
                         Iterator<MidiEvent> it = midi.getTrack(i).getEvents().iterator();
                         MidiEvent e = it.next();
                         if(!(e instanceof NoteOn)){
-                            midi.setTrack(i, getTransposeTrackById(minor, playingID.get(i-1)));
+                            midi.setTrack(i, getTransposeTrackById(minor, playingId.get(i-1)));
                         }
                     }
                     break;
@@ -231,11 +258,11 @@ public class ComposerMusicEngine {
 
         @Override
         protected Void doInBackground(Void... voids) {
-            if(playingID.size()!=0){ //add or remove track on playing
+            if(playingId.size()!=0){ //add or remove track on playing
                 first=false;
                 if(isTrackPlaying(id)){ //remove existing track
                     removeTrack(id);
-                    if(playingID.size()==0) {
+                    if(playingId.size()==0) {
                         end=true;
                     }
                 }
@@ -367,14 +394,23 @@ public class ComposerMusicEngine {
 
     private void addTrack(int id){
         midi.addTrack(getTrackById(id));
-        trackList.get(getTrackIndexById(id)).setPlaying(true);
-        playingID.add(id);
+        ComposerLeftHand track = trackList.get(getTrackIndexById(id));
+        track.setPlaying(true);
+        playingId.add(id);
+        if(listener!=null) {
+            if(track.getChannel()!=9)
+                listener.onTrackAdded(id, track.getTitle(), track.getProgram());
+            else
+                listener.onTrackAdded(id, track.getTitle(), -1);
+        }
     }
 
     private void removeTrack(int id){
-        midi.removeTrack(playingID.indexOf(id)+1);
-        playingID.remove(Integer.valueOf(id));
+        midi.removeTrack(playingId.indexOf(id)+1);
+        playingId.remove(Integer.valueOf(id));
         trackList.get(getTrackIndexById(id)).setPlaying(false);
+        if(listener!=null)
+            listener.onTrackDeleted(id);
     }
 
     private void setLoopTimer(){
@@ -385,7 +421,7 @@ public class ComposerMusicEngine {
                 parentActivity.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        if(playingID.size()!=0)
+                        if(playingId.size()!=0)
                             player.seekTo(0);
                     }
                 });
@@ -393,5 +429,9 @@ public class ComposerMusicEngine {
         };
         long waitingTime = player.getDuration()-mHackLoopingPreview;
         HACK_loopTimer.schedule(HACK_loopTask, waitingTime, waitingTime);
+    }
+
+    public void setVolume(float volume){
+        player.setAuxEffectSendLevel(volume);
     }
 }
