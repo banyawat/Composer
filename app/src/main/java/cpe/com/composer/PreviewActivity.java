@@ -26,7 +26,6 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Collections;
 
 import cpe.com.composer.datamanager.ComposerDatabase;
 import cpe.com.composer.datamanager.ComposerJSON;
@@ -68,7 +67,6 @@ public class PreviewActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Bundle extras = new Bundle();
-                Collections.reverse(presetList.get(activePreset));
                 extras.putString(ComposerParam.BUNDLE_KEY, new ComposerJSON(presetList.get(activePreset)).getJSONString());
                 startActivity(new Intent(PreviewActivity.this, SetupActivity.class).putExtras(extras));
             }
@@ -79,7 +77,7 @@ public class PreviewActivity extends AppCompatActivity {
         presetRecyclerView = (RecyclerView) findViewById(R.id.savedPresetRecyclerView);
         tabLayout = (TabLayout) findViewById(R.id.presetTabLayout);
         mPager = (ViewPager) findViewById(R.id.presetViewPager);
-        panelSlotView = (RecyclerView) findViewById(R.id.presetPanelSlot);
+        panelSlotView = (RecyclerView) findViewById(R.id.peformPanelSlot);
         presetSubmitButton = (ImageButton) findViewById(R.id.presetSubmitButton);
     }
 

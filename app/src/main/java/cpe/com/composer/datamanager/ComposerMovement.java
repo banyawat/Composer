@@ -37,6 +37,14 @@ public class ComposerMovement {
             return rightFinger[index];
     }
 
+    public int getLeftFingerIndexById(int id){
+        for(int i=0;i<5;i++){
+            if(leftFinger[i]==id)
+                return i;
+        }
+        return -1;
+    }
+
     public ArrayList<Integer> getFingerValue(int movementKey){
         if(movementKey==0){
             return new ArrayList<>(Arrays.asList(leftFinger));
@@ -73,15 +81,18 @@ public class ComposerMovement {
         gesture[index] = instrumentID;
     }
 
-    public int getLeftFinger(int i){
-        return leftFinger[i];
-    }
-
-    public int getRightFinger(int i){
-        return rightFinger[i];
-    }
-
     public int getGesture(int i) {
         return gesture[i];
+    }
+
+    public void mirror(){
+        for(int i = 0; i < leftFinger.length / 2; i++){
+            int temp = leftFinger[i];
+            int temp2 = rightFinger[i];
+            leftFinger[i] = leftFinger[leftFinger.length - i - 1];
+            rightFinger[i] = rightFinger[rightFinger.length - i - 1];
+            leftFinger[leftFinger.length - i - 1] = temp;
+            rightFinger[rightFinger.length - i - 1] = temp2;
+        }
     }
 }

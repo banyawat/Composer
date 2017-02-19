@@ -82,6 +82,7 @@ public class ComposerMusicEngine {
     public void loadDatabase(){
         ComposerDatabase mHelper = new ComposerDatabase(context);
         SQLiteDatabase mDb = mHelper.getWritableDatabase();
+        mDb.needUpgrade(1);
         Cursor mCursor = mDb.rawQuery("SELECT * FROM " + ComposerDatabase.TRACK_TABLE, null);
 
         mCursor.moveToFirst();
@@ -183,6 +184,7 @@ public class ComposerMusicEngine {
     }
     public void setBpm(int id){
         final ComposerGesture tempComposerGesture = getTempoById(id);
+        assert tempComposerGesture != null;
         new TempoChangeTask(tempComposerGesture.getDetail()).execute();
     }
 
@@ -512,5 +514,9 @@ public class ComposerMusicEngine {
         }
         try { midi.writeToFile(output); } catch (IOException e) {System.err.println(e);}
         playingId = new ArrayList<>();
+    }
+
+    public ArrayList<Integer> getPlayingId(){
+        return playingId;
     }
 }

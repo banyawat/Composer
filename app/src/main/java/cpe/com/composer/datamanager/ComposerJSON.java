@@ -5,6 +5,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 
 public class ComposerJSON {
@@ -61,6 +62,7 @@ public class ComposerJSON {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+        Collections.reverse(composerMovements);
         return composerMovements;
     }
 }

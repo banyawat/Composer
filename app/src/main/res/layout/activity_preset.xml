@@ -49,7 +49,7 @@
             >
 
             <android.support.v7.widget.RecyclerView
-                android:id="@+id/presetPanelSlot"
+                android:id="@+id/peformPanelSlot"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:background="#20FFFFFF"

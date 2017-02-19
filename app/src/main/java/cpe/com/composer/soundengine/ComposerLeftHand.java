@@ -27,7 +27,7 @@ public class ComposerLeftHand {
     private JSONArray duration = new JSONArray();
 
 
-    public ComposerLeftHand(int id, String title, int channel, int program, String jsonNote){
+    ComposerLeftHand(int id, String title, int channel, int program, String jsonNote){
         this.id = id;
         this.title = title;
         this.channel = channel;
@@ -49,7 +49,7 @@ public class ComposerLeftHand {
         }
     }
 
-    public MidiTrack getMidiTrack(int minor, int transpose){
+    MidiTrack getMidiTrack(int minor, int transpose){
         MidiTrack track = new MidiTrack();
 
         if(program!=-1){
@@ -98,13 +98,8 @@ public class ComposerLeftHand {
         return track;
     }
 
-    public boolean isMinorAvailable(){
-        if(minorPitches.length()==0){
-            return false;
-        }
-        else {
-            return true;
-        }
+    boolean isMinorAvailable(){
+        return minorPitches.length() != 0;
     }
 
     public String getTitle(){ return this.title; }
@@ -119,11 +114,11 @@ public class ComposerLeftHand {
         return this.program;
     }
 
-    public boolean isPlaying() {
+    boolean isPlaying() {
         return this.isPlaying;
     }
 
-    public void setPlaying(boolean playing) {
+    void setPlaying(boolean playing) {
         this.isPlaying = playing;
     }
 

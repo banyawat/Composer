@@ -20,12 +20,12 @@ public final class R {
 		public static final int icon = 0x7f020075;
 	}
 	public static final class id {
-		public static final int paired_devices = 0x7f0f00ad;
-		public static final int title_paired_devices = 0x7f0f00ac;
+		public static final int paired_devices = 0x7f0f00aa;
+		public static final int title_paired_devices = 0x7f0f00a9;
 	}
 	public static final class layout {
-		public static final int device_list = 0x7f04002c;
-		public static final int device_name = 0x7f04002d;
+		public static final int device_list = 0x7f04002d;
+		public static final int device_name = 0x7f04002e;
 	}
 	public static final class raw {
 		public static final int extra_abs = 0x7f070000;

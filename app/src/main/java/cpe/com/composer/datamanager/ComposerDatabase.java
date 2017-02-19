@@ -26,15 +26,22 @@ public class ComposerDatabase extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase preDb) {
         preDb.execSQL("CREATE TABLE " + TRACK_TABLE + "(_id INTEGER PRIMARY KEY AUTOINCREMENT, '" + COL_TITLE +
                 "' TEXT, '" + COL_CHANNEL + "' INT, '" + COL_PROGRAM + "' INT, '" + COL_NOTE + "' TEXT, '" + COL_MODE + "' INT);");
-        preDb.execSQL("INSERT INTO " + TRACK_TABLE + " VALUES(null, 'Groove Drum', 9, -1, '{\"note\":[53,53,53,53,36,36,38,36,36,36,38,38,38],\"ppq\":[0,4,8,12,0,3,4,6,10,11,12,14,15]}', 0);");
-        preDb.execSQL("INSERT INTO " + TRACK_TABLE + " VALUES(null, 'Kick', 9, -1, '{\"note\":[36,36,36,36,0],\"ppq\":[0,4,8,12,15]}', 0);");
-        preDb.execSQL("INSERT INTO " + TRACK_TABLE + " VALUES(null, 'Electric Bass', 1, " + ProgramChange.MidiProgram.ELECTRIC_BASS_PICK.programNumber() + ", " +
-                "'{\"note\":[33,35,37,38,44,38,37,44,33,33,33,33],\"ppq\":[0,1,2,4,5,6,7,10,11,12,13,14]}', 0);");
-        preDb.execSQL("INSERT INTO " + TRACK_TABLE + " VALUES(null, 'ฺBass 2', 1, " + ProgramChange.MidiProgram.ELECTRIC_BASS_PICK.programNumber() + ", " +
+        preDb.execSQL("INSERT INTO " + TRACK_TABLE + " VALUES(null, '70''s Drum', 9, -1, '{\"note\":[53,53,53,53,36,36,38,36,36,36,38,38,38],\"ppq\":[0,4,8,12,0,3,4,6,10,11,12,14,15]}', 0);");
+        preDb.execSQL("INSERT INTO " + TRACK_TABLE + " VALUES(null, '70''s Drum 2', 9, -1, '{\"note\":[36,42,40,42,36,42,36,42,40,40,40],\"ppq\":[0,0,4,4,6,8,10,12,12,14,15]}', 0);");
+        preDb.execSQL("INSERT INTO " + TRACK_TABLE + " VALUES(null, '80''s Disco Drum', 9, -1, '{\"note\":[36,53,38,53,36,53,38,53,38],\"ppq\":[0,2,4,6,8,10,12,14,15]}', 0);");
+        preDb.execSQL("INSERT INTO " + TRACK_TABLE + " VALUES(null, 'Rhythm Beat', 9, -1, '{\"note\":[36,42,42,36],\"ppq\":[0,4,12,14]}', 0);");
+        preDb.execSQL("INSERT INTO " + TRACK_TABLE + " VALUES(null, 'Kick Beat', 9, -1, '{\"note\":[36,36,36,36,0],\"ppq\":[0,4,8,12,15]}', 0);");
+        preDb.execSQL("INSERT INTO " + TRACK_TABLE + " VALUES(null, 'Basic Bass', 1, " + ProgramChange.MidiProgram.ELECTRIC_BASS_PICK.programNumber() + ", " +
+                "'{\"note\":[36,36,36],\"ppq\":[0,6,8]}', 0);");
+        preDb.execSQL("INSERT INTO " + TRACK_TABLE + " VALUES(null, 'ฺBasic Bass 2', 1, " + ProgramChange.MidiProgram.ELECTRIC_BASS_PICK.programNumber() + ", " +
                 "'{\"note\":[36,36,36,36,36,36,36,36],\"ppq\":[0,2,4,6,8,10,12,14],\"dur\":[220,220,220,220,220,220,220,220]}', 0);");
-        preDb.execSQL("INSERT INTO " + TRACK_TABLE + " VALUES(null, 'Electric Guitar', 2, " + ProgramChange.MidiProgram.ELECTRIC_GUITAR_CLEAN.programNumber() + ", '{\"note\":[57,60,64,57,60,64,57,60,64,66,57,60,64,66], " +
-                "\"ppq\":[0,0,0,3,3,3,6,6,6,6,9,9,9,9],\"dur\":[220,220,220,50,50,50,220,220,220,220,50,50,50,50]}', 0);");
-        preDb.execSQL("INSERT INTO " + TRACK_TABLE + " VALUES(null, 'Guitar Major', 2, " + ProgramChange.MidiProgram.ELECTRIC_GUITAR_CLEAN.programNumber() + ", '{\"note\":[48,52,55,48,52,55],\"notemin\":[48,51,55,48,51,55],\"ppq\":[0,2,4,8,10,12],\"dur\":[320,320,320,320,320,320]}', 0);");
+        preDb.execSQL("INSERT INTO " + TRACK_TABLE + " VALUES(null, 'FLY Bass', 1, " + ProgramChange.MidiProgram.ELECTRIC_BASS_PICK.programNumber() + ", " +
+                "'{\"note\":[36,36,36],\"ppq\":[0,6,8]}', 0);");
+        preDb.execSQL("INSERT INTO " + TRACK_TABLE + " VALUES(null, 'Heaven Tone Guitar', 2, " + ProgramChange.MidiProgram.ELECTRIC_GUITAR_CLEAN.programNumber() +
+                ", '{\"note\":[48,55,48,50,55,48,53,48,52,50,52], \"notemin\":[48,55,48,51,55,48,50,48,55,50,51]," +
+                "\"ppq\":[0,0,2,4,4,6,8,10,10,12,14], \"dur\":[220,220,220,220,220,220,220,220,220,220,220]}', 0);");
+        preDb.execSQL("INSERT INTO " + TRACK_TABLE + " VALUES(null, 'Basic Guitar', 2, " + ProgramChange.MidiProgram.ELECTRIC_GUITAR_CLEAN.programNumber() + ", '{\"note\":[48,52,55,48,52,55],\"notemin\":[48,51,55,48,51,55],\"ppq\":[0,2,4,8,10,12],\"dur\":[320,320,320,320,320,320]}', 0);");
+
         preDb.execSQL("INSERT INTO " + TRACK_TABLE + " VALUES(null, 'C', 0, 0, 0, 1);");
         preDb.execSQL("INSERT INTO " + TRACK_TABLE + " VALUES(null, 'C#', 0, 0, 1, 1);");
         preDb.execSQL("INSERT INTO " + TRACK_TABLE + " VALUES(null, 'D', 0, 0, 2, 1);");

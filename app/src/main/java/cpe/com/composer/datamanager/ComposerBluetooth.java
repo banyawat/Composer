@@ -17,6 +17,7 @@ public class ComposerBluetooth {
 
     private BluetoothAdapter btAdapter = null;
     private BluetoothSocket btSocket = null;
+    ConnectedThread mConnectedThread;
 
     // SPP UUID service
     private static final UUID MY_UUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
@@ -24,14 +25,11 @@ public class ComposerBluetooth {
     // MAC-address of Bluetooth module (you must edit this line)
     private static String address = "20:16:05:16:05:27";
 
-    private OnComposerBluetoothListener listener;
+    OnComposerBluetoothListener listener;
 
     public ComposerBluetooth(){
-
-    }
-
-    public void init(){
         btAdapter = BluetoothAdapter.getDefaultAdapter();
+        checkBTState();
     }
 
     private BluetoothSocket createBluetoothSocket(BluetoothDevice device) throws IOException {
@@ -84,12 +82,14 @@ public class ComposerBluetooth {
         // Create a data stream so we can talk to server.
         Log.d(TAG, "...Create Socket...");
 
-        ConnectedThread mConnectedThread = new ConnectedThread(btSocket);
+        mConnectedThread = new ConnectedThread(btSocket);
         mConnectedThread.start();
     }
 
     public void onPauseParent() {
+
         Log.d(TAG, "...In onPause()...");
+
         try     {
             btSocket.close();
         } catch (IOException e2) {
@@ -97,7 +97,11 @@ public class ComposerBluetooth {
         }
     }
 
-    public boolean checkBTState() {
+    public void write(String message){
+        mConnectedThread.write(message);
+    }
+
+    private boolean checkBTState() {
         // Check for Bluetooth support and then check to make sure it is turned on
         // Emulator doesn't support Bluetooth and will return null
         if(btAdapter==null) {
@@ -108,8 +112,10 @@ public class ComposerBluetooth {
                 Log.d(TAG, "...Bluetooth ON...");
                 return true;
             } else {
-                Log.d(TAG, "...Bluetooth Fail...");
                 return false;
+                //Prompt user to turn on Bluetooth
+                /*Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+                startActivityForResult(enableBtIntent, 1);*/
             }
         }
     }
@@ -119,8 +125,8 @@ public class ComposerBluetooth {
         //finish();
     }
 
-    public void setOnDataReceiveListener(OnComposerBluetoothListener listener){
-        this.listener = listener;
+    public void setOnDataReceievedListener(OnComposerBluetoothListener listener){
+        this.listener=listener;
     }
 
     private class ConnectedThread extends Thread {
@@ -153,10 +159,23 @@ public class ComposerBluetooth {
                     String readMessage = new String(buffer, 0, bytes);
                     // Send the obtained bytes to the UI Activity via handler
                     //bluetoothIn.obtainMessage(handlerState, bytes, -1, readMessage).sendToTarget();
-                    listener.onDataReceieveListener(readMessage);
+                    //Log.d(TAG, readMessage);
+                    if(listener!=null)
+                        listener.onDataReceieveListener(readMessage);
                 } catch (IOException e) {
                     break;
                 }
+            }
+        }
+
+        /* Call this from the main activity to send data to the remote device */
+        public void write(String message) {
+            Log.d(TAG, "...Data to send: " + message + "...");
+            byte[] msgBuffer = message.getBytes();
+            try {
+                mmOutStream.write(msgBuffer);
+            } catch (IOException e) {
+                Log.d(TAG, "...Error data send: " + e.getMessage() + "...");
             }
         }
     }

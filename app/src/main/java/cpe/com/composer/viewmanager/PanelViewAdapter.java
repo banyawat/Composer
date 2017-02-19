@@ -38,6 +38,21 @@ public class PanelViewAdapter extends RecyclerView.Adapter<PanelViewAdapter.MyVi
         this.panelListString = panelListString;
     }
 
+    public void scrollPanel(int dx){
+        if(dx<0){
+            if(activeSlot>0)
+                activeSlot+=dx;
+        }
+        else{
+            if(activeSlot<panelListString.size()-1)
+                activeSlot+=dx;
+        }
+    }
+
+    public int getActiveSlot(){
+        return this.activeSlot;
+    }
+
     public void setActiveSlot(int index){
         activeSlot=index;
     }

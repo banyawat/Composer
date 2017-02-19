@@ -6,7 +6,7 @@ public class ComposerGesture {
     private int detail;
     private int flag;
 
-    public ComposerGesture(int id, String title, int detail, int flag){
+    ComposerGesture(int id, String title, int detail, int flag){
         this.id = id;
         this.title = title;
         this.detail = detail;
@@ -25,7 +25,7 @@ public class ComposerGesture {
         return flag;
     }
 
-    public int getDetail() {
+    int getDetail() {
         return detail;
     }
 }

@@ -48,6 +48,7 @@
             android:screenOrientation="landscape" />
         <activity android:name="cpe.com.composer.PerformActivity" />
         <activity android:name="cpe.com.composer.MidiActivity" />
+        <activity android:name="cpe.com.composer.BluetoothActivity" />
     </application>
 
 </manifest>
