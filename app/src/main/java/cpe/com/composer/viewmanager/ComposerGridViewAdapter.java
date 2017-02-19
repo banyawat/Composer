@@ -2,9 +2,7 @@ package cpe.com.composer.viewmanager;
 
 import android.content.Context;
 import android.support.v4.content.ContextCompat;
-import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -54,11 +52,15 @@ public class ComposerGridViewAdapter extends BaseAdapter {
 
     public void removeInstrument(int id){
         int index = this.instrumentID.indexOf(id);
-        Log.d("AA", "Index" + index);
         instrumentID.remove(index);
         instrumentTitle.remove(index);
         instrumentImageId.remove(index);
-        Log.d("AA", "SIZE: " + instrumentID.size());
+    }
+
+    public void clearInstrument(){
+        instrumentID = new ArrayList<>();
+        instrumentTitle = new ArrayList<>();
+        instrumentImageId = new ArrayList<>();
     }
 
     public void setData(ArrayList<ComposerLeftHand> tracks){
@@ -106,13 +108,6 @@ public class ComposerGridViewAdapter extends BaseAdapter {
         else {
             gridView = view;
         }
-        gridView.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
-
-                return false;
-            }
-        });
 
         return gridView;
     }

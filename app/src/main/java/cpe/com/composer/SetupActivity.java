@@ -120,8 +120,8 @@ public class SetupActivity extends AppCompatActivity{
 
         //Fragment
         mPagerAdapter = new MovementPagerAdapter(getSupportFragmentManager());
-        mPagerAdapter.addFragment(new SetupFingerFragment(), "FINGER");
-        mPagerAdapter.addFragment(new SetupArmFragment(), "ARM");
+        mPagerAdapter.addFragment(new SetupFingerFragment(), "Finger");
+        mPagerAdapter.addFragment(new SetupArmFragment(), "Gesture");
         mPager.setAdapter(mPagerAdapter);
 
         //Tab initialization
@@ -231,7 +231,7 @@ public class SetupActivity extends AppCompatActivity{
                     mCursor.moveToNext();
                 }
 
-                titleArray.add("+ New preset....");
+                titleArray.add(" + New preset....");
 
                 /**
                  * Database sector
@@ -242,6 +242,7 @@ public class SetupActivity extends AppCompatActivity{
                 currentOverwritePos = titleArray.size()-1;
                 presetViewAdapter.setActivePreset(titleArray.size()-1);
                 dialogPresetView.setAdapter(presetViewAdapter);
+                dialogPresetView.scrollToPosition(presetViewAdapter.getItemCount()-1);
                 dialogPresetView.addOnItemTouchListener(new RecyclerTouchListener(saveDialog.getContext(), dialogPresetView, new RecyclerTouchListener.OnItemClickListener() {
                     @Override
                     public void onItemClick(View view, int position) {
@@ -383,12 +384,13 @@ public class SetupActivity extends AppCompatActivity{
                 if(newposition<ComposerParam.MAX_PANELSLOT) {
                     panelViewAdapter.addPanel();
                     composerMovements.add(new ComposerMovement());
-                    ((SetupFingerFragment) mPagerAdapter.getItem(0)).addPanel(); // First Fragment
-                    ((SetupArmFragment) mPagerAdapter.getItem(1)).refreshDrawable();
                     panelViewAdapter.setActiveSlot(newposition);
                     activeSlotPanel = newposition;
                     panelViewAdapter.notifyDataSetChanged();
                     setGridViewMode(mode);
+                    mPager.setCurrentItem(0);
+                    ((SetupFingerFragment) mPagerAdapter.getItem(0)).addPanel(); // First Fragment
+                    ((SetupArmFragment) mPagerAdapter.getItem(1)).refreshDrawable();
                 }
                 else
                     Toast.makeText(getApplicationContext(), "Panel full", Toast.LENGTH_SHORT).show();
@@ -411,7 +413,7 @@ public class SetupActivity extends AppCompatActivity{
                     ((SetupArmFragment)mPagerAdapter.getItem(1)).refreshDrawable();
                 }else {
                     panelViewAdapter.notifyItemChanged(0);
-                    Toast.makeText(getApplicationContext(), "No panel to remove", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Unable to remove", Toast.LENGTH_SHORT).show();
                 }
             }
         };
@@ -436,9 +438,10 @@ public class SetupActivity extends AppCompatActivity{
     }
 
     public boolean getSide(){
-        if(mode==1)
-            return true;
-        else
-            return false;
+        return mode == 1;
+    }
+
+    public String getTitleById(int id){
+        return musicEngine.getTitleById(id);
     }
 }

@@ -15,8 +15,7 @@ import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ProgressBar;
 import android.widget.SeekBar;
-
-import org.puredata.core.PdBase;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -26,6 +25,7 @@ import cpe.com.composer.datamanager.ComposerMovement;
 import cpe.com.composer.datamanager.ComposerParam;
 import cpe.com.composer.datamanager.OnComposerBluetoothListener;
 import cpe.com.composer.soundengine.ComposerMusicEngine;
+import cpe.com.composer.soundengine.OnChangeBpmListener;
 import cpe.com.composer.soundengine.OnMusicActionListener;
 import cpe.com.composer.viewmanager.ComposerGridViewAdapter;
 import cpe.com.composer.viewmanager.ComposerVerticalSeekbar;
@@ -34,17 +34,20 @@ public class PerformActivity extends AppCompatActivity {
     private final String PATH = Environment.getExternalStorageDirectory().getPath();
     private static final String TAG = "DEbE";
 
-    private ComposerVerticalSeekbar volumeAdjustBar;
     private GridView activeGridView;
     private ComposerGridViewAdapter activeGridViewAdapter;
-    private Button backToInitialButton;
 
-    public float intensity = 0;
+    private ComposerVerticalSeekbar volumeAdjustBar;
+    private TextView bpmTextView;
+    private Button backToInitialButton;
+    private Button clearTrackButton;
+
+    private float intensity = 0;
 
     private ProgressBar vuMeterL, vuMeterR;
     private ProgressDialog connectingDialog;
-    private ComposerBluetooth btModule;
 
+    private ComposerBluetooth btModule;
     private ComposerMusicEngine musicEngine;
 
     private ArrayList<ComposerMovement> composerMovements;
@@ -68,8 +71,11 @@ public class PerformActivity extends AppCompatActivity {
         initGui();
         initVisualizer();
         initVolumeAdjust();
+        initBpmIndicator();
         initGridView();
         initInitialButton();
+        initClearTracksButton();
+        //Debug with text input
         initParameterDebug();
     }
 
@@ -79,18 +85,30 @@ public class PerformActivity extends AppCompatActivity {
         initBluetooth();
     }
 
-    public void initGui(){
+    private void initGui(){
+        bpmTextView = (TextView) findViewById(R.id.bpmTextView);
         volumeAdjustBar = (ComposerVerticalSeekbar) findViewById(R.id.volumeAdjustBar);
         activeGridView = (GridView) findViewById(R.id.activeInstrumentGridView);
         vuMeterL = (ProgressBar) findViewById(R.id.vuMeterViewL);
         vuMeterR = (ProgressBar) findViewById(R.id.vuMeterViewR);
         backToInitialButton = (Button) findViewById(R.id.backToInitialButton);
+        clearTrackButton = (Button) findViewById(R.id.clearTrackButton);
+    }
+
+    private void initBpmIndicator(){
+        musicEngine.onChangeBpmListener(new OnChangeBpmListener() {
+            @Override
+            public void OnChangeBpmListener(float bpm) {
+                bpmTextView.setText("BPM: " + bpm);
+            }
+        });
     }
 
     private void initInitialButton(){
         backToInitialButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                musicEngine.clearTracks();
                 finish();
             }
         });
@@ -101,25 +119,22 @@ public class PerformActivity extends AppCompatActivity {
         activeGridView.setAdapter(activeGridViewAdapter);
         musicEngine.setOnMusicActionListener(new OnMusicActionListener() {
             @Override
-            public void onTrackAdded(final int id, final String title, final int program) {
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        activeGridViewAdapter.addInstrument(id, title, program);
-                        activeGridViewAdapter.notifyDataSetChanged();
-                    }
-                });
+            public void onTrackAdded(int id, String title, int program) {
+                activeGridViewAdapter.addInstrument(id, title, program);
+                activeGridView.setAdapter(activeGridViewAdapter);
             }
 
             @Override
-            public void onTrackDeleted(final int id) {
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        activeGridViewAdapter.removeInstrument(id);
-                        activeGridViewAdapter.notifyDataSetChanged();
-                    }
-                });
+            public void onTrackDeleted(int id) {
+                activeGridViewAdapter.removeInstrument(id);
+                activeGridView.setAdapter(activeGridViewAdapter);
+            }
+
+            @Override
+            public void onTrackReplaced(int removeId, int id, String title, int program) {
+                activeGridViewAdapter.removeInstrument(removeId);
+                activeGridViewAdapter.addInstrument(id, title, program);
+                activeGridView.setAdapter(activeGridViewAdapter);
             }
         });
     }
@@ -148,8 +163,9 @@ public class PerformActivity extends AppCompatActivity {
     private void initVolumeAdjust(){
         volumeAdjustBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
-            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
-                PdBase.sendFloat("changeVolume", (float)i/120);
+            public void onProgressChanged(SeekBar seekBar, int amount, boolean b) {
+                float vol = (float) (1 - (Math.log(100 - amount) / Math.log(100)));
+                musicEngine.setVolume(vol);
             }
 
             @Override
@@ -160,6 +176,19 @@ public class PerformActivity extends AppCompatActivity {
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
 
+            }
+        });
+    }
+
+    private void initClearTracksButton(){
+        clearTrackButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                musicEngine.clearTracks();
+                activeGridViewAdapter.clearInstrument();
+                activeGridView.setAdapter(activeGridViewAdapter);
+                //musicEngine = new ComposerMusicEngine(PerformActivity.this, PATH);
+                //musicEngine.loadDatabase();
             }
         });
     }
@@ -219,7 +248,6 @@ public class PerformActivity extends AppCompatActivity {
     }
 
     class BluetoothConnectionTask extends AsyncTask<Void, Void, Void> {
-
         @Override
         protected void onPreExecute() {
             super.onPreExecute();

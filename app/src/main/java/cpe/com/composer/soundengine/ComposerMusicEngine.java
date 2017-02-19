@@ -47,7 +47,9 @@ public class ComposerMusicEngine {
     private Context context;
     private static Timer HACK_loopTimer;
 
-    private OnMusicActionListener listener;
+    private OnMusicActionListener onMusicActionListener;
+    private OnChangeBpmListener onChangeBpmListener;
+
 
     public ComposerMusicEngine(Activity parentActivity, String path){
         this.parentActivity = parentActivity;
@@ -108,7 +110,10 @@ public class ComposerMusicEngine {
     }
 
     public void setOnMusicActionListener(OnMusicActionListener listener){
-        this.listener = listener;
+        this.onMusicActionListener = listener;
+    }
+    public void onChangeBpmListener(OnChangeBpmListener listener){
+        this.onChangeBpmListener = listener;
     }
 
     public void playId(int id){
@@ -133,11 +138,31 @@ public class ComposerMusicEngine {
             }
         }
     }
+
+    public String getTitleById(int id){
+        String result = "untitled";
+        int mode2Size = trackList.size()+chordList.size()+tempoList.size()+1;
+        int mode1Size = trackList.size()+chordList.size()+1;
+        int mode0Size = trackList.size()+1;
+        if(id!=-1) {
+            if (id < mode0Size) {
+                result = trackList.get(getTrackIndexById(id)).getTitle();
+            } else if (id < mode1Size) {
+                result = chordList.get(getChordIndexById(id)).getTitle();
+
+            } else if (id < mode2Size) {
+                result = tempoList.get(getTempoIndexById(id)).getTitle();
+            }
+        }
+        return result;
+    }
+
     public void playTrackId(int id) {
         new PlayTrackTask(id).execute();
     }
     public void doTranspose(int id){
         final ComposerRightHand tempComposerRightHand = getPitchKeyById(id);
+        assert tempComposerRightHand != null;
         if(tempComposerRightHand.getMinorSize()>1) {
             Log.d(TAG, "chord set");
             player.setOnSeekCompleteListener(new MediaPlayer.OnSeekCompleteListener() {
@@ -181,6 +206,8 @@ public class ComposerMusicEngine {
 
         @Override
         protected void onPostExecute(Void aVoid){
+            if(onChangeBpmListener!=null)
+                onChangeBpmListener.OnChangeBpmListener(tempo);
             HACK_loopTimer.cancel();
             player.stop();
             player.release();
@@ -236,7 +263,7 @@ public class ComposerMusicEngine {
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
             /*int currentPosition = player.getCurrentPosition();
-            player.stop();
+            player.clearTracks();
             player.reset();
             player.release();*/
             try { midi.writeToFile(output); } catch (IOException e) {System.err.println(e);}
@@ -251,6 +278,8 @@ public class ComposerMusicEngine {
         private int id;
         private boolean first=true;
         private boolean end=false;
+        private boolean delete=false;
+        private int dupIndex=-1;
 
         PlayTrackTask(int id){
             this.id = id;
@@ -261,13 +290,14 @@ public class ComposerMusicEngine {
             if(playingId.size()!=0){ //add or remove track on playing
                 first=false;
                 if(isTrackPlaying(id)){ //remove existing track
+                    delete=true;
                     removeTrack(id);
                     if(playingId.size()==0) {
-                        end=true;
+                        end=true;   //if no track playing, just close media player
                     }
                 }
                 else { //New Track addded just check existing channel
-                    int dupIndex = findDuplicateChannelId(getTrackChannelById(id));
+                    dupIndex = findDuplicateChannelId(getTrackChannelById(id));
                     if(dupIndex!=-1) {
                         removeTrack(dupIndex);
                         Log.d(TAG, "Duplicate: " + dupIndex);
@@ -303,6 +333,27 @@ public class ComposerMusicEngine {
                 else
                     HACK_loopTimer.cancel();
             }
+
+            /*trick onMusicActionListener*/
+            if(onMusicActionListener !=null)
+                if(!delete){
+                    ComposerLeftHand track = trackList.get(getTrackIndexById(id));
+                    int progId;
+                    if (track.getChannel() != 9)
+                        progId = track.getProgram();
+                    else
+                        progId = -1;
+
+                    if(dupIndex!=-1){
+                        onMusicActionListener.onTrackReplaced(dupIndex, id, track.getTitle(), progId);
+                    }
+                    else {
+                        onMusicActionListener.onTrackAdded(id, track.getTitle(), progId);
+                    }
+                }
+                else{
+                    onMusicActionListener.onTrackDeleted(id);
+                }
         }
     }
 
@@ -383,6 +434,22 @@ public class ComposerMusicEngine {
         return -1;
     }
 
+    private int getChordIndexById(int id){
+        for(int i=0;i<chordList.size();i++){
+            if(chordList.get(i).getId()==id)
+                return i;
+        }
+        return -1;
+    }
+
+    private int getTempoIndexById(int id){
+        for(int i=0;i<tempoList.size();i++){
+            if(tempoList.get(i).getId()==id)
+                return i;
+        }
+        return -1;
+    }
+
     private int findDuplicateChannelId(int channel){
         for(ComposerLeftHand track: trackList){
             if(track.isPlaying())
@@ -397,20 +464,12 @@ public class ComposerMusicEngine {
         ComposerLeftHand track = trackList.get(getTrackIndexById(id));
         track.setPlaying(true);
         playingId.add(id);
-        if(listener!=null) {
-            if(track.getChannel()!=9)
-                listener.onTrackAdded(id, track.getTitle(), track.getProgram());
-            else
-                listener.onTrackAdded(id, track.getTitle(), -1);
-        }
     }
 
     private void removeTrack(int id){
         midi.removeTrack(playingId.indexOf(id)+1);
         playingId.remove(Integer.valueOf(id));
         trackList.get(getTrackIndexById(id)).setPlaying(false);
-        if(listener!=null)
-            listener.onTrackDeleted(id);
     }
 
     private void setLoopTimer(){
@@ -432,6 +491,26 @@ public class ComposerMusicEngine {
     }
 
     public void setVolume(float volume){
-        player.setAuxEffectSendLevel(volume);
+        if(player!=null)
+            player.setVolume(volume, volume);
+    }
+
+    public void clearTracks(){
+        if(HACK_loopTimer!=null)
+            HACK_loopTimer.cancel();
+        if(player!=null) {
+            if(player.isPlaying()) {
+                player.stop();
+            }
+        }
+        final int amount = midi.getTrackCount();
+        for(int i=amount-1;i>0;i--){
+            midi.removeTrack(i);
+        }
+        for(ComposerLeftHand lHand : trackList){
+            lHand.setPlaying(false);
+        }
+        try { midi.writeToFile(output); } catch (IOException e) {System.err.println(e);}
+        playingId = new ArrayList<>();
     }
 }

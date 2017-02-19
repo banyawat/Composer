@@ -1,6 +1,7 @@
 package cpe.com.composer.viewmanager;
 
 import android.support.v7.widget.RecyclerView;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -54,6 +55,7 @@ public class PresetViewAdapter extends RecyclerView.Adapter<PresetViewAdapter.My
         private MyViewHolder(View v) {
             super(v);
             this.titleTextView = (TextView) v.findViewById(R.id.presetTitleText);
+            this.titleTextView.setGravity(Gravity.CENTER_VERTICAL);
             this.linearLayout = (LinearLayout) v.findViewById(R.id.presetViewBackground);
             this.linearLayout.setBackgroundColor(v.getResources().getColor(R.color.menu_button));
         }

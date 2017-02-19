@@ -36,13 +36,31 @@ public class ComposerDatabase extends SQLiteOpenHelper {
                 "\"ppq\":[0,0,0,3,3,3,6,6,6,6,9,9,9,9],\"dur\":[220,220,220,50,50,50,220,220,220,220,50,50,50,50]}', 0);");
         preDb.execSQL("INSERT INTO " + TRACK_TABLE + " VALUES(null, 'Guitar Major', 2, " + ProgramChange.MidiProgram.ELECTRIC_GUITAR_CLEAN.programNumber() + ", '{\"note\":[48,52,55,48,52,55],\"notemin\":[48,51,55,48,51,55],\"ppq\":[0,2,4,8,10,12],\"dur\":[320,320,320,320,320,320]}', 0);");
         preDb.execSQL("INSERT INTO " + TRACK_TABLE + " VALUES(null, 'C', 0, 0, 0, 1);");
+        preDb.execSQL("INSERT INTO " + TRACK_TABLE + " VALUES(null, 'C#', 0, 0, 1, 1);");
         preDb.execSQL("INSERT INTO " + TRACK_TABLE + " VALUES(null, 'D', 0, 0, 2, 1);");
+        preDb.execSQL("INSERT INTO " + TRACK_TABLE + " VALUES(null, 'Eb', 0, 0, 3, 1);");
         preDb.execSQL("INSERT INTO " + TRACK_TABLE + " VALUES(null, 'E', 0, 0, 4, 1);");
         preDb.execSQL("INSERT INTO " + TRACK_TABLE + " VALUES(null, 'F', 0, 0, 5, 1);");
+        preDb.execSQL("INSERT INTO " + TRACK_TABLE + " VALUES(null, 'F#', 0, 0, 6, 1);");
         preDb.execSQL("INSERT INTO " + TRACK_TABLE + " VALUES(null, 'G', 0, 0, 7, 1);");
+        preDb.execSQL("INSERT INTO " + TRACK_TABLE + " VALUES(null, 'G#', 0, 0, 8, 1);");
         preDb.execSQL("INSERT INTO " + TRACK_TABLE + " VALUES(null, 'A', 0, 0, 9, 1);");
-        preDb.execSQL("INSERT INTO " + TRACK_TABLE + " VALUES(null, 'Am', 0, 1, 9, 1);");
+        preDb.execSQL("INSERT INTO " + TRACK_TABLE + " VALUES(null, 'Bb', 0, 0, 10, 1);");
         preDb.execSQL("INSERT INTO " + TRACK_TABLE + " VALUES(null, 'B', 0, 0, 11, 1);");
+
+        preDb.execSQL("INSERT INTO " + TRACK_TABLE + " VALUES(null, 'Cm', 0, 1, 0, 1);");
+        preDb.execSQL("INSERT INTO " + TRACK_TABLE + " VALUES(null, 'C#m', 0, 1, 1, 1);");
+        preDb.execSQL("INSERT INTO " + TRACK_TABLE + " VALUES(null, 'Dm', 0, 1, 2, 1);");
+        preDb.execSQL("INSERT INTO " + TRACK_TABLE + " VALUES(null, 'Ebm', 0, 1, 3, 1);");
+        preDb.execSQL("INSERT INTO " + TRACK_TABLE + " VALUES(null, 'Em', 0, 1, 4, 1);");
+        preDb.execSQL("INSERT INTO " + TRACK_TABLE + " VALUES(null, 'Fm', 0, 1, 5, 1);");
+        preDb.execSQL("INSERT INTO " + TRACK_TABLE + " VALUES(null, 'F#m', 0, 1, 6, 1);");
+        preDb.execSQL("INSERT INTO " + TRACK_TABLE + " VALUES(null, 'Gm', 0, 1, 7, 1);");
+        preDb.execSQL("INSERT INTO " + TRACK_TABLE + " VALUES(null, 'G#m', 0, 1, 8, 1);");
+        preDb.execSQL("INSERT INTO " + TRACK_TABLE + " VALUES(null, 'Am', 0, 1, 9, 1);");
+        preDb.execSQL("INSERT INTO " + TRACK_TABLE + " VALUES(null, 'Bbm', 0, 1, 10, 1);");
+        preDb.execSQL("INSERT INTO " + TRACK_TABLE + " VALUES(null, 'Bm', 0, 1, 11, 1);");
+
         preDb.execSQL("INSERT INTO " + TRACK_TABLE + " VALUES(null, 'C Am F G', 0, 0, '{\"note\":[0,9,5,7],\"minor\":[0,1,0,0]}', 2);");
         preDb.execSQL("INSERT INTO " + TRACK_TABLE + " VALUES(null, '80', 0, 0, 80, 3);");
         preDb.execSQL("INSERT INTO " + TRACK_TABLE + " VALUES(null, '90', 0, 0, 90, 3);");

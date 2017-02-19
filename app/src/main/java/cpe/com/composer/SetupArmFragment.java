@@ -33,7 +33,6 @@ public class SetupArmFragment extends Fragment {
 
     public SetupArmFragment() {}
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -41,7 +40,6 @@ public class SetupArmFragment extends Fragment {
 
         parentActivity = (SetupActivity) getActivity();
         normalShape = ContextCompat.getDrawable(parentActivity, R.drawable.ic_panorama_fish_eye);
-
 
         initGui();
         initComponent();
@@ -64,7 +62,9 @@ public class SetupArmFragment extends Fragment {
             imageView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Toast.makeText(getContext(), String.valueOf(parentActivity.getActiveMovement().getGesture(viewIdList.indexOf(view.getId()))), Toast.LENGTH_SHORT).show();
+                    int clickedId = parentActivity.getActiveMovement().getGesture(viewIdList.indexOf(view.getId()));
+                    String title = parentActivity.getTitleById(clickedId);
+                    Toast.makeText(getContext(), title, Toast.LENGTH_SHORT).show();
                 }
             });
             imageView.setOnDragListener(new OnGestureDragListener());

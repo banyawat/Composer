@@ -83,7 +83,7 @@ public class EventPrinter implements MidiEventListener
         processor.start();
 
         // Listeners will be triggered in real time with the MIDI events
-        // And you can pause/resume with stop() and start()
+        // And you can pause/resume with clearTracks() and start()
         try
         {
             Thread.sleep(10 * 1000);

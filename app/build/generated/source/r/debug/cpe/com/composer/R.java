@@ -3220,7 +3220,7 @@ containing a value of this type.
         public static final int bassPlayButton=0x7f0f0086;
         public static final int beginning=0x7f0f003b;
         public static final int bottom=0x7f0f002a;
-        public static final int bpmtext=0x7f0f0090;
+        public static final int bpmTextView=0x7f0f0093;
         public static final int buttonPanel=0x7f0f0050;
         public static final int cancel_action=0x7f0f00c2;
         public static final int center=0x7f0f002b;
@@ -3230,6 +3230,7 @@ containing a value of this type.
         public static final int checkArray=0x7f0f008a;
         public static final int checkbox=0x7f0f005e;
         public static final int chronometer=0x7f0f00c8;
+        public static final int clearTrackButton=0x7f0f008c;
         public static final int clip_horizontal=0x7f0f0036;
         public static final int clip_vertical=0x7f0f0037;
         public static final int collapseActionView=0x7f0f003e;
@@ -3290,7 +3291,7 @@ containing a value of this type.
         public static final int ifRoom=0x7f0f003f;
         public static final int image=0x7f0f004b;
         public static final int imageView=0x7f0f007f;
-        public static final int imageView2=0x7f0f0092;
+        public static final int imageView2=0x7f0f0095;
         public static final int info=0x7f0f00cc;
         public static final int item_touch_helper_previous_elevation=0x7f0f0005;
         public static final int keyChange=0x7f0f0088;
@@ -3299,7 +3300,7 @@ containing a value of this type.
         public static final int leftHandImageView=0x7f0f00b9;
         public static final int line1=0x7f0f00c6;
         public static final int line3=0x7f0f00ca;
-        public static final int linearLayout=0x7f0f0093;
+        public static final int linearLayout=0x7f0f0090;
         public static final int linearLayout3=0x7f0f0079;
         public static final int listMode=0x7f0f0014;
         public static final int list_item=0x7f0f004d;
@@ -3393,7 +3394,6 @@ containing a value of this type.
         public static final int title=0x7f0f004f;
         public static final int title_paired_devices=0x7f0f00ac;
         public static final int title_template=0x7f0f0054;
-        public static final int toggleButton3=0x7f0f008c;
         public static final int top=0x7f0f0033;
         public static final int topPanel=0x7f0f0053;
         public static final int touch_outside=0x7f0f00a2;
@@ -3401,9 +3401,9 @@ containing a value of this type.
         public static final int useLogo=0x7f0f001c;
         public static final int view_offset_helper=0x7f0f000a;
         public static final int viewpager=0x7f0f0078;
-        public static final int volumeAdjustBar=0x7f0f0091;
-        public static final int vuMeterViewL=0x7f0f0094;
-        public static final int vuMeterViewR=0x7f0f0095;
+        public static final int volumeAdjustBar=0x7f0f0094;
+        public static final int vuMeterViewL=0x7f0f0091;
+        public static final int vuMeterViewR=0x7f0f0092;
         public static final int withText=0x7f0f0041;
         public static final int wrap=0x7f0f000d;
         public static final int wrap_content=0x7f0f0028;

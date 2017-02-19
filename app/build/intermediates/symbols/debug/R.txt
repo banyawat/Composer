@@ -782,7 +782,7 @@ int id basic 0x7f0f0011
 int id bassPlayButton 0x7f0f0086
 int id beginning 0x7f0f003b
 int id bottom 0x7f0f002a
-int id bpmtext 0x7f0f0090
+int id bpmTextView 0x7f0f0093
 int id buttonPanel 0x7f0f0050
 int id cancel_action 0x7f0f00c2
 int id center 0x7f0f002b
@@ -792,6 +792,7 @@ int id chains 0x7f0f0012
 int id checkArray 0x7f0f008a
 int id checkbox 0x7f0f005e
 int id chronometer 0x7f0f00c8
+int id clearTrackButton 0x7f0f008c
 int id clip_horizontal 0x7f0f0036
 int id clip_vertical 0x7f0f0037
 int id collapseActionView 0x7f0f003e
@@ -852,7 +853,7 @@ int id icon 0x7f0f004e
 int id ifRoom 0x7f0f003f
 int id image 0x7f0f004b
 int id imageView 0x7f0f007f
-int id imageView2 0x7f0f0092
+int id imageView2 0x7f0f0095
 int id info 0x7f0f00cc
 int id item_touch_helper_previous_elevation 0x7f0f0005
 int id keyChange 0x7f0f0088
@@ -861,7 +862,7 @@ int id left 0x7f0f0030
 int id leftHandImageView 0x7f0f00b9
 int id line1 0x7f0f00c6
 int id line3 0x7f0f00ca
-int id linearLayout 0x7f0f0093
+int id linearLayout 0x7f0f0090
 int id linearLayout3 0x7f0f0079
 int id listMode 0x7f0f0014
 int id list_item 0x7f0f004d
@@ -955,7 +956,6 @@ int id time 0x7f0f00c7
 int id title 0x7f0f004f
 int id title_paired_devices 0x7f0f00ac
 int id title_template 0x7f0f0054
-int id toggleButton3 0x7f0f008c
 int id top 0x7f0f0033
 int id topPanel 0x7f0f0053
 int id touch_outside 0x7f0f00a2
@@ -963,9 +963,9 @@ int id up 0x7f0f0009
 int id useLogo 0x7f0f001c
 int id view_offset_helper 0x7f0f000a
 int id viewpager 0x7f0f0078
-int id volumeAdjustBar 0x7f0f0091
-int id vuMeterViewL 0x7f0f0094
-int id vuMeterViewR 0x7f0f0095
+int id volumeAdjustBar 0x7f0f0094
+int id vuMeterViewL 0x7f0f0091
+int id vuMeterViewR 0x7f0f0092
 int id withText 0x7f0f0041
 int id wrap 0x7f0f000d
 int id wrap_content 0x7f0f0028
