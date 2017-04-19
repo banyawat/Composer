@@ -76,7 +76,7 @@ public class PerformActivity extends AppCompatActivity {
         initInitialButton();
         initClearTracksButton();
         initPanelSlot();
-        initBluetooth();
+        //initBluetooth();
     }
 
     private void initGui(){
@@ -198,13 +198,13 @@ public class PerformActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        btModule.onResumeActivity();
+        //btModule.onResumeActivity();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        btModule.onPauseParent();
+        //btModule.onPauseParent();
     }
 
     private void initBluetooth(){

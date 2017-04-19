@@ -104,10 +104,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/bpmTextView"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="8dp"
-            app:layout_constraintLeft_toRightOf="parent"
-            android:layout_marginLeft="8dp"
-            android:layout_marginStart="8dp" />
+            app:layout_constraintLeft_toRightOf="parent" />
 
         <cpe.com.composer.viewmanager.ComposerVerticalSeekbar
             android:layout_width="wrap_content"
@@ -166,7 +163,7 @@
         android:layout_width="300dp" />
 
     <GridView
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:numColumns="4"
         android:gravity="center"
@@ -174,8 +171,16 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         android:id="@+id/activeInstrumentGridView"
-        android:layout_width="800dp"
-        app:layout_constraintBottom_toTopOf="@+id/peformPanelSlot"
-        android:layout_marginBottom="8dp" />
+        android:layout_width="800dp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toBottomOf="@id/activeInstrumentGridView"
+        app:layout_constraintLeft_toLeftOf="@id/activeInstrumentGridView"
+        tools:layout_editor_absoluteY="438dp"
+        tools:layout_editor_absoluteX="-27dp">
+
+    </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>
