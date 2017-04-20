@@ -38,7 +38,7 @@ public class SetupFingerFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        thisView = inflater.inflate(R.layout.fragment_finger_set, container, false);
+        thisView = inflater.inflate(R.layout.fragment_finger_config, container, false);
         normalShape = ContextCompat.getDrawable(getActivity().getApplicationContext(), R.drawable.ic_panorama_fish_eye);
         parentActivity = (SetupActivity) getActivity();
 

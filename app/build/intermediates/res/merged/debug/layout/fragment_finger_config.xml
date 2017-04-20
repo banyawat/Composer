@@ -1,0 +1,113 @@
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="cpe.com.composer.SetupFingerFragment">
+
+    <ImageView
+        android:id="@+id/leftHandImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/left_hand"
+        android:scaleType="fitStart"
+        android:layout_margin="20dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="16dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="16dp" />
+
+    <ImageView
+        android:id="@+id/controllerImage1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        
+        app:srcCompat="@drawable/ic_panorama_fish_eye"
+        app:layout_constraintTop_toTopOf="@+id/leftHandImageView"
+        app:layout_constraintLeft_toLeftOf="@+id/leftHandImageView"
+        app:layout_constraintRight_toRightOf="@+id/leftHandImageView"
+        app:layout_constraintBottom_toBottomOf="@+id/leftHandImageView"
+        app:layout_constraintHorizontal_bias="0.08"
+        app:layout_constraintVertical_bias="0.45"/>
+
+    <ImageView
+        android:id="@+id/controllerImage2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_panorama_fish_eye"
+        app:layout_constraintTop_toTopOf="@+id/leftHandImageView"
+        app:layout_constraintLeft_toLeftOf="@+id/leftHandImageView"
+        app:layout_constraintRight_toRightOf="@+id/leftHandImageView"
+        app:layout_constraintBottom_toBottomOf="@+id/leftHandImageView"
+        app:layout_constraintHorizontal_bias="0.3"
+        app:layout_constraintVertical_bias="0.120000005"/>
+
+    <ImageView
+        android:id="@+id/controllerImage3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_panorama_fish_eye"
+        app:layout_constraintTop_toTopOf="@+id/leftHandImageView"
+        app:layout_constraintLeft_toLeftOf="@+id/leftHandImageView"
+        app:layout_constraintRight_toRightOf="@+id/leftHandImageView"
+        app:layout_constraintBottom_toBottomOf="@+id/leftHandImageView"
+        app:layout_constraintHorizontal_bias="0.54"
+        app:layout_constraintVertical_bias="0.05"
+        />
+
+    <ImageView
+        android:id="@+id/controllerImage4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_panorama_fish_eye"
+        app:layout_constraintTop_toTopOf="@+id/leftHandImageView"
+        app:layout_constraintLeft_toLeftOf="@+id/leftHandImageView"
+        app:layout_constraintRight_toRightOf="@+id/leftHandImageView"
+        app:layout_constraintBottom_toBottomOf="@+id/leftHandImageView"
+        app:layout_constraintHorizontal_bias="0.73"
+        app:layout_constraintVertical_bias="0.1"/>
+
+    <ImageView
+        android:id="@+id/controllerImage5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_panorama_fish_eye"
+        app:layout_constraintTop_toTopOf="@+id/leftHandImageView"
+        app:layout_constraintRight_toRightOf="@+id/leftHandImageView"
+        app:layout_constraintLeft_toLeftOf="@+id/leftHandImageView"
+        app:layout_constraintBottom_toBottomOf="@+id/leftHandImageView"
+        app:layout_constraintVertical_bias="0.23000002"
+        app:layout_constraintHorizontal_bias="0.89"
+        />
+
+
+    <at.markushi.ui.CircleButton
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:id="@+id/swapSideButton1"
+        app:cb_color="@color/menu_button"
+        app:cb_pressedRingWidth="8dp"
+        android:src="@drawable/ic_keyboard_arrow_left"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="16dp" />
+
+    <at.markushi.ui.CircleButton
+        app:cb_color="@color/go_button"
+        app:cb_pressedRingWidth="8dp"
+        android:layout_width="80dp"
+        android:src="@drawable/ic_delete"
+        android:id="@+id/fingerSlotRemove"
+        android:layout_height="80dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/swapSideButton1"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="16dp" />
+
+</android.support.constraint.ConstraintLayout>

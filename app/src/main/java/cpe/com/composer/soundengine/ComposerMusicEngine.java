@@ -375,7 +375,7 @@ public class ComposerMusicEngine {
         return false;
     }
 
-    private int getTrackChannelById(int id){
+    public int getTrackChannelById(int id){
         for(ComposerLeftHand track: trackList){
             if(track.getId()==id){
                 return track.getChannel();

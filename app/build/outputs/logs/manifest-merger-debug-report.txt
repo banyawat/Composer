@@ -62,7 +62,7 @@ MERGED from [com.android.support:support-core-ui:24.2.1] C:\Users\user\Documents
 MERGED from [com.android.support:support-vector-drawable:24.2.1] C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.2.1\AndroidManifest.xml:23:5-20
 MERGED from [com.android.support:support-compat:24.2.1] C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\AndroidManifest.xml:25:5-20
 MERGED from [com.github.markushi:circlebutton:1.1] C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.github.markushi\circlebutton\1.1\AndroidManifest.xml:9:5-20
-MERGED from [com.android.support.constraint:constraint-layout:1.0.0-beta5] C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.android.support.constraint\constraint-layout\1.0.0-beta5\AndroidManifest.xml:9:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.android.support.constraint\constraint-layout\1.0.2\AndroidManifest.xml:9:5-20
 	android:label
 		ADDED from C:\Users\user\Documents\GitHub\Composer\app\src\main\AndroidManifest.xml:19:9-41
 	android:supportsRtl
@@ -142,7 +142,7 @@ MERGED from [com.android.support:support-vector-drawable:24.2.1] C:\Users\user\D
 MERGED from [com.android.support:support-compat:24.2.1] C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\AndroidManifest.xml:21:5-23:58
 MERGED from [com.github.markushi:circlebutton:1.1] C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.github.markushi\circlebutton\1.1\AndroidManifest.xml:7:5-44
 MERGED from [com.daimajia.swipelayout:library:1.2.0] C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.daimajia.swipelayout\library\1.2.0\AndroidManifest.xml:6:5-8:41
-MERGED from [com.android.support.constraint:constraint-layout:1.0.0-beta5] C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.android.support.constraint\constraint-layout\1.0.0-beta5\AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.android.support.constraint\constraint-layout\1.0.2\AndroidManifest.xml:5:5-7:41
 	tools:overrideLibrary
 		ADDED from [com.android.support:appcompat-v7:24.2.1] C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.2.1\AndroidManifest.xml:23:9-75
 	android:targetSdkVersion

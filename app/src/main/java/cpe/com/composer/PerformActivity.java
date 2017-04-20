@@ -1,15 +1,18 @@
 package cpe.com.composer;
 
+import android.graphics.drawable.Drawable;
 import android.media.audiofx.Visualizer;
 import android.os.Bundle;
 import android.os.Environment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.GridView;
 import android.widget.ProgressBar;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -21,19 +24,25 @@ import cpe.com.composer.datamanager.ComposerJSON;
 import cpe.com.composer.datamanager.ComposerMovement;
 import cpe.com.composer.datamanager.ComposerParam;
 import cpe.com.composer.datamanager.OnComposerBluetoothListener;
+import cpe.com.composer.soundengine.ComposerGesture;
+import cpe.com.composer.soundengine.ComposerLeftHand;
 import cpe.com.composer.soundengine.ComposerMusicEngine;
+import cpe.com.composer.soundengine.ComposerRightHand;
 import cpe.com.composer.soundengine.OnChangeBpmListener;
-import cpe.com.composer.soundengine.OnMusicActionListener;
-import cpe.com.composer.viewmanager.ComposerGridViewAdapter;
 import cpe.com.composer.viewmanager.ComposerVerticalSeekbar;
+import cpe.com.composer.viewmanager.HandViewController;
+import cpe.com.composer.viewmanager.OnImageLoadedListener;
 import cpe.com.composer.viewmanager.PanelViewAdapter;
 
 public class PerformActivity extends AppCompatActivity {
     private final String PATH = Environment.getExternalStorageDirectory().getPath();
     private static final String TAG = "DEbE";
 
-    private GridView activeGridView;
-    private ComposerGridViewAdapter activeGridViewAdapter;
+    private Button testButton;
+    private Button testButton2;
+
+    private HandViewController leftHandView;
+    private HandViewController rightHandView;
 
     private RecyclerView panelSlotView;
     private PanelViewAdapter panelViewAdapter;
@@ -51,6 +60,7 @@ public class PerformActivity extends AppCompatActivity {
     private ComposerMusicEngine musicEngine;
 
     private ArrayList<ComposerMovement> composerMovements;
+    private ArrayList<Integer> idImageType = new ArrayList<>();
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,34 +70,84 @@ public class PerformActivity extends AppCompatActivity {
         if(bundle!=null){
             String json = bundle.getString(ComposerParam.BUNDLE_KEY);
             composerMovements = new ComposerJSON().getComposerArray(json);
-            for(ComposerMovement composerMovement: composerMovements){
-                composerMovement.mirror();
-            }
+            /*for(ComposerMovement composerMovement: composerMovements){
+                //composerMovement.flip();
+            }*/
         }
 
         musicEngine = new ComposerMusicEngine(this, PATH);
         musicEngine.loadDatabase();
 
+        //Load image database
+        for(ComposerLeftHand leftHand: musicEngine.getTrackList()){
+            if(leftHand.getChannel()==9)
+                idImageType.add(ComposerParam.INSTRUMENT_MAP.get(-1));
+            else {
+                idImageType.add(ComposerParam.INSTRUMENT_MAP.get(leftHand.getProgram()));
+            }
+
+        }
+        for(ComposerRightHand ignored : musicEngine.getChordList()){
+            idImageType.add(ComposerParam.INSTRUMENT_MAP.get(-2));
+        }
+        for(ComposerGesture ignored : musicEngine.getTempoList()){
+            idImageType.add(ComposerParam.INSTRUMENT_MAP.get(-3));
+        }
+
         initGui();
+        initFragment();
         initVisualizer();
         initVolumeAdjust();
         initBpmIndicator();
-        initGridView();
         initInitialButton();
         initClearTracksButton();
         initPanelSlot();
+        leftHandView.setOnImageLoadListener(new OnImageLoadedListener() {
+            @Override
+            public void OnImageLoadedListener() {
+                refreshDrawable();
+            }
+        });
         //initBluetooth();
+
+        testButton2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(panelViewAdapter.getActiveSlot()==0)
+                    scrollPanelSot(1);
+                else
+                    scrollPanelSot(-1);
+            }
+        });
     }
 
     private void initGui(){
+        testButton = (Button) findViewById(R.id.testButton);
+        testButton2 = (Button) findViewById(R.id.testButton2);
         bpmTextView = (TextView) findViewById(R.id.bpmTextView);
         volumeAdjustBar = (ComposerVerticalSeekbar) findViewById(R.id.volumeAdjustBar);
-        activeGridView = (GridView) findViewById(R.id.activeInstrumentGridView);
+        //activeGridView = (GridView) findViewById(R.id.activeInstrumentGridView);
         vuMeterL = (ProgressBar) findViewById(R.id.vuMeterViewL);
         vuMeterR = (ProgressBar) findViewById(R.id.vuMeterViewR);
         backToInitialButton = (Button) findViewById(R.id.backToInitialButton);
         clearTrackButton = (Button) findViewById(R.id.clearTrackButton);
         panelSlotView = (RecyclerView) findViewById(R.id.peformPanelSlot);
+    }
+
+    private void initFragment(){
+        leftHandView = new HandViewController();
+        rightHandView = new HandViewController();
+        Bundle args = new Bundle();
+        args.putBoolean("bool", true);
+        rightHandView.setArguments(args);
+        FragmentManager manager = getSupportFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction();
+        transaction.replace(R.id.performLeftHandView, leftHandView);
+        transaction.commit();
+
+        FragmentTransaction transaction2 = manager.beginTransaction();
+        transaction2.replace(R.id.performRightHandView, rightHandView);
+        transaction2.commit();
     }
 
     private void initBpmIndicator(){
@@ -109,7 +169,7 @@ public class PerformActivity extends AppCompatActivity {
         });
     }
 
-    private void initGridView(){
+    /*private void initGridView(){
         activeGridViewAdapter = new ComposerGridViewAdapter(this);
         activeGridView.setAdapter(activeGridViewAdapter);
         musicEngine.setOnMusicActionListener(new OnMusicActionListener() {
@@ -132,7 +192,7 @@ public class PerformActivity extends AppCompatActivity {
                 activeGridView.setAdapter(activeGridViewAdapter);
             }
         });
-    }
+    }*/
 
     private void initVisualizer(){
         int rate = Visualizer.getMaxCaptureRate();
@@ -180,8 +240,8 @@ public class PerformActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 musicEngine.clearTracks();
-                activeGridViewAdapter.clearInstrument();
-                activeGridView.setAdapter(activeGridViewAdapter);
+                //activeGridViewAdapter.clearInstrument();
+                //activeGridView.setAdapter(activeGridViewAdapter);
             }
         });
     }
@@ -265,5 +325,27 @@ public class PerformActivity extends AppCompatActivity {
             }
         });
         Log.d(TAG, "" + panelViewAdapter.getActiveSlot());
+        refreshDrawable();
+    }
+
+    private void refreshDrawable(){
+        ComposerMovement movement = composerMovements.get(panelViewAdapter.getActiveSlot());
+
+        for(int i=0;i<5;i++){
+            int val = movement.getFingerValue(false, i);
+            if(val!=-1) {
+                Drawable image = ContextCompat.getDrawable(getApplicationContext(), idImageType.get(val - 1));
+                leftHandView.setDrawable(i, image);
+            }
+            else{
+                leftHandView.setDrawable(i, null);
+            }
+            if(movement.getFingerValue(true, i)!=-1){
+                rightHandView.setDrawable(i, ContextCompat.getDrawable(getApplicationContext(), ComposerParam.INSTRUMENT_MAP.get(-2)));
+            }
+            else{
+                rightHandView.setDrawable(i, null);
+            }
+        }
     }
 }

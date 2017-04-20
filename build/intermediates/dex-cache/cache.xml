@@ -30,29 +30,11 @@
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\user\AppData\Local\Android\sdk\extras\m2repository\com\android\support\constraint\constraint-layout-solver\1.0.0-beta5\constraint-layout-solver-1.0.0-beta5.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="ff0dad5e4fc720f478ce8b5f6edf76a932d9b886">
-        <dex dex="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\pre-dexed\debug\constraint-layout-solver-1.0.0-beta5_fe3a08311008ef7edc940053395437fa985f3006.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.android.support.constraint\constraint-layout\1.0.0-beta5\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="dce0f3de11781e1ee758cba483871b598c9d4931">
-        <dex dex="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\pre-dexed\debug\com.android.support.constraint-constraint-layout-1.0.0-beta5_6d47cf5879cce318e3636e6597ed03fecf537b40.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
-        sha1="7784fe44eb82052bf91985133a57f3045fd5b0dc">
+        sha1="24aefef0d979f469e32f783e9d97d0ea678ebafd">
         <dex dex="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\pre-dexed\debug\instant-run-bootstrap_59c94c0803fb9a98ca37ce83ca5ffe71ffee60d0.jar" />
     </item>
     <item
@@ -151,8 +133,17 @@
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
-        sha1="c61cb10ad34ad99d193a21755ed8918b735ead23">
+        sha1="67626fb9f1329a42ba8edd039b6e7cba5dc388bc">
         <dex dex="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\pre-dexed\debug\instant-run_ef745a37eedf32d8a3eeb6483b091d8b8ee36e4c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.android.support.constraint\constraint-layout\1.0.2\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="44ee06abb66da30f5855e6bf54574e64cdcd982a">
+        <dex dex="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\pre-dexed\debug\com.android.support.constraint-constraint-layout-1.0.2_cee2ad177c4527b519ac3a74901e0b15e92ea7b3.jar" />
     </item>
     <item
         is-multidex="false"
@@ -207,6 +198,15 @@
         revision="24.0.3"
         sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
         <dex dex="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\pre-dexed\debug\com.android.support-support-core-utils-24.2.1_c4ec85b09119db8b5d03930d49f9a8a069000d69.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\user\AppData\Local\Android\sdk\extras\m2repository\com\android\support\constraint\constraint-layout-solver\1.0.2\constraint-layout-solver-1.0.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="b9cd8fc6bd15cb915735d34535db30ece0c44603">
+        <dex dex="C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\pre-dexed\debug\constraint-layout-solver-1.0.2_56cb9135bf1bd704eeaa78bb7e1de36312cfdd96.jar" />
     </item>
     <item
         is-multidex="false"

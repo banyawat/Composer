@@ -85,7 +85,7 @@ public class ComposerMovement {
         return gesture[i];
     }
 
-    public void mirror(){
+    public void flip(){
         for(int i = 0; i < leftFinger.length / 2; i++){
             int temp = leftFinger[i];
             int temp2 = rightFinger[i];
