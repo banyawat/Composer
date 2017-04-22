@@ -51,18 +51,18 @@ ADDED from C:\Users\user\Documents\GitHub\Composer\app\src\main\AndroidManifest.
 		ADDED from C:\Users\user\Documents\GitHub\Composer\app\src\main\AndroidManifest.xml:14:22-77
 application
 ADDED from C:\Users\user\Documents\GitHub\Composer\app\src\main\AndroidManifest.xml:16:5-46:19
-MERGED from [com.android.support:design:24.2.1] C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.android.support\design\24.2.1\AndroidManifest.xml:22:5-20
-MERGED from [com.android.support:appcompat-v7:24.2.1] C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.2.1\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:animated-vector-drawable:24.2.1] C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.2.1\AndroidManifest.xml:22:5-20
-MERGED from [com.android.support:support-v4:24.2.1] C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.1\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-fragment:24.2.1] C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-media-compat:24.2.1] C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-core-utils:24.2.1] C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-core-ui:24.2.1] C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-vector-drawable:24.2.1] C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.2.1\AndroidManifest.xml:23:5-20
-MERGED from [com.android.support:support-compat:24.2.1] C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\AndroidManifest.xml:25:5-20
-MERGED from [com.github.markushi:circlebutton:1.1] C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.github.markushi\circlebutton\1.1\AndroidManifest.xml:9:5-20
-MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.android.support.constraint\constraint-layout\1.0.2\AndroidManifest.xml:9:5-20
+MERGED from [com.android.support:design:24.2.1] C:\Users\user\.android\build-cache\e8112a1baf7c0c9baa5855d90b3f4b0fa559d52f\output\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:appcompat-v7:24.2.1] C:\Users\user\.android\build-cache\3aa6b4eaab6a0dd624cf923944412fb355f2b264\output\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:animated-vector-drawable:24.2.1] C:\Users\user\.android\build-cache\3bdbfb1a95a445820b9a34568e2ef163775070f7\output\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-v4:24.2.1] C:\Users\user\.android\build-cache\a7a371067813ce9d39ecb656858a7150cc38af0d\output\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-fragment:24.2.1] C:\Users\user\.android\build-cache\4a0abb2f7ddad40fc0daa32e5043600936db537b\output\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-media-compat:24.2.1] C:\Users\user\.android\build-cache\36209f805a4a48fc472b5b393d5b5c9543ba872a\output\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-utils:24.2.1] C:\Users\user\.android\build-cache\e546fa6e3dc7a5f05b62e567cc25a2e5cc80f5bc\output\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-ui:24.2.1] C:\Users\user\.android\build-cache\03dc978722700f398f409c8f921970fc31f64a02\output\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-vector-drawable:24.2.1] C:\Users\user\.android\build-cache\a27b3f2f40a21cd4fcbc4ecafe99f8b8b6d03558\output\AndroidManifest.xml:23:5-20
+MERGED from [com.android.support:support-compat:24.2.1] C:\Users\user\.android\build-cache\9e72ede73e830320ca9413125403a4fdd4e7bf9d\output\AndroidManifest.xml:25:5-20
+MERGED from [com.github.markushi:circlebutton:1.1] C:\Users\user\.android\build-cache\7cf75ee9a2562996fd59c99b5dc7a1e1f3fedc6c\output\AndroidManifest.xml:9:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\user\.android\build-cache\311277a0d32140269a40d9d7be2576881d718c87\output\AndroidManifest.xml:9:5-20
 	android:label
 		ADDED from C:\Users\user\Documents\GitHub\Composer\app\src\main\AndroidManifest.xml:19:9-41
 	android:supportsRtl
@@ -127,24 +127,22 @@ ADDED from C:\Users\user\Documents\GitHub\Composer\app\src\main\AndroidManifest.
 		ADDED from C:\Users\user\Documents\GitHub\Composer\app\src\main\AndroidManifest.xml:45:19-52
 uses-sdk
 INJECTED from C:\Users\user\Documents\GitHub\Composer\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
-MERGED from [org.puredata.android:PdCore:1.0.3-SNAPSHOT] C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\org.puredata.android\PdCore\1.0.3-SNAPSHOT\AndroidManifest.xml:7:5-9:41
-MERGED from [com.noisepages.nettoyeur:midi:1.0.0-rc1] C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.noisepages.nettoyeur\midi\1.0.0-rc1\AndroidManifest.xml:7:5-9:40
-MERGED from [com.android.support:design:24.2.1] C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.android.support\design\24.2.1\AndroidManifest.xml:20:5-43
-MERGED from [com.android.support:appcompat-v7:24.2.1] C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.2.1\AndroidManifest.xml:21:5-23:78
-MERGED from [com.android.support:animated-vector-drawable:24.2.1] C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.2.1\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-v4:24.2.1] C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.1\AndroidManifest.xml:21:5-23:54
-MERGED from [com.android.support:support-fragment:24.2.1] C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\AndroidManifest.xml:21:5-23:60
-MERGED from [com.android.support:support-media-compat:24.2.1] C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\AndroidManifest.xml:21:5-23:63
-MERGED from [com.android.support:support-core-utils:24.2.1] C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\AndroidManifest.xml:21:5-23:61
-MERGED from [com.android.support:recyclerview-v7:24.2.1] C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\24.2.1\AndroidManifest.xml:20:5-43
-MERGED from [com.android.support:support-core-ui:24.2.1] C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-vector-drawable:24.2.1] C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.2.1\AndroidManifest.xml:21:5-43
-MERGED from [com.android.support:support-compat:24.2.1] C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\AndroidManifest.xml:21:5-23:58
-MERGED from [com.github.markushi:circlebutton:1.1] C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.github.markushi\circlebutton\1.1\AndroidManifest.xml:7:5-44
-MERGED from [com.daimajia.swipelayout:library:1.2.0] C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.daimajia.swipelayout\library\1.2.0\AndroidManifest.xml:6:5-8:41
-MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.android.support.constraint\constraint-layout\1.0.2\AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support:design:24.2.1] C:\Users\user\.android\build-cache\e8112a1baf7c0c9baa5855d90b3f4b0fa559d52f\output\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:appcompat-v7:24.2.1] C:\Users\user\.android\build-cache\3aa6b4eaab6a0dd624cf923944412fb355f2b264\output\AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:animated-vector-drawable:24.2.1] C:\Users\user\.android\build-cache\3bdbfb1a95a445820b9a34568e2ef163775070f7\output\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:24.2.1] C:\Users\user\.android\build-cache\a7a371067813ce9d39ecb656858a7150cc38af0d\output\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-fragment:24.2.1] C:\Users\user\.android\build-cache\4a0abb2f7ddad40fc0daa32e5043600936db537b\output\AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-media-compat:24.2.1] C:\Users\user\.android\build-cache\36209f805a4a48fc472b5b393d5b5c9543ba872a\output\AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-core-utils:24.2.1] C:\Users\user\.android\build-cache\e546fa6e3dc7a5f05b62e567cc25a2e5cc80f5bc\output\AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:recyclerview-v7:24.2.1] C:\Users\user\.android\build-cache\6250ea41b37eb09163b9fbdb5e976b3ba4e4782c\output\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-core-ui:24.2.1] C:\Users\user\.android\build-cache\03dc978722700f398f409c8f921970fc31f64a02\output\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-vector-drawable:24.2.1] C:\Users\user\.android\build-cache\a27b3f2f40a21cd4fcbc4ecafe99f8b8b6d03558\output\AndroidManifest.xml:21:5-43
+MERGED from [com.android.support:support-compat:24.2.1] C:\Users\user\.android\build-cache\9e72ede73e830320ca9413125403a4fdd4e7bf9d\output\AndroidManifest.xml:21:5-23:58
+MERGED from [com.github.markushi:circlebutton:1.1] C:\Users\user\.android\build-cache\7cf75ee9a2562996fd59c99b5dc7a1e1f3fedc6c\output\AndroidManifest.xml:7:5-44
+MERGED from [com.daimajia.swipelayout:library:1.2.0] C:\Users\user\.android\build-cache\5b2be98ed8281666bd4c713a79f441fa7bebe878\output\AndroidManifest.xml:6:5-8:41
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\user\.android\build-cache\311277a0d32140269a40d9d7be2576881d718c87\output\AndroidManifest.xml:5:5-7:41
 	tools:overrideLibrary
-		ADDED from [com.android.support:appcompat-v7:24.2.1] C:\Users\user\Documents\GitHub\Composer\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.2.1\AndroidManifest.xml:23:9-75
+		ADDED from [com.android.support:appcompat-v7:24.2.1] C:\Users\user\.android\build-cache\3aa6b4eaab6a0dd624cf923944412fb355f2b264\output\AndroidManifest.xml:23:9-75
 	android:targetSdkVersion
 		INJECTED from C:\Users\user\Documents\GitHub\Composer\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\user\Documents\GitHub\Composer\app\src\main\AndroidManifest.xml

@@ -34,6 +34,7 @@ public class ComposerMusicEngine {
 
     private MidiFile midi;
     private int currentTransposeKey=0;
+    private int currentTempoId=38;
 
     private ArrayList<ComposerLeftHand> trackList = new ArrayList<>();
     private ArrayList<ComposerRightHand> chordList = new ArrayList<>();
@@ -48,8 +49,6 @@ public class ComposerMusicEngine {
     private static Timer HACK_loopTimer;
 
     private OnMusicActionListener onMusicActionListener;
-    private OnChangeBpmListener onChangeBpmListener;
-
 
     public ComposerMusicEngine(Activity parentActivity, String path){
         this.parentActivity = parentActivity;
@@ -74,6 +73,7 @@ public class ComposerMusicEngine {
         {
             midi.writeToFile(output);
         }
+
         catch(IOException e) {
             Log.e(TAG, e.toString());
         }
@@ -112,9 +112,6 @@ public class ComposerMusicEngine {
 
     public void setOnMusicActionListener(OnMusicActionListener listener){
         this.onMusicActionListener = listener;
-    }
-    public void onChangeBpmListener(OnChangeBpmListener listener){
-        this.onChangeBpmListener = listener;
     }
 
     public void playId(int id){
@@ -179,19 +176,24 @@ public class ComposerMusicEngine {
                 }
             });
         }
-        else
+        else {
             new TransposeKeyTask(tempComposerRightHand.getKey(), tempComposerRightHand.getMinor()).execute();
+            if(onMusicActionListener!=null)
+                onMusicActionListener.onTranspose(id);
+        }
     }
     public void setBpm(int id){
         final ComposerGesture tempComposerGesture = getTempoById(id);
         assert tempComposerGesture != null;
-        new TempoChangeTask(tempComposerGesture.getDetail()).execute();
+        new TempoChangeTask(id).execute();
     }
 
     private class TempoChangeTask extends  AsyncTask<Void, Void, Void>{
+        private int id;
         private float tempo;
-        TempoChangeTask(float tempo){
-            this.tempo = tempo;
+        TempoChangeTask(int id){
+            this.tempo = getTempoById(id).getBpm();
+            this.id = id;
         }
         @Override
         protected Void doInBackground(Void... voids){
@@ -204,12 +206,14 @@ public class ComposerMusicEngine {
                 }
             }
             return null;
+
         }
 
         @Override
         protected void onPostExecute(Void aVoid){
-            if(onChangeBpmListener!=null)
-                onChangeBpmListener.OnChangeBpmListener(tempo);
+            if(onMusicActionListener!=null)
+                onMusicActionListener.onBpm(tempo);
+            currentTempoId = this.id;
             HACK_loopTimer.cancel();
             player.stop();
             player.release();
@@ -264,15 +268,7 @@ public class ComposerMusicEngine {
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
-            /*int currentPosition = player.getCurrentPosition();
-            player.clearTracks();
-            player.reset();
-            player.release();*/
             try { midi.writeToFile(output); } catch (IOException e) {System.err.println(e);}
-            /*player = MediaPlayer.create(context, Uri.fromFile(output));
-            player.seekTo(currentPosition);
-            player.start();*/
-
         }
     }
 
@@ -367,12 +363,23 @@ public class ComposerMusicEngine {
 
     public ArrayList<ComposerGesture> getTempoList(){ return tempoList; }
 
-    private boolean isTrackPlaying(int id){
+    public boolean isTrackPlaying(int id){
         for(ComposerLeftHand track: trackList){
             if(track.getId()==id)
                 return track.isPlaying();
         }
         return false;
+    }
+
+    public boolean isKeyPlaying(int id){
+        return getPitchKeyById(id).getKey()==currentTransposeKey;
+    }
+
+    public boolean isTempoPlaying(int id){
+        return getTempoById(id).getId() == currentTempoId;
+        /*ComposerGesture gesture = getTempoById(id);
+        return gesture.getId();*/
+        //return true;
     }
 
     public int getTrackChannelById(int id){
@@ -514,9 +521,5 @@ public class ComposerMusicEngine {
         }
         try { midi.writeToFile(output); } catch (IOException e) {System.err.println(e);}
         playingId = new ArrayList<>();
-    }
-
-    public ArrayList<Integer> getPlayingId(){
-        return playingId;
     }
 }

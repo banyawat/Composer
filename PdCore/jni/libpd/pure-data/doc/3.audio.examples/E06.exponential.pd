@@ -309,7 +309,7 @@ from 0 to 2*index. Then adjust for the table's input scale (100 points
 per unit \, so multiply by 100) and add one to skip the interpolation
 point at the beginning of the table.;
 #X text 13 398 Here we use an exponential function as a waveshaping
-transfer function. The theory is shown in detail in the accompanying
+transfer function. The theory is shown in bpm in the accompanying
 book \, but in short \, we adjust the sinusoid so that \, as the index
 increases \, we scan starting from the left of the transfer function
 (previously the reading location grew from the center). The table contains

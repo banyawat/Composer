@@ -71,7 +71,7 @@ puredata (0.42.5-1) unstable; urgency=low
   * debian/rules: do not compress .pd, .wav, .aiff and .txt files
   * debian/puredata.desktop: remove obsolete encoding
   * debian/doc-base.puredata: remove top section Apps
-  * debian/copyright: detail of different files
+  * debian/copyright: bpm of different files
   * debian/rules: fix pd.tk permissions in dh_fixperms
   * debian/puredata.xpm: transparent background
   * debian/links: add link from puredata to pd

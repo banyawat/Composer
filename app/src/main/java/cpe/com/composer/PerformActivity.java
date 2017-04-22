@@ -28,7 +28,8 @@ import cpe.com.composer.soundengine.ComposerGesture;
 import cpe.com.composer.soundengine.ComposerLeftHand;
 import cpe.com.composer.soundengine.ComposerMusicEngine;
 import cpe.com.composer.soundengine.ComposerRightHand;
-import cpe.com.composer.soundengine.OnChangeBpmListener;
+import cpe.com.composer.soundengine.OnMusicActionListener;
+import cpe.com.composer.viewmanager.ArmViewController;
 import cpe.com.composer.viewmanager.ComposerVerticalSeekbar;
 import cpe.com.composer.viewmanager.HandViewController;
 import cpe.com.composer.viewmanager.OnImageLoadedListener;
@@ -38,11 +39,9 @@ public class PerformActivity extends AppCompatActivity {
     private final String PATH = Environment.getExternalStorageDirectory().getPath();
     private static final String TAG = "DEbE";
 
-    private Button testButton;
-    private Button testButton2;
-
     private HandViewController leftHandView;
     private HandViewController rightHandView;
+    private ArmViewController gestureView;
 
     private RecyclerView panelSlotView;
     private PanelViewAdapter panelViewAdapter;
@@ -98,17 +97,38 @@ public class PerformActivity extends AppCompatActivity {
         initFragment();
         initVisualizer();
         initVolumeAdjust();
-        initBpmIndicator();
         initInitialButton();
         initClearTracksButton();
         initPanelSlot();
-        leftHandView.setOnImageLoadListener(new OnImageLoadedListener() {
+        initEvent();
+        //initBluetooth();
+
+        //DEBUGGER BUTTON
+        /*testButton.setOnClickListener(new View.OnClickListener() {
+            int count=0;
             @Override
-            public void OnImageLoadedListener() {
-                refreshDrawable();
+            public void onClick(View view) {
+                switch (count){
+                    case 0:
+                        musicEngine.playId(composerMovements.get(0).getFingerValue(false, 0));
+                        break;
+                    case 1:
+                        musicEngine.playId(composerMovements.get(0).getFingerValue(false, 3));
+                        break;
+                    case 2:
+                        musicEngine.doTranspose(composerMovements.get(0).getFingerValue(true, 1));
+                        break;
+                    case 3:
+                        musicEngine.playId(composerMovements.get(0).getFingerValue(false, 1));
+                        break;
+                    case 4:
+                        musicEngine.doTranspose(composerMovements.get(0).getFingerValue(true, 0));
+                        break;
+                    default: break;
+                }
+                count++;
             }
         });
-        //initBluetooth();
 
         testButton2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -118,15 +138,74 @@ public class PerformActivity extends AppCompatActivity {
                 else
                     scrollPanelSot(-1);
             }
+        });*/
+    }
+
+    private void initEvent(){
+        musicEngine.setOnMusicActionListener(new OnMusicActionListener() {
+            @Override
+            public void onTrackAdded(int id, String title, int program) {
+                ComposerMovement movement = composerMovements.get(panelViewAdapter.getActiveSlot());
+                for(int i=0;i<5;i++){
+                    if(movement.getFingerValue(false, i)==id){
+                        leftHandView.setActive(i, true);
+                        break;
+                    }
+                }
+            }
+
+            @Override
+            public void onTrackDeleted(int id) {
+                ComposerMovement movement = composerMovements.get(panelViewAdapter.getActiveSlot());
+                for(int i=0;i<5;i++){
+                    if(movement.getFingerValue(false, i)==id){
+                        leftHandView.setActive(i, false);
+                        break;
+                    }
+                }
+            }
+
+            @Override
+            public void onTrackReplaced(int removeId, int id, String title, int program) {
+                ComposerMovement movement = composerMovements.get(panelViewAdapter.getActiveSlot());
+                for(int i=0;i<5;i++){
+                    if(movement.getFingerValue(false, i)==removeId)
+                       leftHandView.setActive(i, false);
+                    if(movement.getFingerValue(false, i)==id)
+                        leftHandView.setActive(i, true);
+
+                }
+            }
+
+            @Override
+            public void onTranspose(int id) {
+                ComposerMovement movement = composerMovements.get(panelViewAdapter.getActiveSlot());
+                rightHandView.clearActive();
+                for(int i=0;i<5;i++) {
+                    if(movement.getFingerValue(true, i)==id) {
+                        rightHandView.setActive(i, true);
+                        break;
+                    }
+                }
+            }
+
+            @Override
+            public void onBpm(float bpm) {
+                bpmTextView.setText("BPM: " + bpm);
+            }
+        });
+
+        rightHandView.setOnImageLoadListener(new OnImageLoadedListener() {
+            @Override
+            public void OnImageLoadedListener() {
+                refreshDrawable();
+            }
         });
     }
 
     private void initGui(){
-        testButton = (Button) findViewById(R.id.testButton);
-        testButton2 = (Button) findViewById(R.id.testButton2);
         bpmTextView = (TextView) findViewById(R.id.bpmTextView);
         volumeAdjustBar = (ComposerVerticalSeekbar) findViewById(R.id.volumeAdjustBar);
-        //activeGridView = (GridView) findViewById(R.id.activeInstrumentGridView);
         vuMeterL = (ProgressBar) findViewById(R.id.vuMeterViewL);
         vuMeterR = (ProgressBar) findViewById(R.id.vuMeterViewR);
         backToInitialButton = (Button) findViewById(R.id.backToInitialButton);
@@ -137,10 +216,14 @@ public class PerformActivity extends AppCompatActivity {
     private void initFragment(){
         leftHandView = new HandViewController();
         rightHandView = new HandViewController();
+        gestureView = new ArmViewController();
+
         Bundle args = new Bundle();
         args.putBoolean("bool", true);
         rightHandView.setArguments(args);
+
         FragmentManager manager = getSupportFragmentManager();
+
         FragmentTransaction transaction = manager.beginTransaction();
         transaction.replace(R.id.performLeftHandView, leftHandView);
         transaction.commit();
@@ -148,15 +231,10 @@ public class PerformActivity extends AppCompatActivity {
         FragmentTransaction transaction2 = manager.beginTransaction();
         transaction2.replace(R.id.performRightHandView, rightHandView);
         transaction2.commit();
-    }
 
-    private void initBpmIndicator(){
-        musicEngine.onChangeBpmListener(new OnChangeBpmListener() {
-            @Override
-            public void OnChangeBpmListener(float bpm) {
-                bpmTextView.setText("BPM: " + bpm);
-            }
-        });
+        FragmentTransaction transaction3 = manager.beginTransaction();
+        transaction3.replace(R.id.gestureView, gestureView);
+        transaction3.commit();
     }
 
     private void initInitialButton(){
@@ -168,31 +246,6 @@ public class PerformActivity extends AppCompatActivity {
             }
         });
     }
-
-    /*private void initGridView(){
-        activeGridViewAdapter = new ComposerGridViewAdapter(this);
-        activeGridView.setAdapter(activeGridViewAdapter);
-        musicEngine.setOnMusicActionListener(new OnMusicActionListener() {
-            @Override
-            public void onTrackAdded(int id, String title, int program) {
-                activeGridViewAdapter.addInstrument(id, title, program);
-                activeGridView.setAdapter(activeGridViewAdapter);
-            }
-
-            @Override
-            public void onTrackDeleted(int id) {
-                activeGridViewAdapter.removeInstrument(id);
-                activeGridView.setAdapter(activeGridViewAdapter);
-            }
-
-            @Override
-            public void onTrackReplaced(int removeId, int id, String title, int program) {
-                activeGridViewAdapter.removeInstrument(removeId);
-                activeGridViewAdapter.addInstrument(id, title, program);
-                activeGridView.setAdapter(activeGridViewAdapter);
-            }
-        });
-    }*/
 
     private void initVisualizer(){
         int rate = Visualizer.getMaxCaptureRate();
@@ -240,8 +293,8 @@ public class PerformActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 musicEngine.clearTracks();
-                //activeGridViewAdapter.clearInstrument();
-                //activeGridView.setAdapter(activeGridViewAdapter);
+                leftHandView.clearActive();
+                rightHandView.clearActive();
             }
         });
     }
@@ -330,22 +383,53 @@ public class PerformActivity extends AppCompatActivity {
 
     private void refreshDrawable(){
         ComposerMovement movement = composerMovements.get(panelViewAdapter.getActiveSlot());
-
         for(int i=0;i<5;i++){
-            int val = movement.getFingerValue(false, i);
-            if(val!=-1) {
-                Drawable image = ContextCompat.getDrawable(getApplicationContext(), idImageType.get(val - 1));
-                leftHandView.setDrawable(i, image);
+            int leftId = movement.getFingerValue(false, i);
+            if(leftId!=-1) {
+                String Title = musicEngine.getTitleById(leftId);
+                Drawable image = ContextCompat.getDrawable(getApplicationContext(), idImageType.get(leftId - 1));
+                leftHandView.setDrawableAndText(i, image, Title);
+                if(musicEngine.isTrackPlaying(leftId))
+                    leftHandView.setActive(i, true);
+                else
+                    leftHandView.setActive(i, false);
             }
             else{
-                leftHandView.setDrawable(i, null);
+                leftHandView.setDrawableAndText(i, null, "");
+                leftHandView.setActive(i , false);
             }
-            if(movement.getFingerValue(true, i)!=-1){
-                rightHandView.setDrawable(i, ContextCompat.getDrawable(getApplicationContext(), ComposerParam.INSTRUMENT_MAP.get(-2)));
+
+            int rightId = movement.getFingerValue(true, i);
+            if(rightId!=-1){
+                String Title = musicEngine.getTitleById(rightId);
+                rightHandView.setDrawableAndText(i, ContextCompat.getDrawable(getApplicationContext(), ComposerParam.INSTRUMENT_MAP.get(-2)), Title);
+                if(musicEngine.isKeyPlaying(rightId)){
+                    rightHandView.setActive(i, true);
+                }
+                else
+                    rightHandView.setActive(i, false);
             }
             else{
-                rightHandView.setDrawable(i, null);
+                rightHandView.setDrawableAndText(i, null, "");
+                rightHandView.setActive(i, false);
+            }
+
+            int gestureId = movement.getGesture(i);
+            if(gestureId!=-1) {
+                String Title = musicEngine.getTitleById(movement.getGesture(i));
+                gestureView.setDrawableAndText(i, ContextCompat.getDrawable(getApplicationContext(), ComposerParam.INSTRUMENT_MAP.get(-3)), Title);
+                Log.d(TAG, "Result: " + musicEngine.isTempoPlaying(gestureId));
+                if(musicEngine.isTempoPlaying(gestureId)) {
+                    gestureView.setActive(i, true);
+                }
+                else
+                    gestureView.setActive(i, false);
+            }
+            else {
+                gestureView.setDrawableAndText(i, null, "");
+                gestureView.setActive(i, false);
             }
         }
     }
+
 }

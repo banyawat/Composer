@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/gestureImage01"
+        android:layout_width="@dimen/gesture_image_size"
+        android:layout_height="0dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/gesture_01"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <ImageView
+        android:id="@+id/gestureImage02"
+        android:layout_width="@dimen/gesture_image_size"
+        android:layout_height="0dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/gesture_02"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintLeft_toRightOf="@+id/gestureImage01"
+        android:layout_marginLeft="8dp" />
+
+    <ImageView
+        android:id="@+id/gestureImage03"
+        android:layout_width="@dimen/gesture_image_size"
+        android:layout_height="0dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/gestureImage02"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/gesture_03" />
+
+    <ImageView
+        android:id="@+id/gestureImage04"
+        android:layout_width="@dimen/gesture_image_size"
+        android:layout_height="0dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/gestureImage03"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/gesture_04" />
+
+    <ImageView
+        android:id="@+id/gestureImage05"
+        android:layout_width="@dimen/gesture_image_size"
+        android:layout_height="0dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/gestureImage04"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/gesture_05" />
+
+    <ImageView
+        android:id="@+id/gestureSlot01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_panorama_fish_eye"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="@+id/gestureImage01"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="@+id/gestureImage01"
+        app:layout_constraintBottom_toBottomOf="@+id/gestureImage01" />
+
+    <ImageView
+        android:id="@+id/gestureSlot02"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_panorama_fish_eye"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="@+id/gestureImage02"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="@+id/gestureImage02"
+        app:layout_constraintBottom_toBottomOf="@+id/gestureImage02" />
+
+    <ImageView
+        android:id="@+id/gestureSlot03"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_panorama_fish_eye"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="@+id/gestureImage03"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="@+id/gestureImage03"
+        app:layout_constraintBottom_toBottomOf="@+id/gestureImage03" />
+
+    <ImageView
+        android:id="@+id/gestureSlot04"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_panorama_fish_eye"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="@+id/gestureImage04"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="@+id/gestureImage04"
+        app:layout_constraintBottom_toBottomOf="@+id/gestureImage04" />
+
+    <ImageView
+        android:id="@+id/gestureSlot05"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_panorama_fish_eye"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="@+id/gestureImage05"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="@+id/gestureImage05"
+        app:layout_constraintBottom_toBottomOf="@+id/gestureImage05" />
+
+    <TextView
+        android:id="@+id/gestureTextView01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginTop="0dp"
+        app:layout_constraintLeft_toLeftOf="@+id/gestureSlot01"
+        app:layout_constraintRight_toRightOf="@+id/gestureSlot01"
+        app:layout_constraintTop_toBottomOf="@+id/gestureSlot01" />
+
+    <TextView
+        android:id="@+id/gestureTextView02"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginTop="0dp"
+        app:layout_constraintLeft_toLeftOf="@+id/gestureSlot02"
+        app:layout_constraintRight_toRightOf="@+id/gestureSlot02"
+        app:layout_constraintTop_toBottomOf="@+id/gestureSlot02" />
+
+    <TextView
+        android:id="@+id/gestureTextView03"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginTop="0dp"
+        app:layout_constraintLeft_toLeftOf="@+id/gestureSlot03"
+        app:layout_constraintRight_toRightOf="@+id/gestureSlot03"
+        app:layout_constraintTop_toBottomOf="@+id/gestureSlot03" />
+
+    <TextView
+        android:id="@+id/gestureTextView04"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginTop="0dp"
+        app:layout_constraintLeft_toLeftOf="@+id/gestureSlot04"
+        app:layout_constraintRight_toRightOf="@+id/gestureSlot04"
+        app:layout_constraintTop_toBottomOf="@+id/gestureSlot04" />
+
+    <TextView
+        android:id="@+id/gestureTextView05"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginTop="0dp"
+        app:layout_constraintLeft_toLeftOf="@+id/gestureSlot05"
+        app:layout_constraintRight_toRightOf="@+id/gestureSlot05"
+        app:layout_constraintTop_toBottomOf="@+id/gestureSlot05" />
+
+</android.support.constraint.ConstraintLayout>

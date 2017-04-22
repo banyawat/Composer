@@ -3,13 +3,13 @@ package cpe.com.composer.soundengine;
 public class ComposerGesture {
     private int id;
     private String title;
-    private int detail;
+    private int bpm;
     private int flag;
 
-    ComposerGesture(int id, String title, int detail, int flag){
+    ComposerGesture(int id, String title, int bpm, int flag){
         this.id = id;
         this.title = title;
-        this.detail = detail;
+        this.bpm = bpm;
         this.flag = flag;
     }
 
@@ -25,7 +25,7 @@ public class ComposerGesture {
         return flag;
     }
 
-    int getDetail() {
-        return detail;
+    int getBpm() {
+        return bpm;
     }
 }

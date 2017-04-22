@@ -1,15 +1,16 @@
 package cpe.com.composer.viewmanager;
 
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,11 +28,11 @@ public class HandViewController extends Fragment {
     private Drawable rightHandImage;
     private Drawable oirignalImage;
 
-    private static final String TAG  = "Hand Log";
-
     private boolean Side = false;
     private ImageView handView;
     private List<ImageView> handController = new ArrayList<>();
+    private List<TextView> handTextView = new ArrayList<>();
+
     private OnImageLoadedListener listener;
 
     @Override
@@ -45,13 +46,18 @@ public class HandViewController extends Fragment {
         handController.add((ImageView) view.findViewById(R.id.controllerImage04));
         handController.add((ImageView) view.findViewById(R.id.controllerImage05));
 
+        handTextView.add((TextView) view.findViewById(R.id.controllerText01));
+        handTextView.add((TextView) view.findViewById(R.id.controllerText02));
+        handTextView.add((TextView) view.findViewById(R.id.controllerText03));
+        handTextView.add((TextView) view.findViewById(R.id.controllerText04));
+        handTextView.add((TextView) view.findViewById(R.id.controllerText05));
+
         leftHandImage = ContextCompat.getDrawable(getActivity(), R.drawable.left_hand);
         rightHandImage = ContextCompat.getDrawable(getActivity(), R.drawable.right_hand);
         oirignalImage = ContextCompat.getDrawable(getActivity(), R.drawable.ic_panorama_fish_eye);
 
         Bundle bundle = this.getArguments();
         if(bundle!=null){
-            Log.d(TAG, "got it");
             Side = bundle.getBoolean("bool");
         }
 
@@ -82,17 +88,31 @@ public class HandViewController extends Fragment {
             handController.get(pos).setImageDrawable(oirignalImage);
     }
 
-    public void setDrawableGroup(List<Drawable> imgSet){
-        for(int i=0;i<5;i++){
-            handController.get(i).setImageDrawable(imgSet.get(i));
+    public void setActive(int i, boolean active){
+        if(active)
+            handController.get(i).setBackgroundColor(Color.GRAY);
+        else
+            handController.get(i).setBackgroundColor(0x00000000);
+    }
+
+    public void clearActive(){
+        for(ImageView component: handController){
+            component.setBackgroundColor(0x00000000);
         }
+    }
+
+    public void setDrawableAndText(int pos, Drawable img, String txt){
+        handTextView.get(pos).setText(txt);
+        if(img!=null)
+            handController.get(pos).setImageDrawable(img);
+        else
+            handController.get(pos).setImageDrawable(oirignalImage);
     }
 
 
     private void resize() {
         int height = handView.getHeight();
         int width = handView.getWidth();
-        Log.d(TAG, "SIZE: " + handView.getHeight());
         if(!Side) {
             for (int i = 0; i < 5; i++) {
                 ConstraintLayout.LayoutParams layoutParams = (ConstraintLayout.LayoutParams) handController.get(i).getLayoutParams();

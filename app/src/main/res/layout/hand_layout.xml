@@ -53,4 +53,50 @@
         android:id="@+id/controllerImage05"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/controllerText01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@id/controllerImage01"
+        app:layout_constraintLeft_toLeftOf="@id/controllerImage01"
+        app:layout_constraintRight_toRightOf="@id/controllerImage01"/>
+
+    <TextView
+        android:id="@+id/controllerText02"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@id/controllerImage02"
+        app:layout_constraintLeft_toLeftOf="@id/controllerImage02"
+        app:layout_constraintRight_toRightOf="@id/controllerImage02"/>
+
+    <TextView
+        android:id="@+id/controllerText03"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@id/controllerImage03"
+        app:layout_constraintLeft_toLeftOf="@id/controllerImage03"
+        app:layout_constraintRight_toRightOf="@id/controllerImage03"/>
+
+    <TextView
+        android:id="@+id/controllerText04"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@id/controllerImage04"
+        app:layout_constraintLeft_toLeftOf="@id/controllerImage04"
+        app:layout_constraintRight_toRightOf="@id/controllerImage04"/>
+
+    <TextView
+        android:id="@+id/controllerText05"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@id/controllerImage05"
+        app:layout_constraintLeft_toLeftOf="@id/controllerImage05"
+        app:layout_constraintRight_toRightOf="@id/controllerImage05"/>
+
 </android.support.constraint.ConstraintLayout>
