@@ -28,28 +28,8 @@
         "source": "C:\\Users\\user\\Documents\\GitHub\\Composer\\app\\src\\main\\res\\drawable-xhdpi\\ic_panorama_fish_eye.png"
     },
     {
-        "merged": "C:\\Users\\user\\Documents\\GitHub\\Composer\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_delete.png",
-        "source": "C:\\Users\\user\\Documents\\GitHub\\Composer\\app\\src\\main\\res\\drawable-xhdpi\\ic_delete.png"
-    },
-    {
-        "merged": "C:\\Users\\user\\Documents\\GitHub\\Composer\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\gesture_05.png",
-        "source": "C:\\Users\\user\\Documents\\GitHub\\Composer\\app\\src\\main\\res\\drawable-xhdpi\\gesture_05.png"
-    },
-    {
-        "merged": "C:\\Users\\user\\Documents\\GitHub\\Composer\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_keyboard_arrow_right.png",
-        "source": "C:\\Users\\user\\Documents\\GitHub\\Composer\\app\\src\\main\\res\\drawable-xhdpi\\ic_keyboard_arrow_right.png"
-    },
-    {
-        "merged": "C:\\Users\\user\\Documents\\GitHub\\Composer\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\gesture_02.png",
-        "source": "C:\\Users\\user\\Documents\\GitHub\\Composer\\app\\src\\main\\res\\drawable-xhdpi\\gesture_02.png"
-    },
-    {
         "merged": "C:\\Users\\user\\Documents\\GitHub\\Composer\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_keyboard_arrow_left.png",
         "source": "C:\\Users\\user\\Documents\\GitHub\\Composer\\app\\src\\main\\res\\drawable-xhdpi\\ic_keyboard_arrow_left.png"
-    },
-    {
-        "merged": "C:\\Users\\user\\Documents\\GitHub\\Composer\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_store.png",
-        "source": "C:\\Users\\user\\Documents\\GitHub\\Composer\\app\\src\\main\\res\\drawable-xhdpi\\ic_store.png"
     },
     {
         "merged": "C:\\Users\\user\\Documents\\GitHub\\Composer\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\gesture_01.png",
@@ -72,6 +52,34 @@
         "source": "C:\\Users\\user\\Documents\\GitHub\\Composer\\app\\src\\main\\res\\drawable-xhdpi\\ic_action_volume.png"
     },
     {
+        "merged": "C:\\Users\\user\\Documents\\GitHub\\Composer\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_favorite.png",
+        "source": "C:\\Users\\user\\Documents\\GitHub\\Composer\\app\\src\\main\\res\\drawable-xhdpi\\ic_favorite.png"
+    },
+    {
+        "merged": "C:\\Users\\user\\Documents\\GitHub\\Composer\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_grand_piano.png",
+        "source": "C:\\Users\\user\\Documents\\GitHub\\Composer\\app\\src\\main\\res\\drawable-xhdpi\\ic_grand_piano.png"
+    },
+    {
+        "merged": "C:\\Users\\user\\Documents\\GitHub\\Composer\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_delete.png",
+        "source": "C:\\Users\\user\\Documents\\GitHub\\Composer\\app\\src\\main\\res\\drawable-xhdpi\\ic_delete.png"
+    },
+    {
+        "merged": "C:\\Users\\user\\Documents\\GitHub\\Composer\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\gesture_05.png",
+        "source": "C:\\Users\\user\\Documents\\GitHub\\Composer\\app\\src\\main\\res\\drawable-xhdpi\\gesture_05.png"
+    },
+    {
+        "merged": "C:\\Users\\user\\Documents\\GitHub\\Composer\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_keyboard_arrow_right.png",
+        "source": "C:\\Users\\user\\Documents\\GitHub\\Composer\\app\\src\\main\\res\\drawable-xhdpi\\ic_keyboard_arrow_right.png"
+    },
+    {
+        "merged": "C:\\Users\\user\\Documents\\GitHub\\Composer\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\gesture_02.png",
+        "source": "C:\\Users\\user\\Documents\\GitHub\\Composer\\app\\src\\main\\res\\drawable-xhdpi\\gesture_02.png"
+    },
+    {
+        "merged": "C:\\Users\\user\\Documents\\GitHub\\Composer\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_store.png",
+        "source": "C:\\Users\\user\\Documents\\GitHub\\Composer\\app\\src\\main\\res\\drawable-xhdpi\\ic_store.png"
+    },
+    {
         "merged": "C:\\Users\\user\\Documents\\GitHub\\Composer\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_music_note.png",
         "source": "C:\\Users\\user\\Documents\\GitHub\\Composer\\app\\src\\main\\res\\drawable-xhdpi\\ic_music_note.png"
     },
@@ -80,15 +88,11 @@
         "source": "C:\\Users\\user\\Documents\\GitHub\\Composer\\app\\src\\main\\res\\drawable-xhdpi\\ic_settings.png"
     },
     {
-        "merged": "C:\\Users\\user\\Documents\\GitHub\\Composer\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_drum.png",
-        "source": "C:\\Users\\user\\Documents\\GitHub\\Composer\\app\\src\\main\\res\\drawable-xhdpi\\ic_drum.png"
-    },
-    {
         "merged": "C:\\Users\\user\\Documents\\GitHub\\Composer\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_acoustic_guitar.png",
         "source": "C:\\Users\\user\\Documents\\GitHub\\Composer\\app\\src\\main\\res\\drawable-xhdpi\\ic_acoustic_guitar.png"
     },
     {
-        "merged": "C:\\Users\\user\\Documents\\GitHub\\Composer\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_favorite.png",
-        "source": "C:\\Users\\user\\Documents\\GitHub\\Composer\\app\\src\\main\\res\\drawable-xhdpi\\ic_favorite.png"
+        "merged": "C:\\Users\\user\\Documents\\GitHub\\Composer\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_drum.png",
+        "source": "C:\\Users\\user\\Documents\\GitHub\\Composer\\app\\src\\main\\res\\drawable-xhdpi\\ic_drum.png"
     }
 ]

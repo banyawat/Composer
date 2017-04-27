@@ -95,7 +95,7 @@ public class PerformActivity extends AppCompatActivity {
 
         initGui();
         initFragment();
-        initVisualizer();
+        //initVisualizer();
         initVolumeAdjust();
         initInitialButton();
         initClearTracksButton();

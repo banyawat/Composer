@@ -21,6 +21,7 @@ public class ComposerParam {
         Map<Integer, Integer> map = new HashMap<>();
         map.put(ProgramChange.MidiProgram.ELECTRIC_GUITAR_CLEAN.programNumber(), R.drawable.ic_electric_guitar);
         map.put(ProgramChange.MidiProgram.ELECTRIC_BASS_PICK.programNumber(), R.drawable.ic_bass);
+        map.put(ProgramChange.MidiProgram.ACOUSTIC_GRAND_PIANO.programNumber(), R.drawable.ic_grand_piano);
         map.put(-1, R.drawable.ic_drum);
         map.put(-2, R.drawable.ic_key);
         map.put(-3, R.drawable.ic_beat);

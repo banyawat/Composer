@@ -223,7 +223,7 @@ public class SetupActivity extends AppCompatActivity{
                  */
                 final ComposerDatabase mHelper = new ComposerDatabase(SetupActivity.this);
                 mDb = mHelper.getWritableDatabase();
-                mDb.needUpgrade(0);
+                mDb.needUpgrade(1);
                 Cursor mCursor = mDb.rawQuery("SELECT _id," + ComposerDatabase.COL_TITLE + " FROM " + ComposerDatabase.PRESET_TABLE, null);
                 mCursor.moveToFirst();
                 while (!mCursor.isAfterLast()) {

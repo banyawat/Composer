@@ -41,7 +41,12 @@ public class ComposerDatabase extends SQLiteOpenHelper {
                 ", '{\"note\":[48,55,48,50,55,48,53,48,52,50,52], \"notemin\":[48,55,48,51,55,48,50,48,55,50,51]," +
                 "\"ppq\":[0,0,2,4,4,6,8,10,10,12,14], \"dur\":[220,220,220,220,220,220,220,220,220,220,220]}', 0);");
         preDb.execSQL("INSERT INTO " + TRACK_TABLE + " VALUES(null, 'Basic Guitar', 2, " + ProgramChange.MidiProgram.ELECTRIC_GUITAR_CLEAN.programNumber() + ", '{\"note\":[48,52,55,48,52,55],\"notemin\":[48,51,55,48,51,55],\"ppq\":[0,2,4,8,10,12],\"dur\":[320,320,320,320,320,320]}', 0);");
-
+        preDb.execSQL("INSERT INTO " + TRACK_TABLE + " VALUES(null, 'Basic Piano', 3, " + ProgramChange.MidiProgram.ACOUSTIC_GRAND_PIANO.programNumber() + ", " +
+                "'{\"note\":[48, 52, 55, 48, 52, 55, 48, 52, 55, 48, 52, 55],\"notemin\":[48, 51, 55, 48, 51, 55, 48, 51, 55, 48, 51, 55]," +
+                "\"ppq\":[0, 0, 0, 4, 4, 4, 8, 8, 8, 12, 12, 12],\"dur\":[220,220,220,220,220,220,220,220,220,220,220,220]}', 0);");
+        preDb.execSQL("INSERT INTO " + TRACK_TABLE + " VALUES(null, 'Basic Piano 2', 3, " + ProgramChange.MidiProgram.ACOUSTIC_GRAND_PIANO.programNumber() + ", " +
+                "'{\"note\":[48, 52, 55, 43, 48, 52, 55, 43, 48, 52, 55, 43, 48, 52, 55],\"notemin\":[48, 51, 55, 48, 48, 51, 55, 48, 48, 51, 55, 48, 48, 51, 55]," +
+                "\"ppq\":[0, 0, 0, 2, 4, 4, 4, 6, 8, 8, 8, 10, 12, 12, 12],\"dur\":[220,220,220,220,220,220,220,220,220,220,220,220,220,220]}', 0);");
         preDb.execSQL("INSERT INTO " + TRACK_TABLE + " VALUES(null, 'C', 0, 0, 0, 1);");
         preDb.execSQL("INSERT INTO " + TRACK_TABLE + " VALUES(null, 'C#', 0, 0, 1, 1);");
         preDb.execSQL("INSERT INTO " + TRACK_TABLE + " VALUES(null, 'D', 0, 0, 2, 1);");
@@ -69,10 +74,14 @@ public class ComposerDatabase extends SQLiteOpenHelper {
         preDb.execSQL("INSERT INTO " + TRACK_TABLE + " VALUES(null, 'Bm', 0, 1, 11, 1);");
 
         preDb.execSQL("INSERT INTO " + TRACK_TABLE + " VALUES(null, 'C Am F G', 0, 0, '{\"note\":[0,9,5,7],\"minor\":[0,1,0,0]}', 2);");
+        preDb.execSQL("INSERT INTO " + TRACK_TABLE + " VALUES(null, '60', 0, 0, 60, 3);");
+        preDb.execSQL("INSERT INTO " + TRACK_TABLE + " VALUES(null, '70', 0, 0, 70, 3);");
         preDb.execSQL("INSERT INTO " + TRACK_TABLE + " VALUES(null, '80', 0, 0, 80, 3);");
         preDb.execSQL("INSERT INTO " + TRACK_TABLE + " VALUES(null, '90', 0, 0, 90, 3);");
         preDb.execSQL("INSERT INTO " + TRACK_TABLE + " VALUES(null, '100', 0, 0, 100, 3);");
+        preDb.execSQL("INSERT INTO " + TRACK_TABLE + " VALUES(null, '110', 0, 0, 110, 3);");
         preDb.execSQL("INSERT INTO " + TRACK_TABLE + " VALUES(null, '120', 0, 0, 120, 3);");
+        preDb.execSQL("INSERT INTO " + TRACK_TABLE + " VALUES(null, '130', 0, 0, 130, 3);");
         preDb.execSQL("INSERT INTO " + TRACK_TABLE + " VALUES(null, '140', 0, 0, 140, 3);");
 
         preDb.execSQL("CREATE TABLE " + PRESET_TABLE + "(_id INTEGER PRIMARY KEY AUTOINCREMENT, '" + COL_TITLE +
