@@ -1,5 +1,7 @@
 package cpe.com.composer.soundengine;
 
+import android.util.Log;
+
 import com.leff.midi.MidiTrack;
 import com.leff.midi.event.ProgramChange;
 
@@ -63,7 +65,8 @@ public class ComposerLeftHand {
             if(duration.length()!=0)
                 for(int i=0;i<majorPitches.length();i++){
                     try {
-                        track.insertNote(channel, majorPitches.getInt(i)+transpose, 100, ticks.getInt(i)* DEFAULT_PPQ, duration.getInt(i));
+                        Log.d("HIDI", "Tick: " + ticks.getDouble(i));
+                        track.insertNote(channel, majorPitches.getInt(i)+transpose, 100, (long) (ticks.getDouble(i)* DEFAULT_PPQ), duration.getInt(i));
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -71,7 +74,7 @@ public class ComposerLeftHand {
             else
                 for(int i=0;i<majorPitches.length();i++){
                     try {
-                        track.insertNote(channel, majorPitches.getInt(i)+transpose, 100, ticks.getInt(i) * DEFAULT_PPQ, DEFAULT_NOTEDUR);
+                        track.insertNote(channel, majorPitches.getInt(i)+transpose, 100, (long) (ticks.getDouble(i)* DEFAULT_PPQ), DEFAULT_NOTEDUR);
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -81,7 +84,7 @@ public class ComposerLeftHand {
             if(duration.length()!=0)
                 for(int i=0;i<minorPitches.length();i++){
                     try {
-                        track.insertNote(channel, minorPitches.getInt(i)+transpose, 100, ticks.getInt(i)* DEFAULT_PPQ, duration.getInt(i));
+                        track.insertNote(channel, minorPitches.getInt(i)+transpose, 100, (long) (ticks.getDouble(i)* DEFAULT_PPQ), duration.getInt(i));
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -89,7 +92,7 @@ public class ComposerLeftHand {
             else
                 for(int i=0;i<minorPitches.length();i++){
                     try {
-                        track.insertNote(channel, minorPitches.getInt(i)+transpose, 100, ticks.getInt(i) * DEFAULT_PPQ, DEFAULT_NOTEDUR);
+                        track.insertNote(channel, minorPitches.getInt(i)+transpose, 100, (long) (ticks.getDouble(i)* DEFAULT_PPQ), DEFAULT_NOTEDUR);
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }

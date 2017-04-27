@@ -59,7 +59,7 @@ public class ComposerMusicEngine {
         TimeSignature ts = new TimeSignature();
         ts.setTimeSignature(4, 4, TimeSignature.DEFAULT_METER, TimeSignature.DEFAULT_DIVISION);
         Tempo tempo = new Tempo();
-        tempo.setBpm(120);
+        tempo.setBpm(80);
 
         MidiTrack tempoTrack = new MidiTrack();
         tempoTrack.insertNote(0, 0, 100, 15*PPQ, NOTE_DURATION);
